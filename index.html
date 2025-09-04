@@ -71,21 +71,24 @@
     .book-tabs a:hover { background: var(--burnt-orange); transform: translateY(-3px); }
     .book-tabs a.active { background: var(--lavender); border-bottom: 4px solid var(--soft-paper); transform: translateY(-5px); }
 
-    /* ===== HEADER / BOOK OPENING ===== */
+    /* ===== HEADER / BOOK ===== */
     header {
       position: relative;
       width: 100%;
       height: 775px;
       perspective: 2000px;
-      overflow: hidden;
+      overflow: visible;
       background: var(--soft-paper);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     /* RIGHT COVER */
     .book-cover.right {
       position: absolute;
       top: 0;
-      left: 50%;           /* spine is at center */
+      left: 50%;
       width: 50%;
       height: 100%;
       background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/24.png');
@@ -93,43 +96,41 @@
       background-position: center;
       transform-style: preserve-3d;
       backface-visibility: hidden;
-      transform-origin: left center; /* fold from spine */
+      transform-origin: left center;
       transform: rotateY(0deg);
       z-index: 30;
-      transition: transform 2s ease-out-in;
+      transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     /* PAGES */
     .book-page {
       position: absolute;
       top: 0;
-      left: 50%;           /* spine at center */
-      width: 50%;
-      height: 100%;
-      background: var(--paper);
-      transform-origin: left center; /* fold from spine */
-      backface-visibility: hidden;
-      transform-style: preserve-3d;
-      z-index: 20;
-      transition: transform 1s ease-out-in;
-    }
-
-    /* PAGE SEQUENCE */
-    .book-page:nth-child(3) { transition-delay: 2s; }
-    .book-page:nth-child(4) { transition-delay: 2.5s; }
-    .book-page:nth-child(5) { transition-delay: 3s; }
-
-    /* OPEN STATES */
-    header.open .book-cover.right { transform: rotateY(-180deg); }
-    header.open .book-page { transform: rotateY(-180deg); }
-
-    /* CONTENT */
-    .book-content {
-      position: absolute;
-      top: 0;
       left: 50%;
       width: 50%;
       height: 100%;
+      background: var(--paper);
+      transform-origin: left center;
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+      z-index: 20;
+      transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* SEQUENTIAL PAGE CURL */
+    header.open .book-page:nth-child(2) { transform: rotateY(-170deg) skewY(-0.5deg); transition-delay: 1.5s; }
+    header.open .book-page:nth-child(3) { transform: rotateY(-165deg) skewY(-0.5deg); transition-delay: 2s; }
+    header.open .book-page:nth-child(4) { transform: rotateY(-160deg) skewY(-0.5deg); transition-delay: 2.5s; }
+
+    header.open .book-cover.right { transform: rotateY(-180deg); }
+
+    /* CENTERING BOOK CONTENT */
+    .book-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      transform: translate(-50%, -50%);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -140,7 +141,6 @@
       padding: 0 20px;
       z-index: 5;
     }
-
     header.open .book-content { opacity: 1; }
 
     header h1 { font-size: 4rem; margin: 0; }
@@ -158,7 +158,6 @@
       font-weight: bold;
       transition: transform 0.3s ease;
     }
-
     .cta-button:hover { transform: scale(1.05); }
 
     /* ===== REVIEWS & VIDEO ===== */
