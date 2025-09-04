@@ -4,41 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Haven | Wedding Photography & Videography</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* ===== PALETTE ===== */
     :root {
       --deep-blue: #366e9f;
-      --muted-gold: #9e7f57;
+      --warm-tan: #9e7f57;
       --rosewood: #6e4d58;
-      --dark-black: #110f0f;
+      --midnight: #110f0f;
       --chocolate: #4e2e21;
       --slate: #383930;
-      --dark-purple: #22204b;
-      --maroon: #7c260d;
+      --ink: #1c1920;
+      --burnt-orange: #97562e;
+      --navy: #22204b;
+      --brick: #7c260d;
       --crimson: #9c140c;
       --lavender: #af92ba;
       --mauve: #9a7aa4;
-      --stone: #b9b8b4;
-      --teal: #465d69;
-      --dusty-pink: #937186;
-      --navy: #294353;
-      --royal-blue: #164978;
-      --cream: #bbb2ac;
-      --highlight: #97562e;
+      --paper: #b9b8b4;
+      --dusty-blue: #465d69;
+      --plum: #937186;
+      --teal: #294353;
+      --sky: #164978;
+      --soft-paper: #bbb2ac;
     }
 
     body {
       margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: var(--cream);
-      color: var(--dark-black);
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3 {
       font-family: 'Cinzel', serif;
-      color: var(--deep-blue);
+      background: var(--soft-paper);
+      color: var(--midnight);
+      overflow-x: hidden;
     }
 
     /* ===== NAVIGATION ===== */
@@ -46,7 +42,8 @@
       background: var(--deep-blue);
       display: flex;
       justify-content: center;
-      border-bottom: 4px solid var(--muted-gold);
+      border-bottom: 4px solid var(--warm-tan);
+      font-family: 'Cinzel', serif;
     }
 
     .book-tabs ul {
@@ -56,35 +53,25 @@
       display: flex;
     }
 
-    .book-tabs li {
-      margin: 0 5px;
-    }
+    .book-tabs li { margin: 0 5px; }
 
     .book-tabs a {
       display: block;
-      padding: 14px 28px;
-      background: var(--highlight);
-      color: var(--cream);
+      padding: 12px 24px;
+      background: var(--warm-tan);
+      color: var(--midnight);
       text-decoration: none;
       font-weight: bold;
       border-top-left-radius: 12px;
       border-top-right-radius: 12px;
+      box-shadow: 0 -4px 6px rgba(0,0,0,0.1) inset;
       transition: all 0.3s ease;
-      position: relative;
     }
 
-    .book-tabs a:hover {
-      background: var(--muted-gold);
-      transform: translateY(-3px);
-    }
+    .book-tabs a:hover { background: var(--burnt-orange); transform: translateY(-3px); }
+    .book-tabs a.active { background: var(--lavender); border-bottom: 4px solid var(--soft-paper); transform: translateY(-5px); }
 
-    .book-tabs a.active {
-      background: var(--rosewood);
-      border-bottom: 4px solid var(--cream);
-      transform: translateY(-3px);
-    }
-
-    /* ===== HEADER: BOOK OPEN ===== */
+    /* ===== HEADER / BOOK OPENING ===== */
     header {
       position: relative;
       width: 100%;
@@ -100,34 +87,39 @@
       height: 100%;
       background-size: cover;
       background-position: center;
-      backface-visibility: hidden;
       transform-style: preserve-3d;
-      transition: transform 2s ease;
+      backface-visibility: hidden;
+      transition: transform 2s ease-in-out;
     }
 
-    /* Front cover */
-    .book-cover {
-      right: 0;
-      transform-origin: right center;
+    /* COVER FOLDS FROM RIGHT SPINE */
+    .book-cover.left {
+      left: 0;
+      transform-origin: left center;
       background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/23.png');
-      z-index: 3;
+      z-index: 30;
     }
 
-    /* First inner page */
-    .book-page.first {
-      left: 0;
-      transform-origin: left center;
-      background-color: var(--paper, var(--cream));
-      z-index: 2;
+    .book-cover.right {
+      left: 50%;
+      transform-origin: right center;
+      background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/24.png');
+      z-index: 20;
     }
 
-    /* Second inner page */
-    .book-page.second {
+    /* INNER PAGES */
+    .book-page {
       left: 0;
+      width: 100%;
+      background: var(--paper);
       transform-origin: left center;
-      background-color: var(--paper, var(--cream));
-      z-index: 1;
+      z-index: 10;
     }
+
+    /* OPEN STATES */
+    header.open .book-cover.right { transform: rotateY(-160deg); }
+    header.open .book-cover.left { transform: rotateY(-20deg); }
+    header.open .book-page { transform: rotateY(-180deg); }
 
     .book-content {
       position: absolute;
@@ -141,99 +133,57 @@
       align-items: center;
       text-align: center;
       opacity: 0;
-      transition: opacity 1s ease 2.5s;
+      transition: opacity 1s ease 2s;
       padding: 0 20px;
-      z-index: 0;
+      z-index: 5;
     }
 
-    /* Open animations */
-    header.open .book-cover {
-      transform: rotateY(-180deg);
-    }
+    header.open .book-content { opacity: 1; }
 
-    header.open .book-page.first {
-      transform: rotateY(-180deg);
-    }
-
-    header.open .book-page.second {
-      transform: rotateY(-180deg);
-    }
-
-    header.open .book-content {
-      opacity: 1;
-    }
-
-    header h1 {
-      font-size: 4rem;
-      margin: 0;
-    }
-
-    header p {
-      font-size: 1.5rem;
-      margin: 10px 0;
-    }
+    header h1 { font-size: 4rem; margin: 0; }
+    header p { font-size: 1.5rem; margin: 10px 0; }
 
     .cta-button {
       margin-top: 20px;
       padding: 12px 28px;
       font-size: 1.2rem;
-      background: var(--muted-gold);
+      background: var(--burnt-orange);
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      color: var(--dark-black);
+      color: var(--paper);
       font-weight: bold;
       transition: transform 0.3s ease;
-      text-decoration: none;
     }
 
-    .cta-button:hover {
-      transform: scale(1.05);
-    }
+    .cta-button:hover { transform: scale(1.05); }
 
     /* ===== REVIEWS SECTION ===== */
     .reviews {
       padding: 100px 20px;
       max-width: 900px;
       margin: 60px auto;
-      background: var(--cream);
-      border-left: 10px solid var(--muted-gold);
-      border-right: 10px solid var(--muted-gold);
+      background: var(--soft-paper);
+      border-left: 10px solid var(--burnt-orange);
+      border-right: 10px solid var(--burnt-orange);
       box-shadow: 0 0 40px rgba(0,0,0,0.1);
       text-align: center;
     }
 
     .reviews h2 { font-size: 2.5rem; margin-bottom: 40px; }
 
-    .review-cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
+    .review-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .review-card { background: var(--lavender); padding: 30px; border-radius: 15px; font-style: italic; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .review-card span { display: block; margin-top: 15px; font-weight: bold; text-align: right; }
 
-    .review-card {
-      background: var(--lavender);
-      padding: 30px;
-      border-radius: 15px;
-      font-style: italic;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-
-    .review-card span {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-      text-align: right;
-    }
-
-    /* ===== STORYBOOK VIDEO SECTION ===== */
+    /* ===== VIDEO SECTION ===== */
     .storybook-video {
       padding: 100px 20px;
       max-width: 1000px;
       margin: 60px auto;
-      background: var(--cream);
-      border-left: 10px solid var(--muted-gold);
-      border-right: 10px solid var(--muted-gold);
+      background: var(--soft-paper);
+      border-left: 10px solid var(--burnt-orange);
+      border-right: 10px solid var(--burnt-orange);
       box-shadow: 0 0 40px rgba(0,0,0,0.1);
       text-align: center;
     }
@@ -251,21 +201,20 @@
       width: 350px;
       height: auto;
       position: relative;
-      z-index: 1; /* stays behind */
+      z-index: 1;
     }
 
     .video-frame video {
       position: absolute;
-      top: 12%;   /* adjust so it lines up inside frame */
+      top: 12%;
       left: 12%;
       width: 76%;
       height: 76%;
       object-fit: cover;
       border-radius: 8px;
-      z-index: 2; /* ensures video is above frame */
+      z-index: 2;
     }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
       .review-cards { grid-template-columns: 1fr; }
       header h1 { font-size: 3rem; }
@@ -273,12 +222,11 @@
       .cta-button { font-size: 1rem; padding: 10px 24px; }
       .video-frame img.book-frame { width: 250px; }
     }
-
   </style>
 </head>
 <body>
 
-  <!-- ===== NAVIGATION ===== -->
+  <!-- NAVIGATION -->
   <nav class="book-tabs">
     <ul>
       <li><a href="index.html" class="active">Home</a></li>
@@ -291,11 +239,11 @@
     </ul>
   </nav>
 
-  <!-- ===== HEADER / OPENING BOOK ===== -->
+  <!-- HEADER / BOOK -->
   <header>
-    <div class="book-cover"></div>
-    <div class="book-page first"></div>
-    <div class="book-page second"></div>
+    <div class="book-cover left"></div>
+    <div class="book-cover right"></div>
+    <div class="book-page"></div>
     <div class="book-content">
       <h1>Haven</h1>
       <p>No risk, just romance for your magical day</p>
@@ -304,32 +252,30 @@
     </div>
   </header>
 
-  <!-- ===== REVIEWS SECTION ===== -->
+  <!-- REVIEWS -->
   <section class="reviews">
     <h2>What Couples Say</h2>
     <div class="review-cards">
       <div class="review-card">
-        <p>"lorem ipsum amen"</p>
-        <span>- customer</span>
+        <p>"Absolutely magical experience!"</p>
+        <span>- Emily & James</span>
       </div>
       <div class="review-card">
-        <p>"peanut butter watermelon peanut butter watermelon peanut butter watermelon"</p>
-        <span>- that theater kid from high school who finally landed a background character on a C list tv show</span>
+        <p>"The storytelling is breathtaking."</p>
+        <span>- Sophia & Liam</span>
       </div>
     </div>
   </section>
 
-  <!-- ===== STORYBOOK VIDEO SECTION ===== -->
+  <!-- VIDEO -->
   <section class="storybook-video">
     <h2>Captured Moments</h2>
-
     <div class="video-frame">
       <img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative Frame">
       <video autoplay loop muted playsinline>
         <source src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%201.mp4" type="video/mp4">
       </video>
     </div>
-
     <div class="video-frame">
       <img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative Frame">
       <video autoplay loop muted playsinline>
