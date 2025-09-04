@@ -78,38 +78,36 @@
       height: 775px;
       perspective: 2000px;
       overflow: hidden;
+      background: var(--soft-paper);
     }
 
     /* RIGHT COVER */
-    .book-cover {
+    .book-cover.right {
       position: absolute;
       top: 0;
-      left: 50%;
+      left: 50%;           /* spine is at center */
       width: 50%;
       height: 100%;
+      background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/24.png');
       background-size: cover;
       background-position: center;
       transform-style: preserve-3d;
       backface-visibility: hidden;
-      transform-origin: left center;
-      transition: transform 2s ease-out-in;
+      transform-origin: left center; /* fold from spine */
+      transform: rotateY(0deg);
       z-index: 30;
-    }
-
-    .book-cover.right {
-      background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/24.png');
+      transition: transform 2s ease-out-in;
     }
 
     /* PAGES */
     .book-page {
       position: absolute;
-      background: var(--brick)
       top: 0;
-      left: 50%;
+      left: 50%;           /* spine at center */
       width: 50%;
       height: 100%;
       background: var(--paper);
-      transform-origin: left;
+      transform-origin: left center; /* fold from spine */
       backface-visibility: hidden;
       transform-style: preserve-3d;
       z-index: 20;
@@ -122,8 +120,8 @@
     .book-page:nth-child(5) { transition-delay: 3s; }
 
     /* OPEN STATES */
-    header.open .book-cover.right { transform: rotateY(180deg); }
-    header.open .book-page { transform: rotateY(180deg); }
+    header.open .book-cover.right { transform: rotateY(-180deg); }
+    header.open .book-page { transform: rotateY(-180deg); }
 
     /* CONTENT */
     .book-content {
