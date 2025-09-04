@@ -27,7 +27,7 @@
       --teal: #294353;
       --sky: #164978;
       --soft-paper: #bbb2ac;
-      --storybook-gold: #C59D5F;
+      --gold: #C59D5F; /* warm gold */
     }
 
     body {
@@ -44,7 +44,6 @@
       display: flex;
       justify-content: center;
       border-bottom: 4px solid var(--warm-tan);
-      font-family: 'Cinzel', serif;
     }
 
     .book-tabs ul {
@@ -70,7 +69,7 @@
     }
 
     .book-tabs a:hover { background: var(--burnt-orange); transform: translateY(-3px); }
-    .book-tabs a.active { background: var(--storybook-gold); border-bottom: 4px solid var(--soft-paper); transform: translateY(-5px); }
+    .book-tabs a.active { background: var(--lavender); border-bottom: 4px solid var(--soft-paper); transform: translateY(-5px); }
 
     /* ===== HEADER / BOOK OPENING ===== */
     header {
@@ -80,28 +79,38 @@
       perspective: 2000px;
       overflow: hidden;
       display: flex;
-      justify-content: center; /* Center header content */
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* SPINE */
+    .book-spine {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 8px;
+      height: 100%;
+      background: linear-gradient(to bottom, #C59D5F, #b8863b, #C59D5F);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 40;
     }
 
     /* RIGHT COVER */
-    .book-cover {
+    .book-cover.right {
       position: absolute;
-      top: 0;
       left: 50%;
+      top: 0;
       width: 50%;
       height: 100%;
+      background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/24.png');
       background-size: cover;
       background-position: center;
       transform-style: preserve-3d;
       backface-visibility: hidden;
       transform-origin: left center;
-      transition: transform 2s ease-out-in;
+      transition: transform 2s ease-in-out;
+      box-shadow: -4px 0 12px rgba(0,0,0,0.3);
       z-index: 30;
-      box-shadow: -5px 0 20px rgba(0,0,0,0.2);
-    }
-
-    .book-cover.right {
-      background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/24.png');
     }
 
     /* PAGES */
@@ -116,25 +125,29 @@
       backface-visibility: hidden;
       transform-style: preserve-3d;
       z-index: 20;
-      transition: transform 1s ease-out-in;
-      box-shadow: -3px 0 10px rgba(0,0,0,0.1);
+      transition: transform 1s ease-in-out;
     }
 
-    /* PAGE SEQUENCE */
-    .book-page:nth-child(3) { transition-delay: 2s; }
-    .book-page:nth-child(4) { transition-delay: 2.5s; }
-    .book-page:nth-child(5) { transition-delay: 3s; }
+    .book-page img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .book-page:nth-child(3) { transition-delay: 1.5s; }
+    .book-page:nth-child(4) { transition-delay: 2s; }
+    .book-page:nth-child(5) { transition-delay: 2.5s; }
 
     /* OPEN STATES */
-    header.open .book-cover.right { transform: rotateY(180deg); }
-    header.open .book-page { transform: rotateY(180deg); }
+    header.open .book-cover.right { transform: rotateY(-180deg); }
+    header.open .book-page { transform: rotateY(-180deg); }
 
     /* CONTENT */
     .book-content {
       position: absolute;
       top: 0;
-      left: 50%;
-      width: 50%;
+      left: 0;
+      width: 100%;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -142,22 +155,21 @@
       align-items: center;
       text-align: center;
       opacity: 0;
-      transition: opacity 1s ease 4s;
+      transition: opacity 1s ease 3.5s;
       padding: 0 20px;
       z-index: 5;
-      color: var(--midnight);
     }
 
     header.open .book-content { opacity: 1; }
 
-    header h1 { font-size: 4rem; margin: 0; color: var(--storybook-gold); }
+    header h1 { font-size: 4rem; margin: 0; }
     header p { font-size: 1.5rem; margin: 10px 0; }
 
     .cta-button {
       margin-top: 20px;
       padding: 12px 28px;
       font-size: 1.2rem;
-      background: var(--storybook-gold);
+      background: var(--gold);
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -174,13 +186,13 @@
       max-width: 900px;
       margin: 60px auto;
       background: var(--soft-paper);
-      border-left: 10px solid var(--storybook-gold);
-      border-right: 10px solid var(--storybook-gold);
+      border-left: 10px solid var(--gold);
+      border-right: 10px solid var(--gold);
       box-shadow: 0 0 40px rgba(0,0,0,0.1);
       text-align: center;
     }
 
-    .reviews h2, .storybook-video h2 { font-size: 2.5rem; margin-bottom: 40px; color: var(--deep-blue); }
+    .reviews h2, .storybook-video h2 { font-size: 2.5rem; margin-bottom: 40px; }
 
     .review-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
     .review-card { background: var(--lavender); padding: 30px; border-radius: 15px; font-style: italic; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
@@ -237,10 +249,11 @@
 
   <!-- HEADER / BOOK -->
   <header>
+    <div class="book-spine"></div>
     <div class="book-cover right"></div>
-    <div class="book-page"></div>
-    <div class="book-page"></div>
-    <div class="book-page"></div>
+    <div class="book-page"><img src="https://via.placeholder.com/800x1200" alt="Page 1"></div>
+    <div class="book-page"><img src="https://via.placeholder.com/800x1200" alt="Page 2"></div>
+    <div class="book-page"><img src="https://via.placeholder.com/800x1200" alt="Page 3"></div>
     <div class="book-content">
       <h1>Haven</h1>
       <p>No risk, just romance for your magical day</p>
