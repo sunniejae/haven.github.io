@@ -85,15 +85,20 @@
 
     /* SPINE */
     .book-spine {
-      position: absolute;
-      left: 50%;
-      top: 0;
-      width: 8px;
-      height: 100%;
-      background: linear-gradient(to bottom, #C59D5F, #b8863b, #C59D5F);
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      z-index: 40;
-    }
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 8px;
+  height: 100%;
+  background: linear-gradient(to bottom, #C59D5F, #b8863b, #C59D5F);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  z-index: 40;
+  transition: opacity 1s ease 0.5s; /* smooth fade after delay */
+}
+
+header.open .book-spine {
+  opacity: 0;
+}
 
     /* RIGHT COVER */
     .book-cover.right {
@@ -102,7 +107,7 @@
       top: 0;
       width: 50%;
       height: 100%;
-      background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/24.png');
+      background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/havencover%20(1).png');
       background-size: cover;
       background-position: center;
       transform-style: preserve-3d;
@@ -251,9 +256,9 @@
   <header>
     <div class="book-spine"></div>
     <div class="book-cover right"></div>
-    <div class="book-page"><img src="https://via.placeholder.com/800x1200" alt="Page 1"></div>
-    <div class="book-page"><img src="https://via.placeholder.com/800x1200" alt="Page 2"></div>
-    <div class="book-page"><img src="https://via.placeholder.com/800x1200" alt="Page 3"></div>
+    <div class="book-page"><img src="https://sunniejae.blob.core.windows.net/sunniejae/haven.png" alt="Page 1"></div>
+    <div class="book-page"><img src="https://sunniejae.blob.core.windows.net/sunniejae/andiescrapbook.png" alt="Page 2"></div>
+    <div class="book-page"><img src="https://sunniejae.blob.core.windows.net/sunniejae/bradscrapbook.png" alt="Page 3"></div>
     <div class="book-content">
       <h1>Haven</h1>
       <p>No risk, just romance for your magical day</p>
