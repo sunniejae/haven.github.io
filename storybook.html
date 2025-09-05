@@ -97,9 +97,7 @@
       transition: opacity 1s ease 0.5s;
     }
 
-    header.open .book-spine {
-      opacity: 0;
-    }
+    header.open .book-spine { opacity: 0; }
 
     /* RIGHT COVER */
     .book-cover.right {
@@ -114,35 +112,37 @@
       transform-style: preserve-3d;
       backface-visibility: hidden;
       transform-origin: left center;
-      transition: transform 2s ease-in-out;
+      transition: transform 1.5s ease-in-out;
       box-shadow: -4px 0 12px rgba(0,0,0,0.3);
       z-index: 30;
     }
 
-   /* ===== PAGES ===== */
-.book-page {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 50%;
-  height: 50%;
-  background: var(--paper);
-  transform-origin: left;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  z-index: 20;
-  transition: transform 1s ease-in-out;
-}
+    /* ===== PAGES ===== */
+    .book-page {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50%;
+      height: 100%;
+      background: var(--paper);
+      transform-origin: left;
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+      z-index: 20;
+      transition: transform 1.5s ease-in-out;
+    }
 
-/* Assign higher z-index to pages stacked on top */
-.book-page:nth-child(3) { z-index: 23; transition-delay: 0.5s; }
-.book-page:nth-child(4) { z-index: 22; transition-delay: 1.25s; }
-.book-page:nth-child(5) { z-index: 21; transition-delay: 2s; }
+    .book-page img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-/* OPEN STATES - turn each page individually */
-header.open .book-page:nth-child(3) { transform: rotateY(-180deg); }
-header.open .book-page:nth-child(4) { transform: rotateY(-180deg); }
-header.open .book-page:nth-child(5) { transform: rotateY(-180deg); }
+    /* Page stacking */
+    .book-page:nth-of-type(1) { z-index: 29; transition-delay: 0.5s; }
+    .book-page:nth-of-type(2) { z-index: 28; transition-delay: 1s; }
+    .book-page:nth-of-type(3) { z-index: 27; transition-delay: 1.5s; }
 
     /* OPEN STATES */
     header.open .book-cover.right { transform: rotateY(-180deg); }
@@ -159,14 +159,9 @@ header.open .book-page:nth-child(5) { transform: rotateY(-180deg); }
       z-index: 50;
     }
 
-    header.open .book-logo {
-      opacity: 1;
-    }
+    header.open .book-logo { opacity: 1; }
 
-    .book-logo img {
-      max-width: 200px;
-      height: auto;
-    }
+    .book-logo img { max-width: 200px; height: auto; }
 
     /* CONTENT */
     .book-content {
@@ -177,14 +172,14 @@ header.open .book-page:nth-child(5) { transform: rotateY(-180deg); }
       width: 100%;
       text-align: center;
       opacity: 0;
-      transition: opacity 1s ease 3.5s;
+      transition: opacity 1s ease 4s;
       z-index: 50;
       padding: 0 20px;
     }
 
     header.open .book-content { opacity: 1; }
 
-    header h1 { font-size: 5rem; margin: 0; }
+    header h1 { font-size: 3rem; margin: 0; }
     header p { font-size: 1.5rem; margin: 10px 0; }
 
     .cta-button {
@@ -220,20 +215,8 @@ header.open .book-page:nth-child(5) { transform: rotateY(-180deg); }
     .review-card { background: var(--lavender); padding: 30px; border-radius: 15px; font-style: italic; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
     .review-card span { display: block; margin-top: 15px; font-weight: bold; text-align: right; }
 
-    .video-frame {
-      position: relative;
-      display: inline-block;
-      margin: 20px;
-    }
-
-    .video-frame img.book-frame {
-      display: block;
-      width: 350px;
-      height: auto;
-      position: relative;
-      z-index: 1;
-    }
-
+    .video-frame { position: relative; display: inline-block; margin: 20px; }
+    .video-frame img.book-frame { display: block; width: 350px; height: auto; position: relative; z-index: 1; }
     .video-frame video {
       position: absolute;
       top: 12%;
@@ -247,7 +230,7 @@ header.open .book-page:nth-child(5) { transform: rotateY(-180deg); }
 
     @media (max-width: 900px) {
       .review-cards { grid-template-columns: 1fr; }
-      header h1 { font-size: 3rem; }
+      header h1 { font-size: 2rem; }
       header p { font-size: 1.2rem; }
       .cta-button { font-size: 1rem; padding: 10px 24px; }
       .video-frame img.book-frame { width: 250px; }
@@ -283,7 +266,7 @@ header.open .book-page:nth-child(5) { transform: rotateY(-180deg); }
     </div>
 
     <div class="book-content">
-      <h1>Haven Photo & Video</h1>
+      <h1>Haven: Securing the Beauty of Your Wedding Story</h1>
       <p>The Safe Choice</p>
       <p>No Risk, just Romance on your special day.</p>
       <a href="https://sunniejae.my.canva.site/haven" class="cta-button">Discover More</a>
