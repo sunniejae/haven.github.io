@@ -6,93 +6,64 @@
   <title>Haven | Wedding Storybook</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --deep-blue: #366e9f;
-      --warm-tan: #9e7f57;
-      --rosewood: #6e4d58;
-      --midnight: #110f0f;
-      --chocolate: #4e2e21;
-      --slate: #383930;
-      --ink: #1c1920;
-      --burnt-orange: #97562e;
-      --navy: #22204b;
-      --brick: #7c260d;
-      --crimson: #9c140c;
-      --lavender: #af92ba;
-      --mauve: #9a7aa4;
-      --paper: #b9b8b4;
-      --dusty-blue: #465d69;
-      --plum: #937186;
-      --teal: #294353;
-      --sky: #164978;
-      --soft-paper: #bbb2ac;
-      --gold: #C59D5F;
-      --white: #f8f6f2;
-    }
+    /* ===== Root Palette ===== */
+:root {
+  --color-primary-blue: #366e9f;
+  --color-primary-warm: #9e7f57;
+  --color-secondary-rosewood: #6e4d58;
+  --color-secondary-teal: #294353;
+  --color-secondary-terracotta: #97562e;
+  --color-accent-brick: #7c260d;
+  --color-accent-lavender: #af92ba;
+  --color-accent-dusty-purple: #9a7aa4;
+  --color-accent-blush: #f2c1c1;
+  --color-accent-cream: #f3ebe7;
+  --color-neutral-light-grey: #b9b8b4;
+  --color-neutral-warm-grey: #bbb2ac;
+  --color-black: #110f0f;
+}
 
-    * {
-      box-sizing: border-box;
-    }
+/* ===== Body & General Layout ===== */
+body {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  background: var(--color-accent-cream);
+  color: var(--color-black);
+}
 
-    body {
-      margin: 0;
-      font-family: 'Cinzel', serif;
-      background: var(--white);
-      color: var(--midnight);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
+header, section {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+  position: relative;
+  z-index: 100;
+}
 
-    /* ===== NAVIGATION ===== */
-    nav.book-tabs {
-      background: var(--deep-blue);
-      display: flex;
-      justify-content: center;
-      border-bottom: 4px solid var(--warm-tan);
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      padding: 0 10px;
-    }
+/* ===== Top Menu Tabs ===== */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px 0;
+  background: var(--color-accent-cream);
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+}
 
-    nav.book-tabs ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+.navbar a {
+  text-decoration: none;
+  color: var(--color-primary-blue);
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
 
-    nav.book-tabs li { 
-      margin: 0 3px; 
-    }
-
-    nav.book-tabs a {
-      display: block;
-      padding: 12px 20px;
-      background: var(--midnight);
-      color: var(--gold);
-      text-decoration: none;
-      font-weight: bold;
-      border-top-left-radius: 12px;
-      border-top-right-radius: 12px;
-      box-shadow: 0 -4px 6px rgba(0,0,0,0.1) inset;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-      font-size: 0.9rem;
-    }
-
-    nav.book-tabs a:hover { 
-      background: var(--crimson); 
-      transform: translateY(-3px); 
-    }
-    
-    nav.book-tabs a.active { 
-      background: var(--crimson); 
-      border-bottom: 4px solid var(--soft-paper); 
-      transform: translateY(-5px); 
-    }
+.navbar a:hover {
+  background: var(--color-primary-warm);
+  color: white;
+}
 
 /* ===== Storybook Container ===== */
 #book-intro {
@@ -100,11 +71,12 @@
   width: 80%;
   max-width: 1200px;
   height: 600px;
-  margin: 0 auto;
-  perspective: 2000px; /* necessary for 3D flip */
+  margin: 40px auto;
+  perspective: 2000px;
+  z-index: 500;
 }
 
-/* Spine (optional visual) */
+/* Spine */
 .book-spine {
   position: absolute;
   left: 50%;
@@ -116,7 +88,7 @@
   z-index: 1000;
 }
 
-/* Book cover */
+/* Book Cover */
 .book-cover {
   position: absolute;
   top: 50%;
@@ -133,7 +105,7 @@
   transform: translateY(-50%) rotateY(0deg);
 }
 
-/* Each page */
+/* Each Page */
 .book-page {
   position: absolute;
   top: 50%;
@@ -141,37 +113,48 @@
   width: 50%;
   height: 100%;
   transform-origin: left;
-  transform-style: preserve-3d; /* maintain 3D stacking */
+  transform-style: preserve-3d;
   transition: transform 1s ease-in-out;
-  /* remove static z-index; JS will set dynamically */
 }
 
-/* Front and back faces */
+/* Front & Back Faces */
 .book-page img.front,
 .book-page img.back {
   position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  backface-visibility: hidden; /* hide back when not flipped */
+  backface-visibility: hidden;
 }
 
-/* Back page rotates 180deg */
 .book-page img.back {
   transform: rotateY(180deg);
 }
 
-/* Header content (appears after flip) */
+/* Flipping Animation - z-index handled via JS or nth-child */
+#book-intro.open .book-page:nth-child(1) { transform: translateY(-50%) rotateY(-180deg); z-index: 3; }
+#book-intro.open .book-page:nth-child(2) { transform: translateY(-50%) rotateY(-180deg); z-index: 2; }
+#book-intro.open .book-page:nth-child(3) { transform: translateY(-50%) rotateY(-180deg); z-index: 1; }
+#book-intro.open .book-cover.right { transform: translateY(-50%) rotateY(-180deg); z-index: 4; }
+
+/* ===== Header Content (appears after flip) ===== */
 .book-header-content {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   text-align: center;
-  z-index: 2000; /* always on top */
+  margin-top: 20px;
+  z-index: 2000;
 }
 
-/* CTA Button */
+.book-header-content h1 {
+  font-size: 3rem;
+  color: var(--color-primary-blue);
+}
+
+.book-header-content p {
+  font-size: 1.5rem;
+  color: var(--color-secondary-teal);
+}
+
 .cta-button {
   display: inline-block;
   margin-top: 20px;
@@ -188,233 +171,75 @@
   background: var(--color-secondary-rosewood);
 }
 
-    /* Logo and content after flip */
-    .book-logo, .book-header-content {
-      position: absolute;
-      top: 15%;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: opacity 1s ease 3.5s;
-      z-index: 50;
-      text-align: center;
-    }
+/* ===== Reviews Section ===== */
+.reviews {
+  text-align: center;
+}
 
-    #book-intro.open .book-logo,
-    #book-intro.open .book-header-content { 
-      opacity: 1; 
-    }
+.reviews h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
 
-    .book-logo img { 
-      max-width: 150px; 
-      height: auto; 
-      width: 100%;
-    }
+.review-cards {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-    .book-header-content h1 { 
-      font-size: clamp(2rem, 6vw, 5rem); 
-      margin: 20px 0 10px 0; 
-      font-weight: 700;
-    }
-    
-    .book-header-content p { 
-      font-size: clamp(1rem, 2.5vw, 1.5rem); 
-      margin: 10px 0; 
-      opacity: 0.9;
-    }
-    
-    .cta-button {
-      margin-top: 20px;
-      padding: 12px 28px;
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      background: var(--gold);
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      color: var(--midnight);
-      font-weight: bold;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      font-family: inherit;
-    }
+.review-card {
+  background: var(--color-accent-blush);
+  padding: 20px;
+  border-radius: 12px;
+  width: 250px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
-    .cta-button:hover { 
-      transform: scale(1.05); 
-      box-shadow: 0 4px 15px rgba(197, 157, 95, 0.3);
-    }
+.review-card p {
+  font-style: italic;
+}
 
-    /* ===== SECTIONS BELOW ===== */
-    section {
-      padding: 80px 20px;
-      max-width: 900px;
-      margin: 0 auto 60px auto;
-      background: var(--soft-paper);
-      border-left: 10px solid var(--gold);
-      border-right: 10px solid var(--gold);
-      box-shadow: 0 0 40px rgba(0,0,0,0.1);
-      text-align: center;
-      z-index: 1;
-      position: relative;
-      border-radius: 8px;
-    }
+.review-card span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
 
-    section h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 40px;
-      color: var(--midnight);
-      font-weight: 700;
-    }
+/* ===== Video Section ===== */
+.storybook-video {
+  text-align: center;
+}
 
-    .review-cards { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-      gap: 30px; 
-      margin-top: 40px;
-    }
-    
-    .review-card { 
-      background: var(--lavender); 
-      padding: 30px; 
-      border-radius: 15px; 
-      font-style: italic; 
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
+.storybook-video h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
 
-    .review-card:hover {
-      transform: translateY(-5px);
-    }
-    
-    .review-card p {
-      margin-bottom: 20px;
-      font-size: 1.1rem;
-    }
-    
-    .review-card span { 
-      display: block; 
-      margin-top: 15px; 
-      font-weight: bold; 
-      text-align: right; 
-      font-style: normal;
-      color: var(--midnight);
-    }
+.video-frame {
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+  width: 400px;
+  height: 225px;
+}
 
-    .video-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 40px;
-    }
+.video-frame video {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
 
-    .video-frame {
-      position: relative;
-      display: inline-block;
-      max-width: 350px;
-      width: 100%;
-    }
+.video-frame .book-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
 
-    .video-frame img.book-frame {
-      display: block;
-      width: 100%;
-      height: auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .video-frame video {
-      position: absolute;
-      top: 12%;
-      left: 12%;
-      width: 76%;
-      height: 76%;
-      object-fit: cover;
-      border-radius: 8px;
-      z-index: 2;
-    }
-
-    /* Loading states */
-    .video-frame video {
-      background: var(--paper);
-    }
-
-    /* Accessibility */
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-      
-      .book-cover.right,
-      .book-page {
-        transition: none;
-      }
-      
-      #book-intro.open .book-cover.right,
-      #book-intro.open .book-page {
-        transform: translateY(-50%) rotateY(-180deg);
-      }
-    }
-
-    /* Mobile optimizations */
-    @media (max-width: 768px) {
-      nav.book-tabs a {
-        padding: 10px 12px;
-        font-size: 0.8rem;
-      }
-      
-      #book-intro {
-        height: 90vh;
-        min-height: 500px;
-      }
-      
-      .book-cover.right,
-      .book-page {
-        width: 50vw;
-        height: 100vh;
-      }
-      
-      .book-logo img {
-        max-width: 120px;
-      }
-      
-      section {
-        padding: 60px 15px;
-        margin: 0 10px 40px 10px;
-      }
-      
-      .video-frame {
-        max-width: 280px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      nav.book-tabs {
-        padding: 5px;
-      }
-      
-      nav.book-tabs ul {
-        flex-wrap: wrap;
-        gap: 2px;
-      }
-      
-      nav.book-tabs a {
-        padding: 8px 10px;
-        font-size: 0.7rem;
-        margin: 1px;
-      }
-      
-      .book-header-content h1 {
-        margin-top: 10px;
-      }
-      
-      .cta-button {
-        padding: 10px 20px;
-        margin-top: 15px;
-      }
-    }
   </style>
 </head>
 <body>
