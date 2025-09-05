@@ -6,194 +6,181 @@
 <title>Haven | Wedding Storybook</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 <style>
-/* ===== Storybook Romance Palette ===== */
 :root {
   --color-primary-blue: #366e9f;
   --color-primary-warm: #9e7f57;
-  --color-secondary-rosewood: #6e4d58;
-  --color-secondary-teal: #294353;
-  --color-secondary-terracotta: #97562e;
-  --color-accent-brick: #7c260d;
-  --color-accent-lavender: #af92ba;
-  --color-accent-dusty-purple: #9a7aa4;
-  --color-accent-blush: #f2c1c1;
-  --color-accent-cream: #f3ebe7;
-  --color-neutral-light-grey: #b9b8b4;
-  --color-neutral-warm-grey: #bbb2ac;
   --color-black: #110f0f;
   --color-shadow: rgba(0,0,0,0.25);
+  --white: #f8f6f2;
 }
 
 /* Reset */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: 'Cinzel', serif;
-  background-color: var(--color-accent-cream);
-  color: var(--color-black);
-  overflow-x: hidden;
-}
+body { font-family: 'Cinzel', serif; background: var(--white); color: var(--color-black); }
 
 /* Storybook Container */
 .storybook {
   position: relative;
-  width: 100%;
-  max-width: 1200px;
+  width: 90%;
+  max-width: 1000px;
   height: 80vh;
   margin: 50px auto;
   perspective: 2000px;
 }
 
 /* Pages & Covers */
-.book-cover, .book-page {
+.page, .cover {
   position: absolute;
   width: 50%;
   height: 100%;
   top: 0;
   transform-style: preserve-3d;
-  transition: transform 1.5s ease-in-out;
+  transition: transform 1s ease-in-out;
   border-radius: 4px;
   box-shadow: 0 5px 30px var(--color-shadow);
 }
-.book-cover .front, .book-cover .back,
-.book-page .front, .book-page .back {
+
+/* Front & Back */
+.front, .back {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
   border-radius: 4px;
+  overflow: hidden;
 }
+.front img, .back img { width: 100%; height: 100%; object-fit: cover; }
+.back { transform: rotateY(180deg); }
 
-/* Images */
-.book-cover .front img,
-.book-page .front img { width: 100%; height: 100%; object-fit: cover; }
+/* Left cover */
+.cover.left { left: 0; z-index: 100; }
+.cover.left .back { background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png'); background-size: cover; background-position: center; }
 
-/* Back faces */
-.book-cover.left .back,
-.book-cover.right .back,
-.book-page .back {
-  background-size: cover;
-  background-position: center;
-  transform: rotateY(180deg);
-  background-color: var(--color-accent-cream);
-}
-
-/* Left Cover */
-.book-cover.left { left: 0; z-index: 50; }
-.book-cover.left .back {
-  background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png');
-}
-
-/* Right Cover */
-.book-cover.right { left: 50%; z-index: 60; }
-.book-cover.right .front img {
-  src: url('https://sunniejae.blob.core.windows.net/sunniejae/havencover.png');
-}
-.book-cover.right .back {
-  background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png');
-}
+/* Right cover */
+.cover.right { left: 50%; z-index: 90; }
+.cover.right .back { background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png'); background-size: cover; background-position: center; }
 
 /* Pages */
-.book-page.page1 { left: 50%; z-index: 59; }
-.book-page.page2 { left: 50%; z-index: 58; }
-/* Add more pages here */
+.page { left: 50%; z-index: 80; }
+.page.page1 .back { background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/andiestorybook.png'); }
+.page.page2 .back { background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/bradstorybook.png'); }
 
-/* Page backs */
-.book-page.page1 .back { background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png'); }
-.book-page.page2 .back { background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png'); }
+/* Flipped animation */
+.flipped { transform: rotateY(-180deg); }
 
-/* Flipped */
-.book-cover.left.open { transform: rotateY(-180deg); z-index: 10; }
-.book-cover.right.open { transform: rotateY(-180deg); z-index: 10; }
-.book-page.open { transform: rotateY(-180deg); z-index: 10; }
-
-/* Shadow on turned pages */
-.book-page.open .front, .book-cover.open .front { box-shadow: inset -5px 0 15px rgba(0,0,0,0.1); }
-
-/* Video Section */
-.video-section {
-  max-width: 1200px;
-  margin: 50px auto;
-  position: relative;
+/* Logo & Content */
+.book-logo, .book-content {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 200;
 }
-.video-section video {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 5px 20px var(--color-shadow);
-}
+.book-logo { top: 10%; opacity: 0; transition: opacity 1s ease 2s; }
+.book-logo img { max-width: 200px; }
+.book-content { top: 35%; opacity: 0; transition: opacity 2s ease 3s; }
+.book-content h1 { font-size: 3rem; margin-bottom: 10px; }
+.book-content p { font-size: 1.2rem; margin-bottom: 10px; }
+.cta-button { padding: 12px 28px; font-size: 1.2rem; background: var(--color-primary-warm); border: none; border-radius: 8px; color: var(--color-black); font-weight: bold; cursor: pointer; text-decoration: none; }
 
 /* Reviews Section */
-.reviews {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: var(--color-accent-blush);
-  border-radius: 8px;
-  box-shadow: 0 5px 20px var(--color-shadow);
-}
-.review {
-  margin-bottom: 20px;
-}
-.review:last-child { margin-bottom: 0; }
-.review p { font-size: 1.1rem; line-height: 1.4; }
-.review .author { margin-top: 5px; font-weight: bold; color: var(--color-primary-blue); }
+.reviews { width: 90%; max-width: 1000px; margin: 50px auto; text-align: center; }
+.reviews h2 { font-size: 2rem; margin-bottom: 20px; }
+.review-cards { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
+.review-card { background: var(--white); border-radius: 8px; padding: 20px; box-shadow: 0 5px 15px var(--color-shadow); max-width: 300px; }
+.review-card p { font-style: italic; margin-bottom: 10px; }
+.review-card span { font-weight: bold; }
+
+/* Video Section */
+.storybook-video { width: 90%; max-width: 1000px; margin: 50px auto; text-align: center; }
+.storybook-video h2 { font-size: 2rem; margin-bottom: 20px; }
+.video-frame { position: relative; width: 100%; max-width: 700px; margin: 20px auto; border-radius: 8px; overflow: hidden; }
+.book-frame { width: 100%; display: block; }
+.video-frame video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+
 </style>
 </head>
 <body>
 
-<!-- Storybook -->
+<!-- STORYBOOK -->
 <div class="storybook">
-  <div class="book-cover left">
-    <div class="front"></div>
+  <!-- Covers -->
+  <div class="cover left">
+    <div class="front"><img src="https://sunniejae.blob.core.windows.net/sunniejae/havencover.png" alt="Left Cover"></div>
     <div class="back"></div>
   </div>
-  <div class="book-cover right">
-    <div class="front">
-      <img src="https://sunniejae.blob.core.windows.net/sunniejae/havencover.png" alt="Cover Front">
-    </div>
+  <div class="cover right">
+    <div class="front"><img src="https://sunniejae.blob.core.windows.net/sunniejae/havencover.png" alt="Right Cover"></div>
     <div class="back"></div>
   </div>
-  <div class="book-page page1">
-    <div class="front">
-      <img src="https://sunniejae.blob.core.windows.net/sunniejae/andiestorybook.png" alt="Page 1">
-    </div>
+
+  <!-- Pages -->
+  <div class="page page1">
+    <div class="front"><img src="https://sunniejae.blob.core.windows.net/sunniejae/andiestorybook.png" alt="Page 1"></div>
     <div class="back"></div>
   </div>
-  <div class="book-page page2">
-    <div class="front">
-      <img src="https://sunniejae.blob.core.windows.net/sunniejae/bradstorybook.png" alt="Page 2">
-    </div>
+  <div class="page page2">
+    <div class="front"><img src="https://sunniejae.blob.core.windows.net/sunniejae/bradstorybook.png" alt="Page 2"></div>
     <div class="back"></div>
+  </div>
+
+  <!-- Logo and content -->
+  <div class="book-logo">
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/havenclaw.png" alt="Haven Logo">
+  </div>
+  <div class="book-content">
+    <h1>Haven</h1>
+    <p>The Safe Choice</p>
+    <p>No Risk, just Romance on your special day.</p>
+    <a href="https://sunniejae.my.canva.site/haven" class="cta-button">Discover More</a>
   </div>
 </div>
 
-<!-- Video Section -->
-<div class="video-section">
-  <video controls>
-    <source src="https://sunniejae.blob.core.windows.net/sunniejae/samplevideo.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
+<!-- REVIEWS -->
+<section class="reviews">
+  <h2>What Couples Say</h2>
+  <div class="review-cards">
+    <div class="review-card">
+      <p>"Absolutely magical experience!"</p>
+      <span>- Emily & James</span>
+    </div>
+    <div class="review-card">
+      <p>"The storytelling is breathtaking."</p>
+      <span>- Sophia & Liam</span>
+    </div>
+  </div>
+</section>
 
-<!-- Reviews Section -->
-<div class="reviews">
-  <div class="review">
-    <p>"Absolutely magical experience! The storybook brought our wedding memories to life."</p>
-    <div class="author">— Jessica & Brad</div>
+<!-- VIDEO -->
+<section class="storybook-video">
+  <h2>Captured Moments</h2>
+  <div class="video-frame">
+    <img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative Frame">
+    <video autoplay loop muted playsinline>
+      <source src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%201.mp4" type="video/mp4">
+    </video>
   </div>
-  <div class="review">
-    <p>"The attention to detail and creativity was unmatched. Highly recommend!"</p>
-    <div class="author">— Emily R.</div>
+  <div class="video-frame">
+    <img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative Frame">
+    <video autoplay loop muted playsinline>
+      <source src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%202.mp4" type="video/mp4">
+    </video>
   </div>
-</div>
+</section>
 
 <script>
-// Flip logic
-const covers = document.querySelectorAll('.book-cover');
-const pages = document.querySelectorAll('.book-page');
+window.addEventListener('load', () => {
+  const pages = document.querySelectorAll('.cover.right, .page');
+  pages.forEach((page, i) => {
+    setTimeout(() => page.classList.add('flipped'), i * 800);
+  });
 
-covers.forEach(cover => cover.addEventListener('click', () => cover.classList.toggle('open')));
-pages.forEach(page => page.addEventListener('click', () => page.classList.toggle('open')));
+  // Reveal logo & content after all flips
+  setTimeout(() => {
+    document.querySelector('.book-logo').style.opacity = 1;
+    document.querySelector('.book-content').style.opacity = 1;
+  }, pages.length * 800 + 500);
+});
 </script>
 
 </body>
