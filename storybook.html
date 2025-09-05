@@ -30,12 +30,17 @@
       --white: #f8f6f2;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Cinzel', serif;
       background: var(--white);
       color: var(--midnight);
       overflow-x: hidden;
+      line-height: 1.6;
     }
 
     /* ===== NAVIGATION ===== */
@@ -47,6 +52,7 @@
       position: sticky;
       top: 0;
       z-index: 200;
+      padding: 0 10px;
     }
 
     nav.book-tabs ul {
@@ -54,13 +60,17 @@
       margin: 0;
       padding: 0;
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    nav.book-tabs li { margin: 0 5px; }
+    nav.book-tabs li { 
+      margin: 0 3px; 
+    }
 
     nav.book-tabs a {
       display: block;
-      padding: 12px 24px;
+      padding: 12px 20px;
       background: var(--midnight);
       color: var(--gold);
       text-decoration: none;
@@ -69,16 +79,27 @@
       border-top-right-radius: 12px;
       box-shadow: 0 -4px 6px rgba(0,0,0,0.1) inset;
       transition: all 0.3s ease;
+      white-space: nowrap;
+      font-size: 0.9rem;
     }
 
-    nav.book-tabs a:hover { background: var(--crimson); transform: translateY(-3px); }
-    nav.book-tabs a.active { background: var(--crimson); border-bottom: 4px solid var(--soft-paper); transform: translateY(-5px); }
+    nav.book-tabs a:hover { 
+      background: var(--crimson); 
+      transform: translateY(-3px); 
+    }
+    
+    nav.book-tabs a.active { 
+      background: var(--crimson); 
+      border-bottom: 4px solid var(--soft-paper); 
+      transform: translateY(-5px); 
+    }
 
     /* ===== BOOK INTRO ===== */
     #book-intro {
       position: relative;
       width: 100%;
       height: 100vh;
+      min-height: 600px;
       perspective: 2000px;
       overflow: hidden;
       display: flex;
@@ -98,36 +119,42 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
       z-index: 40;
       transition: opacity 1s ease 0.5s;
+      transform: translateX(-50%);
     }
 
-    #book-intro.open .book-spine { opacity: 0; }
+    #book-intro.open .book-spine { 
+      opacity: 0; 
+    }
 
     .book-cover.right {
       position: absolute;
       left: 50%;
-      top: 0;
-      width: 50%;
-      height: 100%;
+      top: 50%;
+      width: min(50vw, 400px);
+      height: min(70vh, 600px);
       background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/havencover.png');
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       transform-style: preserve-3d;
       backface-visibility: hidden;
       transform-origin: left center;
       transition: transform 2s ease-in-out;
       box-shadow: -4px 0 12px rgba(0,0,0,0.3);
       z-index: 30;
+      transform: translateY(-50%);
     }
 
     .book-page {
       position: absolute;
-      top: 0;
+      top: 50%;
       left: 50%;
-      width: 50%;
-      height: 100%;
-      transform-origin: left;
+      width: min(50vw, 400px);
+      height: min(70vh, 600px);
+      transform-origin: left center;
       transform-style: preserve-3d;
       transition: transform 1.1s ease-in-out;
+      transform: translateY(-50%);
     }
 
     .book-page img.front,
@@ -145,51 +172,78 @@
     }
 
     /* stacking pages */
-    .book-page:nth-child(1) { z-index: 23; transition-delay: 1.5s; }
-    .book-page:nth-child(2) { z-index: 22; transition-delay: 2.5s; }
-    .book-page:nth-child(3) { z-index: 21; transition-delay: 3.5s; }
+    .book-page:nth-child(3) { z-index: 21; transition-delay: 1s; }
+    .book-page:nth-child(4) { z-index: 22; transition-delay: 2s; }
+    .book-page:nth-child(5) { z-index: 23; transition-delay: 3s; }
 
     /* open states */
-    #book-intro.open .book-cover.right { transform: rotateY(-180deg); }
-    #book-intro.open .book-page { transform: rotateY(-180deg); }
+    #book-intro.open .book-cover.right { 
+      transform: translateY(-50%) rotateY(-180deg); 
+    }
+    
+    #book-intro.open .book-page { 
+      transform: translateY(-50%) rotateY(-180deg); 
+    }
 
     /* Logo and content after flip */
     .book-logo, .book-header-content {
       position: absolute;
-      top: 10%;
+      top: 15%;
       left: 50%;
       transform: translateX(-50%);
       opacity: 0;
-      transition: opacity 1s ease 4s;
+      transition: opacity 1s ease 3.5s;
       z-index: 50;
       text-align: center;
     }
 
     #book-intro.open .book-logo,
-    #book-intro.open .book-header-content { opacity: 1; }
+    #book-intro.open .book-header-content { 
+      opacity: 1; 
+    }
 
-    .book-logo img { max-width: 200px; height: auto; }
+    .book-logo img { 
+      max-width: 150px; 
+      height: auto; 
+      width: 100%;
+    }
 
-    .book-header-content h1 { font-size: 5rem; margin: 0; }
-    .book-header-content p { font-size: 1.5rem; margin: 10px 0; }
+    .book-header-content h1 { 
+      font-size: clamp(2rem, 6vw, 5rem); 
+      margin: 20px 0 10px 0; 
+      font-weight: 700;
+    }
+    
+    .book-header-content p { 
+      font-size: clamp(1rem, 2.5vw, 1.5rem); 
+      margin: 10px 0; 
+      opacity: 0.9;
+    }
+    
     .cta-button {
       margin-top: 20px;
       padding: 12px 28px;
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 2vw, 1.2rem);
       background: var(--gold);
       border: none;
       border-radius: 8px;
       cursor: pointer;
       color: var(--midnight);
       font-weight: bold;
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-family: inherit;
     }
 
-    .cta-button:hover { transform: scale(1.05); }
+    .cta-button:hover { 
+      transform: scale(1.05); 
+      box-shadow: 0 4px 15px rgba(197, 157, 95, 0.3);
+    }
 
     /* ===== SECTIONS BELOW ===== */
     section {
-      padding: 100px 20px;
+      padding: 80px 20px;
       max-width: 900px;
       margin: 0 auto 60px auto;
       background: var(--soft-paper);
@@ -199,21 +253,68 @@
       text-align: center;
       z-index: 1;
       position: relative;
+      border-radius: 8px;
     }
 
-    .review-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-    .review-card { background: var(--lavender); padding: 30px; border-radius: 15px; font-style: italic; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-    .review-card span { display: block; margin-top: 15px; font-weight: bold; text-align: right; }
+    section h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 40px;
+      color: var(--midnight);
+      font-weight: 700;
+    }
+
+    .review-cards { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+      gap: 30px; 
+      margin-top: 40px;
+    }
+    
+    .review-card { 
+      background: var(--lavender); 
+      padding: 30px; 
+      border-radius: 15px; 
+      font-style: italic; 
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .review-card p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    
+    .review-card span { 
+      display: block; 
+      margin-top: 15px; 
+      font-weight: bold; 
+      text-align: right; 
+      font-style: normal;
+      color: var(--midnight);
+    }
+
+    .video-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
 
     .video-frame {
       position: relative;
       display: inline-block;
-      margin: 20px;
+      max-width: 350px;
+      width: 100%;
     }
 
     .video-frame img.book-frame {
       display: block;
-      width: 350px;
+      width: 100%;
       height: auto;
       position: relative;
       z-index: 1;
@@ -230,12 +331,86 @@
       z-index: 2;
     }
 
-    @media (max-width: 900px) {
-      .review-cards { grid-template-columns: 1fr; }
-      .book-header-content h1 { font-size: 3rem; }
-      .book-header-content p { font-size: 1.2rem; }
-      .cta-button { font-size: 1rem; padding: 10px 24px; }
-      .video-frame img.book-frame { width: 250px; }
+    /* Loading states */
+    .video-frame video {
+      background: var(--paper);
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      
+      .book-cover.right,
+      .book-page {
+        transition: none;
+      }
+      
+      #book-intro.open .book-cover.right,
+      #book-intro.open .book-page {
+        transform: translateY(-50%) rotateY(-180deg);
+      }
+    }
+
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+      nav.book-tabs a {
+        padding: 10px 12px;
+        font-size: 0.8rem;
+      }
+      
+      #book-intro {
+        height: 90vh;
+        min-height: 500px;
+      }
+      
+      .book-cover.right,
+      .book-page {
+        width: min(70vw, 300px);
+        height: min(60vh, 450px);
+      }
+      
+      .book-logo img {
+        max-width: 120px;
+      }
+      
+      section {
+        padding: 60px 15px;
+        margin: 0 10px 40px 10px;
+      }
+      
+      .video-frame {
+        max-width: 280px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav.book-tabs {
+        padding: 5px;
+      }
+      
+      nav.book-tabs ul {
+        flex-wrap: wrap;
+        gap: 2px;
+      }
+      
+      nav.book-tabs a {
+        padding: 8px 10px;
+        font-size: 0.7rem;
+        margin: 1px;
+      }
+      
+      .book-header-content h1 {
+        margin-top: 10px;
+      }
+      
+      .cta-button {
+        padding: 10px 20px;
+        margin-top: 15px;
+      }
     }
   </style>
 </head>
@@ -244,13 +419,13 @@
   <!-- NAVIGATION -->
   <nav class="book-tabs">
     <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="photography.html">Photography</a></li>
-      <li><a href="videography.html">Videography</a></li>
-      <li><a href="packages.html">Packages</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="booking.html">Booking</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#photography">Photography</a></li>
+      <li><a href="#videography">Videography</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#booking">Booking</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -260,16 +435,15 @@
     <div class="book-cover right"></div>
 
     <div class="book-page">
-      <img class="front" src="https://sunniejae.blob.core.windows.net/sunniejae/andiestorybook.png" alt="Page 1 Front">
-      <img class="back" src="https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png" alt="Page 1 Back">
+      <img class="front" src="https://sunniejae.blob.core.windows.net/sunniejae/andiestorybook.png" alt="Andie's story page">
+      <img class="back" src="https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png" alt="Story book back page">
     </div>
     <div class="book-page">
-      <img class="front" src="https://sunniejae.blob.core.windows.net/sunniejae/bradstorybook.png" alt="Page 2 Front">
-      <img class="back" src="https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png" alt="Page 2 Back">
+      <img class="front" src="https://sunniejae.blob.core.windows.net/sunniejae/bradstorybook.png" alt="Brad's story page">
+      <img class="back" src="https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png" alt="Story book back page">
     </div>
     <div class="book-page">
-      <img class="front" src="https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png" alt="Page 3 Front">
-      <!-- last page has no back -->
+      <img class="front" src="https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png" alt="Final story page">
     </div>
 
     <div class="book-logo">
@@ -289,11 +463,11 @@
     <h2>What Couples Say</h2>
     <div class="review-cards">
       <div class="review-card">
-        <p>"Absolutely magical experience!"</p>
+        <p>"Absolutely magical experience! Haven captured every precious moment of our special day."</p>
         <span>- Emily & James</span>
       </div>
       <div class="review-card">
-        <p>"The storytelling is breathtaking."</p>
+        <p>"The storytelling is breathtaking. We couldn't have asked for better memories."</p>
         <span>- Sophia & Liam</span>
       </div>
     </div>
@@ -302,24 +476,63 @@
   <!-- VIDEO -->
   <section class="storybook-video">
     <h2>Captured Moments</h2>
-    <div class="video-frame">
-      <img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative Frame">
-      <video autoplay loop muted playsinline>
-        <source src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%201.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="video-frame">
-      <img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative Frame">
-      <video autoplay loop muted playsinline>
-        <source src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%202.mp4" type="video/mp4">
-      </video>
+    <div class="video-container">
+      <div class="video-frame">
+        <img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative photo frame">
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%201.mp4" type="video/mp4">
+          <p>Your browser doesn't support HTML5 video.</p>
+        </video>
+      </div>
+      <div class="video-frame">
+        <img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative photo frame">
+        <video autoplay loop muted playsinline preload="metadata">
+          <source src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%202.mp4" type="video/mp4">
+          <p>Your browser doesn't support HTML5 video.</p>
+        </video>
+      </div>
     </div>
   </section>
 
   <script>
+    // Enhanced loading and animation
     window.addEventListener('load', () => {
-      document.getElementById('book-intro').classList.add('open');
+      // Small delay to ensure all resources are loaded
+      setTimeout(() => {
+        document.getElementById('book-intro').classList.add('open');
+      }, 500);
     });
+
+    // Handle navigation clicks
+    document.querySelectorAll('nav.book-tabs a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        // Remove active class from all links
+        document.querySelectorAll('nav.book-tabs a').forEach(l => l.classList.remove('active'));
+        // Add active class to clicked link
+        e.target.classList.add('active');
+        
+        // If it's a hash link, prevent default behavior for demo
+        if (e.target.getAttribute('href').startsWith('#')) {
+          e.preventDefault();
+        }
+      });
+    });
+
+    // Improved video loading
+    document.querySelectorAll('video').forEach(video => {
+      video.addEventListener('loadstart', () => {
+        video.style.background = '#bbb2ac';
+      });
+      
+      video.addEventListener('canplaythrough', () => {
+        video.style.background = 'transparent';
+      });
+    });
+
+    // Handle reduced motion preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.getElementById('book-intro').classList.add('open');
+    }
   </script>
 
 </body>
