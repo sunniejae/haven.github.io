@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Haven | Wedding Storybook</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havenclaw.png">
@@ -13,23 +13,10 @@
       --warm-tan: #9e7f57;
       --rosewood: #6e4d58;
       --midnight: #110f0f;
-      --chocolate: #4e2e21;
-      --slate: #383930;
-      --ink: #1c1920;
-      --burnt-orange: #97562e;
-      --navy: #22204b;
-      --brick: #7c260d;
-      --crimson: #9c140c;
-      --lavender: #af92ba;
-      --mauve: #9a7aa4;
-      --paper: #b9b8b4;
-      --dusty-blue: #465d69;
-      --plum: #937186;
-      --teal: #294353;
-      --sky: #164978;
-      --soft-paper: #bbb2ac;
       --gold: #C59D5F;
+      --soft-paper: #bbb2ac;
       --white: #f8f6f2;
+      --paper: #b9b8b4;
     }
 
     body {
@@ -47,31 +34,14 @@
       justify-content: center;
       border-bottom: 4px solid var(--warm-tan);
     }
-
-    .book-tabs ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-
+    .book-tabs ul { list-style: none; margin: 0; padding: 0; display: flex; }
     .book-tabs li { margin: 0 5px; }
-
     .book-tabs a {
-      display: block;
-      padding: 12px 24px;
-      background: var(--midnight);
-      color: var(--gold);
-      text-decoration: none;
-      font-weight: bold;
-      border-top-left-radius: 12px;
-      border-top-right-radius: 12px;
-      box-shadow: 0 -4px 6px rgba(0,0,0,0.1) inset;
-      transition: all 0.3s ease;
+      display:block; padding:12px 24px; background:var(--midnight); color:var(--gold); text-decoration:none; font-weight:bold;
+      border-top-left-radius:12px; border-top-right-radius:12px; box-shadow:0 -4px 6px rgba(0,0,0,0.1) inset; transition: all .3s;
     }
-
-    .book-tabs a:hover { background: var(--crimson); transform: translateY(-3px); }
-    .book-tabs a.active { background: var(--crimson); border-bottom: 4px solid var(--soft-paper); transform: translateY(-5px); }
+    .book-tabs a:hover { background:#9c140c; transform: translateY(-3px); }
+    .book-tabs a.active { background:#9c140c; border-bottom:4px solid var(--soft-paper); transform: translateY(-5px); }
 
     /* ===== HEADER / BOOK OPENING ===== */
     header {
@@ -80,9 +50,7 @@
       height: 775px;
       perspective: 2000px;
       overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display:flex; justify-content:center; align-items:center;
     }
 
     /* SPINE */
@@ -90,17 +58,13 @@
       position: absolute;
       left: 50%;
       top: 0;
-      width: 8px;
-      height: 100%;
+      width: 8px; height: 100%;
       background: linear-gradient(to bottom, #C59D5F, #b8863b, #C59D5F);
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
       z-index: 40;
-      transition: opacity 1s ease 0.5s;
+      transition: opacity 1s ease .5s;
     }
-
-    header.open .book-spine {
-      opacity: 0;
-    }
+    header.open .book-spine { opacity: 0; }
 
     /* RIGHT COVER */
     .book-cover.right {
@@ -119,8 +83,12 @@
       box-shadow: -4px 0 12px rgba(0,0,0,0.3);
       z-index: 30;
     }
+    /* lowered after turning */
+    .book-cover.right.turned-cover { z-index: 6 !important; }
 
-    /* ===== PAGES ===== */
+    /* ===== PAGES =====
+       NOTE: height is 100% so pages fill the book area.
+    */
     .book-page {
       position: absolute;
       top: 0;
@@ -131,21 +99,24 @@
       transform-style: preserve-3d;
       backface-visibility: hidden;
       transition: transform 1s ease-in-out;
-      z-index: 20;
+      z-index: 20; /* default; specific stacking below */
     }
 
+    /* front/back faces */
     .book-page .front,
     .book-page .back {
       position: absolute;
       width: 100%;
       height: 100%;
       backface-visibility: hidden;
+      top: 0; left: 0;
     }
 
     .book-page .front img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .book-page .back {
@@ -155,12 +126,16 @@
       transform: rotateY(180deg);
     }
 
-    /* Page stacking */
+    /* stack order when closed (topmost page should have highest z-index) */
+    /* Adjust these if you add more pages; these target the actual DOM order in your file */
     .book-page:nth-child(3) { z-index: 23; transition-delay: 2s; }
     .book-page:nth-child(4) { z-index: 22; transition-delay: 3s; }
     .book-page:nth-child(5) { z-index: 21; transition-delay: 4s; }
 
-    /* OPEN STATES */
+    /* when a page has turned, drop it behind other pages */
+    .book-page.turned { z-index: 5 !important; }
+
+    /* OPEN STATES (the transform occurs first; JS will add `.turned` afterwards to fix z-index) */
     header.open .book-cover.right { transform: rotateY(-180deg); }
     header.open .book-page:nth-child(3),
     header.open .book-page:nth-child(4),
@@ -178,13 +153,8 @@
       transition: opacity 1s ease 4.12s;
       z-index: 50;
     }
-
     header.open .book-logo { opacity: 1; }
-
-    .book-logo img {
-      max-width: 200px;
-      height: auto;
-    }
+    .book-logo img { max-width: 200px; height: auto; }
 
     /* CONTENT */
     .book-content {
@@ -199,28 +169,15 @@
       z-index: 50;
       padding: 0 20px;
     }
-
     header.open .book-content { opacity: 1; }
 
     header h1 { font-size: 5rem; margin: 0; }
     header p { font-size: 1.5rem; margin: 10px 0; }
 
-    .cta-button {
-      margin-top: 20px;
-      padding: 12px 28px;
-      font-size: 1.2rem;
-      background: var(--gold);
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      color: var(--midnight);
-      font-weight: bold;
-      transition: transform 0.3s ease;
-    }
-
+    .cta-button { margin-top: 20px; padding: 12px 28px; font-size: 1.2rem; background: var(--gold); border: none; border-radius: 8px; cursor: pointer; color: var(--midnight); font-weight: bold; transition: transform .3s; }
     .cta-button:hover { transform: scale(1.05); }
 
-    /* ===== REVIEWS & VIDEO ===== */
+    /* REVIEWS & VIDEO (unchanged) */
     .reviews, .storybook-video {
       padding: 100px 20px;
       max-width: 900px;
@@ -231,44 +188,22 @@
       box-shadow: 0 0 40px rgba(0,0,0,0.1);
       text-align: center;
     }
-
     .reviews h2, .storybook-video h2 { font-size: 2.5rem; margin-bottom: 40px; }
-
     .review-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-    .review-card { background: var(--lavender); padding: 30px; border-radius: 15px; font-style: italic; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-    .review-card span { display: block; margin-top: 15px; font-weight: bold; text-align: right; }
+    .review-card { background: #af92ba; padding: 30px; border-radius: 15px; font-style: italic; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .review-card span { display:block; margin-top:15px; font-weight:bold; text-align:right; }
 
-    .video-frame {
-      position: relative;
-      display: inline-block;
-      margin: 20px;
-    }
+    .video-frame { position: relative; display: inline-block; margin: 20px; }
+    .video-frame img.book-frame { display:block; width:350px; height:auto; position:relative; z-index:1; }
+    .video-frame video { position:absolute; top:12%; left:12%; width:76%; height:76%; object-fit:cover; border-radius:8px; z-index:2; }
 
-    .video-frame img.book-frame {
-      display: block;
-      width: 350px;
-      height: auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .video-frame video {
-      position: absolute;
-      top: 12%;
-      left: 12%;
-      width: 76%;
-      height: 76%;
-      object-fit: cover;
-      border-radius: 8px;
-      z-index: 2;
-    }
-
-    @media (max-width: 900px) {
+    @media (max-width:900px) {
       .review-cards { grid-template-columns: 1fr; }
       header h1 { font-size: 3rem; }
       header p { font-size: 1.2rem; }
-      .cta-button { font-size: 1rem; padding: 10px 24px; }
-      .video-frame img.book-frame { width: 250px; }
+      .cta-button { font-size:1rem; padding:10px 24px; }
+      .video-frame img.book-frame { width:250px; }
+      header { height: 500px; }
     }
   </style>
 </head>
@@ -292,6 +227,7 @@
     <div class="book-spine"></div>
     <div class="book-cover right"></div>
 
+    <!-- PAGE 1 -->
     <div class="book-page">
       <div class="front">
         <img src="https://sunniejae.blob.core.windows.net/sunniejae/andiestorybook.png" alt="Page 1">
@@ -299,12 +235,15 @@
       <div class="back"></div>
     </div>
 
+    <!-- PAGE 2 -->
     <div class="book-page">
       <div class="front">
         <img src="https://sunniejae.blob.core.windows.net/sunniejae/bradstorybook.png" alt="Page 2">
       </div>
       <div class="back"></div>
     </div>
+
+    <!-- add more .book-page blocks as needed, they will be handled the same -->
 
     <!-- Logo above content -->
     <div class="book-logo">
@@ -323,14 +262,8 @@
   <section class="reviews">
     <h2>What Couples Say</h2>
     <div class="review-cards">
-      <div class="review-card">
-        <p>"Absolutely magical experience!"</p>
-        <span>- Emily & James</span>
-      </div>
-      <div class="review-card">
-        <p>"The storytelling is breathtaking."</p>
-        <span>- Sophia & Liam</span>
-      </div>
+      <div class="review-card"><p>"Absolutely magical experience!"</p><span>- Emily & James</span></div>
+      <div class="review-card"><p>"The storytelling is breathtaking."</p><span>- Sophia & Liam</span></div>
     </div>
   </section>
 
@@ -339,21 +272,43 @@
     <h2>Captured Moments</h2>
     <div class="video-frame">
       <img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative Frame">
-      <video autoplay loop muted playsinline>
+      <video autoplay loop muted playsinline preload="none">
         <source src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%201.mp4" type="video/mp4">
       </video>
     </div>
     <div class="video-frame">
       <img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative Frame">
-      <video autoplay loop muted playsinline>
+      <video autoplay loop muted playsinline preload="none">
         <source src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%202.mp4" type="video/mp4">
       </video>
     </div>
   </section>
 
   <script>
+    // -- Trigger the book open and then adjust stacking after each flip --
     window.addEventListener('load', () => {
-      document.querySelector('header').classList.add('open');
+      const header = document.querySelector('header');
+      header.classList.add('open');
+
+      // Timings must match the CSS transition-delay + transition-duration for each page.
+      // For your CSS: page nth-child(3) had delay 2s and duration 1s -> we wait 3000ms to mark turned.
+      // nth-child(4): 3s delay +1s duration -> 4000ms; nth-child(5): 4s +1s -> 5000ms
+      const pageFinishTimes = [3000, 4000, 5000]; // ms (adjust if you change CSS delays/durations)
+      const pages = Array.from(document.querySelectorAll('.book-page'));
+
+      pages.forEach((page, i) => {
+        const finish = pageFinishTimes[i] || (2000 + (i+1)*1000); // fallback value
+        setTimeout(() => {
+          page.classList.add('turned'); // this lowers its z-index via CSS
+        }, finish + 50); // small extra buffer to ensure transform finished
+      });
+
+      // Also lower the right cover after its rotation completes.
+      // In CSS its transition runs 2s with no delay -> finish ~2000ms
+      setTimeout(() => {
+        const cover = document.querySelector('.book-cover.right');
+        if (cover) cover.classList.add('turned-cover');
+      }, 2100);
     });
   </script>
 
