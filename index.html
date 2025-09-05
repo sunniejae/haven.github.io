@@ -73,7 +73,7 @@
       top: 0;
       width: 50%;
       height: 100%;
-      background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/havencover.png');
+      background:linear-gradient(to bottom, #C59D5F, #b8863b, #C59D5F);;
       background-size: cover;
       background-position: center;
       transform-style: preserve-3d;
@@ -85,6 +85,13 @@
     }
     /* lowered after turning */
     .book-cover.right.turned-cover { z-index: 6 !important; }
+    /* Cover back image */
+.book-cover .back {
+  background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png'); /* your back */
+  background-size: cover;
+  background-position: center;
+  transform: rotateY(180deg);
+}
 
     /* ===== PAGES =====
        NOTE: height is 100% so pages fill the book area.
@@ -162,7 +169,7 @@
 
 /* keep adding as many as needed */
 .book-page.page3 .back {
-  background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/tumblravi.png');
+  background:linear-gradient(to bottom, #C59D5F, #b8863b, #C59D5F);;
 }
 
     /* LOGO ABOVE CONTENT */
@@ -250,7 +257,7 @@
     <!-- LEFT COVER -->
 <div class="book-cover">
   <div class="front">
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/cover.png" alt="Cover Front">
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/havencover.png" alt="Cover Front">
   </div>
   <div class="back"></div>
 </div>
