@@ -6,265 +6,202 @@
   <title>Haven | Wedding Storybook</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* ===== PALETTE ===== */
     :root {
-      --deep-blue: #366e9f;
-      --warm-tan: #9e7f57;
-      --rosewood: #6e4d58;
-      --midnight: #110f0f;
-      --chocolate: #4e2e21;
-      --slate: #383930;
-      --ink: #1c1920;
-      --burnt-orange: #97562e;
-      --navy: #22204b;
-      --brick: #7c260d;
-      --crimson: #9c140c;
-      --lavender: #af92ba;
-      --mauve: #9a7aa4;
-      --paper: #b9b8b4;
-      --dusty-blue: #465d69;
-      --plum: #937186;
-      --teal: #294353;
-      --sky: #164978;
-      --soft-paper: #bbb2ac;
-      --gold: #C59D5F;
-      --white: #f8f6f2;
+      /* Storybook Romance Palette */
+      --color-primary-blue: #366e9f;
+      --color-primary-warm: #9e7f57;
+      --color-secondary-rosewood: #6e4d58;
+      --color-secondary-teal: #294353;
+      --color-secondary-terracotta: #97562e;
+      --color-accent-brick: #7c260d;
+      --color-accent-lavender: #af92ba;
+      --color-accent-dusty-purple: #9a7aa4;
+      --color-accent-blush: #f2c1c1;
+      --color-accent-cream: #f3ebe7;
+      --color-neutral-light-grey: #b9b8b4;
+      --color-neutral-warm-grey: #bbb2ac;
+      --color-black: #110f0f;
     }
 
     body {
       margin: 0;
       font-family: 'Cinzel', serif;
-      background: var(--white);
-      color: var(--midnight);
+      background: var(--color-accent-cream);
+      color: var(--color-black);
       overflow-x: hidden;
     }
 
-    /* ===== NAVIGATION ===== */
-    .book-tabs {
-      background: var(--deep-blue);
-      display: flex;
-      justify-content: center;
-      border-bottom: 4px solid var(--warm-tan);
-    }
-
-    .book-tabs ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-
-    .book-tabs li { margin: 0 5px; }
-
-    .book-tabs a {
-      display: block;
-      padding: 12px 24px;
-      background: var(--midnight);
-      color: var(--gold);
-      text-decoration: none;
-      font-weight: bold;
-      border-top-left-radius: 12px;
-      border-top-right-radius: 12px;
-      box-shadow: 0 -4px 6px rgba(0,0,0,0.1) inset;
-      transition: all 0.3s ease;
-    }
-
-    .book-tabs a:hover { background: var(--crimson); transform: translateY(-3px); }
-    .book-tabs a.active { background: var(--crimson); border-bottom: 4px solid var(--soft-paper); transform: translateY(-5px); }
-
-    /* ===== HEADER / BOOK OPENING ===== */
-    header {
-      position: relative;
-      width: 100%;
-      height: 775px;
+    /* Book Container */
+    .storybook {
       perspective: 2000px;
-      overflow: hidden;
+      width: 100%;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    /* SPINE */
-    .book-spine {
+    .page, .cover {
+      width: 600px;
+      height: 800px;
       position: absolute;
-      left: 50%;
-      top: 0;
-      width: 8px;
-      height: 100%;
-      background: linear-gradient(to bottom, #C59D5F, #b8863b, #C59D5F);
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      z-index: 40;
-      transition: opacity 1s ease 0.5s;
-    }
-
-    header.open .book-spine { opacity: 0; }
-
-    /* RIGHT COVER */
-    .book-cover.right {
-      position: absolute;
-      left: 50%;
-      top: 0;
-      width: 50%;
-      height: 100%;
-      background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/havencover.png');
-      background-size: cover;
-      background-position: center;
       transform-style: preserve-3d;
-      backface-visibility: hidden;
-      transform-origin: left center;
-      transition: transform 1.5s ease-in-out;
-      box-shadow: -4px 0 12px rgba(0,0,0,0.3);
-      z-index: 30;
-    }
-
-    /* ===== PAGES ===== */
-    .book-page {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 50%;
-      height: 100%;
-      background: var(--paper);
       transform-origin: left;
-      backface-visibility: hidden;
-      transform-style: preserve-3d;
-      z-index: 20;
-      transition: transform 1.5s ease-in-out;
+      transition: transform 1s ease;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
     }
 
-    .book-page img {
+    .page-front, .page-back, 
+    .cover-front, .cover-back {
+      position: absolute;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      display: block;
+      backface-visibility: hidden;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      padding: 2rem;
     }
 
-    /* Page stacking */
-    .book-page:nth-of-type(1) { z-index: 27; transition-delay: 0.5s; }
-    .book-page:nth-of-type(2) { z-index: 28; transition-delay: 1s; }
-    .book-page:nth-of-type(3) { z-index: 29; transition-delay: 1.5s; }
-
-    /* OPEN STATES */
-    header.open .book-cover.right { transform: rotateY(-180deg); }
-    header.open .book-page { transform: rotateY(-180deg); }
-
-    /* LOGO ABOVE CONTENT */
-    .book-logo {
-      position: absolute;
-      top: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: opacity 1s ease 3.5s;
-      z-index: 50;
+    /* Cover Styles */
+    .cover-front {
+      background: var(--color-primary-warm);
+      color: white;
+    }
+    .cover-back {
+      background: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png') center/cover no-repeat;
+      transform: rotateY(180deg);
     }
 
-    header.open .book-logo { opacity: 1; }
+    /* Page Styles */
+    .page-front {
+      background: var(--color-accent-cream);
+    }
+    .page-back {
+      background: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png') center/cover no-repeat;
+      transform: rotateY(180deg);
+    }
 
-    .book-logo img { max-width: 200px; height: auto; }
+    /* Last Page Special */
+    .last-page .page-front {
+      background: var(--color-accent-cream);
+    }
 
-    /* CONTENT */
-    .book-content {
-      position: absolute;
-      top: 35%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
+    /* Flip states */
+    .flipped {
+      transform: rotateY(-180deg);
+    }
+
+    /* Header after book */
+    header.site-header {
       text-align: center;
-      opacity: 0;
-      transition: opacity 1s ease 4s;
-      z-index: 50;
-      padding: 0 20px;
+      padding: 4rem 2rem;
+      background: var(--color-accent-cream);
+      display: none;
+      animation: fadeIn 1s ease forwards;
     }
 
-    header.open .book-content { opacity: 1; }
-
-    header h1 { font-size: 3rem; margin: 0; }
-    header p { font-size: 1.5rem; margin: 10px 0; }
-
+    .book-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--color-secondary-rosewood);
+    }
+    .book-content p {
+      margin: 0.5rem 0;
+    }
     .cta-button {
-      margin-top: 20px;
-      padding: 12px 28px;
-      font-size: 1.2rem;
-      background: var(--gold);
-      border: none;
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--color-primary-blue);
+      color: white;
+      text-decoration: none;
       border-radius: 8px;
-      cursor: pointer;
-      color: var(--midnight);
-      font-weight: bold;
-      transition: transform 0.3s ease;
     }
 
-    .cta-button:hover { transform: scale(1.05); }
-
-    /* ===== REVIEWS & VIDEO ===== */
-    .reviews, .storybook-video {
-      padding: 100px 20px;
-      max-width: 900px;
-      margin: 60px auto;
-      background: var(--soft-paper);
-      border-left: 10px solid var(--gold);
-      border-right: 10px solid var(--gold);
-      box-shadow: 0 0 40px rgba(0,0,0,0.1);
+    /* Reviews */
+    .reviews {
+      padding: 4rem 2rem;
+      background: var(--color-neutral-light-grey);
       text-align: center;
     }
-
-    .reviews h2, .storybook-video h2 { font-size: 2.5rem; margin-bottom: 40px; }
-
-    .review-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-    .review-card { background: var(--lavender); padding: 30px; border-radius: 15px; font-style: italic; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-    .review-card span { display: block; margin-top: 15px; font-weight: bold; text-align: right; }
-
-    .video-frame { position: relative; display: inline-block; margin: 20px; }
-    .video-frame img.book-frame { display: block; width: 350px; height: auto; position: relative; z-index: 1; }
-    .video-frame video {
-      position: absolute;
-      top: 12%;
-      left: 12%;
-      width: 76%;
-      height: 76%;
-      object-fit: cover;
-      border-radius: 8px;
-      z-index: 2;
+    .review-cards {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .review-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      max-width: 300px;
     }
 
-    @media (max-width: 900px) {
-      .review-cards { grid-template-columns: 1fr; }
-      header h1 { font-size: 2rem; }
-      header p { font-size: 1.2rem; }
-      .cta-button { font-size: 1rem; padding: 10px 24px; }
-      .video-frame img.book-frame { width: 250px; }
+    /* Video Frames */
+    .storybook-video {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .video-frame {
+      position: relative;
+      display: inline-block;
+      margin: 1rem;
+    }
+    .video-frame video {
+      width: 400px;
+      height: auto;
+      border-radius: 12px;
+    }
+    .book-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav class="book-tabs">
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="photography.html">Photography</a></li>
-      <li><a href="videography.html">Videography</a></li>
-      <li><a href="packages.html">Packages</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="booking.html">Booking</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- HEADER / BOOK -->
-  <header>
-    <div class="book-spine"></div>
-    <div class="book-cover right"></div>
-    <div class="book-page"><img src="https://sunniejae.blob.core.windows.net/sunniejae/andiestorybook.png" alt="Page 1"></div>
-    <div class="book-page"><img src="https://sunniejae.blob.core.windows.net/sunniejae/bradstorybook.png" alt="Page 2"></div>
-    <div class="book-page"><img src="https://sunniejae.blob.core.windows.net/sunniejae/havenclaw.png" alt="Page 3"></div>
-    
-    <!-- Logo above content -->
-    <div class="book-logo">
-      <img src="https://sunniejae.blob.core.windows.net/sunniejae/havenclaw.png" alt="Haven Logo">
+  <div class="storybook">
+    <!-- Cover -->
+    <div class="cover">
+      <div class="cover-front">Haven</div>
+      <div class="cover-back"></div>
     </div>
 
+    <!-- Pages -->
+    <div class="page">
+      <div class="page-front">Page 1 Front</div>
+      <div class="page-back"></div>
+    </div>
+
+    <div class="page">
+      <div class="page-front">Page 2 Front</div>
+      <div class="page-back"></div>
+    </div>
+
+    <!-- Last Page (opens into header) -->
+    <div class="page last-page">
+      <div class="page-front">Page 3 Front</div>
+    </div>
+  </div>
+
+  <!-- Revealed Header -->
+  <header class="site-header">
     <div class="book-content">
       <h1>Haven: Securing the Beauty of Your Wedding Story</h1>
       <p>The Safe Choice</p>
@@ -306,10 +243,22 @@
   </section>
 
   <script>
-    window.addEventListener('load', () => {
-      document.querySelector('header').classList.add('open');
+    // Flip animation sequence
+    const elements = document.querySelectorAll('.cover, .page');
+    const header = document.querySelector('header.site-header');
+
+    elements.forEach((el, i) => {
+      setTimeout(() => {
+        el.classList.add('flipped');
+        // After last page flips, show header
+        if (el.classList.contains('last-page')) {
+          setTimeout(() => {
+            document.querySelector('.storybook').style.display = 'none';
+            header.style.display = 'block';
+          }, 1200);
+        }
+      }, i * 1500); // stagger each flip
     });
   </script>
-
 </body>
 </html>
