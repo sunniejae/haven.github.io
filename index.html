@@ -8,41 +8,32 @@
 <style>
 /* ===== Storybook Romance Palette ===== */
 :root {
-  /* Primary Colors */
   --color-primary-blue: #366e9f;
   --color-primary-warm: #9e7f57;
-
-  /* Secondary Colors */
   --color-secondary-rosewood: #6e4d58;
   --color-secondary-teal: #294353;
   --color-secondary-terracotta: #97562e;
-
-  /* Accent Colors */
   --color-accent-brick: #7c260d;
   --color-accent-lavender: #af92ba;
   --color-accent-dusty-purple: #9a7aa4;
   --color-accent-blush: #f2c1c1;
   --color-accent-cream: #f3ebe7;
-
-  /* Neutrals */
   --color-neutral-light-grey: #b9b8b4;
   --color-neutral-warm-grey: #bbb2ac;
   --color-black: #110f0f;
-
-  /* Additional helpers */
   --color-shadow: rgba(0,0,0,0.25);
 }
 
 /* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  margin: 0;
-  padding: 0;
   font-family: 'Cinzel', serif;
   background-color: var(--color-accent-cream);
+  color: var(--color-black);
   overflow-x: hidden;
 }
 
-/* Storybook container */
+/* Storybook Container */
 .storybook {
   position: relative;
   width: 100%;
@@ -52,7 +43,7 @@ body {
   perspective: 2000px;
 }
 
-/* Common styles for pages and covers */
+/* Pages & Covers */
 .book-cover, .book-page {
   position: absolute;
   width: 50%;
@@ -63,8 +54,6 @@ body {
   border-radius: 4px;
   box-shadow: 0 5px 30px var(--color-shadow);
 }
-
-/* Front and back faces */
 .book-cover .front, .book-cover .back,
 .book-page .front, .book-page .back {
   position: absolute;
@@ -76,11 +65,7 @@ body {
 
 /* Images */
 .book-cover .front img,
-.book-page .front img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.book-page .front img { width: 100%; height: 100%; object-fit: cover; }
 
 /* Back faces */
 .book-cover.left .back,
@@ -89,23 +74,17 @@ body {
   background-size: cover;
   background-position: center;
   transform: rotateY(180deg);
-  background-color: var(--color-accent-cream); /* fallback */
+  background-color: var(--color-accent-cream);
 }
 
-/* Left cover positioning */
-.book-cover.left {
-  left: 0;
-  z-index: 50;
-}
+/* Left Cover */
+.book-cover.left { left: 0; z-index: 50; }
 .book-cover.left .back {
   background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png');
 }
 
-/* Right cover positioning */
-.book-cover.right {
-  left: 50%;
-  z-index: 60;
-}
+/* Right Cover */
+.book-cover.right { left: 50%; z-index: 60; }
 .book-cover.right .front img {
   src: url('https://sunniejae.blob.core.windows.net/sunniejae/havencover.png');
 }
@@ -113,81 +92,108 @@ body {
   background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png');
 }
 
-/* Pages positioning */
+/* Pages */
 .book-page.page1 { left: 50%; z-index: 59; }
 .book-page.page2 { left: 50%; z-index: 58; }
-.book-page.page3 { left: 50%; z-index: 57; }
-/* Add more pages as needed */
+/* Add more pages here */
 
-/* Unique backs for each page */
-.book-page.page1 .back {
-  background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png');
-}
-.book-page.page2 .back {
-  background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png');
-}
+/* Page backs */
+.book-page.page1 .back { background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png'); }
+.book-page.page2 .back { background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png'); }
 
-/* Flipped state */
+/* Flipped */
 .book-cover.left.open { transform: rotateY(-180deg); z-index: 10; }
 .book-cover.right.open { transform: rotateY(-180deg); z-index: 10; }
 .book-page.open { transform: rotateY(-180deg); z-index: 10; }
 
-/* Optional: small shadow on turned pages */
-.book-page.open .front, .book-cover.open .front {
-  box-shadow: inset -5px 0 15px rgba(0,0,0,0.1);
+/* Shadow on turned pages */
+.book-page.open .front, .book-cover.open .front { box-shadow: inset -5px 0 15px rgba(0,0,0,0.1); }
+
+/* Video Section */
+.video-section {
+  max-width: 1200px;
+  margin: 50px auto;
+  position: relative;
 }
+.video-section video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px var(--color-shadow);
+}
+
+/* Reviews Section */
+.reviews {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: var(--color-accent-blush);
+  border-radius: 8px;
+  box-shadow: 0 5px 20px var(--color-shadow);
+}
+.review {
+  margin-bottom: 20px;
+}
+.review:last-child { margin-bottom: 0; }
+.review p { font-size: 1.1rem; line-height: 1.4; }
+.review .author { margin-top: 5px; font-weight: bold; color: var(--color-primary-blue); }
 </style>
 </head>
 <body>
 
+<!-- Storybook -->
 <div class="storybook">
-  <!-- Left cover -->
   <div class="book-cover left">
-    <div class="front">
-      <!-- Optional left cover front image -->
-    </div>
+    <div class="front"></div>
     <div class="back"></div>
   </div>
-
-  <!-- Right cover -->
   <div class="book-cover right">
     <div class="front">
       <img src="https://sunniejae.blob.core.windows.net/sunniejae/havencover.png" alt="Cover Front">
     </div>
     <div class="back"></div>
   </div>
-
-  <!-- Page 1 -->
   <div class="book-page page1">
     <div class="front">
       <img src="https://sunniejae.blob.core.windows.net/sunniejae/andiestorybook.png" alt="Page 1">
     </div>
     <div class="back"></div>
   </div>
-
-  <!-- Page 2 -->
   <div class="book-page page2">
     <div class="front">
       <img src="https://sunniejae.blob.core.windows.net/sunniejae/bradstorybook.png" alt="Page 2">
     </div>
     <div class="back"></div>
   </div>
+</div>
 
-  <!-- Add more pages as needed -->
+<!-- Video Section -->
+<div class="video-section">
+  <video controls>
+    <source src="https://sunniejae.blob.core.windows.net/sunniejae/samplevideo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<!-- Reviews Section -->
+<div class="reviews">
+  <div class="review">
+    <p>"Absolutely magical experience! The storybook brought our wedding memories to life."</p>
+    <div class="author">— Jessica & Brad</div>
+  </div>
+  <div class="review">
+    <p>"The attention to detail and creativity was unmatched. Highly recommend!"</p>
+    <div class="author">— Emily R.</div>
+  </div>
 </div>
 
 <script>
-// Flip logic example
+// Flip logic
 const covers = document.querySelectorAll('.book-cover');
 const pages = document.querySelectorAll('.book-page');
 
-covers.forEach(cover => {
-  cover.addEventListener('click', () => cover.classList.toggle('open'));
-});
-
-pages.forEach(page => {
-  page.addEventListener('click', () => page.classList.toggle('open'));
-});
+covers.forEach(cover => cover.addEventListener('click', () => cover.classList.toggle('open')));
+pages.forEach(page => page.addEventListener('click', () => page.classList.toggle('open')));
 </script>
 
 </body>
