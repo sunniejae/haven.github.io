@@ -440,10 +440,11 @@
     </div>
     <div class="book-page">
       <img class="front" src="https://sunniejae.blob.core.windows.net/sunniejae/bradstorybook.png" alt="Brad's story page">
-      <img class="back" src="https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png" alt="Story book back page">
+      <img class="back" src="https://sunniejae.blob.core.windows.net/sunniejae/storybookback1.png" alt="Story book back page">
     </div>
     <div class="book-page">
       <img class="front" src="https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png" alt="Final story page">
+      <img class="back" src="https://sunniejae.blob.core.windows.net/sunniejae/plainback.png" alt="Story book back page">
     </div>
 
     <div class="book-logo">
@@ -533,14 +534,6 @@
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       document.getElementById('book-intro').classList.add('open');
     }
-    const pages = document.querySelectorAll('.book-page');
-
-pages.forEach((page, index) => {
-  setTimeout(() => {
-    page.style.transform = 'rotateY(-180deg)';
-    page.style.zIndex = pages.length - index; // ensures flipped page goes behind
-  }, 1000 + index * 500);
-});
   </script>
 
 </body>
