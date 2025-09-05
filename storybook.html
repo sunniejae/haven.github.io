@@ -533,6 +533,14 @@
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       document.getElementById('book-intro').classList.add('open');
     }
+    const pages = document.querySelectorAll('.book-page');
+
+pages.forEach((page, index) => {
+  setTimeout(() => {
+    page.style.transform = 'rotateY(-180deg)';
+    page.style.zIndex = pages.length - index; // ensures flipped page goes behind
+  }, 1000 + index * 500);
+});
   </script>
 
 </body>
