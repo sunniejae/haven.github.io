@@ -1,350 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Haven | Wedding Storybook</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havenclaw.png">
-  <style>
-    /* ===== PALETTE ===== */
-    :root {
-      --deep-blue: #366e9f;
-      --warm-tan: #9e7f57;
-      --rosewood: #6e4d58;
-      --midnight: #110f0f;
-      --gold: #C59D5F;
-      --soft-paper: #bbb2ac;
-      --white: #f8f6f2;
-      --paper: #b9b8b4;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haven | Wedding Storybook</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ===== Storybook Romance Palette ===== */
+:root {
+  /* Primary Colors */
+  --color-primary-blue: #366e9f;
+  --color-primary-warm: #9e7f57;
 
-    body {
-      margin: 0;
-      font-family: 'Cinzel', serif;
-      background: var(--white);
-      color: var(--midnight);
-      overflow-x: hidden;
-    }
+  /* Secondary Colors */
+  --color-secondary-rosewood: #6e4d58;
+  --color-secondary-teal: #294353;
+  --color-secondary-terracotta: #97562e;
 
-    /* ===== NAVIGATION ===== */
-    .book-tabs {
-      background: var(--deep-blue);
-      display: flex;
-      justify-content: center;
-      border-bottom: 4px solid var(--warm-tan);
-    }
-    .book-tabs ul { list-style: none; margin: 0; padding: 0; display: flex; }
-    .book-tabs li { margin: 0 5px; }
-    .book-tabs a {
-      display:block; padding:12px 24px; background:var(--midnight); color:var(--gold); text-decoration:none; font-weight:bold;
-      border-top-left-radius:12px; border-top-right-radius:12px; box-shadow:0 -4px 6px rgba(0,0,0,0.1) inset; transition: all .3s;
-    }
-    .book-tabs a:hover { background:#9c140c; transform: translateY(-3px); }
-    .book-tabs a.active { background:#9c140c; border-bottom:4px solid var(--soft-paper); transform: translateY(-5px); }
+  /* Accent Colors */
+  --color-accent-brick: #7c260d;
+  --color-accent-lavender: #af92ba;
+  --color-accent-dusty-purple: #9a7aa4;
+  --color-accent-blush: #f2c1c1;
+  --color-accent-cream: #f3ebe7;
 
-    /* ===== HEADER / BOOK OPENING ===== */
-    header {
-      position: relative;
-      width: 100%;
-      height: 775px;
-      perspective: 2000px;
-      overflow: hidden;
-      display:flex; justify-content:center; align-items:center;
-    }
+  /* Neutrals */
+  --color-neutral-light-grey: #b9b8b4;
+  --color-neutral-warm-grey: #bbb2ac;
+  --color-black: #110f0f;
 
-    /* SPINE */
-    .book-spine {
-      position: absolute;
-      left: 50%;
-      top: 0;
-      width: 8px; height: 100%;
-      background: linear-gradient(to bottom, #C59D5F, #b8863b, #C59D5F);
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      z-index: 40;
-      transition: opacity 1s ease .5s;
-    }
-    header.open .book-spine { opacity: 0; }
-
-    /* RIGHT COVER */
-    .book-cover.right {
-      position: absolute;
-      left: 50%;
-      top: 0;
-      width: 50%;
-      height: 100%;
-      background:linear-gradient(to bottom, #C59D5F, #b8863b, #C59D5F);;
-      background-size: cover;
-      background-position: center;
-      transform-style: preserve-3d;
-      backface-visibility: hidden;
-      transform-origin: left center;
-      transition: transform 2s ease-in-out;
-      box-shadow: -4px 0 12px rgba(0,0,0,0.3);
-      z-index: 30;
-    }
-    /* lowered after turning */
-    .book-cover.right.turned-cover { z-index: 6 !important; }
-    /* Cover back image */
-.book-cover .back {
-  background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png'); /* your back */
-  background-size: cover;
-  background-position: center;
-  transform: rotateY(180deg);
+  /* Additional helpers */
+  --color-shadow: rgba(0,0,0,0.25);
 }
 
-    /* ===== PAGES =====
-       NOTE: height is 100% so pages fill the book area.
-    */
-    .book-page {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 50%;
-      height: 100%;
-      transform-origin: left;
-      transform-style: preserve-3d;
-      backface-visibility: hidden;
-      transition: transform 1s ease-in-out;
-      z-index: 20; /* default; specific stacking below */
-    }
+/* Reset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cinzel', serif;
+  background-color: var(--color-accent-cream);
+  overflow-x: hidden;
+}
 
-    /* front/back faces */
-    .book-page .front,
-    .book-page .back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      top: 0; left: 0;
-    }
+/* Storybook container */
+.storybook {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 80vh;
+  margin: 50px auto;
+  perspective: 2000px;
+}
 
-    .book-page .front img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+/* Common styles for pages and covers */
+.book-cover, .book-page {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  transform-style: preserve-3d;
+  transition: transform 1.5s ease-in-out;
+  border-radius: 4px;
+  box-shadow: 0 5px 30px var(--color-shadow);
+}
 
-    .book-page .back {
-      background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png');
-      background-size: cover;
-      background-position: center;
-      transform: rotateY(180deg);
-    }
+/* Front and back faces */
+.book-cover .front, .book-cover .back,
+.book-page .front, .book-page .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 4px;
+}
 
-    /* stack order when closed (topmost page should have highest z-index) */
-    /* Adjust these if you add more pages; these target the actual DOM order in your file */
-    .book-page:nth-child(3) { z-index: 23; transition-delay: 2s; }
-    .book-page:nth-child(4) { z-index: 22; transition-delay: 3s; }
-    .book-page:nth-child(5) { z-index: 21; transition-delay: 4s; }
+/* Images */
+.book-cover .front img,
+.book-page .front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    /* when a page has turned, drop it behind other pages */
-    .book-page.turned { z-index: 5 !important; }
-
-    /* OPEN STATES (the transform occurs first; JS will add `.turned` afterwards to fix z-index) */
-    header.open .book-cover.right { transform: rotateY(-180deg); }
-    header.open .book-page:nth-child(3),
-    header.open .book-page:nth-child(4),
-    header.open .book-page:nth-child(5) {
-      transform: rotateY(-180deg);
-    }
-
-    /* Default back (if none specified) */
+/* Back faces */
+.book-cover.left .back,
+.book-cover.right .back,
 .book-page .back {
-  background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png');
   background-size: cover;
   background-position: center;
   transform: rotateY(180deg);
+  background-color: var(--color-accent-cream); /* fallback */
 }
 
-/* Unique backs per page */
+/* Left cover positioning */
+.book-cover.left {
+  left: 0;
+  z-index: 50;
+}
+.book-cover.left .back {
+  background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png');
+}
+
+/* Right cover positioning */
+.book-cover.right {
+  left: 50%;
+  z-index: 60;
+}
+.book-cover.right .front img {
+  src: url('https://sunniejae.blob.core.windows.net/sunniejae/havencover.png');
+}
+.book-cover.right .back {
+  background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png');
+}
+
+/* Pages positioning */
+.book-page.page1 { left: 50%; z-index: 59; }
+.book-page.page2 { left: 50%; z-index: 58; }
+.book-page.page3 { left: 50%; z-index: 57; }
+/* Add more pages as needed */
+
+/* Unique backs for each page */
 .book-page.page1 .back {
-  background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/andiestorybook.png');
+  background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png');
 }
-
 .book-page.page2 .back {
-  background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/bradstorybook.png');
+  background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/storybookback.png');
 }
 
-/* keep adding as many as needed */
-.book-page.page3 .back {
-  background:linear-gradient(to bottom, #C59D5F, #b8863b, #C59D5F);;
+/* Flipped state */
+.book-cover.left.open { transform: rotateY(-180deg); z-index: 10; }
+.book-cover.right.open { transform: rotateY(-180deg); z-index: 10; }
+.book-page.open { transform: rotateY(-180deg); z-index: 10; }
+
+/* Optional: small shadow on turned pages */
+.book-page.open .front, .book-cover.open .front {
+  box-shadow: inset -5px 0 15px rgba(0,0,0,0.1);
 }
-
-    /* LOGO ABOVE CONTENT */
-    .book-logo {
-      position: absolute;
-      top: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: opacity 1s ease 4.12s;
-      z-index: 50;
-    }
-    header.open .book-logo { opacity: 1; }
-    .book-logo img { max-width: 200px; height: auto; }
-
-    /* CONTENT */
-    .book-content {
-      position: absolute;
-      top: 35%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 2s ease 4.12s;
-      z-index: 50;
-      padding: 0 20px;
-    }
-    header.open .book-content { opacity: 1; }
-
-    header h1 { font-size: 5rem; margin: 0; }
-    header p { font-size: 1.5rem; margin: 10px 0; }
-
-    .cta-button { margin-top: 20px; padding: 12px 28px; font-size: 1.2rem; background: var(--gold); border: none; border-radius: 8px; cursor: pointer; color: var(--midnight); font-weight: bold; transition: transform .3s; }
-    .cta-button:hover { transform: scale(1.05); }
-
-    /* REVIEWS & VIDEO (unchanged) */
-    .reviews, .storybook-video {
-      padding: 100px 20px;
-      max-width: 900px;
-      margin: 60px auto;
-      background: var(--soft-paper);
-      border-left: 10px solid var(--gold);
-      border-right: 10px solid var(--gold);
-      box-shadow: 0 0 40px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .reviews h2, .storybook-video h2 { font-size: 2.5rem; margin-bottom: 40px; }
-    .review-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-    .review-card { background: #af92ba; padding: 30px; border-radius: 15px; font-style: italic; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-    .review-card span { display:block; margin-top:15px; font-weight:bold; text-align:right; }
-
-    .video-frame { position: relative; display: inline-block; margin: 20px; }
-    .video-frame img.book-frame { display:block; width:350px; height:auto; position:relative; z-index:1; }
-    .video-frame video { position:absolute; top:12%; left:12%; width:76%; height:76%; object-fit:cover; border-radius:8px; z-index:2; }
-
-    @media (max-width:900px) {
-      .review-cards { grid-template-columns: 1fr; }
-      header h1 { font-size: 3rem; }
-      header p { font-size: 1.2rem; }
-      .cta-button { font-size:1rem; padding:10px 24px; }
-      .video-frame img.book-frame { width:250px; }
-      header { height: 500px; }
-    }
-  </style>
+</style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav class="book-tabs">
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="photography.html">Photography</a></li>
-      <li><a href="videography.html">Videography</a></li>
-      <li><a href="packages.html">Packages</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="booking.html">Booking</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+<div class="storybook">
+  <!-- Left cover -->
+  <div class="book-cover left">
+    <div class="front">
+      <!-- Optional left cover front image -->
+    </div>
+    <div class="back"></div>
+  </div>
 
-  <!-- HEADER / BOOK -->
-  <header>
-    <div class="book-spine"></div>
-    <!-- LEFT COVER -->
-<div class="book-cover">
-  <div class="front">
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/havencover.png" alt="Cover Front">
+  <!-- Right cover -->
+  <div class="book-cover right">
+    <div class="front">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/havencover.png" alt="Cover Front">
+    </div>
+    <div class="back"></div>
   </div>
-  <div class="back"></div>
-</div>
-<!-- PAGE 1 -->
-<div class="book-page page1">
-  <div class="front">
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/andiestorybook.png" alt="Page 1">
-  </div>
-  <div class="back"></div>
-</div>
 
-<!-- PAGE 2 -->
-<div class="book-page page2">
-  <div class="front">
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/bradstorybook.png" alt="Page 2">
+  <!-- Page 1 -->
+  <div class="book-page page1">
+    <div class="front">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/andiestorybook.png" alt="Page 1">
+    </div>
+    <div class="back"></div>
   </div>
-  <div class="back"></div>
+
+  <!-- Page 2 -->
+  <div class="book-page page2">
+    <div class="front">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/bradstorybook.png" alt="Page 2">
+    </div>
+    <div class="back"></div>
+  </div>
+
+  <!-- Add more pages as needed -->
 </div>
 
-    <!-- add more .book-page blocks as needed, they will be handled the same -->
+<script>
+// Flip logic example
+const covers = document.querySelectorAll('.book-cover');
+const pages = document.querySelectorAll('.book-page');
 
-    <!-- Logo above content -->
-    <div class="book-logo">
-      <img src="https://sunniejae.blob.core.windows.net/sunniejae/havenclaw.png" alt="Haven Logo">
-    </div>
+covers.forEach(cover => {
+  cover.addEventListener('click', () => cover.classList.toggle('open'));
+});
 
-    <div class="book-content">
-      <h1>Haven Photo & Video</h1>
-      <p>The Safe Choice</p>
-      <p>No Risk, just Romance on your special day.</p>
-      <a href="https://sunniejae.my.canva.site/haven" class="cta-button">Discover More</a>
-    </div>
-  </header>
-
-  <!-- REVIEWS -->
-  <section class="reviews">
-    <h2>What Couples Say</h2>
-    <div class="review-cards">
-      <div class="review-card"><p>"Absolutely magical experience!"</p><span>- Emily & James</span></div>
-      <div class="review-card"><p>"The storytelling is breathtaking."</p><span>- Sophia & Liam</span></div>
-    </div>
-  </section>
-
-  <!-- VIDEO -->
-  <section class="storybook-video">
-    <h2>Captured Moments</h2>
-    <div class="video-frame">
-      <img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative Frame">
-      <video autoplay loop muted playsinline preload="none">
-        <source src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%201.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="video-frame">
-      <img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative Frame">
-      <video autoplay loop muted playsinline preload="none">
-        <source src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%202.mp4" type="video/mp4">
-      </video>
-    </div>
-  </section>
-
-  <script>
-    // -- Trigger the book open and then adjust stacking after each flip --
-    window.addEventListener('load', () => {
-      const header = document.querySelector('header');
-      header.classList.add('open');
-
-      // Timings must match the CSS transition-delay + transition-duration for each page.
-      // For your CSS: page nth-child(3) had delay 2s and duration 1s -> we wait 3000ms to mark turned.
-      // nth-child(4): 3s delay +1s duration -> 4000ms; nth-child(5): 4s +1s -> 5000ms
-      const pageFinishTimes = [3000, 4000, 5000]; // ms (adjust if you change CSS delays/durations)
-      const pages = Array.from(document.querySelectorAll('.book-page'));
-
-      pages.forEach((page, i) => {
-        const finish = pageFinishTimes[i] || (2000 + (i+1)*1000); // fallback value
-        setTimeout(() => {
-          page.classList.add('turned'); // this lowers its z-index via CSS
-        }, finish + 50); // small extra buffer to ensure transform finished
-      });
-
-      // Also lower the right cover after its rotation completes.
-      // In CSS its transition runs 2s with no delay -> finish ~2000ms
-      setTimeout(() => {
-        const cover = document.querySelector('.book-cover.right');
-        if (cover) cover.classList.add('turned-cover');
-      }, 2100);
-    });
-  </script>
+pages.forEach(page => {
+  page.addEventListener('click', () => page.classList.toggle('open'));
+});
+</script>
 
 </body>
 </html>
