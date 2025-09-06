@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Haven | Preserved Memories</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poiret+One:wght@400&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png" />
   <style>
-    /* ===== CSS Variables ===== */
+    /* ===== Variables ===== */
     :root {
-      --darkest: #0F150F;
+      --darkest: #0f150f;
       --beige: #cdd5c7;
       --pale: #ecece7;
       --dark: #d7afa5;
@@ -26,64 +26,56 @@
     /* ===== Base Styles ===== */
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: 'Poiret One', cursive;
       background: var(--cream);
       color: var(--darkest);
       line-height: 1.6;
     }
 
-    /* ===== Navigation Bar ===== */
+    /* ===== Navigation ===== */
     .nav-bar {
-      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
       display: flex;
       justify-content: center;
       padding: 20px 0;
       background: var(--lavender);
-      position: sticky;
-      top: 0;
-      z-index: 100;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .nav-bar ul {
-      list-style: none;
       display: flex;
       gap: 2rem;
-      padding: 0;
-      margin: 0;
+      list-style: none;
     }
 
     .nav-bar a {
+      font-size: 1.2rem;
       text-decoration: none;
       color: var(--cream);
       padding: 0.5rem 1rem;
       border-radius: 20px;
-      transition: all 0.3s ease;
-      font-size: 1.2rem;
+      transition: 0.3s ease;
     }
 
     .nav-bar a:hover,
     .nav-bar a:focus {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255,255,255,0.15);
       color: var(--pale);
-      outline: 2px solid transparent;
     }
 
-    /* ===== Hero Header ===== */
+    /* ===== Hero ===== */
     .hero-header {
-      width: 100%;
+      text-align: center;
       padding: 60px 20px 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       background: var(--pale);
       position: relative;
-      text-align: center;
       overflow: hidden;
     }
 
@@ -91,38 +83,26 @@
       width: 33.33vw;
       min-width: 300px;
       max-width: 600px;
-      height: auto;
       margin-bottom: 30px;
-      position: relative;
-      
-      /* Shadow box frame effect */
       border: 12px solid var(--cream);
       border-radius: 8px;
-      
-      /* Multiple layered shadows for depth */
-      box-shadow: 
-        /* Inner shadow for recessed look */
+      box-shadow:
         inset 0 0 0 3px var(--lavender),
         inset 0 0 0 6px var(--pale),
         inset 0 4px 8px rgba(0,0,0,0.15),
-        
-        /* Outer shadows for floating effect */
         0 8px 16px rgba(0,0,0,0.2),
         0 16px 32px rgba(0,0,0,0.15),
         0 24px 48px rgba(0,0,0,0.1);
-      
-      /* Subtle 3D transform */
       transform: perspective(1000px) rotateX(2deg);
-      transition: all 0.3s ease;
+      transition: 0.3s ease;
     }
-    
+
     .hero-image:hover {
-      transform: perspective(1000px) rotateX(0deg) translateY(-2px);
-      box-shadow: 
+      transform: perspective(1000px) rotateX(0) translateY(-2px);
+      box-shadow:
         inset 0 0 0 3px var(--lavender),
         inset 0 0 0 6px var(--pale),
         inset 0 4px 8px rgba(0,0,0,0.15),
-        
         0 12px 24px rgba(0,0,0,0.25),
         0 20px 40px rgba(0,0,0,0.18),
         0 28px 56px rgba(0,0,0,0.12);
@@ -130,56 +110,31 @@
 
     .hero-header h1 {
       font-size: clamp(2.5rem, 5vw, 4rem);
-      margin: 0;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
       color: var(--violet);
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
     }
 
     .hero-header .tagline {
       font-size: clamp(1.1rem, 2.5vw, 1.4rem);
       font-style: italic;
-      margin-top: 0.5rem;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
       color: var(--darkest);
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+      margin-top: 0.5rem;
     }
 
-    /* ===== Decorative Flowers ===== */
+    /* ===== Flowers ===== */
     .flower-decoration {
       position: absolute;
-      z-index: 1;
       opacity: 0.3;
       pointer-events: none;
     }
-    
-    .flower-left { 
-      top: 50%; 
-      left: -50px; 
-      transform: translateY(-50%); 
-      width: 120px; 
-    }
-    
-    .flower-right { 
-      top: 50%; 
-      right: -50px; 
-      transform: translateY(-50%); 
-      width: 120px; 
-    }
-    
-    .flower-top { 
-      top: -30px; 
-      left: 50%; 
-      transform: translateX(-50%); 
-      width: 200px; 
-    }
-    
-    .flower-bottom { 
-      bottom: -30px; 
-      left: 50%; 
-      transform: translateX(-50%); 
-      width: 200px; 
-    }
 
-    /* ===== Main Content Sections ===== */
+    .flower-top    { top: -30px; left: 50%; transform: translateX(-50%); width: 200px; }
+    .flower-bottom { bottom: -30px; left: 50%; transform: translateX(-50%); width: 200px; }
+    .flower-left   { top: 50%; left: -50px; transform: translateY(-50%); width: 120px; }
+    .flower-right  { top: 50%; right: -50px; transform: translateY(-50%); width: 120px; }
+
+    /* ===== Sections ===== */
     main {
       max-width: 1200px;
       margin: 0 auto;
@@ -192,31 +147,28 @@
       border-radius: 15px;
       margin: 40px 0;
       padding: 50px 30px;
-      position: relative;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
     section h2 {
       color: var(--violet);
       font-size: clamp(2rem, 4vw, 2.5rem);
-      margin-bottom: 1.5rem;
       text-align: center;
+      margin-bottom: 1.5rem;
     }
 
     section p {
-      color: var(--darkest);
       font-size: 1.1rem;
       margin-bottom: 1rem;
     }
 
-    /* ===== About Section ===== */
     .about-content {
       text-align: center;
       max-width: 800px;
       margin: 0 auto;
     }
 
-    /* ===== Portfolio Section ===== */
+    /* ===== Portfolio ===== */
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -231,7 +183,7 @@
       padding: 25px;
       text-align: center;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: 0.3s ease;
     }
 
     .portfolio-item:hover {
@@ -239,85 +191,45 @@
       box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     }
 
-    .portfolio-item h3 {
-      color: var(--violet);
-      font-size: 1.5rem;
-      margin: 1rem 0;
-    }
-
     .portfolio-placeholder {
-      width: 100%;
       height: 200px;
       background: var(--beige);
       border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--darkest);
-      font-size: 1.1rem;
       margin-bottom: 1rem;
+      font-size: 1.1rem;
     }
 
-    /* ===== Reviews Section ===== */
+    /* ===== Reviews ===== */
     .reviews-container {
       max-width: 800px;
       margin: 0 auto;
     }
 
     .review {
-      border-left: 4px solid var(--lavender);
       margin: 25px 0;
       padding: 20px 0 20px 25px;
-      font-style: italic;
       background: var(--cream);
+      border-left: 4px solid var(--lavender);
       border-radius: 0 8px 8px 0;
+      font-style: italic;
     }
 
-    .review p {
-      margin: 0;
-      font-size: 1.1rem;
-    }
-
-    /* ===== Responsive Design ===== */
+    /* ===== Responsive ===== */
     @media (max-width: 768px) {
-      .nav-bar ul {
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: center;
-      }
-
-      .nav-bar a {
-        font-size: 1rem;
-        padding: 0.4rem 0.8rem;
-      }
-
-      .hero-header {
-        padding: 40px 20px 60px;
-      }
-
-      section {
-        padding: 30px 20px;
-        margin: 30px 0;
-      }
-
-      .portfolio-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .flower-decoration {
-        opacity: 0.1;
-      }
+      .nav-bar ul { flex-wrap: wrap; gap: 1rem; }
+      .nav-bar a { font-size: 1rem; padding: 0.4rem 0.8rem; }
+      .hero-header { padding: 40px 20px 60px; }
+      section { padding: 30px 20px; margin: 30px 0; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .flower-decoration { opacity: 0.1; }
     }
 
     @media (max-width: 480px) {
-      .nav-bar ul {
-        gap: 0.5rem;
-      }
-
-      .nav-bar a {
-        font-size: 0.9rem;
-        padding: 0.3rem 0.6rem;
-      }
+      .nav-bar ul { gap: 0.5rem; }
+      .nav-bar a { font-size: 0.9rem; padding: 0.3rem 0.6rem; }
     }
   </style>
 </head>
@@ -333,31 +245,23 @@
     </ul>
   </nav>
 
-  <!-- Hero Header -->
-  <header class="hero-header">
+  <!-- Hero -->
+  <header class="hero-header" id="home">
     <img src="https://sunniejae.blob.core.windows.net/sunniejae/havenwhiteshaded.png" 
          alt="Haven Photography Logo" 
-         class="hero-image">
+         class="hero-image" />
     <h1>Haven</h1>
     <p class="tagline">Preserved Memories</p>
 
-    <!-- Decorative Flower Graphics -->
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower.png" 
-         class="flower-decoration flower-top" 
-         alt="" role="presentation">
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower2.png" 
-         class="flower-decoration flower-bottom" 
-         alt="" role="presentation">
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower3.png" 
-         class="flower-decoration flower-left" 
-         alt="" role="presentation">
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower4.png" 
-         class="flower-decoration flower-right" 
-         alt="" role="presentation">
+    <!-- Flowers -->
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower.png" class="flower-decoration flower-top" alt="" role="presentation" />
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower2.png" class="flower-decoration flower-bottom" alt="" role="presentation" />
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower3.png" class="flower-decoration flower-left" alt="" role="presentation" />
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower4.png" class="flower-decoration flower-right" alt="" role="presentation" />
   </header>
 
   <main>
-    <!-- About Section -->
+    <!-- About -->
     <section id="about">
       <h2>About Us</h2>
       <div class="about-content">
@@ -366,7 +270,7 @@
       </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <!-- Portfolio -->
     <section id="portfolio">
       <h2>Our Services</h2>
       <div class="portfolio-grid">
@@ -383,19 +287,13 @@
       </div>
     </section>
 
-    <!-- Reviews Section -->
+    <!-- Reviews -->
     <section id="reviews">
       <h2>Client Reviews</h2>
       <div class="reviews-container">
-        <div class="review">
-          <p>"Haven captured our wedding perfectly! The photos are stunning and the videos brought tears to our eyes. Every detail was preserved beautifully."</p>
-        </div>
-        <div class="review">
-          <p>"Every moment felt alive through their lens. The team at Haven truly understands how to create timeless memories that we'll treasure forever."</p>
-        </div>
-        <div class="review">
-          <p>"We couldn't have asked for a more professional and creative team. Their attention to detail and artistic vision exceeded our expectations. Highly recommended!"</p>
-        </div>
+        <div class="review"><p>"Haven captured our wedding perfectly! The photos are stunning and the videos brought tears to our eyes."</p></div>
+        <div class="review"><p>"Every moment felt alive through their lens. The team at Haven truly understands how to create timeless memories."</p></div>
+        <div class="review"><p>"We couldn't have asked for a more professional and creative team. Highly recommended!"</p></div>
       </div>
     </section>
   </main>
