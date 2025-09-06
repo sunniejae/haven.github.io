@@ -3,23 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Haven Photography - Pressed Flower Memories</title>
-<link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png">
-  <!-- Google Font -->
+  <title>Haven | Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
-
+  <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png">
   <style>
     /* ===== Secret Garden Palette ===== */
     :root {
-      /* Neutrals */
       --darkest: #0F150F;
       --beige: #cdd5c7;
       --pale: #ecece7;
       --dark: #d7afa5;
       --jeans: #67868e;
       --coral: #ff6b6b;
-
-      /* Florals */
       --lavender: #d8bbd4;
       --violet: #7d5b84;
       --pink: #e194bc;
@@ -28,214 +23,153 @@
       --cream: #f3ebe7;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: Georgia, serif;
-      line-height: 1.6;
+      margin: 0;
+      font-family: 'Poiret One', cursive;
       background: var(--cream);
       color: var(--darkest);
-      overflow-x: hidden;
     }
 
-    h1, h2, h3 {
-      font-family: 'Poiret One', cursive;
-      color: var(--violet);
-      font-weight: 400;
-      letter-spacing: 2px;
-    }
-
-    /* Header */
-    header {
+    /* ===== Hero Header ===== */
+    .hero-header {
+      width: 100%;
+      height: 775px;
+      background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/havenheaderpurple.png'); /* 1920x775 image */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 4rem 2rem;
-      background: rgba(15, 21, 15, 0.6);
-      color: var(--pale);
+      color: var(--cream);
+      position: relative;
     }
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+    .hero-header h1 {
+      font-size: 4rem;
+      margin: 0;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
     }
 
-    header p {
+    .hero-header p {
+      font-size: 1.5rem;
       font-style: italic;
-      color: var(--beige);
+      margin-top: 1rem;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
     }
 
-    /* Section styling */
+    /* ===== Navigation Bar ===== */
+    .nav-bar {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .nav-bar ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-bar a {
+      text-decoration: none;
+      color: var(--cream);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .nav-bar a:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--lavender);
+    }
+
+    /* ===== Sections ===== */
     section {
       background: var(--pale);
       border: 2px solid var(--lavender);
-      border-radius: 20px;
-      padding: 4rem 2rem;
-      margin: 3rem auto;
+      border-radius: 15px;
+      margin: 40px auto;
+      padding: 60px 30px;
       max-width: 1000px;
+      position: relative;
+      overflow: hidden;
       box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
     }
 
     section h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      font-size: 2.2rem;
+      color: var(--violet);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
 
     section p {
-      max-width: 700px;
-      margin: 0 auto 1.5rem auto;
-      text-align: center;
       color: var(--darkest);
-    }
-
-    /* Call to Action Button */
-    .cta-button {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 1rem 2.5rem;
-      background: linear-gradient(135deg, var(--pink), var(--violet));
-      color: white;
-      border-radius: 50px;
-      text-decoration: none;
-      font-family: 'Poiret One', cursive;
       font-size: 1.1rem;
-      transition: all 0.3s ease;
+      line-height: 1.6;
     }
 
-    .cta-button:hover {
-      background: linear-gradient(135deg, var(--violet), var(--pink));
-      transform: translateY(-3px);
+    /* ===== Flower Graphic Placeholders ===== */
+    .flower-left, .flower-right, .flower-top, .flower-bottom {
+      position: absolute;
+      z-index: 0;
+      opacity: 0.2;
+      pointer-events: none;
     }
 
-    /* Services Grid */
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
+    .flower-left { top: 20px; left: -50px; width: 200px; }
+    .flower-right { bottom: 20px; right: -50px; width: 200px; }
+    .flower-top { top: -50px; left: 50%; transform: translateX(-50%); width: 300px; }
+    .flower-bottom { bottom: -50px; left: 50%; transform: translateX(-50%); width: 300px; }
 
-    .service-card {
-      background: var(--cream);
-      border: 1px solid var(--soft-pink);
-      border-radius: 15px;
-      padding: 2rem;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0px 12px 20px rgba(0,0,0,0.1);
-    }
-
-    .service-card h3 {
-      margin-bottom: 1rem;
-      color: var(--jeans);
-    }
-
-    .service-card p {
-      color: var(--darkest);
-      font-size: 0.95rem;
-    }
-
-    /* Contact Section */
-    .contact-info {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .contact-item {
-      text-align: center;
-      color: var(--violet);
-    }
-
-    .contact-icon {
-      font-size: 2rem;
-      color: var(--pink);
-      margin-bottom: 0.5rem;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      background: var(--jeans);
-      color: var(--cream);
-      padding: 2rem;
-      margin-top: 4rem;
-      font-size: 0.9rem;
-    }
-
-    footer span {
-      color: var(--lavender);
-      margin: 0 0.5rem;
-    }
   </style>
 </head>
 <body>
 
-  <header>
+<!-- Hero Header -->
+<header class="hero-header">
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="photo.html">Photo</a></li>
+      <li><a href="video.html">Video</a></li>
+      <li><a href="booking.html">Booking</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <div>
     <h1>Haven</h1>
     <p>Pressed Flowers · Preserved Memories</p>
-  </header>
+  </div>
+</header>
+
+<main>
+  <section>
+    <img src="flower-left.png" class="flower-left" alt="Flower graphic">
+    <img src="flower-right.png" class="flower-right" alt="Flower graphic">
+    <h2>Haven Photo & Video</h2>
+    <p>preserving your beautiful moments</p>
+  </section>
 
   <section>
-    <h2>Timeless Memories</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra, lacus ut posuere fermentum, orci est elementum magna, at posuere lectus nulla vel orci. Curabitur imperdiet risus nec urna egestas, in tempor nulla mattis.</p>
-    <a href="#contact" class="cta-button">Preserve Your Moments</a>
+    <img src="flower-top.png" class="flower-top" alt="Flower graphic">
+    <img src="flower-bottom.png" class="flower-bottom" alt="Flower graphic">
+    <h2>Customer Reviews</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mattis, massa sed viverra dictum, neque lorem tincidunt nisl, in rhoncus nunc libero a libero.</p>
   </section>
 
   <section>
-    <h2>Our Collections</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper dui at metus dapibus, vel finibus lacus volutpat.</p>
-    <div class="service-grid">
-      <div class="service-card">
-        <h3>Weddings</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer aliquet purus quis sapien sagittis.</p>
-      </div>
-      <div class="service-card">
-        <h3>Engagements</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Suspendisse potenti.</p>
-      </div>
-      <div class="service-card">
-        <h3>Newborns</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, arcu non egestas dictum.</p>
-      </div>
-      <div class="service-card">
-        <h3>Family Portraits</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a ullamcorper sem.</p>
-      </div>
-    </div>
+    <h2>About Us</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non bibendum urna. Nam euismod, ligula a tincidunt vestibulum, augue metus scelerisque metus, sit amet pretium erat erat et nisl.</p>
   </section>
-
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique, quam ac finibus elementum, orci nulla ultrices est, vel imperdiet libero urna in ligula.</p>
-    <div class="contact-info">
-      <div class="contact-item">
-        <div class="contact-icon">✉</div>
-        <div>lorem@ipsum.com</div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📱</div>
-        <div>(555) 123-4567</div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">🗺</div>
-        <div>Lorem Ipsum City</div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2024 Haven Photography <span>❋</span> Preserving memories with love</p>
-  </footer>
+</main>
 
 </body>
 </html>
