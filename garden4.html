@@ -3,210 +3,438 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Haven | Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+  <title>Haven | Preserved Memories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One:wght@400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png">
   <style>
-    /* ===== Secret Garden Palette ===== */
+    /* ===== CSS Variables ===== */
     :root {
-      --darkest: #2c2c2c;
-      --medium: #7a7a7a;
-      --light: #faf9f6;
-      --pale: #f5f0ea;
-      --accent: #b49a84;
-      --soft: #eae7dc;
-      --highlight: #d8c3a5;
+      --darkest: #0F150F;
+      --beige: #cdd5c7;
+      --pale: #ecece7;
+      --dark: #d7afa5;
+      --jeans: #67868e;
+      --coral: #ff6b6b;
+      --lavender: #d8bbd4;
+      --violet: #7d5b84;
+      --pink: #e194bc;
+      --soft-pink: #d7afa5;
+      --green: #737151;
+      --cream: #f3ebe7;
     }
 
-    /* Global Styles */
+    /* ===== Base Styles ===== */
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: 'Poiret One', sans-serif;
-      background-color: var(--light);
+      font-family: 'Poiret One', cursive;
+      background: var(--cream);
       color: var(--darkest);
       line-height: 1.6;
     }
 
-    h1, h2, h3 {
-      margin: 0;
-      font-weight: normal;
-    }
-
-    p {
-      max-width: 700px;
-      margin: 0 auto 1em;
-    }
-
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
+    /* ===== Navigation Bar ===== */
+    .nav-bar {
       width: 100%;
-      background: var(--light);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
       display: flex;
       justify-content: center;
-      gap: 30px;
-      padding: 15px 0;
-      z-index: 1000;
+      padding: 20px 0;
+      background: var(--lavender);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    nav a {
-      color: var(--darkest);
+    .nav-bar ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-bar a {
       text-decoration: none;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
+      color: var(--cream);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
     }
 
-    nav a:hover {
-      color: var(--accent);
+    .nav-bar a:hover,
+    .nav-bar a:focus {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--pale);
+      outline: 2px solid transparent;
     }
 
-    /* Hero Header */
+    /* ===== Hero Header ===== */
     .hero-header {
       width: 100%;
-      min-height: 70vh; /* taller, not full screen */
-      padding: 100px 20px 120px;
+      padding: 80px 20px 100px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: var(--pale);
+      background: linear-gradient(135deg, var(--pale) 0%, var(--beige) 100%);
       position: relative;
       text-align: center;
       overflow: hidden;
+      min-height: 80vh;
+    }
+
+    .hero-image {
+      width: min(700px, 85vw);
+      height: auto;
+      border: 12px solid var(--lavender);
+      border-radius: 20px;
+      box-shadow: 
+        0 15px 40px rgba(0,0,0,0.3),
+        0 5px 15px rgba(125, 91, 132, 0.4),
+        inset 0 1px 0 rgba(255,255,255,0.3);
+      margin-bottom: 40px;
+      transition: all 0.5s ease;
+      position: relative;
+      z-index: 10;
+    }
+
+    .hero-image:hover {
+      transform: scale(1.02) translateY(-5px);
+      box-shadow: 
+        0 25px 60px rgba(0,0,0,0.4),
+        0 10px 25px rgba(125, 91, 132, 0.5),
+        inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+
+    /* Enhanced glow effect around the image */
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: -20px;
+      bottom: -20px;
+      background: radial-gradient(ellipse at center, rgba(216, 187, 212, 0.3) 0%, transparent 70%);
+      border-radius: 30px;
+      z-index: -1;
+      animation: gentle-pulse 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes gentle-pulse {
+      0% { opacity: 0.3; transform: scale(0.98); }
+      100% { opacity: 0.6; transform: scale(1.02); }
     }
 
     .hero-header h1 {
-      font-size: 4rem; /* bigger title */
-      margin-bottom: 20px;
-      color: var(--darkest);
-    }
-
-    .hero-header p {
-      font-size: 1.4rem;
-      color: var(--medium);
-    }
-
-    /* Sections */
-    section {
-      padding: 100px 20px;
-      text-align: center;
+      font-size: clamp(3rem, 6vw, 5rem);
+      margin: 20px 0 10px 0;
+      text-shadow: 3px 3px 12px rgba(0,0,0,0.4);
+      color: var(--violet);
       position: relative;
-      overflow: hidden;
-      background: var(--soft);
+      z-index: 10;
+    }
+
+    .hero-header .tagline {
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-style: italic;
+      margin-top: 0.5rem;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      color: var(--darkest);
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ===== Decorative Flowers ===== */
+    .flower-decoration {
+      position: absolute;
+      z-index: 1;
+      opacity: 0.4;
+      pointer-events: none;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) translateX(0px); }
+      25% { transform: translateY(-10px) translateX(5px); }
+      50% { transform: translateY(0px) translateX(-5px); }
+      75% { transform: translateY(10px) translateX(5px); }
+    }
+    
+    .flower-left { 
+      top: 50%; 
+      left: -60px; 
+      transform: translateY(-50%); 
+      width: 140px;
+      animation-delay: 0s;
+    }
+    
+    .flower-right { 
+      top: 50%; 
+      right: -60px; 
+      transform: translateY(-50%); 
+      width: 140px;
+      animation-delay: 1.5s;
+    }
+    
+    .flower-top { 
+      top: -40px; 
+      left: 50%; 
+      transform: translateX(-50%); 
+      width: 220px;
+      animation-delay: 3s;
+    }
+    
+    .flower-bottom { 
+      bottom: -40px; 
+      left: 50%; 
+      transform: translateX(-50%); 
+      width: 220px;
+      animation-delay: 4.5s;
+    }
+
+    /* ===== Main Content Sections ===== */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: var(--pale);
+      border: 2px solid var(--lavender);
+      border-radius: 15px;
+      margin: 40px 0;
+      padding: 50px 30px;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
     section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
+      color: var(--violet);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      margin-bottom: 1.5rem;
+      text-align: center;
     }
 
     section p {
-      font-size: 1.2rem;
       color: var(--darkest);
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
     }
 
-    /* Flowers */
-    .flower {
-      position: absolute;
-      opacity: 0.25;
-      pointer-events: none;
-      user-select: none;
-      z-index: 0;
-      transition: transform 0.2s ease-out;
-    }
-
-    /* Footer */
-    footer {
+    /* ===== About Section ===== */
+    .about-content {
       text-align: center;
-      padding: 20px;
-      font-family: 'Poiret One', sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* ===== Portfolio Section ===== */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 2rem;
+    }
+
+    .portfolio-item {
+      background: var(--cream);
+      border: 1px solid var(--lavender);
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .portfolio-item h3 {
+      color: var(--violet);
+      font-size: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .portfolio-placeholder {
+      width: 100%;
+      height: 200px;
+      background: var(--beige);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: var(--darkest);
-      background: var(--light);
-      border-top: 1px solid rgba(0,0,0,0.1);
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    /* ===== Reviews Section ===== */
+    .reviews-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .review {
+      border-left: 4px solid var(--lavender);
+      margin: 25px 0;
+      padding: 20px 0 20px 25px;
+      font-style: italic;
+      background: var(--cream);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .review p {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    /* ===== Responsive Design ===== */
+    @media (max-width: 768px) {
+      .nav-bar ul {
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .nav-bar a {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+      }
+
+      .hero-header {
+        padding: 60px 20px 80px;
+        min-height: 70vh;
+      }
+
+      .hero-image {
+        width: min(600px, 90vw);
+        border-width: 10px;
+      }
+
+      section {
+        padding: 30px 20px;
+        margin: 30px 0;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flower-decoration {
+        opacity: 0.2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-bar ul {
+        gap: 0.5rem;
+      }
+
+      .nav-bar a {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.6rem;
+      }
+
+      .hero-header {
+        min-height: 60vh;
+      }
+
+      .hero-image {
+        width: min(400px, 95vw);
+        border-width: 8px;
+      }
+
+      .flower-decoration {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
-
-  <nav>
-    <a href="#about">About</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#contact">Contact</a>
+  <!-- Navigation -->
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
 
+  <!-- Hero Header -->
   <header class="hero-header">
-    <h1>Welcome to Haven</h1>
-    <p>Capturing your memories with timeless elegance</p>
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/havenheaderphotos.png" 
+         alt="Haven Photography Logo" 
+         class="hero-image">
+    <h1>Haven</h1>
+    <p class="tagline">Preserved Memories</p>
+
+    <!-- Decorative Flower Graphics -->
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower.png" 
+         class="flower-decoration flower-top" 
+         alt="" role="presentation">
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower2.png" 
+         class="flower-decoration flower-bottom" 
+         alt="" role="presentation">
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png" 
+         class="flower-decoration flower-left" 
+         alt="" role="presentation">
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower4.png" 
+         class="flower-decoration flower-right" 
+         alt="" role="presentation">
   </header>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>Welcome to Haven. We create timeless memories through photography and videography, preserving your most cherished moments with care and artistry.</p>
-  </section>
+  <main>
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Us</h2>
+      <div class="about-content">
+        <p>Welcome to Haven, where every moment becomes a treasured memory. We specialize in capturing life's most precious occasions through the art of photography and videography.</p>
+        <p>Like pressed flowers preserved between the pages of time, we believe your memories deserve to be kept safe, beautiful, and lasting. Our passion is creating visual stories that you'll cherish for generations to come.</p>
+      </div>
+    </section>
 
-  <section id="portfolio">
-    <h2>Our Services</h2>
-    <p>Photography and Videography samples coming soon...</p>
-  </section>
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+      <h2>Our Services</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <div class="portfolio-placeholder">Photography Samples</div>
+          <h3>Photography</h3>
+          <p>From intimate portraits to grand celebrations, we capture the essence of every moment with artistic vision and technical excellence.</p>
+        </div>
+        <div class="portfolio-item">
+          <div class="portfolio-placeholder">Videography Samples</div>
+          <h3>Videography</h3>
+          <p>Bring your memories to life with cinematic storytelling that preserves not just the moment, but the emotion and atmosphere.</p>
+        </div>
+      </div>
+    </section>
 
-  <section id="reviews">
-    <h2>Client Reviews</h2>
-    <p>"Haven captured our wedding perfectly!"</p>
-  </section>
-
-  <footer>
-    <span>📍 Logan, UT</span> | <span>✉️ havenemail@email.com</span>
-  </footer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const flowerImages = [
-        "https://sunniejae.blob.core.windows.net/sunniejae/pressedflower.png",
-        "https://sunniejae.blob.core.windows.net/sunniejae/pressedflower2.png",
-        "https://sunniejae.blob.core.windows.net/sunniejae/pressedflower3.png",
-        "https://sunniejae.blob.core.windows.net/sunniejae/pressedflower4.png"
-      ];
-
-      // Sprinkle flowers into hero and sections only
-      document.querySelectorAll(".hero-header, section").forEach(section => {
-        const flowerCount = Math.floor(Math.random() * 3) + 2; // 2–4 per section
-        const sectionHeight = section.offsetHeight;
-
-        for (let i = 0; i < flowerCount; i++) {
-          const img = document.createElement("img");
-          img.src = flowerImages[Math.floor(Math.random() * flowerImages.length)];
-          img.className = "flower";
-
-          // Random size
-          const size = Math.floor(Math.random() * 40) + 30; // 30–70px
-          img.style.width = `${size}px`;
-
-          // Random position within section
-          img.style.top = `${Math.random() * (sectionHeight - 50)}px`;
-          img.style.left = `${Math.random() * 90}%`;
-
-          // Random rotation
-          img.dataset.rotate = Math.random() * 360;
-          img.style.transform = `rotate(${img.dataset.rotate}deg)`;
-
-          section.appendChild(img);
-        }
-      });
-
-      // Parallax effect
-      window.addEventListener("scroll", () => {
-        const scrollY = window.scrollY;
-        document.querySelectorAll(".flower").forEach((flower, index) => {
-          const baseRotate = parseFloat(flower.dataset.rotate);
-          const offset = (scrollY * 0.05 * ((index % 2 === 0) ? 1 : -1));
-          flower.style.transform = `translateY(${offset}px) rotate(${baseRotate}deg)`;
-        });
-      });
-    });
-  </script>
-
+    <!-- Reviews Section -->
+    <section id="reviews">
+      <h2>Client Reviews</h2>
+      <div class="reviews-container">
+        <div class="review">
+          <p>"Haven captured our wedding perfectly! The photos are stunning and the videos brought tears to our eyes. Every detail was preserved beautifully."</p>
+        </div>
+        <div class="review">
+          <p>"Every moment felt alive through their lens. The team at Haven truly understands how to create timeless memories that we'll treasure forever."</p>
+        </div>
+        <div class="review">
+          <p>"We couldn't have asked for a more professional and creative team. Their attention to detail and artistic vision exceeded our expectations. Highly recommended!"</p>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
