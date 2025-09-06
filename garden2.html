@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Haven | Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png">
   <style>
     /* ===== Secret Garden Palette ===== */
     :root {
@@ -33,8 +32,8 @@
     /* ===== Hero Header ===== */
     .hero-header {
       width: 100%;
-      height: 600px; /* traditional hero header height */
-      background-image: url('hhttps://sunniejae.blob.core.windows.net/sunniejae/havenheaderpurple.png'); /* 1920x600 image works best */
+      height: 600px;
+      background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/havenheaderpurple.png');
       background-size: cover;
       background-position: center;
       display: flex;
@@ -118,15 +117,46 @@
     /* ===== Flower Graphic Placeholders ===== */
     .flower-left, .flower-right, .flower-top, .flower-bottom {
       position: absolute;
-      z-index: 0;
-      opacity: 0.2;
+      z-index: 1;
+      opacity: 0.3;
       pointer-events: none;
     }
 
-    .flower-left { top: 20px; left: -50px; width: 200px; }
-    .flower-right { bottom: 20px; right: -50px; width: 200px; }
+    .flower-left { top: 50%; left: -50px; transform: translateY(-50%); width: 150px; }
+    .flower-right { top: 50%; right: -50px; transform: translateY(-50%); width: 150px; }
     .flower-top { top: -50px; left: 50%; transform: translateX(-50%); width: 300px; }
     .flower-bottom { bottom: -50px; left: 50%; transform: translateX(-50%); width: 300px; }
+
+    /* ===== Portfolio Highlights ===== */
+    .portfolio {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .portfolio-item {
+      flex: 1 1 300px;
+      background: var(--cream);
+      border: 1px solid var(--lavender);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .portfolio-item img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    /* ===== Reviews ===== */
+    .review {
+      border-left: 4px solid var(--lavender);
+      margin: 20px 0;
+      padding-left: 20px;
+      font-style: italic;
+    }
 
   </style>
 </head>
@@ -148,27 +178,52 @@
     <h1>Haven</h1>
     <p>Pressed Flowers · Preserved Memories</p>
   </div>
+  <!-- Flower Graphics -->
+  <img src="flower-top.png" class="flower-top" alt="Flower graphic">
+  <img src="flower-bottom.png" class="flower-bottom" alt="Flower graphic">
+  <img src="flower-left.png" class="flower-left" alt="Flower graphic">
+  <img src="flower-right.png" class="flower-right" alt="Flower graphic">
 </header>
 
 <main>
+
+  <!-- About Us -->
   <section>
-    <img src="flower-left.png" class="flower-left" alt="Flower graphic">
-    <img src="flower-right.png" class="flower-right" alt="Flower graphic">
-    <h2>Lorem Ipsum Heading 1</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin hendrerit, sapien ut commodo tincidunt, lorem urna fermentum lacus, nec ullamcorper libero odio a nisi.</p>
+    <h2>About Us</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin hendrerit, sapien ut commodo tincidunt, lorem urna fermentum lacus, nec ullamcorper libero odio a nisi. Our mission is to capture your memories in a timeless, artistic way, preserving them like pressed flowers.</p>
   </section>
 
+  <!-- Portfolio Highlights -->
   <section>
-    <img src="flower-top.png" class="flower-top" alt="Flower graphic">
-    <img src="flower-bottom.png" class="flower-bottom" alt="Flower graphic">
-    <h2>Lorem Ipsum Heading 2</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mattis, massa sed viverra dictum, neque lorem tincidunt nisl, in rhoncus nunc libero a libero.</p>
+    <h2>Portfolio Highlights</h2>
+    <div class="portfolio">
+      <div class="portfolio-item">
+        <img src="photo-sample.jpg" alt="Photo highlight">
+        <h3>Photography</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Beautiful moments captured forever.</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="video-sample.jpg" alt="Video highlight">
+        <h3>Videography</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Memorable events preserved in motion.</p>
+      </div>
+    </div>
   </section>
 
+  <!-- Reviews -->
   <section>
-    <h2>Lorem Ipsum Heading 3</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non bibendum urna. Nam euismod, ligula a tincidunt vestibulum, augue metus scelerisque metus, sit amet pretium erat erat et nisl.</p>
+    <h2>Reviews</h2>
+    <div class="review">
+      <p>"Haven captured our wedding perfectly! The photos are stunning and the videos brought tears to our eyes."</p>
+    </div>
+    <div class="review">
+      <p>"Every moment felt alive through their lens. Truly timeless memories preserved."</p>
+    </div>
+    <div class="review">
+      <p>"We couldn’t have asked for a more professional and creative team. Highly recommended!"</p>
+    </div>
   </section>
+
 </main>
 
 </body>
