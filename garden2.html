@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Haven | Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">'
+  <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png">
   <style>
     /* ===== Secret Garden Palette ===== */
     :root {
@@ -29,42 +30,16 @@
       color: var(--darkest);
     }
 
-    /* ===== Hero Header ===== */
-    .hero-header {
-      width: 100%;
-      height: 600px;
-      background-image: url('https://sunniejae.blob.core.windows.net/sunniejae/havenheaderpurple.png');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: var(--cream);
-      position: relative;
-    }
-
-    .hero-header h1 {
-      font-size: 3.5rem;
-      margin: 0;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-    }
-
-    .hero-header p {
-      font-size: 1.2rem;
-      font-style: italic;
-      margin-top: 1rem;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
-    }
-
     /* ===== Navigation Bar ===== */
     .nav-bar {
-      position: absolute;
-      top: 20px;
       width: 100%;
       display: flex;
       justify-content: center;
-      z-index: 2;
+      padding: 20px 0;
+      background: var(--lavender);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     .nav-bar ul {
@@ -86,8 +61,55 @@
 
     .nav-bar a:hover {
       background: rgba(255, 255, 255, 0.15);
-      color: var(--lavender);
+      color: var(--pale);
     }
+
+    /* ===== Hero Header ===== */
+    .hero-header {
+      width: 100%;
+      padding: 60px 20px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--pale);
+      position: relative;
+      text-align: center;
+    }
+
+    .hero-header img.hero-image {
+      width: 33%;
+      max-width: 640px;
+      border: 8px solid var(--lavender);
+      border-radius: 15px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+
+    .hero-header h1 {
+      font-size: 3rem;
+      margin: 0;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .hero-header p {
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-top: 0.5rem;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+    }
+
+    /* ===== Flower Graphics ===== */
+    .flower-left, .flower-right, .flower-top, .flower-bottom {
+      position: absolute;
+      z-index: 1;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    .flower-left { top: 50%; left: -50px; transform: translateY(-50%); width: 150px; }
+    .flower-right { top: 50%; right: -50px; transform: translateY(-50%); width: 150px; }
+    .flower-top { top: -50px; left: 50%; transform: translateX(-50%); width: 300px; }
+    .flower-bottom { bottom: -50px; left: 50%; transform: translateX(-50%); width: 300px; }
 
     /* ===== Sections ===== */
     section {
@@ -113,19 +135,6 @@
       font-size: 1.1rem;
       line-height: 1.6;
     }
-
-    /* ===== Flower Graphic Placeholders ===== */
-    .flower-left, .flower-right, .flower-top, .flower-bottom {
-      position: absolute;
-      z-index: 1;
-      opacity: 0.3;
-      pointer-events: none;
-    }
-
-    .flower-left { top: 50%; left: -50px; transform: translateY(-50%); width: 150px; }
-    .flower-right { top: 50%; right: -50px; transform: translateY(-50%); width: 150px; }
-    .flower-top { top: -50px; left: 50%; transform: translateX(-50%); width: 300px; }
-    .flower-bottom { bottom: -50px; left: 50%; transform: translateX(-50%); width: 300px; }
 
     /* ===== Portfolio Highlights ===== */
     .portfolio {
@@ -162,22 +171,26 @@
 </head>
 <body>
 
+<!-- Navigation -->
+<nav class="nav-bar">
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="photo.html">Photo</a></li>
+    <li><a href="video.html">Video</a></li>
+    <li><a href="booking.html">Booking</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
 <!-- Hero Header -->
 <header class="hero-header">
-  <nav class="nav-bar">
-    <ul>
-      <li><a href="home.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="photo.html">Photo</a></li>
-      <li><a href="video.html">Video</a></li>
-      <li><a href="booking.html">Booking</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-  <div>
-    <h1>Haven</h1>
-    <p>Pressed Flowers · Preserved Memories</p>
-  </div>
+  <img src="https://sunniejae.blob.core.windows.net/sunniejae/havenheaderpurpleshadowed.png" 
+       alt="Haven Header" 
+       class="hero-image">
+  <h1>Haven</h1>
+  <p>Preserved Memories</p>
+
   <!-- Flower Graphics -->
   <img src="flower-top.png" class="flower-top" alt="Flower graphic">
   <img src="flower-bottom.png" class="flower-bottom" alt="Flower graphic">
