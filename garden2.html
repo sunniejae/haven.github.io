@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png">
     <title>Haven Photography - Preserving Moments</title>
     <style>
+        :root {
+            --pink: #d4a574;
+            --jeans: #6b5b73;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,7 +17,7 @@
         }
 
         body {
-            font-family: 'Poiret One', sans-serif;
+            font-family: 'Georgia', serif;
             line-height: 1.6;
             color: #4a4a4a;
             background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
@@ -147,7 +150,6 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            margin-bottom: 3rem;
         }
 
         .cta-button {
@@ -345,7 +347,6 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            margin-bottom: 3rem;
         }
 
         .contact-info {
@@ -454,25 +455,22 @@
 </head>
 <body>
     <div class="pressed-flowers-bg">
-        <div class="pressed-flower">🌸</div>
-        <div class="pressed-flower">🌺</div>
-        <div class="pressed-flower">🌷</div>
-        <div class="pressed-flower">🌹</div>
-        <div class="pressed-flower">🌼</div>
+        <div class="pressed-flower" aria-hidden="true">🌸</div>
+        <div class="pressed-flower" aria-hidden="true">🌺</div>
+        <div class="pressed-flower" aria-hidden="true">🌷</div>
+        <div class="pressed-flower" aria-hidden="true">🌹</div>
+        <div class="pressed-flower" aria-hidden="true">🌼</div>
     </div>
 
-    <header>
+    <header id="home">
         <div class="logo">Haven</div>
         <div class="tagline">Preserving the Moments of your Special Days</div>
         <div class="header-divider"></div>
     </header>
 
     <section class="header-image">
-        <!-- Replace this placeholder with your header image -->
-        <div class="header-image-placeholder">
-            Your beautiful header image (1920x775) will go here<br>
-            Replace this div with: &lt;img src="your-header-image.jpg" alt="Haven Photography"&gt;
-        </div>
+        <!--header image -->
+        <img src="your-header-image.jpg" alt="Bride holding bouquet under archway">
     </section>
 
     <section class="hero">
@@ -509,12 +507,12 @@
     </section>
 
     <section class="contact fade-in" id="contact">
-        <h2>Let's Preserve Your Story</h2>
-        <p>Ready to create your own collection of pressed memories? We'd love to learn about your special moment and craft something beautiful together.</p>
+        <h2>Lorem Ipsum Contact</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         <div class="contact-info">
             <div class="contact-item">
                 <div class="contact-icon">✉</div>
-                <div>hello@havenphotography.com</div>
+                <div>lorem@ipsum.com</div>
             </div>
             <div class="contact-item">
                 <div class="contact-icon">📱</div>
@@ -522,63 +520,7 @@
             </div>
             <div class="contact-item">
                 <div class="contact-icon">🗺</div>
-                <div>Available for Travel</div>
+                <div>Lorem Ipsum City</div>
             </div>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Haven Photography <span class="footer-flower">❋</span> All rights reserved <span class="footer-flower">❋</span> Preserving moments with love</p>
-    </footer>
-
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Gentle parallax effect for pressed flowers
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const flowers = document.querySelectorAll('.pressed-flower');
-            flowers.forEach((flower, index) => {
-                const speed = 0.05 + (index * 0.02);
-                flower.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.005}deg)`;
-            });
-        });
-
-        // Add subtle fade effect to pressed flowers based on scroll
-        window.addEventListener('scroll', () => {
-            const scrollPercent = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
-            const flowers = document.querySelectorAll('.pressed-flower');
-            flowers.forEach((flower, index) => {
-                const opacity = 0.15 - (scrollPercent * 0.1);
-                flower.style.opacity = Math.max(0.05, opacity);
-            });
-        });
-    </script>
-</body>
-</html>
+   
