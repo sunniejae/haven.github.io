@@ -73,11 +73,11 @@
       outline: 2px solid transparent;
     }
 
-    /* ===== Hero Header ===== */
-  .hero-header {
+  /* Hero Header */
+.hero-header {
   width: 100%;
-  min-height: 70vh;   /* taller, but not full viewport */
-  padding: 100px 20px 120px; /* extra breathing room */
+  min-height: 70vh; /* taller, not full screen */
+  padding: 100px 20px 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,206 +88,54 @@
   overflow: hidden;
 }
 
-    .hero-image {
-      width: min(500px, 80vw);
-      height: auto;
-      border: 8px solid var(--lavender);
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      margin-bottom: 30px;
-    }
+.hero-header h1 {
+  font-size: 4rem; /* bigger title */
+  margin-bottom: 20px;
+  color: var(--darkest);
+}
 
-    .hero-header h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      margin: 0;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-      color: var(--violet);
-    }
+.hero-header p {
+  font-size: 1.4rem;
+  color: var(--medium);
+}
 
-    .hero-header .tagline {
-      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-      font-style: italic;
-      margin-top: 0.5rem;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
-      color: var(--darkest);
-    }
+/* Sections */
+section {
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
 
-    /* ===== Decorative Flowers ===== */
-    .flower-decoration {
-      position: absolute;
-      z-index: 1;
-      opacity: 0.3;
-      pointer-events: none;
-    }
-    
-    .flower-left { 
-      top: 50%; 
-      left: -50px; 
-      transform: translateY(-50%); 
-      width: 120px; 
-    }
-    
-    .flower-right { 
-      top: 50%; 
-      right: -50px; 
-      transform: translateY(-50%); 
-      width: 120px; 
-    }
-    
-    .flower-top { 
-      top: -30px; 
-      left: 50%; 
-      transform: translateX(-50%); 
-      width: 200px; 
-    }
-    
-    .flower-bottom { 
-      bottom: -30px; 
-      left: 50%; 
-      transform: translateX(-50%); 
-      width: 200px; 
-    }
+section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
 
-    /* ===== Main Content Sections ===== */
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+section p {
+  font-size: 1.2rem;
+}
 
-    section {
-      background: var(--pale);
-      border: 2px solid var(--lavender);
-      border-radius: 15px;
-      margin: 40px 0;
-      padding: 50px 30px;
-      position: relative;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
+/* Flowers */
+.flower {
+  position: absolute;
+  opacity: 0.25;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  transition: transform 0.2s ease-out;
+}
 
-    section h2 {
-      color: var(--violet);
-      font-size: clamp(2rem, 4vw, 2.5rem);
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-family: 'Poiret One', sans-serif;
+  color: var(--darkest);
+  background: var(--light);
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
 
-    section p {
-      color: var(--darkest);
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-
-    /* ===== About Section ===== */
-    .about-content {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    /* ===== Portfolio Section ===== */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      margin-top: 2rem;
-    }
-
-    .portfolio-item {
-      background: var(--cream);
-      border: 1px solid var(--lavender);
-      border-radius: 12px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .portfolio-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    }
-
-    .portfolio-item h3 {
-      color: var(--violet);
-      font-size: 1.5rem;
-      margin: 1rem 0;
-    }
-
-    .portfolio-placeholder {
-      width: 100%;
-      height: 200px;
-      background: var(--beige);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--darkest);
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-
-    /* ===== Reviews Section ===== */
-    .reviews-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .review {
-      border-left: 4px solid var(--lavender);
-      margin: 25px 0;
-      padding: 20px 0 20px 25px;
-      font-style: italic;
-      background: var(--cream);
-      border-radius: 0 8px 8px 0;
-    }
-
-    .review p {
-      margin: 0;
-      font-size: 1.1rem;
-    }
-
-    /* ===== Responsive Design ===== */
-    @media (max-width: 768px) {
-      .nav-bar ul {
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: center;
-      }
-
-      .nav-bar a {
-        font-size: 1rem;
-        padding: 0.4rem 0.8rem;
-      }
-
-      .hero-header {
-        padding: 40px 20px 60px;
-      }
-
-      section {
-        padding: 30px 20px;
-        margin: 30px 0;
-      }
-
-      .portfolio-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .flower-decoration {
-        display: none;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .nav-bar ul {
-        gap: 0.5rem;
-      }
-
-      .nav-bar a {
-        font-size: 0.9rem;
-        padding: 0.3rem 0.6rem;
-      }
-    }
   </style>
 </head>
 <body>
