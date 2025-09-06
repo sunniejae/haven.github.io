@@ -1,183 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Haven | Preserved Memories</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haven | Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
   <style>
     :root {
-      --darkest: #0f150f;
-      --beige: #cdd5c7;
-      --pale: #ecece7;
-      --lavender: #d8bbd4;
-      --violet: #7d5b84;
-      --cream: #f3ebe7;
+      --light: #faf9f6;
+      --darkest: #2c2c2c;
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Poiret One', cursive;
-      background: var(--cream);
+      margin: 0;
+      font-family: 'Poiret One', sans-serif;
+      background-color: var(--light);
       color: var(--darkest);
-      line-height: 1.6;
-      position: relative;
-      overflow-x: hidden;
     }
 
-    /* ===== Navigation ===== */
-    .nav-bar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    header.hero-header {
+      height: 100vh;
       display: flex;
       justify-content: center;
-      padding: 20px 0;
-      background: var(--green);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .nav-bar ul { display: flex; gap: 2rem; list-style: none; }
-    .nav-bar a {
-      font-size: 1.2rem;
-      text-decoration: none;
-      color: var(--cream);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      transition: 0.3s ease;
-    }
-    .nav-bar a:hover { background: rgba(255,255,255,0.15); color: var(--pale); }
-
-    /* ===== Hero ===== */
-    .hero-header {
+      align-items: center;
       text-align: center;
-      padding: 60px 20px 80px;
-      background: var(--pale);
+      background: linear-gradient(135deg, #f5f0ea, #eae7dc);
+      position: relative;
       overflow: hidden;
     }
-    .hero-image {
-      width: 33.33vw;
-      min-width: 250px;
-      max-width: 500px;
-      margin-bottom: 30px;
-      border: 10px solid var(--violet);
-      border-radius: 8px;
-      box-shadow:
-        inset 0 0 0 3px var(--lavender),
-        inset 0 0 0 6px var(--pale),
-        0 12px 24px rgba(0,0,0,0.2);
-      transition: 0.3s ease;
-    }
-    .hero-header h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      color: var(--violet);
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-    }
-    .tagline {
-      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-      font-style: italic;
-      margin-top: 0.5rem;
+
+    header.hero-header h1 {
+      font-size: 3rem;
+      margin: 0;
     }
 
-    /* ===== Flower Scatter ===== */
-    .flower-scatter img {
-      position: absolute;
-      opacity: 0.2;
-      width: 60px;
-      pointer-events: none;
-    }
-    /* irregular positions */
-    .f1 { top: 150px; left: 5%; transform: rotate(-10deg); }
-    .f2 { top: 600px; right: 10%; transform: rotate(20deg); }
-    .f3 { top: 1200px; left: 20%; width: 40px; }
-    .f4 { top: 1800px; right: 15%; width: 70px; }
-    .f5 { top: 2400px; left: 50%; transform: rotate(45deg); }
-    .f6 { top: 3000px; right: 30%; width: 50px; transform: rotate(-30deg); }
-
-    /* ===== Sections ===== */
-    main { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     section {
-      background: var(--pale);
-      border: 2px solid var(--lavender);
-      border-radius: 15px;
-      margin: 40px 0;
-      padding: 50px 30px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    section h2 {
+      padding: 100px 20px;
       text-align: center;
-      font-size: clamp(2rem, 4vw, 2.5rem);
-      color: var(--violet);
-      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
     }
-    section p { font-size: 1.1rem; margin-bottom: 1rem; }
 
-    /* ===== Footer ===== */
-    footer {
-      background: var(--lavender);
-      color: var(--cream);
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      max-width: 600px;
+      margin: 0 auto;
       font-size: 1.1rem;
     }
-    footer span { margin: 0 10px; }
+
+    /* Flowers */
+    .flower {
+      position: absolute;
+      opacity: 0.25;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      transition: transform 0.2s ease-out;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-family: 'Poiret One', sans-serif;
+      color: var(--darkest);
+      background: var(--light);
+    }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="nav-bar">
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
 
-  <!-- Flower Scatter Layer -->
-  <div class="flower-scatter">
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower.png" class="f1" alt="" />
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower2.png" class="f2" alt="" />
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower3.png" class="f3" alt="" />
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower4.png" class="f4" alt="" />
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower2.png" class="f5" alt="" />
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower3.png" class="f6" alt="" />
-  </div>
-
-  <!-- Hero -->
-  <header class="hero-header" id="home">
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/havenwhiteshaded.png" alt="Haven Photography Logo" class="hero-image" />
-    <h1>Haven</h1>
-    <p class="tagline">Preserved Memories</p>
+  <header class="hero-header">
+    <h1>Welcome to Haven</h1>
   </header>
 
-  <main>
-    <!-- About -->
-    <section id="about">
-      <h2>About Us</h2>
-      <p>Welcome to Haven, where every moment becomes a treasured memory. We specialize in capturing life's most precious occasions through the art of photography and videography.</p>
-      <p>Like pressed flowers preserved between the pages of time, we believe your memories deserve to be kept safe, beautiful, and lasting.</p>
-    </section>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Welcome to Haven. We create timeless memories through photography and videography.</p>
+  </section>
 
-    <!-- Portfolio -->
-    <section id="portfolio">
-      <h2>Our Services</h2>
-      <p>Photography and Videography samples coming soon...</p>
-    </section>
+  <section id="portfolio">
+    <h2>Our Services</h2>
+    <p>Photography and Videography samples coming soon...</p>
+  </section>
 
-    <!-- Reviews -->
-    <section id="reviews">
-      <h2>Client Reviews</h2>
-      <p>"Haven captured our wedding perfectly! The photos are stunning and the videos brought tears to our eyes."</p>
-    </section>
-  </main>
+  <section id="reviews">
+    <h2>Client Reviews</h2>
+    <p>"Haven captured our wedding perfectly!"</p>
+  </section>
 
-  <!-- Footer -->
   <footer>
     <span>📍 Logan, UT</span> | <span>✉️ havenemail@email.com</span>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const flowerImages = [
+        "https://sunniejae.blob.core.windows.net/sunniejae/pressedflower.png",
+        "https://sunniejae.blob.core.windows.net/sunniejae/pressedflower2.png",
+        "https://sunniejae.blob.core.windows.net/sunniejae/pressedflower3.png",
+        "https://sunniejae.blob.core.windows.net/sunniejae/pressedflower4.png"
+      ];
+
+      // sprinkle flowers into each section
+      document.querySelectorAll("section, .hero-header").forEach(section => {
+        const flowerCount = Math.floor(Math.random() * 3) + 2; // 2–4 per section
+        const sectionHeight = section.offsetHeight;
+
+        for (let i = 0; i < flowerCount; i++) {
+          const img = document.createElement("img");
+          img.src = flowerImages[Math.floor(Math.random() * flowerImages.length)];
+          img.className = "flower";
+
+          // random size
+          const size = Math.floor(Math.random() * 40) + 30; // 30–70px
+          img.style.width = `${size}px`;
+
+          // random position within section
+          img.style.top = `${Math.random() * (sectionHeight - 50)}px`;
+          img.style.left = `${Math.random() * 90}%`;
+
+          // random rotation
+          img.dataset.rotate = Math.random() * 360;
+          img.style.transform = `rotate(${img.dataset.rotate}deg)`;
+
+          section.appendChild(img);
+        }
+      });
+
+      // Parallax effect
+      window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+        document.querySelectorAll(".flower").forEach((flower, index) => {
+          const baseRotate = parseFloat(flower.dataset.rotate);
+          const offset = (scrollY * 0.05 * ((index % 2 === 0) ? 1 : -1));
+          flower.style.transform = `translateY(${offset}px) rotate(${baseRotate}deg)`;
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
