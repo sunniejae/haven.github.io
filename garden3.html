@@ -31,7 +31,7 @@
     body {
       margin: 0;
       font-family: 'Poiret One', cursive;
-      background: var(--soft-pink);
+      background: var(--cream);
       color: var(--darkest);
       line-height: 1.6;
     }
@@ -42,7 +42,7 @@
       display: flex;
       justify-content: center;
       padding: 20px 0;
-      background: var(--green);
+      background: var(--lavender);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -88,12 +88,44 @@
     }
 
     .hero-image {
-      width: min(500px, 80vw);
+      width: 33.33vw;
+      min-width: 300px;
+      max-width: 600px;
       height: auto;
-      border: 8px solid var(--green);
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       margin-bottom: 30px;
+      position: relative;
+      
+      /* Shadow box frame effect */
+      border: 12px solid var(--cream);
+      border-radius: 8px;
+      
+      /* Multiple layered shadows for depth */
+      box-shadow: 
+        /* Inner shadow for recessed look */
+        inset 0 0 0 3px var(--lavender),
+        inset 0 0 0 6px var(--pale),
+        inset 0 4px 8px rgba(0,0,0,0.15),
+        
+        /* Outer shadows for floating effect */
+        0 8px 16px rgba(0,0,0,0.2),
+        0 16px 32px rgba(0,0,0,0.15),
+        0 24px 48px rgba(0,0,0,0.1);
+      
+      /* Subtle 3D transform */
+      transform: perspective(1000px) rotateX(2deg);
+      transition: all 0.3s ease;
+    }
+    
+    .hero-image:hover {
+      transform: perspective(1000px) rotateX(0deg) translateY(-2px);
+      box-shadow: 
+        inset 0 0 0 3px var(--lavender),
+        inset 0 0 0 6px var(--pale),
+        inset 0 4px 8px rgba(0,0,0,0.15),
+        
+        0 12px 24px rgba(0,0,0,0.25),
+        0 20px 40px rgba(0,0,0,0.18),
+        0 28px 56px rgba(0,0,0,0.12);
     }
 
     .hero-header h1 {
