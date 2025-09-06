@@ -1,526 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haven Photography - Preserving Moments</title>
-    <style>
-        :root {
-            --pink: #d4a574;
-            --jeans: #6b5b73;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haven Photography - Pressed Flower Memories</title>
+<link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    /* ===== Secret Garden Palette ===== */
+    :root {
+      /* Neutrals */
+      --darkest: #0F150F;
+      --beige: #cdd5c7;
+      --pale: #ecece7;
+      --dark: #d7afa5;
+      --jeans: #67868e;
+      --coral: #ff6b6b;
 
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: #4a4a4a;
-            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
-            overflow-x: hidden;
-        }
+      /* Florals */
+      --lavender: #d8bbd4;
+      --violet: #7d5b84;
+      --pink: #e194bc;
+      --soft-pink: #d7afa5;
+      --green: #737151;
+      --cream: #f3ebe7;
+    }
 
-        /* Pressed flower animations */
-        @keyframes gentleFloat {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
-            50% { transform: translateY(-8px) rotate(1deg); opacity: 0.9; }
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    body {
+      font-family: Georgia, serif;
+      line-height: 1.6;
+      background: var(--cream);
+      color: var(--darkest);
+      overflow-x: hidden;
+    }
 
-        @keyframes pressedFlowerFade {
-            0% { opacity: 0; transform: scale(0.8) rotate(0deg); }
-            50% { opacity: 0.8; transform: scale(1) rotate(2deg); }
-            100% { opacity: 0.6; transform: scale(1) rotate(0deg); }
-        }
+    h1, h2, h3 {
+      font-family: 'Poiret One', cursive;
+      color: var(--violet);
+      font-weight: 400;
+      letter-spacing: 2px;
+    }
 
-        /* Background pressed flower elements */
-        .pressed-flowers-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
+    /* Header */
+    header {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: rgba(15, 21, 15, 0.6);
+      color: var(--pale);
+    }
 
-        .pressed-flower {
-            position: absolute;
-            font-size: 28px;
-            animation: gentleFloat 8s ease-in-out infinite;
-            filter: sepia(20%) saturate(0.8);
-            opacity: 0.15;
-        }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
 
-        .pressed-flower:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; color: #d4a574; }
-        .pressed-flower:nth-child(2) { top: 25%; right: 12%; animation-delay: 2s; color: #b8956d; }
-        .pressed-flower:nth-child(3) { top: 65%; left: 10%; animation-delay: 4s; color: #a67c5a; }
-        .pressed-flower:nth-child(4) { bottom: 25%; right: 8%; animation-delay: 6s; color: #c49a6a; }
-        .pressed-flower:nth-child(5) { top: 45%; left: 50%; animation-delay: 1s; color: #b58c63; }
+    header p {
+      font-style: italic;
+      color: var(--beige);
+    }
 
-        /* Header */
-        header {
-            position: relative;
-            z-index: 10;
-            padding: 3rem 0 2rem 0;
-            text-align: center;
-            animation: fadeIn 1s ease-out;
-        }
+    /* Section styling */
+    section {
+      background: var(--pale);
+      border: 2px solid var(--lavender);
+      border-radius: 20px;
+      padding: 4rem 2rem;
+      margin: 3rem auto;
+      max-width: 1000px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+    }
 
-        .logo {
-            font-size: 3rem;
-            font-weight: 300;
-            color: #6b5b73;
-            margin-bottom: 0.8rem;
-            position: relative;
-            letter-spacing: 2px;
-        }
+    section h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 2.2rem;
+    }
 
-        .logo::after {
-            content: '✿';
-            position: absolute;
-            top: -8px;
-            right: -25px;
-            font-size: 1.2rem;
-            color: #d4a574;
-            opacity: 0.8;
-            animation: pressedFlowerFade 3s ease-in-out infinite;
-        }
+    section p {
+      max-width: 700px;
+      margin: 0 auto 1.5rem auto;
+      text-align: center;
+      color: var(--darkest);
+    }
 
-        .tagline {
-            font-size: 1.2rem;
-            color: #8a7a6b;
-            font-style: italic;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-        }
+    /* Call to Action Button */
+    .cta-button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(135deg, var(--pink), var(--violet));
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-family: 'Poiret One', cursive;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
 
-        .header-divider {
-            width: 80px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #d4a574, transparent);
-            margin: 0 auto;
-        }
+    .cta-button:hover {
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      transform: translateY(-3px);
+    }
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            padding: 4rem 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-            animation: fadeIn 1.2s ease-out;
-        }
+    /* Services Grid */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
 
-        .hero h1 {
-            font-size: 3.8rem;
-            font-weight: 300;
-            color: #6b5b73;
-            margin-bottom: 2rem;
-            line-height: 1.1;
-            position: relative;
-        }
+    .service-card {
+      background: var(--cream);
+      border: 1px solid var(--soft-pink);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        .hero h1::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 2px;
-            background: #d4a574;
-            opacity: 0.6;
-        }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 12px 20px rgba(0,0,0,0.1);
+    }
 
-        .hero p {
-            font-size: 1.4rem;
-            color: #7a6b5d;
-            margin-bottom: 3rem;
-            line-height: 1.8;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .service-card h3 {
+      margin-bottom: 1rem;
+      color: var(--jeans);
+    }
 
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #d4a574, #c49a6a);
-            color: white;
-            padding: 1.2rem 3rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 400;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: all 0.4s ease;
-            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
+    .service-card p {
+      color: var(--darkest);
+      font-size: 0.95rem;
+    }
 
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.6s;
-        }
+    /* Contact Section */
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
 
-        .cta-button:hover::before {
-            left: 100%;
-        }
+    .contact-item {
+      text-align: center;
+      color: var(--violet);
+    }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(212, 165, 116, 0.4);
-            background: linear-gradient(135deg, #e0b485, #d4a574);
-        }
+    .contact-icon {
+      font-size: 2rem;
+      color: var(--pink);
+      margin-bottom: 0.5rem;
+    }
 
-        /* Services Section */
-        .services {
-            position: relative;
-            z-index: 10;
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            animation: fadeIn 1.4s ease-out;
-        }
+    /* Footer */
+    footer {
+      text-align: center;
+      background: var(--jeans);
+      color: var(--cream);
+      padding: 2rem;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+    }
 
-        .services h2 {
-            text-align: center;
-            font-size: 2.8rem;
-            font-weight: 300;
-            color: #6b5b73;
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
-        .services .subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            color: #8a7a6b;
-            font-style: italic;
-            margin-bottom: 4rem;
-        }
-
-        .services h2::after {
-            content: '❋';
-            position: absolute;
-            bottom: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.5rem;
-            color: #d4a574;
-            opacity: 0.8;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 5rem;
-        }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            padding: 3rem 2.5rem;
-            text-align: center;
-            transition: all 0.4s ease;
-            border: 2px solid rgba(212, 165, 116, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #d4a574, #c49a6a, #b8956d, #a67c5a);
-            border-radius: 25px;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-
-        .service-card:hover::before {
-            opacity: 0.3;
-        }
-
-        .service-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(212, 165, 116, 0.2);
-        }
-
-        .service-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
-            filter: sepia(30%) saturate(0.8);
-        }
-
-        .service-card h3 {
-            font-size: 1.6rem;
-            color: #6b5b73;
-            margin-bottom: 1.2rem;
-            font-weight: 400;
-            position: relative;
-        }
-
-        .service-card h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 1px;
-            background: #d4a574;
-            opacity: 0.6;
-        }
-
-        .service-card p {
-            color: #7a6b5d;
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            position: relative;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(25px);
-            padding: 5rem 3rem;
-            margin: 4rem 2rem;
-            border-radius: 40px;
-            text-align: center;
-            border: 2px solid rgba(212, 165, 116, 0.15);
-            animation: fadeIn 1.6s ease-out;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact::before {
-            content: '✿ ❋ ✿';
-            position: absolute;
-            top: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #d4a574;
-            font-size: 1.5rem;
-            opacity: 0.6;
-            letter-spacing: 2rem;
-        }
-
-        .contact h2 {
-            font-size: 2.8rem;
-            color: #6b5b73;
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-            margin-top: 2rem;
-        }
-
-        .contact p {
-            font-size: 1.3rem;
-            color: #7a6b5d;
-            margin-bottom: 3rem;
-            line-height: 1.8;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.8rem;
-            color: #6b5b73;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease;
-            padding: 1rem;
-            border-radius: 15px;
-            background: rgba(212, 165, 116, 0.05);
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-            background: rgba(212, 165, 116, 0.1);
-        }
-
-        .contact-icon {
-            font-size: 2rem;
-            color: #d4a574;
-        }
-
-        /* Footer */
-        footer {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            padding: 3rem 2rem;
-            color: #8a7a6b;
-            font-size: 0.95rem;
-            border-top: 1px solid rgba(212, 165, 116, 0.2);
-            margin-top: 2rem;
-        }
-
-        .footer-flower {
-            color: #d4a574;
-            margin: 0 0.5rem;
-            opacity: 0.7;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .service-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            
-            .logo {
-                font-size: 2.2rem;
-            }
-
-            .services h2 {
-                font-size: 2.2rem;
-            }
-
-            .contact {
-                margin: 2rem 1rem;
-                padding: 3rem 2rem;
-            }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Pressed flower accents */
-        .pressed-accent {
-            color: var(--pink);
-            opacity: 0.8;
-            font-size: 1.2rem;
-            margin: 0 0.5rem;
-        }
-    </style>
+    footer span {
+      color: var(--lavender);
+      margin: 0 0.5rem;
+    }
+  </style>
 </head>
 <body>
-    <div class="pressed-flowers-bg">
-        <div class="pressed-flower" aria-hidden="true">🌸</div>
-        <div class="pressed-flower" aria-hidden="true">🌺</div>
-        <div class="pressed-flower" aria-hidden="true">🌷</div>
-        <div class="pressed-flower" aria-hidden="true">🌹</div>
-        <div class="pressed-flower" aria-hidden="true">🌼</div>
+
+  <header>
+    <h1>Haven</h1>
+    <p>Pressed Flowers · Preserved Memories</p>
+  </header>
+
+  <section>
+    <h2>Timeless Memories</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra, lacus ut posuere fermentum, orci est elementum magna, at posuere lectus nulla vel orci. Curabitur imperdiet risus nec urna egestas, in tempor nulla mattis.</p>
+    <a href="#contact" class="cta-button">Preserve Your Moments</a>
+  </section>
+
+  <section>
+    <h2>Our Collections</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper dui at metus dapibus, vel finibus lacus volutpat.</p>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>Weddings</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer aliquet purus quis sapien sagittis.</p>
+      </div>
+      <div class="service-card">
+        <h3>Engagements</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Suspendisse potenti.</p>
+      </div>
+      <div class="service-card">
+        <h3>Newborns</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, arcu non egestas dictum.</p>
+      </div>
+      <div class="service-card">
+        <h3>Family Portraits</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a ullamcorper sem.</p>
+      </div>
     </div>
+  </section>
 
-    <header id="home">
-        <div class="logo">Haven</div>
-        <div class="tagline">Preserving the Moments of your Special Days</div>
-        <div class="header-divider"></div>
-    </header>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique, quam ac finibus elementum, orci nulla ultrices est, vel imperdiet libero urna in ligula.</p>
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">✉</div>
+        <div>lorem@ipsum.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📱</div>
+        <div>(555) 123-4567</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🗺</div>
+        <div>Lorem Ipsum City</div>
+      </div>
+    </div>
+  </section>
 
-    <section class="header-image">
-        <!--header image -->
-        <img src="your-header-image.jpg" alt="Bride holding bouquet under archway">
-    </section>
+  <footer>
+    <p>&copy; 2024 Haven Photography <span>❋</span> Preserving memories with love</p>
+  </footer>
 
-    <section class="hero">
-        <h1>Timeless Memories<br>Pressed in Time</h1>
-        <p>Like delicate flowers carefully preserved between the pages of a beloved book, we capture and preserve the fleeting moments of your most cherished celebrations, creating heirloom memories that will last forever.</p>
-        <a href="#contact" class="cta-button">Preserve Your Moments</a>
-    </section>
-
-    <section class="services fade-in">
-        <h2>Our Collections</h2>
-        <p class="subtitle">Each moment carefully curated and beautifully preserved</p>
-        <div class="service-grid">
-            <div class="service-card">
-                <span class="service-icon">🌹</span>
-                <h3>Weddings</h3>
-                <p>Your love story deserves to be preserved like the most precious pressed rose. We document every sacred moment with the care and artistry of a master botanist, creating a timeless collection of your perfect day.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">🌸</span>
-                <h3>Engagements</h3>
-                <p>The delicate beginning of your forever journey, captured with the same gentle care as pressing spring's first blossom. Each frame tells the story of your blooming love.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">🌼</span>
-                <h3>Newborns</h3>
-                <p>New life is nature's most precious gift. Like the tiniest wildflower, we preserve these fleeting early moments with infinite tenderness and artistic grace.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">🌺</span>
-                <h3>Family Portraits</h3>
-                <p>Family bonds grow and change like a garden through the seasons. We create pressed flower collections of your family's story, preserving each chapter with artistic beauty.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact fade-in" id="contact">
-        <h2>Lorem Ipsum Contact</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <div class="contact-info">
-            <div class="contact-item">
-                <div class="contact-icon">✉</div>
-                <div>lorem@ipsum.com</div>
-            </div>
-            <div class="contact-item">
-                <div class="contact-icon">📱</div>
-                <div>(555) 123-4567</div>
-            </div>
-            <div class="contact-item">
-                <div class="contact-icon">🗺</div>
-                <div>Lorem Ipsum City</div>
-            </div>
-        </div>
-   
+</body>
+</html>
