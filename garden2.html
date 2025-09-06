@@ -3,23 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png">
     <title>Haven Photography - Preserving Moments</title>
     <style>
-        :root {
-            --black: #000010;
-            --cream: #f3ebe7;
-            --rose: #d7afa5;
-            --jeans: #67868e;
-            --lavender: #d8bbd4;
-            --violet: #7d5b84;
-            --pink: #e194bc;
-            --soft-pink: #d7afa5;
-            --darkest: #0F150F;
-            --green: #737151;
-            --coral: #ff6b6b;
-        }
         * {
             margin: 0;
             padding: 0;
@@ -27,10 +14,11 @@
         }
 
         body {
-              margin: 0;
-      font-family: 'Poiret One', sans-serif;
-      background: var(--cream);
-      color: var(--darkest);
+            font-family: 'Poiret One', sans-serif;
+            line-height: 1.6;
+            color: #4a4a4a;
+            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+            overflow-x: hidden;
         }
 
         /* Pressed flower animations */
@@ -69,11 +57,11 @@
             opacity: 0.15;
         }
 
-        .pressed-flower:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; color: var(--darkest); }
-        .pressed-flower:nth-child(2) { top: 25%; right: 12%; animation-delay: 2s; color: var(--coral); }
-        .pressed-flower:nth-child(3) { top: 65%; left: 10%; animation-delay: 4s; color: var(--rose); }
-        .pressed-flower:nth-child(4) { bottom: 25%; right: 8%; animation-delay: 6s; color: var(--jeans); }
-        .pressed-flower:nth-child(5) { top: 45%; left: 50%; animation-delay: 1s; color: var(--lavender); }
+        .pressed-flower:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; color: #d4a574; }
+        .pressed-flower:nth-child(2) { top: 25%; right: 12%; animation-delay: 2s; color: #b8956d; }
+        .pressed-flower:nth-child(3) { top: 65%; left: 10%; animation-delay: 4s; color: #a67c5a; }
+        .pressed-flower:nth-child(4) { bottom: 25%; right: 8%; animation-delay: 6s; color: #c49a6a; }
+        .pressed-flower:nth-child(5) { top: 45%; left: 50%; animation-delay: 1s; color: #b58c63; }
 
         /* Header */
         header {
@@ -87,7 +75,7 @@
         .logo {
             font-size: 3rem;
             font-weight: 300;
-            color: var(--green);
+            color: #6b5b73;
             margin-bottom: 0.8rem;
             position: relative;
             letter-spacing: 2px;
@@ -99,14 +87,14 @@
             top: -8px;
             right: -25px;
             font-size: 1.2rem;
-            color: var(--violet);
+            color: #d4a574;
             opacity: 0.8;
             animation: pressedFlowerFade 3s ease-in-out infinite;
         }
 
         .tagline {
             font-size: 1.2rem;
-            color: var(--pink);
+            color: #8a7a6b;
             font-style: italic;
             letter-spacing: 1px;
             margin-bottom: 1rem;
@@ -115,7 +103,7 @@
         .header-divider {
             width: 80px;
             height: 1px;
-            background: var(--soft-pink);
+            background: linear-gradient(90deg, transparent, #d4a574, transparent);
             margin: 0 auto;
         }
 
@@ -133,7 +121,7 @@
         .hero h1 {
             font-size: 3.8rem;
             font-weight: 300;
-            color: var(--cream);
+            color: #6b5b73;
             margin-bottom: 2rem;
             line-height: 1.1;
             position: relative;
@@ -147,13 +135,13 @@
             transform: translateX(-50%);
             width: 40px;
             height: 2px;
-            background: var(--soft-pink);
+            background: #d4a574;
             opacity: 0.6;
         }
 
         .hero p {
             font-size: 1.4rem;
-            color: var(--violet);
+            color: #7a6b5d;
             margin-bottom: 3rem;
             line-height: 1.8;
             max-width: 700px;
@@ -164,7 +152,7 @@
 
         .cta-button {
             display: inline-block;
-            background: var(--green);
+            background: linear-gradient(135deg, #d4a574, #c49a6a);
             color: white;
             padding: 1.2rem 3rem;
             text-decoration: none;
@@ -186,7 +174,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: var(--lavender);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
             transition: left 0.6s;
         }
 
@@ -197,7 +185,7 @@
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 30px rgba(212, 165, 116, 0.4);
-            background: var(--jeans);
+            background: linear-gradient(135deg, #e0b485, #d4a574);
         }
 
         /* Services Section */
@@ -214,7 +202,7 @@
             text-align: center;
             font-size: 2.8rem;
             font-weight: 300;
-            color: var(--rose);
+            color: #6b5b73;
             margin-bottom: 1rem;
             position: relative;
         }
@@ -222,7 +210,7 @@
         .services .subtitle {
             text-align: center;
             font-size: 1.1rem;
-            color: var(--jeans);
+            color: #8a7a6b;
             font-style: italic;
             margin-bottom: 4rem;
         }
@@ -234,7 +222,7 @@
             left: 50%;
             transform: translateX(-50%);
             font-size: 1.5rem;
-            color: var(--coral);
+            color: #d4a574;
             opacity: 0.8;
         }
 
@@ -264,7 +252,7 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: var(--violet);
+            background: linear-gradient(45deg, #d4a574, #c49a6a, #b8956d, #a67c5a);
             border-radius: 25px;
             opacity: 0;
             transition: opacity 0.4s ease;
@@ -289,7 +277,7 @@
 
         .service-card h3 {
             font-size: 1.6rem;
-            color: var(--soft-pink);
+            color: #6b5b73;
             margin-bottom: 1.2rem;
             font-weight: 400;
             position: relative;
@@ -308,7 +296,7 @@
         }
 
         .service-card p {
-            color: var(--lavender);
+            color: #7a6b5d;
             line-height: 1.7;
             font-size: 1.05rem;
         }
@@ -335,7 +323,7 @@
             top: 2rem;
             left: 50%;
             transform: translateX(-50%);
-            color: var(--lavender);
+            color: #d4a574;
             font-size: 1.5rem;
             opacity: 0.6;
             letter-spacing: 2rem;
@@ -343,7 +331,7 @@
 
         .contact h2 {
             font-size: 2.8rem;
-            color: var(--coral);
+            color: #6b5b73;
             margin-bottom: 1.5rem;
             font-weight: 300;
             margin-top: 2rem;
@@ -351,7 +339,7 @@
 
         .contact p {
             font-size: 1.3rem;
-            color: var(--jeans);
+            color: #7a6b5d;
             margin-bottom: 3rem;
             line-height: 1.8;
             max-width: 600px;
@@ -373,7 +361,7 @@
             flex-direction: column;
             align-items: center;
             gap: 0.8rem;
-            color: var(--darkest);
+            color: #6b5b73;
             font-size: 1.1rem;
             transition: transform 0.3s ease;
             padding: 1rem;
@@ -388,7 +376,7 @@
 
         .contact-icon {
             font-size: 2rem;
-            color: var(--cream);
+            color: #d4a574;
         }
 
         /* Footer */
@@ -397,14 +385,14 @@
             z-index: 10;
             text-align: center;
             padding: 3rem 2rem;
-            color: var(--soft-pink);
+            color: #8a7a6b;
             font-size: 0.95rem;
             border-top: 1px solid rgba(212, 165, 116, 0.2);
             margin-top: 2rem;
         }
 
         .footer-flower {
-            color: var(--violet);
+            color: #d4a574;
             margin: 0 0.5rem;
             opacity: 0.7;
         }
