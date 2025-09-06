@@ -3,218 +3,210 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Haven | Preserved Memories</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poiret+One:wght@400&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png">
+  <title>Haven | Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
   <style>
-    /* ===== CSS Variables ===== */
+    /* ===== Secret Garden Palette ===== */
     :root {
-      --darkest: #0F150F;
-      --beige: #cdd5c7;
-      --pale: #ecece7;
-      --dark: #d7afa5;
-      --jeans: #67868e;
-      --coral: #ff6b6b;
-      --lavender: #d8bbd4;
-      --violet: #7d5b84;
-      --pink: #e194bc;
-      --soft-pink: #d7afa5;
-      --green: #737151;
-      --cream: #f3ebe7;
+      --darkest: #2c2c2c;
+      --medium: #7a7a7a;
+      --light: #faf9f6;
+      --pale: #f5f0ea;
+      --accent: #b49a84;
+      --soft: #eae7dc;
+      --highlight: #d8c3a5;
     }
 
-    /* ===== Base Styles ===== */
-    * {
-      box-sizing: border-box;
-    }
-
+    /* Global Styles */
     body {
       margin: 0;
-      font-family: 'Poiret One', cursive;
-      background: var(--cream);
+      font-family: 'Poiret One', sans-serif;
+      background-color: var(--light);
       color: var(--darkest);
       line-height: 1.6;
     }
 
-    /* ===== Navigation Bar ===== */
-    .nav-bar {
+    h1, h2, h3 {
+      margin: 0;
+      font-weight: normal;
+    }
+
+    p {
+      max-width: 700px;
+      margin: 0 auto 1em;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
+      background: var(--light);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
       display: flex;
       justify-content: center;
-      padding: 20px 0;
-      background: var(--lavender);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      gap: 30px;
+      padding: 15px 0;
+      z-index: 1000;
     }
 
-    .nav-bar ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      padding: 0;
-      margin: 0;
-    }
-
-    .nav-bar a {
+    nav a {
+      color: var(--darkest);
       text-decoration: none;
-      color: var(--cream);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero Header */
+    .hero-header {
+      width: 100%;
+      min-height: 70vh; /* taller, not full screen */
+      padding: 100px 20px 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--pale);
+      position: relative;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-header h1 {
+      font-size: 4rem; /* bigger title */
+      margin-bottom: 20px;
+      color: var(--darkest);
+    }
+
+    .hero-header p {
+      font-size: 1.4rem;
+      color: var(--medium);
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--soft);
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    section p {
       font-size: 1.2rem;
+      color: var(--darkest);
     }
 
-    .nav-bar a:hover,
-    .nav-bar a:focus {
-      background: rgba(255, 255, 255, 0.15);
-      color: var(--pale);
-      outline: 2px solid transparent;
+    /* Flowers */
+    .flower {
+      position: absolute;
+      opacity: 0.25;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      transition: transform 0.2s ease-out;
     }
 
-  /* Hero Header */
-.hero-header {
-  width: 100%;
-  min-height: 70vh; /* taller, not full screen */
-  padding: 100px 20px 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: var(--pale);
-  position: relative;
-  text-align: center;
-  overflow: hidden;
-}
-
-.hero-header h1 {
-  font-size: 4rem; /* bigger title */
-  margin-bottom: 20px;
-  color: var(--darkest);
-}
-
-.hero-header p {
-  font-size: 1.4rem;
-  color: var(--medium);
-}
-
-/* Sections */
-section {
-  padding: 100px 20px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-section p {
-  font-size: 1.2rem;
-}
-
-/* Flowers */
-.flower {
-  position: absolute;
-  opacity: 0.25;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-  transition: transform 0.2s ease-out;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  font-family: 'Poiret One', sans-serif;
-  color: var(--darkest);
-  background: var(--light);
-  border-top: 1px solid rgba(0,0,0,0.1);
-}
-
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-family: 'Poiret One', sans-serif;
+      color: var(--darkest);
+      background: var(--light);
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="nav-bar">
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
   </nav>
 
-  <!-- Hero Header -->
   <header class="hero-header">
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/havenheaderphotos.png" 
-         alt="Haven Photography Logo" 
-         class="hero-image">
-    <h1>Haven</h1>
-    <p class="tagline">Preserved Memories</p>
-
-    <!-- Decorative Flower Graphics -->
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower.png" 
-         class="flower-decoration flower-top" 
-         alt="" role="presentation">
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png" 
-         class="flower-decoration flower-bottom" 
-         alt="" role="presentation">
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower3.png" 
-         class="flower-decoration flower-left" 
-         alt="" role="presentation">
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower4.png" 
-         class="flower-decoration flower-right" 
-         alt="" role="presentation">
+    <h1>Welcome to Haven</h1>
+    <p>Capturing your memories with timeless elegance</p>
   </header>
 
-  <main>
-    <!-- About Section -->
-    <section id="about">
-      <h2>About Us</h2>
-      <div class="about-content">
-        <p>Welcome to Haven, where every moment becomes a treasured memory. We specialize in capturing life's most precious occasions through the art of photography and videography.</p>
-        <p>Like pressed flowers preserved between the pages of time, we believe your memories deserve to be kept safe, beautiful, and lasting. Our passion is creating visual stories that you'll cherish for generations to come.</p>
-      </div>
-    </section>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Welcome to Haven. We create timeless memories through photography and videography, preserving your most cherished moments with care and artistry.</p>
+  </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio">
-      <h2>Our Services</h2>
-      <div class="portfolio-grid">
-        <div class="portfolio-item">
-          <div class="portfolio-placeholder">Photography Samples</div>
-          <h3>Photography</h3>
-          <p>From intimate portraits to grand celebrations, we capture the essence of every moment with artistic vision and technical excellence.</p>
-        </div>
-        <div class="portfolio-item">
-          <div class="portfolio-placeholder">Videography Samples</div>
-          <h3>Videography</h3>
-          <p>Bring your memories to life with cinematic storytelling that preserves not just the moment, but the emotion and atmosphere.</p>
-        </div>
-      </div>
-    </section>
+  <section id="portfolio">
+    <h2>Our Services</h2>
+    <p>Photography and Videography samples coming soon...</p>
+  </section>
 
-    <!-- Reviews Section -->
-    <section id="reviews">
-      <h2>Client Reviews</h2>
-      <div class="reviews-container">
-        <div class="review">
-          <p>"Haven captured our wedding perfectly! The photos are stunning and the videos brought tears to our eyes. Every detail was preserved beautifully."</p>
-        </div>
-        <div class="review">
-          <p>"Every moment felt alive through their lens. The team at Haven truly understands how to create timeless memories that we'll treasure forever."</p>
-        </div>
-        <div class="review">
-          <p>"We couldn't have asked for a more professional and creative team. Their attention to detail and artistic vision exceeded our expectations. Highly recommended!"</p>
-        </div>
-      </div>
-    </section>
-  </main>
+  <section id="reviews">
+    <h2>Client Reviews</h2>
+    <p>"Haven captured our wedding perfectly!"</p>
+  </section>
+
+  <footer>
+    <span>📍 Logan, UT</span> | <span>✉️ havenemail@email.com</span>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const flowerImages = [
+        "https://sunniejae.blob.core.windows.net/sunniejae/pressedflower.png",
+        "https://sunniejae.blob.core.windows.net/sunniejae/pressedflower2.png",
+        "https://sunniejae.blob.core.windows.net/sunniejae/pressedflower3.png",
+        "https://sunniejae.blob.core.windows.net/sunniejae/pressedflower4.png"
+      ];
+
+      // Sprinkle flowers into hero and sections only
+      document.querySelectorAll(".hero-header, section").forEach(section => {
+        const flowerCount = Math.floor(Math.random() * 3) + 2; // 2–4 per section
+        const sectionHeight = section.offsetHeight;
+
+        for (let i = 0; i < flowerCount; i++) {
+          const img = document.createElement("img");
+          img.src = flowerImages[Math.floor(Math.random() * flowerImages.length)];
+          img.className = "flower";
+
+          // Random size
+          const size = Math.floor(Math.random() * 40) + 30; // 30–70px
+          img.style.width = `${size}px`;
+
+          // Random position within section
+          img.style.top = `${Math.random() * (sectionHeight - 50)}px`;
+          img.style.left = `${Math.random() * 90}%`;
+
+          // Random rotation
+          img.dataset.rotate = Math.random() * 360;
+          img.style.transform = `rotate(${img.dataset.rotate}deg)`;
+
+          section.appendChild(img);
+        }
+      });
+
+      // Parallax effect
+      window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+        document.querySelectorAll(".flower").forEach((flower, index) => {
+          const baseRotate = parseFloat(flower.dataset.rotate);
+          const offset = (scrollY * 0.05 * ((index % 2 === 0) ? 1 : -1));
+          flower.style.transform = `translateY(${offset}px) rotate(${baseRotate}deg)`;
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
