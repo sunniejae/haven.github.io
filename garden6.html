@@ -5,39 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Haven Photo & Video | Preserved Memories</title>
   <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png">
   <style>
     /* ===== Haven Brand Palette ===== */
     :root {
-      --deep-blue: #044476;      /* Trust, safe harbor */
-      --soft-blush: #e194bc;     /* Romance, warmth */
-      --misty-lavender: #d8bbd4; /* Elegance, softness */
-      --warm-neutral: #ae9980;   /* Balance, coziness */
-      --dusty-lilac: #9c8fbc;    /* Romantic accent */
-      --soft-sage: #5f8a66;      /* Grounded, natural */
-      --champagne: #d3c1a3;      /* Light, celebratory */
-      --charcoal: #0f150f;       /* Sophisticated text/contrast */
-      --warm-taupe: #846d50;     /* Secondary neutral */
+      --deep-blue: #044476;
+      --soft-blush: #e194bc;
+      --misty-lavender: #d8bbd4;
+      --warm-neutral: #ae9980;
+      --dusty-lilac: #9c8fbc;
+      --soft-sage: #5f8a66;
+      --champagne: #d3c1a3;
+      --charcoal: #0f150f;
+      --warm-taupe: #846d50;
       --white: #ffffff;
     }
 
     /* ===== Global Reset ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       font-family: 'Cinzel', serif;
       background: var(--champagne);
       color: var(--charcoal);
       line-height: 1.6;
+      overflow-x: hidden;
     }
-
     h1, h2, h3 {
       font-family: 'Poiret One', cursive;
       letter-spacing: 1px;
     }
-
     a { text-decoration: none; color: inherit; }
-
     img { max-width: 100%; height: auto; display: block; }
 
     /* ===== Navigation ===== */
@@ -50,14 +46,12 @@
       z-index: 1000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
-
     nav ul {
       display: flex;
       justify-content: center;
       list-style: none;
       gap: 2rem;
     }
-
     nav a {
       color: var(--champagne);
       font-size: 1.1rem;
@@ -65,13 +59,12 @@
       padding: 0.3rem 0.8rem;
       border-radius: 12px;
     }
-
     nav a:hover {
       background: rgba(255,255,255,0.15);
       color: var(--soft-blush);
     }
 
-    /* ===== Hero Section ===== */
+    /* ===== Hero ===== */
     header.hero {
       min-height: 100vh;
       background: linear-gradient(rgba(4,68,118,0.5), rgba(4,68,118,0.5)),
@@ -84,19 +77,17 @@
       text-align: center;
       padding: 2rem;
       position: relative;
+      overflow: hidden;
     }
-
     header.hero h1 {
       font-size: clamp(3rem, 6vw, 5rem);
       margin-bottom: 1rem;
     }
-
     header.hero p.tagline {
       font-size: clamp(1.2rem, 2.5vw, 1.8rem);
       font-style: italic;
       margin-bottom: 2rem;
     }
-
     .btn {
       display: inline-block;
       background: var(--soft-blush);
@@ -106,7 +97,6 @@
       border-radius: 25px;
       transition: 0.3s;
     }
-
     .btn:hover {
       background: var(--dusty-lilac);
       color: var(--white);
@@ -117,8 +107,8 @@
       padding: 80px 20px;
       max-width: 1200px;
       margin: auto;
+      position: relative;
     }
-
     section h2 {
       text-align: center;
       font-size: 2.5rem;
@@ -126,7 +116,6 @@
       margin-bottom: 2rem;
       position: relative;
     }
-
     section h2::after {
       content: "";
       display: block;
@@ -137,21 +126,12 @@
       border-radius: 2px;
     }
 
-    /* ===== About ===== */
-    .about p {
-      max-width: 800px;
-      margin: 1rem auto;
-      text-align: center;
-      font-size: 1.1rem;
-    }
-
-    /* ===== Services Grid ===== */
+    /* ===== Services ===== */
     .services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
     }
-
     .service {
       background: var(--white);
       border: 2px solid var(--misty-lavender);
@@ -161,11 +141,9 @@
       transition: 0.3s;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
-
     .service:hover {
       transform: translateY(-5px);
     }
-
     .service h3 {
       color: var(--soft-blush);
       margin-bottom: 1rem;
@@ -178,21 +156,18 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
     }
-
     .portfolio-item {
       border-radius: 12px;
       overflow: hidden;
       position: relative;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-
     .portfolio-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.4s;
     }
-
     .portfolio-item:hover img {
       transform: scale(1.05);
     }
@@ -203,7 +178,6 @@
       border-radius: 12px;
       padding: 2rem;
     }
-
     .testimonial {
       margin: 1.5rem 0;
       font-style: italic;
@@ -218,14 +192,12 @@
       display: grid;
       gap: 1rem;
     }
-
     .contact input, .contact textarea {
       padding: 0.8rem;
       border: 1px solid var(--dusty-lilac);
       border-radius: 8px;
       font-family: inherit;
     }
-
     .contact button {
       background: var(--soft-sage);
       color: var(--white);
@@ -235,7 +207,6 @@
       cursor: pointer;
       transition: 0.3s;
     }
-
     .contact button:hover {
       background: var(--deep-blue);
     }
@@ -247,22 +218,39 @@
       text-align: center;
       padding: 2rem 1rem;
       margin-top: 50px;
+      position: relative;
+      overflow: hidden;
     }
-
     footer p {
       font-size: 0.9rem;
     }
 
+    /* ===== Flower Decorations ===== */
+    .flower {
+      position: absolute;
+      width: 120px;
+      opacity: 0.3;
+      animation: float 12s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .flower.small { width: 70px; opacity: 0.25; }
+    .flower.large { width: 160px; opacity: 0.35; }
+
+    /* Irregular placement */
+    .flower1 { top: 10%; left: 5%; animation-delay: 0s; }
+    .flower2 { top: 40%; right: 8%; animation-delay: 3s; }
+    .flower3 { bottom: 15%; left: 12%; animation-delay: 6s; }
+    .flower4 { bottom: 20%; right: 15%; animation-delay: 9s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(3deg); }
+    }
+
     /* ===== Responsive ===== */
     @media (max-width: 768px) {
-      header.hero {
-        padding: 3rem 1rem;
-      }
-
-      nav ul {
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
+      nav ul { flex-wrap: wrap; gap: 1rem; }
+      .flower { display: none; } /* hide flowers on small screens for clarity */
     }
   </style>
 </head>
@@ -284,12 +272,17 @@
     <h1>Haven Photo & Video</h1>
     <p class="tagline">Preserving Memories, Capturing Love</p>
     <a href="#contact" class="btn">Book Your Session</a>
+
+    <!-- Flowers -->
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/flower1.png" class="flower flower1 small" alt="flower">
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/flower2.png" class="flower flower2" alt="flower">
   </header>
 
   <!-- About -->
   <section id="about" class="about">
     <h2>About Us</h2>
     <p>At Haven, we believe in more than just capturing images — we preserve the emotions, the laughter, the quiet glances, and the fleeting moments that make your story unique. From weddings to engagements and newborn sessions, our goal is to create a safe haven where your memories can be cherished forever.</p>
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/flower3.png" class="flower flower3 large" alt="flower">
   </section>
 
   <!-- Services -->
@@ -309,6 +302,7 @@
         <p>Gentle, heartwarming photography that honors the beauty of new beginnings.</p>
       </div>
     </div>
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/flower4.png" class="flower flower4 small" alt="flower">
   </section>
 
   <!-- Portfolio -->
