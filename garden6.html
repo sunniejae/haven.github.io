@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haven Photo & Video | Preserved Memories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png">
+  <style>
+    /* ===== Haven Brand Palette ===== */
+    :root {
+      --deep-blue: #044476;      /* Trust, safe harbor */
+      --soft-blush: #e194bc;     /* Romance, warmth */
+      --misty-lavender: #d8bbd4; /* Elegance, softness */
+      --warm-neutral: #ae9980;   /* Balance, coziness */
+      --dusty-lilac: #9c8fbc;    /* Romantic accent */
+      --soft-sage: #5f8a66;      /* Grounded, natural */
+      --champagne: #d3c1a3;      /* Light, celebratory */
+      --charcoal: #0f150f;       /* Sophisticated text/contrast */
+      --warm-taupe: #846d50;     /* Secondary neutral */
+      --white: #ffffff;
+    }
+
+    /* ===== Global Reset ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Cinzel', serif;
+      background: var(--champagne);
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Poiret One', cursive;
+      letter-spacing: 1px;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ===== Navigation ===== */
+    nav {
+      width: 100%;
+      background: var(--deep-blue);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--champagne);
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      padding: 0.3rem 0.8rem;
+      border-radius: 12px;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.15);
+      color: var(--soft-blush);
+    }
+
+    /* ===== Hero Section ===== */
+    header.hero {
+      min-height: 100vh;
+      background: linear-gradient(rgba(4,68,118,0.5), rgba(4,68,118,0.5)),
+                  url("https://sunniejae.blob.core.windows.net/sunniejae/weddingbg.jpg") center/cover no-repeat;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    header.hero h1 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      margin-bottom: 1rem;
+    }
+
+    header.hero p.tagline {
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--soft-blush);
+      color: var(--charcoal);
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 25px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--dusty-lilac);
+      color: var(--white);
+    }
+
+    /* ===== Sections ===== */
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--deep-blue);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    section h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--soft-blush);
+      margin: 0.8rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* ===== About ===== */
+    .about p {
+      max-width: 800px;
+      margin: 1rem auto;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    /* ===== Services Grid ===== */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .service {
+      background: var(--white);
+      border: 2px solid var(--misty-lavender);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+    }
+
+    .service h3 {
+      color: var(--soft-blush);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    /* ===== Portfolio ===== */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .portfolio-item {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* ===== Testimonials ===== */
+    .testimonials {
+      background: var(--misty-lavender);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .testimonial {
+      margin: 1.5rem 0;
+      font-style: italic;
+      border-left: 4px solid var(--soft-blush);
+      padding-left: 1rem;
+    }
+
+    /* ===== Contact ===== */
+    .contact form {
+      max-width: 600px;
+      margin: auto;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact input, .contact textarea {
+      padding: 0.8rem;
+      border: 1px solid var(--dusty-lilac);
+      border-radius: 8px;
+      font-family: inherit;
+    }
+
+    .contact button {
+      background: var(--soft-sage);
+      color: var(--white);
+      border: none;
+      padding: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact button:hover {
+      background: var(--deep-blue);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: var(--deep-blue);
+      color: var(--champagne);
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 50px;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      header.hero {
+        padding: 3rem 1rem;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <h1>Haven Photo & Video</h1>
+    <p class="tagline">Preserving Memories, Capturing Love</p>
+    <a href="#contact" class="btn">Book Your Session</a>
+  </header>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>At Haven, we believe in more than just capturing images — we preserve the emotions, the laughter, the quiet glances, and the fleeting moments that make your story unique. From weddings to engagements and newborn sessions, our goal is to create a safe haven where your memories can be cherished forever.</p>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service">
+        <h3>Wedding Photography</h3>
+        <p>Romantic and timeless photography that captures the magic of your most important day.</p>
+      </div>
+      <div class="service">
+        <h3>Videography</h3>
+        <p>Cinematic storytelling that preserves not just visuals, but the emotions and atmosphere.</p>
+      </div>
+      <div class="service">
+        <h3>Newborn Sessions</h3>
+        <p>Gentle, heartwarming photography that honors the beauty of new beginnings.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item"><img src="https://sunniejae.blob.core.windows.net/sunniejae/wedding1.jpg" alt="Wedding moment"></div>
+      <div class="portfolio-item"><img src="https://sunniejae.blob.core.windows.net/sunniejae/wedding2.jpg" alt="Bride and groom"></div>
+      <div class="portfolio-item"><img src="https://sunniejae.blob.core.windows.net/sunniejae/newborn.jpg" alt="Newborn photography"></div>
+      <div class="portfolio-item"><img src="https://sunniejae.blob.core.windows.net/sunniejae/engagement.jpg" alt="Engagement session"></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonials">
+      <div class="testimonial">“Haven captured our wedding perfectly! The photos are stunning and the videos brought tears to our eyes.”</div>
+      <div class="testimonial">“Every moment felt alive through their lens. Timeless memories we’ll treasure forever.”</div>
+      <div class="testimonial">“Their attention to detail and artistic vision exceeded our expectations. Highly recommended!”</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Get in Touch</h2>
+    <form>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Tell us about your event..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Haven Photo & Video · All Rights Reserved</p>
+  </footer>
+</body>
+</html>
