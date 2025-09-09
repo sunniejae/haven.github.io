@@ -309,15 +309,17 @@
             text-shadow: 0 0 25px rgba(4, 68, 118, 0.3);
         }
 
-        .section-title::before {
-            content: '📸';
+        .section-title::before{
+            content: url('https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png');
             position: absolute;
-            left: -60px;
+            right: -60px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 4rem;
-            animation: petalDance 4s infinite ease-in-out;
-        }
+            width: 1rem;      /* control size */
+            height: 1rem;
+            animation: petalDance 4s infinite ease-in-out 2s;
+}
+
 
 .section-title::after {
     content: url('https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png');
@@ -332,8 +334,8 @@
 
 
         @keyframes petalDance {
-            0%, 100% { transform: translateY(-50%) rotate(0deg); }
-            50% { transform: translateY(-70%) rotate(180deg); }
+            0%, 100% { transform: translateY(-10%) rotate(0deg); }
+            50% { transform: translateY(-10%) rotate(20deg); }
         }
 
         .section-subtitle {
