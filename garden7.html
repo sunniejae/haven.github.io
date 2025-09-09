@@ -96,7 +96,7 @@
         }
 
         .logo::after {
-            content: '✨';
+            content: 'A&B';
             position: absolute;
             top: -10px;
             right: -20px;
@@ -183,7 +183,7 @@
         }
 
         .hero h1 {
-            font-size: 5.5rem;
+            font-size: 5rem;
             margin-bottom: 1.5rem;
             color: var(--sunshine);
             text-shadow: 0 0 30px rgba(246, 235, 189, 0.8), 0 0 60px rgba(132, 149, 225, 0.4);
@@ -315,19 +315,21 @@
             left: -60px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 2.5rem;
+            font-size: 4rem;
             animation: petalDance 4s infinite ease-in-out;
         }
 
-        .section-title::after {
-            content: '📹';
-            position: absolute;
-            right: -60px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2.5rem;
-            animation: petalDance 4s infinite ease-in-out 2s;
-        }
+.section-title::after {
+    content: url('https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png');
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4rem;      /* control size */
+    height: 4rem;
+    animation: petalDance 4s infinite ease-in-out 2s;
+}
+
 
         @keyframes petalDance {
             0%, 100% { transform: translateY(-50%) rotate(0deg); }
@@ -368,7 +370,7 @@
         }
 
         .service-card::before {
-            content: 'service card before placeholder';
+            content: 'xoxo';
             position: absolute;
             top: -50%;
             left: -50%;
@@ -814,12 +816,12 @@
                 <div class="service-card">
                     <div class="service-icon">💍👩‍❤️‍🧑</div>
                     <h3>Engagements</h3>
-                    <p>Family bonds are like the roots of an ancient tree—deep, intertwined, and beautiful. We capture your unique connections in nature's embrace, creating portraits that bloom with love and laughter.</p>
+                    <p>service placeholder</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">👶🍼</div>
                     <h3>New Borns</h3>
-                    <p>Life's most beautiful moments happen in the spaces between—like morning dewdrops and sunset glimmers. We capture the authentic magic that dances through your everyday adventures.</p>
+                    <p>service placeholder</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🎉🎈</div>
@@ -844,22 +846,22 @@
             </h2>
             <div class="gallery-grid">
                 <div class="gallery-item garden-secret">
-                    <div class="hidden-fairy">🌸</div>
+                    <div class="hidden-fairy">Wedding</div>
                 </div>
                 <div class="gallery-item garden-secret">
-                    <div class="hidden-fairy">🦋</div>
+                    <div class="hidden-fairy">Engagement</div>
                 </div>
                 <div class="gallery-item garden-secret">
-                    <div class="hidden-fairy">🌿</div>
+                    <div class="hidden-fairy">Family Portraits</div>
                 </div>
                 <div class="gallery-item garden-secret">
-                    <div class="hidden-fairy">✨</div>
+                    <div class="hidden-fairy">Graduations</div>
                 </div>
                 <div class="gallery-item garden-secret">
-                    <div class="hidden-fairy">🌙</div>
+                    <div class="hidden-fairy">Parties and Events</div>
                 </div>
                 <div class="gallery-item garden-secret">
-                    <div class="hidden-fairy">🧚‍♀️</div>
+                    <div class="hidden-fairy">other</div>
                 </div>
             </div>
         </div>
@@ -899,7 +901,7 @@
                 </div>
                 <div class="form-group">
                     <label for="event-type">Event Type</label>
-                    <input type="text" id="event-type" name="event-type" placeholder="Check out our "packages" tab for options">
+                    <input type="text" id="event-type" name="event-type" placeholder="check out our packages tab to shop your options">
                 </div>
                 <div class="form-group">
                     <label for="date">When</label>
