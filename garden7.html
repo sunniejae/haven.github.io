@@ -103,10 +103,70 @@ section {opacity:0; transform: translateY(20px); transition: all 0.8s ease-out; 
 section.visible {opacity:1; transform: translateY(0);}
 h2.section-title {font-size:3rem; color: var(--jeans); margin-bottom:2rem; text-align:center;}
 
-/* ===== Services ===== */
-.services-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem;}
-.service-card {background: var(--gold); padding:2rem; border-radius:20px; box-shadow:0 8px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;}
-.service-card:hover {transform: translateY(-5px); box-shadow:0 12px 30px rgba(0,0,0,0.15);}
+/* ===== Services Grid ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  align-items: stretch;
+}
+
+/* Base service card */
+.service-card {
+  background: var(--gold);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* Titles inside cards */
+.service-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: var(--darkest);
+}
+
+/* Text inside cards */
+.service-card p {
+  font-size: 1.2rem;
+  color: var(--darkest);
+}
+
+/* Special card: framed video */
+.service-card .video-frame {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.service-card .book-frame {
+  width: 100%;
+  display: block;
+  border-radius: 15px;
+}
+
+.service-card video {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  width: 84%;
+  height: 84%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
 
 /* ===== Portfolio ===== */
 .portfolio-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem;}
@@ -176,19 +236,79 @@ footer {background: var(--jean); color: var(--white); text-align:center; padding
   </div>
 </section>
 
-<!-- Services Section -->
+    ----Services Grid----
 <section id="services">
   <h2 class="section-title">Our Services</h2>
   <div class="services-grid">
-    <div class="service-card">Wedding Photography</div>
+
+    <!-- Wedding Photography -->
     <div class="service-card">
-  <div class="video-frame">
-    <img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative Frame">
-    <video autoplay loop muted playsinline>
-      <source src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%201.mp4" type="video/mp4">
-    </video>
+      <div class="service-icon">📷</div>
+      <h3>Wedding Photography</h3>
+      <p>Elegant, timeless coverage of your special day</p>
+    </div>
+
+    <!-- Engagement Sessions -->
+    <div class="service-card">
+      <div class="service-icon">
+        <img src="https://sunniejae.blob.core.windows.net/sunniejae/camera-icon.png" alt="Camera Icon">
+      </div>
+      <h3>Engagement Sessions</h3>
+      <p>Capture your love story in beautiful locations</p>
+    </div>
+
+    <!-- Highlight Reel (video card) -->
+    <div class="service-card">
+      <div class="video-frame">
+        <img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative Frame">
+        <video autoplay loop muted playsinline>
+          <source src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%201.mp4" type="video/mp4">
+        </video>
+      </div>
+      <h3>Highlight Reel</h3>
+      <p>A cinematic preview of your wedding day</p>
+    </div>
+
+    <!-- Wedding Videography -->
+    <div class="service-card">
+      <div class="service-icon">🎥</div>
+      <h3>Wedding Videography</h3>
+      <p>Full-length cinematic films of your special day</p>
+    </div>
+
+    <!-- Events -->
+    <div class="service-card">
+      <div class="service-icon">✨</div>
+      <h3>Events</h3>
+      <p>Capture birthdays, parties, and milestone moments</p>
+    </div>
+
   </div>
-  <p style="margin-top:1rem; text-align:center;">Highlight Reel Preview</p>
+</section>
+
+
+  <!-- Text service with image icon -->
+  <div class="service-card">
+    <div class="service-icon">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/camera-icon.png" alt="Camera Icon">
+    </div>
+    <h3>Engagement Sessions</h3>
+    <p>Capture your love story in beautiful locations</p>
+  </div>
+
+  <!-- Video service with frame -->
+  <div class="service-card">
+    <div class="video-frame">
+      <img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative Frame">
+      <video autoplay loop muted playsinline>
+        <source src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%201.mp4" type="video/mp4">
+      </video>
+    </div>
+    <h3>Highlight Reel</h3>
+    <p>A cinematic preview of your wedding day</p>
+  </div>
+
+  <p style="margin-top:1rem; text-align:center;">Wedding Videography</p>
 </div>
     <div class="service-card">Engagement Sessions</div>
     <div class="service-card">Events</div>
