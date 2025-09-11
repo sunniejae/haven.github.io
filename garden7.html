@@ -113,6 +113,31 @@ h2.section-title {font-size:3rem; color: var(--jeans); margin-bottom:2rem; text-
 .portfolio-grid img {width:100%; border-radius:15px; transition: transform 0.3s, box-shadow 0.3s;}
 .portfolio-grid img:hover {transform: scale(1.05) rotate(1deg); box-shadow:0 12px 25px rgba(0,0,0,0.15);}
 
+    /* ===== Video Frame Service ===== */
+.video-frame {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.video-frame img.book-frame {
+  width: 100%;
+  display: block;
+  border-radius: 15px;
+}
+
+.video-frame video {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  width: 84%;
+  height: 84%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
 /* ===== Footer ===== */
 footer {background: var(--jean); color: var(--white); text-align:center; padding:2rem 1rem;}
 
@@ -156,7 +181,15 @@ footer {background: var(--jean); color: var(--white); text-align:center; padding
   <h2 class="section-title">Our Services</h2>
   <div class="services-grid">
     <div class="service-card">Wedding Photography</div>
-    <div class="service-card">Wedding Videography</div>
+    <div class="service-card">
+  <div class="video-frame">
+    <img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative Frame">
+    <video autoplay loop muted playsinline>
+      <source src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%201.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p style="margin-top:1rem; text-align:center;">Highlight Reel Preview</p>
+</div>
     <div class="service-card">Engagement Sessions</div>
     <div class="service-card">Events</div>
   </div>
