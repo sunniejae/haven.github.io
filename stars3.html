@@ -1,1 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haven - Preserving Your Precious Moments</title>
+    <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/darkerlogotransparent.png" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #D3C1A3;      /* softer, muted champagne */
+            --deep-space: #0D0B2B;        /* elegant deep night */
+            --dark-blue: #1F1A45;         
+            --accent-blue: #3C3A70;       
+            --light-gray: #E8E6F0;        
+            --text-light: #FDFCFB;        
+            --text-muted: #B5B0C2;        
+        }
+
+        body {
+            font-family: 'Poiret One', cursive;
+            background: var(--deep-space);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* Subtle animated starfield background */
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0f 100%);
+        }
+
+        .star {
+            position: absolute;
+            width: 1.5px;
+            height: 1.5px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 5s infinite ease-in-out;
+            opacity: 0.5;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(211, 193, 163, 0.2);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Poiret One', cursive;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(26,26,46,0.85) 0%, rgba(10,10,15,0.95) 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Poiret One', cursive;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-gold);
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 36px;
+            background: var(--primary-gold);
+            color: var(--deep-space);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #cbb78f;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-family: 'Poiret One', cursive;
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-gold);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .team-member {
+            background: rgba(26,26,46,0.6);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(211,193,163,0.2);
+        }
+
+        .team-member h3 {
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+        }
+
+        .role {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .team-member p {
+            line-height: 1.7;
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 50px;
+            background: rgba(26,26,46,0.3);
+        }
+
+        .services h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-gold);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        .service-card {
+            background: rgba(10,10,15,0.8);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(211,193,163,0.1);
+            text-align: center;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary-gold);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 50px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-gold);
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 50px;
+            text-align: center;
+            border-top: 1px solid rgba(211,193,163,0.2);
+            background: rgba(10,10,15,0.9);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .hero .tagline { font-size: 1rem; }
+            .team-grid { grid-template-columns: 1fr; gap: 40px; }
+            .services-grid { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="starfield" id="starfield"></div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">HAVEN</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>HAVEN</h1>
+            <p class="tagline">Preserving Your Precious Moments</p>
+            <p class="tagline">For Today, Tomorrow, and the Far, Far Away Future</p>
+            <a href="#contact" class="cta-button">Book Your Session</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="services-container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Weddings</h3>
+                    <p>Capturing the magic of your special day.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Engagements</h3>
+                    <p>Preserving the excitement of new beginnings.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Couples</h3>
+                    <p>Intimate moments captured with elegance.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Graduations</h3>
+                    <p>Celebrating milestones with style and grace.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>The Force Behind the Lens</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <h3>Brad</h3>
+                <p class="role">Videographer</p>
+                <p>Brad has been crafting visual stories since he was a kid, bringing the same dedication to your special moments that he brings to his charity work as a stormtrooper in the 501st Legion.</p>
+            </div>
+            <div class="team-member">
+                <h3>Andie</h3>
+                <p class="role">Photographer</p>
+                <p>When Andie isn't perfecting her craft behind the camera, she captures the magical narratives of your most precious moments with care and elegance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Ready to Begin?</h2>
+        <p>Your story is written in the stars. Let us help you tell it.</p>
+        <a href="mailto:haven@sunniejae.com" class="cta-button">Contact Us</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Haven Photography. May your moments be ever preserved. Website Provided by SunnieJaeCreates.</p>
+    </footer>
+
+    <script>
+        function createStarfield() {
+            const starfield = document.getElementById('starfield');
+            const numberOfStars = 80;
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 5 + 's';
+                star.style.animationDuration = (Math.random() * 5 + 3) + 's';
+                starfield.appendChild(star);
+            }
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            nav.style.background = window.scrollY > 50 ? 'rgba(10,10,15,0.95)' : 'rgba(10,10,15,0.85)';
+        });
+
+        window.addEventListener('load', createStarfield);
+    </script>
+</body>
+</html>
 
