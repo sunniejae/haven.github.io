@@ -14,12 +14,13 @@
     --jeans: #587B7F;    
     --pink: #F5CAC3;     
     --green: #C8EAD3;    
-    --cream: #f3ebe7;    
+    --cream: #f3ebe7;  
+    --white: #f8f4f8;
 }
 
 /* ===== Global Styles ===== */
 * {margin:0; padding:0; box-sizing:border-box;}
-body {font-family:'Poiret One', cursive; color: var(--darkest); background: var(--cream); overflow-x:hidden;}
+body {font-family:'Poiret One', cursive; color: var(--darkest); background: var(--white); overflow-x:hidden;}
 a {text-decoration:none;}
 
 /* ===== Navbar ===== */
@@ -41,7 +42,7 @@ nav.scrolled {background: rgba(23,17,35,0.25); border-bottom:1px solid rgba(211,
 .hero {height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden; background: linear-gradient(135deg,var(--gold),var(--cream),var(--jeans),var(--pink));}
 .hero h1 {font-size:5rem; color: var(--darkest); margin-bottom:1rem; opacity:0; transform: translateY(30px); animation:fadeSlideUp 1s forwards;}
 .hero p {font-size:1.8rem; color: var(--jeans); margin-bottom:2rem; opacity:0; transform: translateY(30px); animation:fadeSlideUp 1s forwards; animation-delay:0.4s;}
-.cta-button {display:inline-block; padding:1rem 3rem; font-size:1.3rem; background: linear-gradient(45deg,var(--cream),var(--gold),var(--pink)); color:white; border-radius:50px; opacity:0; transform: translateY(30px); animation:fadeSlideUp 1s forwards; animation-delay:0.8s; box-shadow:0 12px 30px rgba(0,0,0,0.2);}
+.cta-button {display:inline-block; padding:1rem 3rem; font-size:1.3rem; background: linear-gradient(45deg,var(--cream),var(--white),var(--pink)); color:white; border-radius:50px; opacity:0; transform: translateY(30px); animation:fadeSlideUp 1s forwards; animation-delay:0.8s; box-shadow:0 12px 30px rgba(0,0,0,0.2);}
 .cta-button:hover {transform: translateY(-5px) scale(1.05);}
 
 /* ===== Floating Flowers ===== */
