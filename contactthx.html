@@ -276,4 +276,94 @@
     }
 
     @media (max-width: 480px) {
-      .nav-bar ul { gap
+      .nav-bar ul { gap: 0.5rem; }
+      .nav-bar a { font-size: 0.9rem; padding: 0.3rem 0.6rem; }
+      .hero-header { min-height: 60vh; }
+      .hero-image { width: min(400px, 95vw); border-width: 8px; }
+      .flower-decoration { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero-header">
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/havenheaderwlogo.png" 
+         alt="Haven Photography Logo" 
+         class="hero-image">
+    <h1>photo & video</h1>
+    <p class="tagline">preserving your special moments</p>
+
+    <!-- Decorative Flower Graphics -->
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower.png" class="flower-decoration flower-top" alt="" role="presentation">
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower2.png" class="flower-decoration flower-bottom" alt="" role="presentation">
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png" class="flower-decoration flower-left" alt="" role="presentation">
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/pressedflower4.png" class="flower-decoration flower-right" alt="" role="presentation">
+  </header>
+
+  <main>
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Us</h2>
+      <div class="about-content">
+        <p>Welcome to Haven, where every moment becomes a treasured memory. We specialize in capturing life's most precious occasions through the art of photography and videography.</p>
+        <p>Like pressed flowers preserved between the pages of time, we believe your memories deserve to be kept safe, beautiful, and lasting. Our passion is creating visual stories that you'll cherish for generations to come.</p>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+      <h2>Our Services</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <div class="portfolio-placeholder">Photography Samples</div>
+          <h3>Photography</h3>
+          <p>From intimate portraits to grand celebrations, we capture the essence of every moment with artistic vision and technical excellence.</p>
+        </div>
+        <div class="portfolio-item">
+          <div class="portfolio-placeholder">Videography Samples</div>
+          <h3>Videography</h3>
+          <p>Bring your memories to life with cinematic storytelling that preserves not just the moment, but the emotion and atmosphere.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+      <h2>Client Reviews</h2>
+      <div class="reviews-container">
+        <div class="review">
+          <p>"Haven captured our wedding perfectly! The photos are stunning and the videos brought tears to our eyes. Every detail was preserved beautifully."</p>
+        </div>
+        <div class="review">
+          <p>"Every moment felt alive through their lens. The team at Haven truly understands how to create timeless memories that we'll treasure forever."</p>
+        </div>
+        <div class="review">
+          <p>"We couldn't have asked for a more professional and creative team. Their attention to detail and artistic vision exceeded our expectations. Highly recommended!"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form class="contact-form" action="https://formspree.io/f/mblawbja" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="_replyto" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
