@@ -8,18 +8,13 @@
     <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png" />
     <style>
         :root {
-            /* === Haven Photo & Video Palette === */
-            --warm-taupe: #846d50;     /* Secondary neutral */
-            --warm-neutral: #ae9980;   /* Balance, coziness */
-            --champagne: #d3c1a3;      /* Light, celebratory */
-            --charcoal: #0f150f;       /* Sophisticated text/contrast */
-            --deep-blue: #044476;      /* Trust, safe harbor */
-            --misty-lavender: #d8bbd4; /* Elegance, softness */
-            --soft-blush: #e194bc;     /* Romance, warmth */
-            --soft-sage: #5f8a66;      /* Grounded, natural */
-            --dusty-lilac: #9c8fbc;    /* Romantic accent */
-            --sunshine: #f6ebbd;
-            --bluebonnett: #8495e1;
+            /* === Updated Haven Photo & Video Palette === */
+            --darkest: #171123;      /* Rich dark purple-black */
+            --gold: #D3C1A3;         /* Warm gold */
+            --jeans: #587B7F;        /* Sophisticated blue-gray */
+            --pink: #F5CAC3;         /* Soft peachy pink */
+            --green: #C8EAD3;        /* Fresh mint green */
+            --cream: #f3ebe7;        /* Warm cream */
         }
 
         * {
@@ -31,8 +26,8 @@
         body {
             font-family: 'Poiret One', cursive;
             line-height: 1.6;
-            color: var(--charcoal);
-            background: linear-gradient(135deg, var(--soft-sage) 0%, var(--sunshine) 30%, var(--misty-lavender) 70%, var(--bluebonnett) 100%);
+            color: var(--darkest);
+            background: linear-gradient(135deg, var(--green) 0%, var(--cream) 30%, var(--pink) 70%, var(--gold) 100%);
             overflow-x: hidden;
             position: relative;
         }
@@ -45,7 +40,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="30" cy="40" r="2" fill="%23e194bc" opacity="0.7" filter="url(%23glow)"><animate attributeName="cy" values="40;20;40" dur="6s" repeatCount="indefinite"/></circle><circle cx="170" cy="60" r="1.5" fill="%23f6ebbd" opacity="0.8" filter="url(%23glow)"><animate attributeName="cx" values="170;150;170" dur="8s" repeatCount="indefinite"/></circle><circle cx="100" cy="30" r="1" fill="%238495e1" opacity="0.9" filter="url(%23glow)"><animate attributeName="r" values="1;3;1" dur="4s" repeatCount="indefinite"/></circle><circle cx="60" cy="150" r="2.5" fill="%239c8fbc" opacity="0.6" filter="url(%23glow)"><animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/></circle></svg>') repeat;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="30" cy="40" r="2" fill="%23F5CAC3" opacity="0.7" filter="url(%23glow)"><animate attributeName="cy" values="40;20;40" dur="6s" repeatCount="indefinite"/></circle><circle cx="170" cy="60" r="1.5" fill="%23D3C1A3" opacity="0.8" filter="url(%23glow)"><animate attributeName="cx" values="170;150;170" dur="8s" repeatCount="indefinite"/></circle><circle cx="100" cy="30" r="1" fill="%23587B7F" opacity="0.9" filter="url(%23glow)"><animate attributeName="r" values="1;3;1" dur="4s" repeatCount="indefinite"/></circle><circle cx="60" cy="150" r="2.5" fill="%23C8EAD3" opacity="0.6" filter="url(%23glow)"><animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/></circle></svg>') repeat;
             animation: magicalDrift 30s infinite linear;
             pointer-events: none;
             z-index: 1;
@@ -65,16 +60,16 @@
             top: 0;
             width: 100%;
             padding: 1.5rem 5%;
-            background: rgba(95, 138, 102, 0.15);
+            background: rgba(200, 234, 211, 0.15);
             backdrop-filter: blur(20px);
             z-index: 1000;
             transition: all 0.4s ease;
-            border-bottom: 1px solid rgba(132, 149, 225, 0.2);
+            border-bottom: 1px solid rgba(88, 123, 127, 0.2);
         }
 
         nav.scrolled {
-            background: rgba(15, 21, 15, 0.25);
-            border-bottom: 1px solid rgba(246, 235, 189, 0.3);
+            background: rgba(23, 17, 35, 0.25);
+            border-bottom: 1px solid rgba(211, 193, 163, 0.3);
         }
 
         .nav-container {
@@ -88,11 +83,11 @@
         .logo {
             font-size: 2.5rem;
             font-weight: 400;
-            color: var(--soft-blush);
+            color: var(--pink);
             text-decoration: none;
             letter-spacing: 4px;
             position: relative;
-            text-shadow: 0 0 20px rgba(225, 148, 188, 0.5);
+            text-shadow: 0 0 20px rgba(245, 202, 195, 0.5);
         }
 
         .logo::after {
@@ -116,7 +111,7 @@
         }
 
         .nav-links a {
-            color: var(--sunshine);
+            color: var(--gold);
             text-decoration: none;
             transition: all 0.4s ease;
             position: relative;
@@ -125,8 +120,8 @@
         }
 
         .nav-links a:hover {
-            color: var(--bluebonnett);
-            text-shadow: 0 0 15px rgba(132, 149, 225, 0.6);
+            color: var(--jeans);
+            text-shadow: 0 0 15px rgba(88, 123, 127, 0.6);
         }
 
         .nav-links a::after {
@@ -136,10 +131,10 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--soft-blush), var(--bluebonnett));
+            background: linear-gradient(90deg, var(--pink), var(--jeans));
             transition: width 0.4s ease;
             border-radius: 2px;
-            box-shadow: 0 0 10px rgba(132, 149, 225, 0.5);
+            box-shadow: 0 0 10px rgba(88, 123, 127, 0.5);
         }
 
         .nav-links a:hover::after {
@@ -154,7 +149,7 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            background: radial-gradient(circle at center, var(--soft-sage) 0%, var(--deep-blue) 25%, var(--dusty-lilac) 50%, var(--bluebonnett) 75%, var(--sunshine) 100%);
+            background: radial-gradient(circle at center, var(--green) 0%, var(--jeans) 25%, var(--darkest) 50%, var(--pink) 75%, var(--gold) 100%);
             overflow: hidden;
         }
 
@@ -165,7 +160,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><defs><filter id="fairy-glow"><feGaussianBlur stdDeviation="4" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(%23fairy-glow)"><path d="M50,200 Q100,150 150,200 Q200,250 250,200 Q300,150 350,200" stroke="%238495e1" stroke-width="2" fill="none" opacity="0.4"><animate attributeName="d" values="M50,200 Q100,150 150,200 Q200,250 250,200 Q300,150 350,200;M50,200 Q100,180 150,200 Q200,220 250,200 Q300,180 350,200;M50,200 Q100,150 150,200 Q200,250 250,200 Q300,150 350,200" dur="8s" repeatCount="indefinite"/></path><circle cx="80" cy="180" r="3" fill="%23f6ebbd" opacity="0.7"><animate attributeName="cy" values="180;160;180" dur="4s" repeatCount="indefinite"/></circle><circle cx="320" cy="220" r="2" fill="%23e194bc" opacity="0.8"><animate attributeName="r" values="2;4;2" dur="6s" repeatCount="indefinite"/></circle></g></svg>') repeat;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><defs><filter id="fairy-glow"><feGaussianBlur stdDeviation="4" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(%23fairy-glow)"><path d="M50,200 Q100,150 150,200 Q200,250 250,200 Q300,150 350,200" stroke="%23587B7F" stroke-width="2" fill="none" opacity="0.4"><animate attributeName="d" values="M50,200 Q100,150 150,200 Q200,250 250,200 Q300,150 350,200;M50,200 Q100,180 150,200 Q200,220 250,200 Q300,180 350,200;M50,200 Q100,150 150,200 Q200,250 250,200 Q300,150 350,200" dur="8s" repeatCount="indefinite"/></path><circle cx="80" cy="180" r="3" fill="%23D3C1A3" opacity="0.7"><animate attributeName="cy" values="180;160;180" dur="4s" repeatCount="indefinite"/></circle><circle cx="320" cy="220" r="2" fill="%23F5CAC3" opacity="0.8"><animate attributeName="r" values="2;4;2" dur="6s" repeatCount="indefinite"/></circle></g></svg>') repeat;
             animation: fairyPath 25s infinite linear;
             z-index: 1;
         }
@@ -185,8 +180,8 @@
         .hero h1 {
             font-size: 5rem;
             margin-bottom: 1.5rem;
-            color: var(--sunshine);
-            text-shadow: 0 0 30px rgba(246, 235, 189, 0.8), 0 0 60px rgba(132, 149, 225, 0.4);
+            color: var(--cream);
+            text-shadow: 0 0 30px rgba(243, 235, 231, 0.8), 0 0 60px rgba(88, 123, 127, 0.4);
             animation: fadeInMagical 2s ease-out;
             letter-spacing: 3px;
         }
@@ -207,7 +202,7 @@
         .hero p {
             font-size: 1.8rem;
             margin-bottom: 2.5rem;
-            color: var(--champagne);
+            color: var(--gold);
             animation: fadeInMagical 2s ease-out 0.5s both;
             text-shadow: 0 0 20px rgba(211, 193, 163, 0.6);
             letter-spacing: 1px;
@@ -216,7 +211,7 @@
         .cta-button {
             display: inline-block;
             padding: 1.2rem 3rem;
-            background: linear-gradient(45deg, var(--soft-blush), var(--bluebonnett), var(--sunshine));
+            background: linear-gradient(45deg, var(--pink), var(--jeans), var(--gold));
             background-size: 200% 200%;
             color: white;
             text-decoration: none;
@@ -224,7 +219,7 @@
             font-size: 1.3rem;
             font-weight: 400;
             transition: all 0.4s ease;
-            box-shadow: 0 15px 40px rgba(132, 149, 225, 0.4), 0 0 30px rgba(246, 235, 189, 0.3);
+            box-shadow: 0 15px 40px rgba(88, 123, 127, 0.4), 0 0 30px rgba(211, 193, 163, 0.3);
             animation: fadeInMagical 2s ease-out 1s both;
             position: relative;
             letter-spacing: 2px;
@@ -248,7 +243,7 @@
 
         .cta-button:hover {
             transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(132, 149, 225, 0.6), 0 0 40px rgba(246, 235, 189, 0.5);
+            box-shadow: 0 20px 50px rgba(88, 123, 127, 0.6), 0 0 40px rgba(211, 193, 163, 0.5);
             background-position: 100% 0;
         }
 
@@ -277,7 +272,7 @@
         /* Services Section - Enchanted Offerings */
         .services {
             padding: 6rem 5%;
-            background: linear-gradient(135deg, var(--sunshine) 0%, var(--champagne) 30%, var(--misty-lavender) 70%, var(--warm-neutral) 100%);
+            background: linear-gradient(135deg, var(--cream) 0%, var(--gold) 30%, var(--pink) 70%, var(--green) 100%);
             position: relative;
         }
 
@@ -288,7 +283,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><circle cx="50" cy="50" r="20" fill="%238495e1" opacity="0.1"><animate attributeName="r" values="20;25;20" dur="8s" repeatCount="indefinite"/></circle><circle cx="250" cy="100" r="15" fill="%23f6ebbd" opacity="0.15"><animate attributeName="cy" values="100;80;100" dur="6s" repeatCount="indefinite"/></circle><circle cx="150" cy="250" r="18" fill="%23e194bc" opacity="0.12"><animate attributeName="r" values="18;22;18" dur="10s" repeatCount="indefinite"/></circle></svg>') repeat;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><circle cx="50" cy="50" r="20" fill="%23587B7F" opacity="0.1"><animate attributeName="r" values="20;25;20" dur="8s" repeatCount="indefinite"/></circle><circle cx="250" cy="100" r="15" fill="%23D3C1A3" opacity="0.15"><animate attributeName="cy" values="100;80;100" dur="6s" repeatCount="indefinite"/></circle><circle cx="150" cy="250" r="18" fill="%23F5CAC3" opacity="0.12"><animate attributeName="r" values="18;22;18" dur="10s" repeatCount="indefinite"/></circle></svg>') repeat;
             pointer-events: none;
         }
 
@@ -303,10 +298,10 @@
             text-align: center;
             font-size: 3.5rem;
             margin-bottom: 4rem;
-            color: var(--deep-blue);
+            color: var(--darkest);
             position: relative;
             letter-spacing: 2px;
-            text-shadow: 0 0 25px rgba(4, 68, 118, 0.3);
+            text-shadow: 0 0 25px rgba(23, 17, 35, 0.3);
         }
 
         .section-title::before{
@@ -315,23 +310,21 @@
             right: -60px;
             top: 50%;
             transform: translateY(-50%);
-            width: 1rem;      /* control size */
+            width: 1rem;
             height: 1rem;
             animation: petalDance 4s infinite ease-in-out 2s;
-}
+        }
 
-
-.section-title::after {
-    content: url('https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png');
-    position: absolute;
-    right: -60px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4rem;      /* control size */
-    height: 4rem;
-    animation: petalDance 4s infinite ease-in-out 2s;
-}
-
+        .section-title::after {
+            content: url('https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png');
+            position: absolute;
+            right: -60px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4rem;
+            height: 4rem;
+            animation: petalDance 4s infinite ease-in-out 2s;
+        }
 
         @keyframes petalDance {
             0%, 100% { transform: translateY(-10%) rotate(0deg); }
@@ -346,9 +339,9 @@
             transform: translateX(-50%);
             width: 120px;
             height: 4px;
-            background: linear-gradient(45deg, var(--soft-blush), var(--bluebonnett), var(--sunshine));
+            background: linear-gradient(45deg, var(--pink), var(--jeans), var(--gold));
             border-radius: 2px;
-            box-shadow: 0 0 15px rgba(132, 149, 225, 0.5);
+            box-shadow: 0 0 15px rgba(88, 123, 127, 0.5);
         }
 
         .services-grid {
@@ -364,21 +357,21 @@
             border-radius: 25px;
             text-align: center;
             transition: all 0.5s ease;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1), 0 0 30px rgba(132, 149, 225, 0.2);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1), 0 0 30px rgba(88, 123, 127, 0.2);
             backdrop-filter: blur(15px);
-            border: 2px solid rgba(246, 235, 189, 0.3);
+            border: 2px solid rgba(211, 193, 163, 0.3);
             position: relative;
             overflow: hidden;
         }
 
         .service-card::before {
-            content: 'xoxo';
+            content: '';
             position: absolute;
             top: -50%;
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(132, 149, 225, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(88, 123, 127, 0.1) 0%, transparent 70%);
             transition: transform 0.6s ease;
             transform: scale(0);
         }
@@ -389,15 +382,15 @@
 
         .service-card:hover {
             transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 60px rgba(132, 149, 225, 0.3), 0 0 50px rgba(246, 235, 189, 0.4);
-            border-color: rgba(132, 149, 225, 0.6);
+            box-shadow: 0 25px 60px rgba(88, 123, 127, 0.3), 0 0 50px rgba(211, 193, 163, 0.4);
+            border-color: rgba(88, 123, 127, 0.6);
         }
 
         .service-icon {
             font-size: 4.5rem;
             margin-bottom: 2rem;
-            color: var(--bluebonnett);
-            text-shadow: 0 0 20px rgba(132, 149, 225, 0.5);
+            color: var(--jeans);
+            text-shadow: 0 0 20px rgba(88, 123, 127, 0.5);
             position: relative;
             z-index: 2;
         }
@@ -405,14 +398,14 @@
         .service-card h3 {
             font-size: 2rem;
             margin-bottom: 1.5rem;
-            color: var(--deep-blue);
+            color: var(--darkest);
             letter-spacing: 1px;
             position: relative;
             z-index: 2;
         }
 
         .service-card p {
-            color: var(--warm-taupe);
+            color: var(--jeans);
             line-height: 1.9;
             font-size: 1.1rem;
             position: relative;
@@ -422,18 +415,18 @@
         /* Portfolio Preview - Secret Gallery */
         .portfolio-preview {
             padding: 6rem 5%;
-            background: linear-gradient(135deg, var(--bluebonnett) 0%, var(--dusty-lilac) 30%, var(--deep-blue) 60%, var(--soft-sage) 100%);
+            background: linear-gradient(135deg, var(--jeans) 0%, var(--darkest) 30%, var(--pink) 60%, var(--green) 100%);
             position: relative;
         }
 
         .portfolio-preview::before {
-            content: 'portfolio preview before placeholder';
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><defs><filter id="vine-glow"><feGaussianBlur stdDeviation="2" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path d="M0,250 Q125,200 250,250 Q375,300 500,250" stroke="%235f8a66" stroke-width="3" fill="none" opacity="0.3" filter="url(%23vine-glow)"><animate attributeName="d" values="M0,250 Q125,200 250,250 Q375,300 500,250;M0,250 Q125,220 250,250 Q375,280 500,250;M0,250 Q125,200 250,250 Q375,300 500,250" dur="10s" repeatCount="indefinite"/></path><circle cx="125" cy="200" r="8" fill="%23f6ebbd" opacity="0.4" filter="url(%23vine-glow)"><animate attributeName="cy" values="200;180;200" dur="5s" repeatCount="indefinite"/></circle><circle cx="375" cy="300" r="6" fill="%23e194bc" opacity="0.5" filter="url(%23vine-glow)"><animate attributeName="r" values="6;10;6" dur="7s" repeatCount="indefinite"/></circle></svg>') repeat-x;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><defs><filter id="vine-glow"><feGaussianBlur stdDeviation="2" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path d="M0,250 Q125,200 250,250 Q375,300 500,250" stroke="%23C8EAD3" stroke-width="3" fill="none" opacity="0.3" filter="url(%23vine-glow)"><animate attributeName="d" values="M0,250 Q125,200 250,250 Q375,300 500,250;M0,250 Q125,220 250,250 Q375,280 500,250;M0,250 Q125,200 250,250 Q375,300 500,250" dur="10s" repeatCount="indefinite"/></path><circle cx="125" cy="200" r="8" fill="%23D3C1A3" opacity="0.4" filter="url(%23vine-glow)"><animate attributeName="cy" values="200;180;200" dur="5s" repeatCount="indefinite"/></circle><circle cx="375" cy="300" r="6" fill="%23F5CAC3" opacity="0.5" filter="url(%23vine-glow)"><animate attributeName="r" values="6;10;6" dur="7s" repeatCount="indefinite"/></circle></svg>') repeat-x;
             pointer-events: none;
             animation: vineGrow 15s infinite linear;
         }
@@ -452,7 +445,7 @@
 
         .gallery-item {
             aspect-ratio: 4/3;
-            background: linear-gradient(45deg, var(--sunshine), var(--soft-blush), var(--bluebonnett));
+            background: linear-gradient(45deg, var(--gold), var(--pink), var(--jeans));
             background-size: 400% 400%;
             border-radius: 20px;
             position: relative;
@@ -464,12 +457,12 @@
 
         .gallery-item:hover {
             transform: scale(1.08) rotate(2deg);
-            box-shadow: 0 20px 50px rgba(132, 149, 225, 0.4);
+            box-shadow: 0 20px 50px rgba(88, 123, 127, 0.4);
             background-position: 100% 100%;
         }
 
         .gallery-item::after {
-            content: 'gallery item after placeholder';
+            content: '📸';
             position: absolute;
             top: 50%;
             left: 50%;
@@ -488,19 +481,19 @@
         /* About Section - Garden Keeper's Story */
         .about {
             padding: 6rem 5%;
-            background: linear-gradient(135deg, var(--soft-sage) 0%, var(--warm-neutral) 30%, var(--champagne) 70%, var(--sunshine) 100%);
-            color: var(--charcoal);
+            background: linear-gradient(135deg, var(--green) 0%, var(--cream) 30%, var(--gold) 70%, var(--pink) 100%);
+            color: var(--darkest);
             position: relative;
         }
 
         .about::before {
-            content: 'about before placeholder';
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><g opacity="0.1"><circle cx="100" cy="100" r="30" fill="%235f8a66"><animate attributeName="r" values="30;35;30" dur="12s" repeatCount="indefinite"/></circle><circle cx="300" cy="150" r="25" fill="%23f6ebbd"><animate attributeName="cy" values="150;130;150" dur="8s" repeatCount="indefinite"/></circle><circle cx="200" cy="320" r="20" fill="%238495e1"><animate attributeName="r" values="20;28;20" dur="15s" repeatCount="indefinite"/></circle></g></svg>') repeat;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><g opacity="0.1"><circle cx="100" cy="100" r="30" fill="%23C8EAD3"><animate attributeName="r" values="30;35;30" dur="12s" repeatCount="indefinite"/></circle><circle cx="300" cy="150" r="25" fill="%23D3C1A3"><animate attributeName="cy" values="150;130;150" dur="8s" repeatCount="indefinite"/></circle><circle cx="200" cy="320" r="20" fill="%23587B7F"><animate attributeName="r" values="20;28;20" dur="15s" repeatCount="indefinite"/></circle></g></svg>') repeat;
             pointer-events: none;
         }
 
@@ -514,21 +507,21 @@
         .about-text h2 {
             font-size: 3rem;
             margin-bottom: 2.5rem;
-            color: var(--deep-blue);
+            color: var(--darkest);
             letter-spacing: 2px;
-            text-shadow: 0 0 20px rgba(4, 68, 118, 0.3);
+            text-shadow: 0 0 20px rgba(23, 17, 35, 0.3);
         }
 
         .about-text p {
             font-size: 1.3rem;
             line-height: 2;
             margin-bottom: 2rem;
-            color: var(--warm-taupe);
+            color: var(--jeans);
         }
 
         .about-image {
             aspect-ratio: 1;
-            background: radial-gradient(circle, var(--bluebonnett), var(--dusty-lilac), var(--soft-blush));
+            background: radial-gradient(circle, var(--jeans), var(--darkest), var(--pink));
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -536,7 +529,7 @@
             font-size: 10rem;
             opacity: 0.9;
             animation: gentleFloat 8s infinite ease-in-out;
-            box-shadow: 0 0 50px rgba(132, 149, 225, 0.4);
+            box-shadow: 0 0 50px rgba(88, 123, 127, 0.4);
         }
 
         @keyframes gentleFloat {
@@ -547,19 +540,19 @@
         /* Contact Section - Magic Portal */
         .contact {
             padding: 6rem 5%;
-            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--charcoal) 30%, var(--dusty-lilac) 60%, var(--bluebonnett) 100%);
+            background: linear-gradient(135deg, var(--darkest) 0%, var(--jeans) 30%, var(--green) 60%, var(--gold) 100%);
             color: white;
             position: relative;
         }
 
         .contact::before {
-            content: 'contact before placeholder';
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><defs><filter id="portal-glow"><feGaussianBlur stdDeviation="5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="300" cy="300" r="100" stroke="%238495e1" stroke-width="2" fill="none" opacity="0.2" filter="url(%23portal-glow)"><animate attributeName="r" values="100;120;100" dur="8s" repeatCount="indefinite"/></circle><circle cx="300" cy="300" r="150" stroke="%23f6ebbd" stroke-width="1" fill="none" opacity="0.15" filter="url(%23portal-glow)"><animate attributeName="r" values="150;170;150" dur="10s" repeatCount="indefinite"/></circle></svg>') no-repeat center center;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><defs><filter id="portal-glow"><feGaussianBlur stdDeviation="5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="300" cy="300" r="100" stroke="%23587B7F" stroke-width="2" fill="none" opacity="0.2" filter="url(%23portal-glow)"><animate attributeName="r" values="100;120;100" dur="8s" repeatCount="indefinite"/></circle><circle cx="300" cy="300" r="150" stroke="%23D3C1A3" stroke-width="1" fill="none" opacity="0.15" filter="url(%23portal-glow)"><animate attributeName="r" values="150;170;150" dur="10s" repeatCount="indefinite"/></circle></svg>') no-repeat center center;
             background-size: cover;
             pointer-events: none;
             opacity: 0.3;
@@ -579,7 +572,7 @@
         .form-group label {
             display: block;
             margin-bottom: 0.8rem;
-            color: var(--sunshine);
+            color: var(--cream);
             font-weight: 400;
             font-size: 1.2rem;
             letter-spacing: 1px;
@@ -594,7 +587,7 @@
             background: rgba(255, 255, 255, 0.15);
             color: white;
             backdrop-filter: blur(10px);
-            border: 2px solid rgba(132, 149, 225, 0.3);
+            border: 2px solid rgba(88, 123, 127, 0.3);
             font-family: 'Poiret One', cursive;
             font-size: 1.1rem;
             transition: all 0.3s ease;
@@ -603,8 +596,8 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: rgba(132, 149, 225, 0.8);
-            box-shadow: 0 0 25px rgba(132, 149, 225, 0.4);
+            border-color: rgba(88, 123, 127, 0.8);
+            box-shadow: 0 0 25px rgba(88, 123, 127, 0.4);
             background: rgba(255, 255, 255, 0.2);
         }
 
@@ -617,7 +610,7 @@
         .submit-btn {
             width: 100%;
             padding: 1.5rem;
-            background: linear-gradient(45deg, var(--sunshine), var(--bluebonnett), var(--soft-blush));
+            background: linear-gradient(45deg, var(--gold), var(--jeans), var(--pink));
             background-size: 200% 200%;
             color: white;
             border: none;
@@ -628,527 +621,23 @@
             transition: all 0.4s ease;
             font-family: 'Poiret One', cursive;
             letter-spacing: 2px;
-            box-shadow: 0 15px 40px rgba(132, 149, 225, 0.3);
+            box-shadow: 0 15px 40px rgba(88, 123, 127, 0.3);
         }
 
         .submit-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(132, 149, 225, 0.5);
+            box-shadow: 0 20px 50px rgba(88, 123, 127, 0.5);
             background-position: 100% 0;
         }
 
         /* Footer - Garden Gate */
         footer {
-            background: linear-gradient(135deg, var(--charcoal) 0%, var(--deep-blue) 100%);
-            color: var(--sunshine);
+            background: linear-gradient(135deg, var(--darkest) 0%, var(--jeans) 100%);
+            color: var(--cream);
             text-align: center;
             padding: 3rem 5%;
             position: relative;
         }
 
         footer::before {
-            content: 'footer before placeholder';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200"><path d="M0,100 Q200,50 400,100 Q600,150 800,100" stroke="%235f8a66" stroke-width="2" fill="none" opacity="0.3"><animate attributeName="d" values="M0,100 Q200,50 400,100 Q600,150 800,100;M0,100 Q200,70 400,100 Q600,130 800,100;M0,100 Q200,50 400,100 Q600,150 800,100" dur="12s" repeatCount="indefinite"/></path></svg>') repeat-x;
-            pointer-events: none;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            margin: 2rem 0;
-        }
-
-        .social-links a {
-            color: var(--bluebonnett);
-            font-size: 2rem;
-            transition: all 0.4s ease;
-            text-shadow: 0 0 15px rgba(132, 149, 225, 0.5);
-        }
-
-        .social-links a:hover {
-            transform: translateY(-5px) scale(1.2);
-            color: var(--sunshine);
-            text-shadow: 0 0 25px rgba(246, 235, 189, 0.8);
-        }
-
-        .footer-text {
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            margin-top: 2rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.4rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title::before,
-            .section-title::after {
-                display: none;
-            }
-
-            .section-title {
-                font-size: 2.8rem;
-            }
-
-            .service-card {
-                padding: 2rem;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Secret Garden Easter Eggs */
-        .hidden-fairy {
-            position: fixed;
-            font-size: 1.5rem;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .garden-secret {
-            cursor: pointer;
-            position: relative;
-        }
-
-        .garden-secret:hover .hidden-fairy {
-            opacity: 1;
-            animation: fairyDance 2s ease-in-out;
-        }
-
-        @keyframes fairyDance {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-10px) rotate(10deg); }
-            50% { transform: translateY(-5px) rotate(-5deg); }
-            75% { transform: translateY(-15px) rotate(15deg); }
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo garden-secret">
-                HAVEN
-                <div class="hidden-fairy">Photo and Video</div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section - Secret Garden Entrance -->
-    <section class="hero" id="home">
-        <div class="garden-element">🌿</div>
-        <div class="garden-element">🦋</div>
-        <div class="garden-element">🌸</div>
-        <div class="garden-element">🍃</div>
-        <div class="garden-element">✨</div>
-        
-        <div class="hero-content">
-            <h1>Haven Photo and Video</h1>
-            <p>Preserving the Moments of Your Special Day</p>
-            <a href="#contact" class="cta-button">book your session today</a>
-        </div>
-    </section>
-
-    <!-- Services Section - Enchanted Offerings -->
-    <section class="services fade-in" id="services">
-        <div class="container">
-            <h2 class="section-title garden-secret">
-                Services
-                <div class="hidden-fairy">👰🤵</div>
-            </h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">👰🤵</div>
-                    <h3>Weddings</h3>
-                    <p>service placeholder</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">👨‍👩‍👧‍👦</div>
-                    <h3>Family Portraits</h3>
-                    <p>service placeholder</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💍👩‍❤️‍🧑</div>
-                    <h3>Engagements</h3>
-                    <p>service placeholder</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">👶🍼</div>
-                    <h3>New Borns</h3>
-                    <p>service placeholder</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🎉🎈</div>
-                    <h3>Parties & Events</h3>
-                    <p>service placeholder</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🎒🎓</div>
-                    <h3>Graduations</h3>
-                    <p>service placeholder.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Preview - Secret Gallery -->
-    <section class="portfolio-preview fade-in" id="portfolio">
-        <div class="container">
-            <h2 class="section-title garden-secret">
-                Portfolio Highlights
-                <div class="hidden-fairy">🎨</div>
-            </h2>
-            <div class="gallery-grid">
-                <div class="gallery-item garden-secret">
-                    <div class="hidden-fairy">Wedding</div>
-                </div>
-                <div class="gallery-item garden-secret">
-                    <div class="hidden-fairy">Engagement</div>
-                </div>
-                <div class="gallery-item garden-secret">
-                    <div class="hidden-fairy">Family Portraits</div>
-                </div>
-                <div class="gallery-item garden-secret">
-                    <div class="hidden-fairy">Graduations</div>
-                </div>
-                <div class="gallery-item garden-secret">
-                    <div class="hidden-fairy">Parties and Events</div>
-                </div>
-                <div class="gallery-item garden-secret">
-                    <div class="hidden-fairy">other</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section - Garden Keeper's Story -->
-    <section class="about fade-in" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Haven's Story</h2>
-                    <p>placeholder</p>
-                </div>
-                <div class="about-image garden-secret">
-                    🎉
-                    <div class="hidden-fairy">👑</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section - Magic Portal -->
-    <section class="contact fade-in" id="contact">
-        <div class="container">
-            <h2 class="section-title garden-secret">
-                Contact
-                <div class="hidden-fairy">🌟</div>
-            </h2>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="How can we respond to your request" required>
-                </div>
-                <div class="form-group">
-                    <label for="event-type">Event Type</label>
-                    <input type="text" id="event-type" name="event-type" placeholder="check out our packages tab to shop your options">
-                </div>
-                <div class="form-group">
-                    <label for="date">When</label>
-                    <input type="date" id="date" name="date">
-                </div>
-                <div class="form-group">
-                    <label for="message">Additional Details</label>
-                    <textarea id="message" name="message" rows="6" placeholder="Describe what you're looking for"></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Submit</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer - Garden Gate -->
-    <footer>
-        <div class="social-links">
-            <a href="#" class="garden-secret">
-                📱
-                <div class="hidden-fairy">💫</div>
-            </a>
-            <a href="#" class="garden-secret">
-                📧
-                <div class="hidden-fairy">💌</div>
-            </a>
-            <a href="#" class="garden-secret">
-                🌸
-                <div class="hidden-fairy">📷</div>
-            </a>
-            <a href="#" class="garden-secret">
-                🎬
-                <div class="hidden-fairy">🎭</div>
-            </a>
-        </div>
-        <p class="footer-text">&copy; 2025 Haven Photo & Video. Website by SunnieJaeCreates</p>
-    </footer>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Navbar background change on scroll with fairy magic
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Fade in animation on scroll with magical timing
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -80px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, Math.random() * 200);
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Enchanted form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            
-            const button = this.querySelector('.submit-btn');
-            const originalText = button.textContent;
-            
-            // Magic spell casting animation
-            button.textContent = `✨ Submitting a request for ${name}... ✨`;
-            button.style.background = 'linear-gradient(45deg, #5f8a66, #ae9980)';
-            
-            setTimeout(() => {
-                button.textContent = `🌟Success! Thank you, ${name}. We'll get back to you soon! 🌟`;
-            }, 1500);
-            
-            // Reset after 4 seconds
-            setTimeout(() => {
-                button.textContent = originalText;
-                button.style.background = 'linear-gradient(45deg, var(--sunshine), var(--bluebonnett), var(--soft-blush))';
-                this.reset();
-            }, 4000);
-        });
-
-        // Magical gallery interactions with new colors
-        document.querySelectorAll('.gallery-item').forEach((item, index) => {
-            const flowers = ['🌸', '🌺', '🌻', '🌷', '🌹', '💐'];
-            const colors = [
-                'linear-gradient(45deg, #f6ebbd, #8495e1)',
-                'linear-gradient(45deg, #e194bc, #9c8fbc)',
-                'linear-gradient(45deg, #5f8a66, #d3c1a3)',
-                'linear-gradient(45deg, #8495e1, #f6ebbd)',
-                'linear-gradient(45deg, #d8bbd4, #ae9980)',
-                'linear-gradient(45deg, #9c8fbc, #846d50)'
-            ];
-            
-            item.addEventListener('mouseenter', function() {
-                this.style.background = colors[index % colors.length];
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                this.style.background = 'linear-gradient(45deg, var(--sunshine), var(--soft-blush), var(--bluebonnett))';
-            });
-
-            // Add click sparkle effect
-            item.addEventListener('click', function(e) {
-                createSparkle(e.pageX, e.pageY);
-            });
-        });
-
-        // Create magical sparkle effect
-        function createSparkle(x, y) {
-            const sparkle = document.createElement('div');
-            sparkle.style.position = 'fixed';
-            sparkle.style.left = x + 'px';
-            sparkle.style.top = y + 'px';
-            sparkle.style.fontSize = '20px';
-            sparkle.innerHTML = '✨';
-            sparkle.style.pointerEvents = 'none';
-            sparkle.style.zIndex = '10000';
-            sparkle.style.animation = 'sparkleEffect 1s ease-out forwards';
-            
-            document.body.appendChild(sparkle);
-            
-            setTimeout(() => {
-                document.body.removeChild(sparkle);
-            }, 1000);
-        }
-
-        // Add sparkle animation keyframes
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes sparkleEffect {
-                0% {
-                    opacity: 1;
-                    transform: scale(0.5) translateY(0);
-                }
-                50% {
-                    opacity: 1;
-                    transform: scale(1.2) translateY(-20px);
-                }
-                100% {
-                    opacity: 0;
-                    transform: scale(0.8) translateY(-40px);
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Floating garden elements with more natural movement
-        setInterval(() => {
-            document.querySelectorAll('.garden-element').forEach(element => {
-                const randomX = (Math.random() - 0.5) * 30;
-                const randomY = (Math.random() - 0.5) * 20;
-                const currentTransform = element.style.transform || '';
-                element.style.transform = currentTransform + ` translate(${randomX}px, ${randomY}px)`;
-            });
-        }, 4000);
-
-        // Add magical cursor trail with new colors
-        let lastX = 0, lastY = 0;
-        let trails = [];
-
-        document.addEventListener('mousemove', function(e) {
-            // Only create trail if mouse moved significantly
-            if (Math.abs(e.pageX - lastX) > 5 || Math.abs(e.pageY - lastY) > 5) {
-                if (Math.random() < 0.1) { // 10% chance to create a trail particle
-                    createTrail(e.pageX, e.pageY);
-                }
-                lastX = e.pageX;
-                lastY = e.pageY;
-            }
-        });
-
-        function createTrail(x, y) {
-            const trail = document.createElement('div');
-            const particles = ['✨', '🌟', '💫', '⭐'];
-            trail.innerHTML = particles[Math.floor(Math.random() * particles.length)];
-            trail.style.position = 'fixed';
-            trail.style.left = x + 'px';
-            trail.style.top = y + 'px';
-            trail.style.fontSize = '12px';
-            trail.style.pointerEvents = 'none';
-            trail.style.zIndex = '9998';
-            trail.style.opacity = '0.7';
-            trail.style.animation = 'trailFade 2s ease-out forwards';
-            
-            document.body.appendChild(trail);
-            trails.push(trail);
-            
-            // Limit number of trail elements
-            if (trails.length > 10) {
-                const oldTrail = trails.shift();
-                if (oldTrail.parentNode) {
-                    oldTrail.parentNode.removeChild(oldTrail);
-                }
-            }
-            
-            setTimeout(() => {
-                if (trail.parentNode) {
-                    trail.parentNode.removeChild(trail);
-                }
-            }, 2000);
-        }
-
-        // Add trail animation
-        const trailStyle = document.createElement('style');
-        trailStyle.textContent = `
-            @keyframes trailFade {
-                0% {
-                    opacity: 0.7;
-                    transform: scale(1) translateY(0);
-                }
-                100% {
-                    opacity: 0;
-                    transform: scale(0.3) translateY(-30px);
-                }
-            }
-        `;
-        document.head.appendChild(trailStyle);
-    </script>
-</body>
-</html>
+            content: '';
