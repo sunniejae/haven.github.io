@@ -65,6 +65,42 @@
             0%, 100% { text-shadow: 0 2px 6px rgba(230, 201, 126, 0.6), 0 0 12px rgba(230, 201, 126, 0.3); }
             50% { text-shadow: 0 2px 6px rgba(230, 201, 126, 0.8), 0 0 18px rgba(230, 201, 126, 0.5); }
         }
+        .sparkle-title {
+    position: relative;
+    display: inline-block;
+}
+
+/* Sparkle pseudo-elements */
+.sparkle-title::before,
+.sparkle-title::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #E6C97E;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #E6C97E, 0 0 10px #FDFCFB;
+    opacity: 0;
+    animation: sparkle 2s infinite ease-in-out;
+}
+
+.sparkle-title::before {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.sparkle-title::after {
+    top: 60%;
+    left: 70%;
+    animation-delay: 1s;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.2) rotate(45deg); }
+}
+
         
         /* Navigation */
         nav {
@@ -431,13 +467,14 @@
     </nav>
     
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>HAVEN</h1>
-            <p class="tagline">Preserving Your Precious Moment</p>
-            <p class="tagline">For Today, Tomorrow and the Far, Far Away Future</p>
-            <a href="#contact" class="cta-button">book your session</a>
-        </div>
-    </section>
+    <div class="hero-content">
+        <h1 class="sparkle-title">HAVEN</h1>
+        <p class="tagline">Preserving Your Precious Moment</p>
+        <p class="tagline">For Today, Tomorrow and the Far, Far Away Future</p>
+        <a href="#contact" class="cta-button">book your session</a>
+    </div>
+</section>
+
     
     <section id="services" class="services">
         <div class="services-container">
