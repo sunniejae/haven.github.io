@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .contact-form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    .contact-form h2 {
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #044476;
+    }
+    .contact-form label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .contact-form button {
+      width: 100%;
+      padding: 0.8rem;
+      background: #044476;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .contact-form button:hover {
+      background: #03365c;
+    }
+  </style>
+</head>
+<body>
+  <form class="contact-form" action="https://formspree.io/f/mblawbja method="POST">
+    <h2>Contact Us</h2>
+
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="_replyto" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <!-- Optional: redirect after success -->
+    <input type="hidden" name="_next" value="thanks.html">
+
+    <button type="submit">Send Message</button>
+  </form>
+</body>
+</html>
