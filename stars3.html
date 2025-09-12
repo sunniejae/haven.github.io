@@ -114,7 +114,7 @@ nav {
 
 /* Hero */
 .hero {
-    height:100vh;
+    height:50vh;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -220,6 +220,15 @@ nav {
 }
 
 /* Services */
+    
+.services-title {
+    font-size:5rem;
+    letter-spacing:3px;
+    font-weight:900;
+    color: var(--text-light);
+    margin-bottom:20px;
+}
+
 .services-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -231,6 +240,12 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 40px;
     margin-top: 50px;
+}
+    .service h2 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 80px;
+    color: var(--primary-gold);
 }
 
 .service-card {
@@ -353,7 +368,7 @@ footer p { color: var(--text-muted); font-size:0.9rem; }
 
 <section id="services" class="services">
     <div class="services-container">
-        <h2>Our Services</h2>
+        <div class="services-title">Our Services</div>
         <div class="services-grid">
             <!-- Image service -->
             <div class="service-card">
@@ -385,7 +400,7 @@ footer p { color: var(--text-muted); font-size:0.9rem; }
             <div>
                 <h3>Brad</h3>
                 <p class="role">Videographer</p>
-                <p>Brad has been crafting visual stories since he was a kid, bringing the same dedication to your special moments that he brings to his charity work as a stormtrooper in the 501st Legion.</p>
+                <p>Brad has been making videos since he was a kid. If he doesn't have a camera in his hand, you'll find him participating in charity work as a stormtrooper in the 501st legion. Or a little mix of both. </p>
             </div>
         </div>
         <div class="team-member">
@@ -393,7 +408,7 @@ footer p { color: var(--text-muted); font-size:0.9rem; }
             <div>
                 <h3>Andie</h3>
                 <p class="role">Photographer</p>
-                <p>Andie captures magical narratives of your most precious moments with elegance and care.</p>
+                <p>When Andie isn't practising with her camera, you can find her nose deep in a good fantasy book. She also happens to be a walking encyclopedia for Harry Potter. </p>
             </div>
         </div>
     </div>
