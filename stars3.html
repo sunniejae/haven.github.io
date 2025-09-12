@@ -102,6 +102,25 @@ nav {
     list-style:none;
     gap:40px;
 }
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    filter: brightness(0) invert(1); 
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
 
 .nav-links a {
     color:var(--text-light);
@@ -358,18 +377,33 @@ footer p {
 <div class="starfield" id="starfield"></div>
 
 <nav>
-    <div class="nav-container">
-        <div class="logo">
-            <img src="https://sunniejae.blob.core.windows.net/sunniejae/starhaven1.png" alt="HAVEN Logo">
-        </div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+  <div class="nav-container">
+    <div class="logo">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/darkerlogotransparent.png" alt="HAVEN Logo">
     </div>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">The Stars</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <!-- Social icons -->
+    <div class="social-icons">
+      <a href="https://www.instagram.com/havenphotoandvideo/" target="_blank">
+        <img src="icons/instagram.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/381117641758647?ref=_xav_ig_profile_page_web" target="_blank">
+        <img src="icons/facebook.png" alt="Facebook">
+      </a>
+      <a href="https://tiktok.com/@havenphotoandvideo" target="_blank">
+        <img src="icons/tiktok.png" alt="TikTok">
+      </a>
+    </div>
+  </div>
 </nav>
+
 
 <section id="home" class="hero">
     <div class="hero-content">
@@ -419,6 +453,7 @@ footer p {
         </div>
         <div class="team-member">
             <img src="https://sunniejae.blob.core.windows.net/sunniejae/andie.png" alt="Andie" class="team-photo">
+            <a href="https://kendrickfilms.myportfolio.com/daisylens-portfolio" target="_blank">
             <div>
                 <h3>Andie</h3>
                 <p class="role">Photographer</p>
