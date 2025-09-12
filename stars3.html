@@ -90,10 +90,10 @@ nav {
     margin:0 auto;
 }
 
-.logo {
-    font-size:28px;
-    font-weight:900;
-    color:var(--primary-gold);
+.logo img {
+    height: 50px; /* Adjust this to make it bigger/smaller */
+    width: auto;  /* Keeps the aspect ratio */
+    display: block;
 }
 
 .nav-links {
@@ -110,6 +110,7 @@ nav {
 }
 
 .nav-links a:hover { color:var(--primary-gold); }
+
 
 /* Hero */
 .hero {
@@ -301,7 +302,9 @@ footer p { color: var(--text-muted); font-size:0.9rem; }
 
 <nav>
     <div class="nav-container">
-        <div class="logo">HAVEN</div>
+        <div class="logo">
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/darkerlogotransparent.png" alt="HAVEN Logo">
+</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
