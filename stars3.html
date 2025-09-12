@@ -26,6 +26,10 @@ body {
     color: var(--text-light);
     overflow-x: hidden;
 }
+    a {
+    text-decoration: none;
+    color: inherit; /* keeps the color you set, instead of default blue */
+}
 
 /* Starfield background */
 .starfield {
@@ -408,8 +412,8 @@ footer p {
 <section id="home" class="hero">
     <div class="hero-content">
         <h1 class="hero-title">HAVEN</h1>
-        <p class="tagline">Photography and Videography at its finest</p>
-        <p class="tagline" style="color:var(--text-muted)">For Today, Tomorrow, and the Far, Far Away Future</p>
+        <p class="tagline">Preserving Life's Most Precious Moments</p>
+        <p class="tagline" style="color:var(--text-muted)">For Today, Tomorrow, and Generations Far, Far Away</p>
         <a href="#contact" class="cta-button">Book Your Session</a>
     </div>
 </section>
@@ -446,24 +450,26 @@ footer p {
 <section id="about" class="about">
     <h2>The Stars</h2>
     <div class="team-grid">
-        <div class="team-member">
-            <img src="https://sunniejae.blob.core.windows.net/sunniejae/brad.png" alt="Brad" class="team-photo">
-            <div>
-                <h3>Brad</h3>
-                <p class="role">Videographer</p>
-                <p>Brad has been making videos since he was a kid. If he doesn't have a camera in his hand, you'll find him participating in charity work as a stormtrooper in the 501st legion. Or a little mix of both. </p>
-            </div>
-        </div>
-        <div class="team-member">
-            <img src="https://sunniejae.blob.core.windows.net/sunniejae/andie.png" alt="Andie" class="team-photo">
-            <a href="https://kendrickfilms.myportfolio.com/daisylens-portfolio" target="_blank">
-            <div>
-                <h3>Andie</h3>
-                <p class="role">Photographer</p>
-                <p>When Andie isn't practising with her camera, you can find her nose deep in a good fantasy book. She also happens to be a walking encyclopedia for Harry Potter. </p>
-            </div>
-        </div>
-    </div>
+  <!-- Brad's card -->
+  <div class="team-member">
+    <a href="https://example.com/brad-portfolio" target="_blank" class="team-link">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/brad.png" alt="Brad Kendrick" class="team-photo">
+      <h3>Brad Kendrick</h3>
+      <p class="role">Videographer</p>
+      <p>Brad has been making videos since he was a kid. If he doesn't have a camera in his hand, you'll find him participating in charity work as a stormtrooper in the 501st legion. Or a little mix of both. </p>
+    </a>
+  </div>
+
+  <!-- Andie's card -->
+  <div class="team-member">
+    <a href="https://kendrickfilms.myportfolio.com/daisylens-portfolio" target="_blank" class="team-link">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/andie.png" alt="Andie Allen" class="team-photo">
+      <h3>Andie Allen</h3>
+      <p class="role">Photographer</p>
+      <p>When Andie isn't practising with her camera, you can find her nose deep in a good fantasy book. She also happens to be a walking encyclopedia for Harry Potter..</p>
+    </a>
+  </div>
+</div>
 </section>
 
 <section id="contact" class="contact">
