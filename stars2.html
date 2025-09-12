@@ -325,7 +325,7 @@ nav {
     font-size: 3rem;
     text-align: center;
     margin-bottom: 80px;
-    color: var(--light-gray);
+    color: var(--primary-gold);
 }
 
 .services-grid {
@@ -335,7 +335,7 @@ nav {
 }
 
 .service-card {
-    background: var(--primary-gold);
+    background: rgba(10, 10, 15, 0.8);
     padding: 40px;
     border-radius: 15px;
     border: 1px solid rgba(255, 215, 0, 0.1);
@@ -351,11 +351,11 @@ nav {
 }
 
 .service-icon {
-    width: 60px; 
-    height: 60px;
-    margin-bottom: 15px;
-    object-fit: contain;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--primary-gold);
 }
+
 .service-card h3 {
     font-family: 'Poiret One', cursive;
     font-size: 1.5rem;
@@ -409,39 +409,39 @@ footer p {
     nav {
         padding: 15px 20px;
     }
-    
+
     .nav-links {
         gap: 20px;
     }
-    
+
     .hero h1 {
         font-size: 3rem;
     }
-    
+
     .hero .tagline {
         font-size: 1.2rem;
     }
-    
+
     .about, .services, .contact {
         padding: 80px 20px;
     }
-    
+
     .team-grid {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
+
     .team-member {
         flex-direction: column;
         align-items: center;
         text-align: center;
         padding: 30px;
     }
-    
+
     .team-photo {
         margin-bottom: 20px;
     }
-    
+
     .services-grid {
         grid-template-columns: 1fr;
     }
@@ -484,18 +484,14 @@ footer p {
         <h2>Our Services</h2>
         <div class="services-grid">
             <div class="service-card">
-    <video autoplay loop muted playsinline>
-        <source src="your-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <h3>Weddings</h3>
-    <p>Capturing the magic of your special day.</p>
-</div>
-          <div class="service-card">
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingphotoplaceholder.png" alt="Weddings" class="service-icon">
-    <h3>Weddings</h3>
-    <p>Capturing the magic of your special day.</p>
-</div>
+                <div class="service-icon">📸</div>
+                <h3>Weddings</h3>
+                <p>Placeholder description for weddings.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎬</div>
+                <h3>Engagements</h3>
+                <p>Placeholder description for engagements.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">✨</div>
