@@ -65,11 +65,10 @@ body {
 }
 
 @keyframes shooting {
-    0% { opacity:0; transform: translateX(0) translateY(0) scale(0.5);}
+    0% { opacity:0; transform: translateX(0) translateY(0) scale(0.5); }
     10% { opacity:1; }
     100% { opacity:0; transform: translateX(var(--dx)) translateY(var(--dy)) scale(1); }
 }
-
 /* Navigation */
 nav {
     position: fixed;
@@ -130,35 +129,14 @@ nav {
     position:relative;
 }
 
-/* Twinkling letter constellation */
 .hero-title {
     font-size:5rem;
     letter-spacing:3px;
     font-weight:900;
-    display:inline-block;
-    position: relative;
     color: var(--text-light);
+    margin-bottom:20px;
 }
 
-.hero-title span {
-    display:inline-block;
-    opacity: 0.8;
-    animation: letterTwinkle 2s infinite ease-in-out;
-    position: relative;
-}
-
-.hero-title span:nth-child(1) { animation-delay: 0s; }
-.hero-title span:nth-child(2) { animation-delay: 1s; }
-.hero-title span:nth-child(3) { animation-delay: 2s; }
-.hero-title span:nth-child(4) { animation-delay: 3s; }
-.hero-title span:nth-child(5) { animation-delay: 4s; }
-
-@keyframes letterTwinkle {
-    0%,100% { opacity: 0.7; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.1); }
-}
-
-/* Tagline */
 .hero .tagline {
     font-size:1.4rem;
     color: var(--text-light);
@@ -170,7 +148,7 @@ nav {
 .cta-button {
     display:inline-block;
     padding:18px 40px;
-    background: var(--text-muted));
+    background: linear-gradient(135deg, var(--primary-gold) 0%, var(--text-muted) 100%);
     color: var(--deep-space);
     text-decoration:none;
     font-weight:600;
@@ -267,52 +245,36 @@ nav {
     box-shadow: 0 12px 25px rgba(230,201,126,0.2);
 }
 
- /* ===== Contact Form ===== */
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-    }
-
-    .contact-form label {
-      margin: 0.5rem 0 0.2rem;
-      font-size: 1.1rem;
-      color: var(--deep-space);
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border: 1px solid var(--primary-gold);
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      font-family: inherit;
-      background: var(--pink);
-    }
-
-    .contact-form textarea {
-      resize: vertical;
-    }
-
-    .contact-form button {
-      background: var(--deep-space);
-      color: var(--text-light);
-      padding: 0.8rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      transition: background 0.3s ease;
-    }
-
-    .contact-form button:hover {
-      background: var(--text-light);
-    }
-
+/* Contact Form */
+.contact { padding:120px 50px; max-width:600px; margin:0 auto; text-align:center; }
+.contact h2 { font-size:3rem; color:var(--primary-gold); margin-bottom:30px; }
+.contact form { display:flex; flex-direction:column; gap:20px; }
+.contact input, .contact textarea {
+    padding:15px;
+    border-radius:10px;
+    border:none;
+    background: rgba(26,26,46,0.6);
+    color: var(--text-light);
+    font-size:1rem;
+    resize:none;
+}
+.contact input::placeholder, .contact textarea::placeholder {
+    color: var(--text-muted);
+}
+.contact button {
+    padding:15px;
+    border:none;
+    border-radius:50px;
+    background: var(--primary-gold);
+    color: var(--deep-space);
+    font-weight:600;
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+.contact button:hover {
+    transform: translateY(-3px);
+    box-shadow:0 4px 12px rgba(230,201,126,0.5);
+}
 
 /* Footer */
 footer {
@@ -351,9 +313,7 @@ footer p { color: var(--text-muted); font-size:0.9rem; }
 
 <section id="home" class="hero">
     <div class="hero-content">
-        <h1 class="hero-title">
-            <span>H</span><span>A</span><span>V</span><span>E</span><span>N</span>
-        </h1>
+        <h1 class="hero-title">HAVEN</h1>
         <p class="tagline">Preserving Your Precious Moments</p>
         <p class="tagline" style="color:var(--text-muted)">For Today, Tomorrow, and the Far, Far Away Future</p>
         <a href="#contact" class="cta-button">Book Your Session</a>
@@ -399,30 +359,21 @@ footer p { color: var(--text-muted); font-size:0.9rem; }
         <div class="team-member">
             <h3>Andie</h3>
             <p class="role">Photographer</p>
-            <p>When Andie isn't practising with her camera, you can find her nose deep in a good fantasy book. She also happens to be a walking encyclopedia for Harry Potter.</p>
+            <p>When Andie isn't practising with her camera, you can find her nose deep in a good fantasy book. She also happens to be a walking encyclopedia for Harry Potter. </p>
         </div>
     </div>
 </section>
 
-<section id="contact">
-    <h2>Contact Us</h2>
-    <form class="contact-form" action="https://formspree.io/f/mblawbja" method="POST">
-      
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="_replyto" required>
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-
-      <!-- Redirect to custom thank you page -->
-      <input type="hidden" name="_next" value="secretgarden.html">
-
-      <button type="submit">Send Message</button>
+<section id="contact" class="contact">
+    <h2>Ready to Begin?</h2>
+    <form action="https://formspree.io/f/mblawbja" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="6" placeholder="Your Request" required></textarea>
+        <button type="submit">Send Message</button>
     </form>
-  </section>
+</section>
+
 <footer>
     <p>&copy; 2024 Haven Photography. May your moments be ever preserved. Website Provided by SunnieJaeCreates.</p>
 </footer>
@@ -449,36 +400,37 @@ function createShootingStar() {
     const starfield = document.getElementById('starfield');
     const shootingStar = document.createElement('div');
     shootingStar.className='shooting-star';
+    
+    // Random starting position
     const startX = Math.random() * window.innerWidth;
     const startY = Math.random() * window.innerHeight / 2;
-    const dx = (Math.random()*-300) - 200;
-    const dy = (Math.random()*200) + 100;
+    
+    // Random direction and distance
+    const angle = (Math.random() * 60 - 30) * (Math.PI/180); // -30° to +30°
+    const distance = 400 + Math.random() * 200; // 400–600px
+    const dx = distance * Math.cos(angle);
+    const dy = distance * Math.sin(angle);
+    
     shootingStar.style.left = startX + 'px';
     shootingStar.style.top = startY + 'px';
     shootingStar.style.setProperty('--dx', dx + 'px');
     shootingStar.style.setProperty('--dy', dy + 'px');
+    
     starfield.appendChild(shootingStar);
+    
+    // Remove after animation
     setTimeout(() => { starfield.removeChild(shootingStar); }, 2000);
 }
-setInterval(createShootingStar, 3000);
 
-// Constellation stars around letters
-function createConstellation() {
-    const letters = document.querySelectorAll('.hero-title span');
-    letters.forEach(letter => {
-        const numStars = 5 + Math.floor(Math.random()*5);
-        for(let i=0;i<numStars;i++){
-            const star = document.createElement('div');
-            star.className='constellation-star';
-            const offsetX = (Math.random()*40)-20;
-            const offsetY = (Math.random()*40)-20;
-            star.style.left = offsetX + 'px';
-            star.style.top = offsetY + 'px';
-            letter.appendChild(star);
-        }
-    });
+// Appear every 3–6 seconds
+function shootingStarInterval() {
+    createShootingStar();
+    const next = 3000 + Math.random() * 3000; // 3–6s
+    setTimeout(shootingStarInterval, next);
 }
-window.addEventListener('load',createConstellation);
+
+window.addEventListener('load', shootingStarInterval);
+
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
@@ -495,5 +447,6 @@ window.addEventListener('scroll',function(){
     nav.style.background=(window.scrollY>50)?'rgba(10,10,15,0.95)':'rgba(10,10,15,0.85)';
 });
 </script>
+
 </body>
 </html>
