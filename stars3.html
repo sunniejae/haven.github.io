@@ -148,24 +148,14 @@ nav {
 }
 
 .hero-title span:nth-child(1) { animation-delay: 0s; }
-.hero-title span:nth-child(2) { animation-delay: 0.3s; }
-.hero-title span:nth-child(3) { animation-delay: 0.6s; }
-.hero-title span:nth-child(4) { animation-delay: 0.9s; }
-.hero-title span:nth-child(5) { animation-delay: 1.2s; }
+.hero-title span:nth-child(2) { animation-delay: 1s; }
+.hero-title span:nth-child(3) { animation-delay: 2s; }
+.hero-title span:nth-child(4) { animation-delay: 3s; }
+.hero-title span:nth-child(5) { animation-delay: 4s; }
 
 @keyframes letterTwinkle {
     0%,100% { opacity: 0.7; transform: scale(1); }
     50% { opacity: 1; transform: scale(1.1); }
-}
-
-/* Small constellation stars around letters */
-.constellation-star {
-    position: absolute;
-    width:2px;
-    height:2px;
-    background:white;
-    border-radius:50%;
-    animation: twinkle 2s infinite ease-in-out;
 }
 
 /* Tagline */
@@ -180,7 +170,7 @@ nav {
 .cta-button {
     display:inline-block;
     padding:18px 40px;
-    background: linear-gradient(135deg, var(--primary-gold) 0%, var(--text-muted) 100%);
+    background: var(--text-muted));
     color: var(--deep-space);
     text-decoration:none;
     font-weight:600;
@@ -277,10 +267,52 @@ nav {
     box-shadow: 0 12px 25px rgba(230,201,126,0.2);
 }
 
-/* Contact */
-.contact { padding:120px 50px; max-width:800px; margin:0 auto; text-align:center; }
-.contact h2 { font-size:3rem; color:var(--primary-gold); margin-bottom:30px; }
-.contact p { font-size:1.2rem; color:var(--text-muted); margin-bottom:40px; }
+ /* ===== Contact Form ===== */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .contact-form label {
+      margin: 0.5rem 0 0.2rem;
+      font-size: 1.1rem;
+      color: var(--deep-space);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid var(--primary-gold);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      font-family: inherit;
+      background: var(--pink);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background: var(--deep-space);
+      color: var(--text-light);
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: var(--text-light);
+    }
+
 
 /* Footer */
 footer {
@@ -372,12 +404,25 @@ footer p { color: var(--text-muted); font-size:0.9rem; }
     </div>
 </section>
 
-<section id="contact" class="contact">
-    <h2>Ready to Begin?</h2>
-    <p>Your story is written in the stars. Let us help you tell it.</p>
-    <a href="mailto:haven@sunniejae.com" class="cta-button">Contact Us</a>
-</section>
+<section id="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form" action="https://formspree.io/f/mblawbja" method="POST">
+      
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
 
+      <label for="email">Email</label>
+      <input type="email" id="email" name="_replyto" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <!-- Redirect to custom thank you page -->
+      <input type="hidden" name="_next" value="secretgarden.html">
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 <footer>
     <p>&copy; 2024 Haven Photography. May your moments be ever preserved. Website Provided by SunnieJaeCreates.</p>
 </footer>
