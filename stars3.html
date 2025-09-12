@@ -135,6 +135,19 @@ nav {
 .nav-links a:hover { color:var(--primary-gold); }
 
 /* Hero */
+    .hero-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* space between icon and title */
+    flex-wrap: wrap; /* keeps it neat on smaller screens */
+}
+
+.hero-icon {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
 .hero {
     min-height: 50vh; /* flexible height */
     display:flex;
@@ -410,13 +423,15 @@ footer p {
 
 <section id="home" class="hero">
     <div class="hero-content">
-        <h1 class="hero-title">HAVEN</h1>
+        <div class="hero-title-wrapper">
+            <img src="https://sunniejae.blob.core.windows.net/sunniejae/favicons%20(6).png" alt="Icon" class="hero-icon">
+            <h1 class="hero-title">HAVEN</h1>
+        </div>
         <p class="tagline">Preserving Life's Most Precious Moments</p>
         <p class="tagline" style="color:var(--text-muted)">For Today, Tomorrow, and Generations Far, Far Away</p>
         <a href="#contact" class="cta-button">Book Your Session</a>
     </div>
 </section>
-
 <section id="services" class="services">
     <h2>The Services</h2>
     <div class="services-container">
