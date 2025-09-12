@@ -122,7 +122,7 @@ nav {
     background: linear-gradient(135deg, rgba(26,26,46,0.85) 0%, rgba(10,10,15,0.95) 100%);
     position:relative;
     overflow:hidden;
-    padding:120px 50px;
+    padding:140px 50px 80px; /* space below nav + breathing room */
 }
 
 .hero-content {
@@ -135,9 +135,7 @@ nav {
     letter-spacing:3px;
     font-weight:900;
     color: var(--text-light);
-    margin-bottom:20px;
-    margin-top:20px;
-     padding:20 20px;
+    margin:20px 0;
 }
 
 .hero .tagline {
@@ -164,19 +162,21 @@ nav {
     box-shadow: 0 2px 6px rgba(230, 201, 126, 0.3);
 }
 
+/* Universal section title */
+.services h2,
+.about h2,
+.contact h2 {
+    font-size: 3rem;
+    text-align: center;
+    margin: 20px 0 80px;
+    color: var(--primary-gold);
+}
+
 /* About Section */
 .about {
     padding: 120px 50px;
     max-width: 1400px;
     margin: 0 auto;
-}
-
-.about h2 {
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 80px;
-    margin-top: 20px;
-    color: var(--primary-gold);
 }
 
 .team-grid {
@@ -227,7 +227,7 @@ nav {
 .services {
     padding: 120px 50px;
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 80px auto 0; /* spacing after hero */
 }
 
 .services-container {
@@ -241,12 +241,6 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 40px;
     margin-top: 50px;
-}
-    .service h2 {
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 80px;
-    color: var(--primary-gold);
 }
 
 .service-card {
@@ -274,7 +268,7 @@ nav {
 .service-card h3 {
     font-size: 1.6rem;
     color: var(--primary-gold);
-    margin: 15px 0 10px 0;
+    margin: 15px 0 10px;
     padding: 0 15px;
 }
 
@@ -282,7 +276,7 @@ nav {
     font-size: 1rem;
     color: var(--text-muted);
     line-height: 1.5;
-    padding: 0 15px 20px 15px;
+    padding: 0 15px 20px;
 }
 
 .service-card:hover {
@@ -291,10 +285,21 @@ nav {
 }
 
 /* Contact Form */
-.contact { padding:120px 50px; max-width:600px; margin:0 auto; text-align:center; }
-.contact h2 { font-size:3rem; color:var(--primary-gold); margin-bottom:30px; }
-.contact form { display:flex; flex-direction:column; gap:20px; }
-.contact input, .contact textarea {
+.contact {
+    padding:120px 50px;
+    max-width:600px;
+    margin:0 auto;
+    text-align:center;
+}
+
+.contact form {
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.contact input,
+.contact textarea {
     padding:15px;
     border-radius:10px;
     border:none;
@@ -303,9 +308,12 @@ nav {
     font-size:1rem;
     resize:none;
 }
-.contact input::placeholder, .contact textarea::placeholder {
+
+.contact input::placeholder,
+.contact textarea::placeholder {
     color: var(--text-muted);
 }
+
 .contact button {
     padding:15px;
     border:none;
@@ -316,6 +324,7 @@ nav {
     cursor:pointer;
     transition: all 0.3s ease;
 }
+
 .contact button:hover {
     transform: translateY(-3px);
     box-shadow:0 4px 12px rgba(230,201,126,0.5);
@@ -330,7 +339,10 @@ footer {
     backdrop-filter: blur(10px);
 }
 
-footer p { color: var(--text-muted); font-size:0.9rem; }
+footer p {
+    color: var(--text-muted);
+    font-size:0.9rem;
+}
 
 /* Responsive */
 @media (max-width:768px){
@@ -361,7 +373,7 @@ footer p { color: var(--text-muted); font-size:0.9rem; }
 <section id="home" class="hero">
     <div class="hero-content">
         <h1 class="hero-title">HAVEN</h1>
-        <p class="tagline">Preserving Precious Moments</p>
+        <p class="tagline">Photography and Videography at its finest</p>
         <p class="tagline" style="color:var(--text-muted)">For Today, Tomorrow, and the Far, Far Away Future</p>
         <a href="#contact" class="cta-button">Book Your Session</a>
     </div>
