@@ -114,15 +114,15 @@ nav {
 
 /* Hero */
 .hero {
-    height:50vh;
+    min-height: 50vh; /* flexible height */
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
-    background: linear-gradient(135deg, rgba(26,26,46,0.85) 0%, rgba(10,10,15,0.95) 100%);
     position:relative;
     overflow:hidden;
     padding:140px 50px 80px; /* space below nav + breathing room */
+    background: none; /* remove separate gradient */
 }
 
 .hero-content {
