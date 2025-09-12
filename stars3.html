@@ -69,6 +69,7 @@ body {
     10% { opacity:1; }
     100% { opacity:0; transform: translateX(var(--dx)) translateY(var(--dy)) scale(1); }
 }
+
 /* Navigation */
 nav {
     position: fixed;
@@ -91,8 +92,8 @@ nav {
 }
 
 .logo img {
-    height: 50px; /* Adjust this to make it bigger/smaller */
-    width: auto;  /* Keeps the aspect ratio */
+    height: 50px;
+    width: auto;
     display: block;
 }
 
@@ -111,7 +112,6 @@ nav {
 
 .nav-links a:hover { color:var(--primary-gold); }
 
-
 /* Hero */
 .hero {
     height:100vh;
@@ -127,7 +127,6 @@ nav {
 .hero-content {
     max-width:800px;
     padding:0 20px;
-    position:relative;
 }
 
 .hero-title {
@@ -149,35 +148,17 @@ nav {
 .cta-button {
     display: inline-block;
     padding: 18px 40px;
-    background: linear-gradient(135deg, var(--tex-muted) 0%, var(--text-light) 100%);
-    color: var(--white);
+    background: linear-gradient(135deg, var(--text-muted) 0%, var(--text-light) 100%);
+    color: var(--deep-space);
     text-decoration: none;
     font-weight: 600;
     border-radius: 50px;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 6px rgba(230, 201, 126, 0.1);
-    position: relative;
-    overflow: hidden;
 }
 
 .cta-button:hover {
     transform: translateY(-5px);
     box-shadow: 0 2px 6px rgba(230, 201, 126, 0.3);
-}
-
-.cta-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s ease;
-}
-
-.cta-button:hover::before {
-    left: 100%;
 }
 
 /* About Section */
@@ -188,7 +169,6 @@ nav {
 }
 
 .about h2 {
-    font-family: 'Poiret One', cursive;
     font-size: 3rem;
     text-align: center;
     margin-bottom: 80px;
@@ -211,31 +191,6 @@ nav {
     border-radius: 20px;
     border: 1px solid rgba(255, 215, 0, 0.2);
     backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.team-member::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-gold), transparent, var(--primary-gold));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.team-member:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
-    border-color: var(--primary-gold);
-}
-
-.team-member:hover::before {
-    opacity: 1;
 }
 
 .team-photo {
@@ -246,7 +201,6 @@ nav {
 }
 
 .team-member h3 {
-    font-family: 'Poiret One', cursive;
     font-size: 2rem;
     color: var(--primary-gold);
     margin-bottom: 20px;
@@ -288,14 +242,16 @@ nav {
     cursor: pointer;
 }
 
-.service-card img {
+.service-card img,
+.service-card video {
     width: 100%;
     height: 220px;
     object-fit: cover;
     transition: transform 0.4s ease;
 }
 
-.service-card:hover img {
+.service-card:hover img,
+.service-card:hover video {
     transform: scale(1.05);
 }
 
@@ -375,8 +331,8 @@ footer p { color: var(--text-muted); font-size:0.9rem; }
 <nav>
     <div class="nav-container">
         <div class="logo">
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/starhaven1.png" alt="HAVEN Logo">
-</div>
+            <img src="https://sunniejae.blob.core.windows.net/sunniejae/starhaven1.png" alt="HAVEN Logo">
+        </div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -388,8 +344,8 @@ footer p { color: var(--text-muted); font-size:0.9rem; }
 
 <section id="home" class="hero">
     <div class="hero-content">
-        <h1 class="hero-title">HAVEN:</h1>
-        <p class="tagline">Photography and Videography at its' finest</p>
+        <h1 class="hero-title">HAVEN</h1>
+        <p class="tagline">Photography and Videography at its finest</p>
         <p class="tagline" style="color:var(--text-muted)">For Today, Tomorrow, and the Far, Far Away Future</p>
         <a href="#contact" class="cta-button">Book Your Session</a>
     </div>
@@ -399,47 +355,45 @@ footer p { color: var(--text-muted); font-size:0.9rem; }
     <div class="services-container">
         <h2>Our Services</h2>
         <div class="services-grid">
+            <!-- Image service -->
             <div class="service-card">
-                <img src="https://sunniejae.blob.core.windows.net/sunniejae/starhaven1.png" alt="Weddings">
-                <h3>Weddings</h3>
-                <p>placeholder</p>
-            </div>
-            <div class="service-card">
-                <img src="https://sunniejae.blob.core.windows.net/sunniejae/starhaven1.png" alt="Engagements">
-                <h3>Engagements</h3>
-                <p>placeholder</p>
-            </div>
-            <div class="service-card">
-                <img src="https://sunniejae.blob.core.windows.net/sunniejae/starhaven1.png" alt="Couples">
+                <img src="https://sunniejae.blob.core.windows.net/sunniejae/couplephotoplaceholder.png" alt="Weddings">
                 <h3>Couples</h3>
-                <p>placeholder</p>
+                <p>Capturing magical wedding moments.</p>
             </div>
+            <!-- Video service -->
             <div class="service-card">
-                <img src="https://sunniejae.blob.core.windows.net/sunniejae/starhaven1.png" alt="Graduations">
+                <video src="https://sunniejae.blob.core.windows.net/sunniejae/wedding%20video.mp4" autoplay muted loop></video>
+                <h3>Weddings</h3>
+                <p>Preserving the excitement of new beginnings.</p>
+            </div>
+            <!-- Image service -->
+            <div class="service-card">
+                <img src="https://sunniejae.blob.core.windows.net/sunniejae/graduationplaceholder.png" alt="Graduations">
                 <h3>Graduations</h3>
-                <p>placeholder</p>
+                <p>Celebrating milestones with style and grace.</p>
             </div>
         </div>
     </div>
 </section>
 
 <section id="about" class="about">
-    <h2>The Force Behind the Lens</h2>
+    <h2>The Stars</h2>
     <div class="team-grid">
         <div class="team-member">
-            <img src="brads-headshot.jpg" alt="Brad" class="team-photo">
+            <img src="https://sunniejae.blob.core.windows.net/sunniejae/brad.png" alt="Brad" class="team-photo">
             <div>
                 <h3>Brad</h3>
                 <p class="role">Videographer</p>
-                <p>Brad has been crafting visual stories since he was a kid, bringing the same dedication to your special moments that he brings to his charity work as a stormtrooper in the 501st Legion. When he's not capturing your love story, you might find him blending both passions—camera in one hand, helping others with the other.</p>
+                <p>Brad has been crafting visual stories since he was a kid, bringing the same dedication to your special moments that he brings to his charity work as a stormtrooper in the 501st Legion.</p>
             </div>
         </div>
         <div class="team-member">
-            <img src="andies-headshot.jpg" alt="Andie" class="team-photo">
+            <img src="https://sunniejae.blob.core.windows.net/sunniejae/andie.png" alt="Andie" class="team-photo">
             <div>
                 <h3>Andie</h3>
                 <p class="role">Photographer</p>
-                <p>When Andie isn't perfecting her craft behind the camera, you can find her nose deep in a good fantasy book—she also happens to be a walking encyclopedia for Harry Potter. This love for storytelling translates into her photography, where she captures not just images, but the magical narratives of your most precious moments.</p>
+                <p>Andie captures magical narratives of your most precious moments with elegance and care.</p>
             </div>
         </div>
     </div>
@@ -482,13 +436,11 @@ function createShootingStar() {
     const shootingStar = document.createElement('div');
     shootingStar.className='shooting-star';
     
-    // Random starting position
     const startX = Math.random() * window.innerWidth;
     const startY = Math.random() * window.innerHeight / 2;
     
-    // Random direction and distance
-    const angle = (Math.random() * 60 - 30) * (Math.PI/180); // -30° to +30°
-    const distance = 400 + Math.random() * 200; // 400–600px
+    const angle = (Math.random() * 60 - 30) * (Math.PI/180);
+    const distance = 400 + Math.random() * 200;
     const dx = distance * Math.cos(angle);
     const dy = distance * Math.sin(angle);
     
@@ -499,19 +451,16 @@ function createShootingStar() {
     
     starfield.appendChild(shootingStar);
     
-    // Remove after animation
     setTimeout(() => { starfield.removeChild(shootingStar); }, 2000);
 }
 
-// Appear every 3–6 seconds
 function shootingStarInterval() {
     createShootingStar();
-    const next = 3000 + Math.random() * 3000; // 3–6s
+    const next = 5000 + Math.random() * 3000; // 5–8s interval
     setTimeout(shootingStarInterval, next);
 }
 
 window.addEventListener('load', shootingStarInterval);
-
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
