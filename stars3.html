@@ -147,18 +147,38 @@ nav {
 }
 
 .cta-button {
-    display:inline-block;
-    padding:18px 40px;
-    background: linear-gradient(135deg, var(--primary-gold) 0%, var(--text-muted) 100%);
-    color: var(--deep-space);
-    text-decoration:none;
-    font-weight:600;
-    border-radius:50px;
+    display: inline-block;
+    padding: 18px 40px;
+    background: linear-gradient(135deg, var(--tex-muted) 0%, var(--text-light) 100%);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 6px rgba(230,201,126,0.3);
+    box-shadow: 0 2px 6px rgba(230, 201, 126, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
-.cta-button:hover { transform: translateY(-5px); box-shadow:0 4px 12px rgba(230,201,126,0.5); }
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 2px 6px rgba(230, 201, 126, 0.3);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
 
 /* About Section */
 .about {
