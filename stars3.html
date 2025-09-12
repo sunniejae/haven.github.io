@@ -162,36 +162,88 @@ nav {
 
 /* About Section */
 .about {
-    padding:120px 50px;
-    max-width:1400px;
-    margin:0 auto;
-    text-align:center;
+    padding: 120px 50px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .about h2 {
-    font-size:3rem;
+    font-family: 'Poiret One', cursive;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 80px;
     color: var(--primary-gold);
-    margin-bottom:80px;
 }
 
 .team-grid {
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
 }
 
 .team-member {
-    background: rgba(26,26,46,0.6);
-    padding:50px;
-    border-radius:20px;
-    border:1px solid rgba(230,201,126,0.2);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    background: rgba(26, 26, 46, 0.6);
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
     backdrop-filter: blur(10px);
-    text-align:left;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.team-member h3 { font-size:2rem; color: var(--primary-gold); margin-bottom:15px; }
-.role { color: var(--text-muted); margin-bottom:15px; font-weight:300; }
-.team-member p { color: var(--text-light); line-height:1.8; }
+.team-member::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-gold), transparent, var(--primary-gold));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+    border-color: var(--primary-gold);
+}
+
+.team-member:hover::before {
+    opacity: 1;
+}
+
+.team-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.team-member h3 {
+    font-family: 'Poiret One', cursive;
+    font-size: 2rem;
+    color: var(--primary-gold);
+    margin-bottom: 20px;
+}
+
+.role {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.team-member p {
+    line-height: 1.8;
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
 
 /* Services */
 .services-container {
@@ -328,22 +380,22 @@ footer p { color: var(--text-muted); font-size:0.9rem; }
         <h2>Our Services</h2>
         <div class="services-grid">
             <div class="service-card">
-                <img src="your-wedding-image.jpg" alt="Weddings">
+                <img src="https://sunniejae.blob.core.windows.net/sunniejae/starhaven1.png" alt="Weddings">
                 <h3>Weddings</h3>
                 <p>placeholder</p>
             </div>
             <div class="service-card">
-                <img src="your-engagement-image.jpg" alt="Engagements">
+                <img src="https://sunniejae.blob.core.windows.net/sunniejae/starhaven1.png" alt="Engagements">
                 <h3>Engagements</h3>
                 <p>placeholder</p>
             </div>
             <div class="service-card">
-                <img src="your-couples-image.jpg" alt="Couples">
+                <img src="https://sunniejae.blob.core.windows.net/sunniejae/starhaven1.png" alt="Couples">
                 <h3>Couples</h3>
                 <p>placeholder</p>
             </div>
             <div class="service-card">
-                <img src="your-graduation-image.jpg" alt="Graduations">
+                <img src="https://sunniejae.blob.core.windows.net/sunniejae/starhaven1.png" alt="Graduations">
                 <h3>Graduations</h3>
                 <p>placeholder</p>
             </div>
@@ -355,14 +407,20 @@ footer p { color: var(--text-muted); font-size:0.9rem; }
     <h2>The Force Behind the Lens</h2>
     <div class="team-grid">
         <div class="team-member">
-            <h3>Brad</h3>
-            <p class="role">Videographer</p>
-            <p>Brad has been making videos since he was a kid. If he doesn't have a camera in his hand, you'll find him participating in charity work as a stormtrooper in the 501st legion. Or a little mix of both.  </p>
+            <img src="brads-headshot.jpg" alt="Brad" class="team-photo">
+            <div>
+                <h3>Brad</h3>
+                <p class="role">Videographer</p>
+                <p>Brad has been crafting visual stories since he was a kid, bringing the same dedication to your special moments that he brings to his charity work as a stormtrooper in the 501st Legion. When he's not capturing your love story, you might find him blending both passions—camera in one hand, helping others with the other.</p>
+            </div>
         </div>
         <div class="team-member">
-            <h3>Andie</h3>
-            <p class="role">Photographer</p>
-            <p>When Andie isn't practising with her camera, you can find her nose deep in a good fantasy book. She also happens to be a walking encyclopedia for Harry Potter. </p>
+            <img src="andies-headshot.jpg" alt="Andie" class="team-photo">
+            <div>
+                <h3>Andie</h3>
+                <p class="role">Photographer</p>
+                <p>When Andie isn't perfecting her craft behind the camera, you can find her nose deep in a good fantasy book—she also happens to be a walking encyclopedia for Harry Potter. This love for storytelling translates into her photography, where she captures not just images, but the magical narratives of your most precious moments.</p>
+            </div>
         </div>
     </div>
 </section>
