@@ -325,7 +325,7 @@ nav {
     font-size: 3rem;
     text-align: center;
     margin-bottom: 80px;
-    color: var(--primary-gold);
+    color: var(--light-gray);
 }
 
 .services-grid {
@@ -335,7 +335,7 @@ nav {
 }
 
 .service-card {
-    background: rgba(10, 10, 15, 0.8);
+    background: var(--primary-gold);
     padding: 40px;
     border-radius: 15px;
     border: 1px solid rgba(255, 215, 0, 0.1);
@@ -351,11 +351,11 @@ nav {
 }
 
 .service-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: var(--primary-gold);
+    width: 60px; 
+    height: 60px;
+    margin-bottom: 15px;
+    object-fit: contain;
 }
-
 .service-card h3 {
     font-family: 'Poiret One', cursive;
     font-size: 1.5rem;
@@ -484,14 +484,18 @@ footer p {
         <h2>Our Services</h2>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">📸</div>
-                <h3>Weddings</h3>
-                <p>Placeholder description for weddings.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🎬</div>
-                <h3>Engagements</h3>
-                <p>Placeholder description for engagements.</p>
+    <video autoplay loop muted playsinline>
+        <source src="your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h3>Weddings</h3>
+    <p>Capturing the magic of your special day.</p>
+</div>
+          <div class="service-card">
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingphotoplaceholder.png" alt="Weddings" class="service-icon">
+    <h3>Weddings</h3>
+    <p>Capturing the magic of your special day.</p>
+</div>
             </div>
             <div class="service-card">
                 <div class="service-icon">✨</div>
