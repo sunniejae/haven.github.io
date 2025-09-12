@@ -38,6 +38,25 @@ nav.scrolled {background: rgba(23,17,35,0.25); border-bottom:1px solid rgba(211,
 .nav-links a::after {content:''; position:absolute; bottom:-5px; left:0; width:0; height:2px; background: var(--green); transition:0.3s;}
 .nav-links a:hover::after {width:100%;}
 
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+
 /* ===== Hero Section ===== */
 .hero {
   width: 100%;
@@ -280,6 +299,18 @@ footer {background: var(--jeans); color: var(--white); text-align:center; paddin
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+      <!-- Social icons -->
+    <div class="social-icons">
+      <a href="https://www.instagram.com/havenphotoandvideo/" target="_blank">
+        <img src="https://sunniejae.blob.core.windows.net/sunniejae/haveninsta.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/381117641758647?ref=_xav_ig_profile_page_web" target="_blank">
+        <img src="https://sunniejae.blob.core.windows.net/sunniejae/havenfacebook.png" alt="Facebook">
+      </a>
+      <a href="https://tiktok.com/@havenphotoandvideo" target="_blank">
+        <img src="https://sunniejae.blob.core.windows.net/sunniejae/haventiktok.png" alt="TikTok">
+      </a>
+    </div>
   </div>
 </nav>
 
