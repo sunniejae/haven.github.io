@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haven | Preserving Your Precious Memories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png">
+  <style>
+    /* ===== Variables ===== */
+    :root {
+      --darkest: #171123;
+      --gold: #D3C1A3;
+      --jeans: #587B7F;
+      --pink: #F5CAC3;
+      --green: #C8EAD3;
+      --cream: #f3ebe7;
+      --palest: #fffdfc;
+      --black: #111;
+    }
+
+    /* ===== Global Styles ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poiret One', cursive;
+      color: var(--black);
+      background: var(--palest);
+      overflow-x: hidden;
+
+      /* Custom cursor (default) */
+      cursor: url("https://sunniejae.blob.core.windows.net/sunniejae/havencursorsized.png") 0 0, auto;
+    }
+
+    a, button {
+      cursor: url("https://sunniejae.blob.core.windows.net/sunniejae/havenpointersized.png") 0 0, pointer;
+    }
+
+    h1, h2, h3 {
+      font-weight: normal;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+
+      /* Image anchored to bottom */
+      background: 
+        linear-gradient(135deg, rgba(23,17,35,0.25), rgba(23,17,35,0.1)),
+        url("https://sunniejae.blob.core.windows.net/sunniejae/havenheadersillohuette3%20(2).png")
+        no-repeat center bottom / cover;
+
+      aspect-ratio: 1920 / 550;
+    }
+
+    .hero-text {
+      color: white;
+      z-index: 2;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    /* ===== Gallery Section ===== */
+    .gallery-preview {
+      background: var(--cream);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== About Section ===== */
+    .about {
+      background: var(--green);
+      color: var(--darkest);
+    }
+
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+      text-align: left;
+    }
+
+    .team-member {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .team-headshot {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .team-name {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .team-bio {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: var(--darkest);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    /* ===== Responsive Hero Fix ===== */
+    @media (max-width: 768px) {
+      .hero {
+        aspect-ratio: auto;
+        height: 60vh; /* lock height */
+        background-position: center bottom;
+        background-size: cover;
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .hero-text p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== Hero Section ===== -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Haven</h1>
+      <p>Preserving Your Precious Memories</p>
+    </div>
+  </section>
+
+  <!-- ===== Gallery Section ===== -->
+  <section class="gallery-preview">
+    <h2>Gallery Preview</h2>
+    <div class="gallery-grid">
+      <img src="https://placehold.co/400x300" alt="Gallery Image 1">
+      <img src="https://placehold.co/400x300" alt="Gallery Image 2">
+      <img src="https://placehold.co/400x300" alt="Gallery Image 3">
+      <img src="https://placehold.co/400x300" alt="Gallery Image 4">
+    </div>
+  </section>
+
+  <!-- ===== About Section ===== -->
+  <section class="about">
+    <h2>About Us</h2>
+    <p>We are passionate about capturing your most cherished moments, from weddings to special life events, and turning them into memories you can relive forever.</p>
+    <div class="team">
+      <div class="team-member">
+        <img src="https://sunniejae.blob.core.windows.net/sunniejae/andie.png" alt="Andie Allen" class="team-headshot">
+        <a href="https://kendrickfilms.myportfolio.com/daisylens-portfolio" target="_blank">
+          <h3 class="team-name">Andie Allen</h3>
+        </a>
+        <p class="team-bio">When Andie isn't practising with her camera, you can find her nose deep in a good fantasy book. She also happens to be a walking encyclopedia for Harry Potter.</p>
+      </div>
+      <div class="team-member">
+        <img src="https://sunniejae.blob.core.windows.net/sunniejae/brad.png" alt="Brad Kendrick" class="team-headshot">
+        <h3 class="team-name">Brad Kendrick</h3>
+        <p class="team-bio">Brad loves capturing the emotion of weddings. With years of experience in videography, he ensures every heartfelt moment is beautifully preserved.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>&copy; 2025 Haven. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
