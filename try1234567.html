@@ -304,11 +304,17 @@ h3.section-title {font-size:1.8rem; color: var(--violet); margin-bottom:1rem; te
 
 .team-member {
   background: rgba(177, 149, 144, 0.7);
-  border-radius: 10px;
+  border-radius: 0; /* square corners */
   padding: 2rem;
   text-align: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+
+  /* Flexbox for vertical alignment */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .team-member:hover {
@@ -317,20 +323,37 @@ h3.section-title {font-size:1.8rem; color: var(--violet); margin-bottom:1rem; te
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
-.team-headshot {width: 200px; height: 200px; border-radius: 100; object-fit: cover; margin-bottom: 1rem;}
-.team-name {font-size: 1.8rem; color: var(--palest); margin-bottom: 0.5rem;}
-.team-bio {font-size: 1.31rem; color: var(--black); line-height: 2;}
+.team-headshot {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px; /* square headshots */
+  object-fit: cover;
+  margin: 0 auto 1rem;
+}
+
+.team-name {
+  font-size: 1.8rem;
+  color: var(--palest);
+  margin-bottom: 0.5rem;
+}
+
+.team-bio {
+  font-size: 1.3rem;
+  color: var(--black);
+  line-height: 1.8;
+  margin-bottom: auto; /* keeps icons at bottom */
+}
 
 .team-social-icons {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-top: 0.8rem;
+  gap: 12px;
+  margin-top: 1.5rem;
 }
 
 .team-social-icons img {
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
@@ -338,6 +361,7 @@ h3.section-title {font-size:1.8rem; color: var(--violet); margin-bottom:1rem; te
 .team-social-icons img:hover {
   transform: scale(1.2);
 }
+
 
 /* ===== Contact Form ===== */
 .contact-form {max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; text-align: left;}
