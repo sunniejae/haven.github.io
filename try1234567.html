@@ -165,10 +165,10 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="social-icons">
-      <a href="https://www.instagram.com/havenphotoandvideo/" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Insta"></a>
-      <a href="https://www.facebook.com/381117641758647?ref=_xav_ig_profile_page_web" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/fbicon25.png" alt="Facebook"></a>
-      <a href="https://tiktok.com/@havenphotoandvideo" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/tticon25.png" alt="TikTok"></a>
-      <a href="https://sunniejae.com" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralrose.png" alt="SJ"></a>
+      <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Insta"></a>
+      <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/fbicon25.png" alt="Facebook"></a>
+      <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/tticon25.png" alt="TikTok"></a>
+      <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralrose.png" alt="SJ"></a>
     </div>
   </div>
 </nav>
@@ -178,6 +178,25 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
   <div class="hero-content">
     <h1>Haven</h1>
     <p>Preserving Your Precious Memories</p>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services">
+  <h2 class="section-title">Services</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <h3>Wedding Photography</h3>
+      <p>Capture the perfect moments of your wedding day with timeless photos.</p>
+    </div>
+    <div class="service-card">
+      <h3>Videography</h3>
+      <p>Professional cinematic videos to relive every emotion and memory.</p>
+    </div>
+    <div class="service-card">
+      <h3>Engagement Shoots</h3>
+      <p>Create beautiful memories during your engagement with our expert guidance.</p>
+    </div>
   </div>
 </section>
 
@@ -198,7 +217,46 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
   </div>
 </section>
 
-<!-- Services, About, Contact sections remain unchanged, omitted for brevity -->
+<!-- About Section -->
+<section id="about">
+  <h2 class="section-title">About Us</h2>
+  <p class="about-intro">Haven is dedicated to preserving your precious memories with professional photography and videography, capturing moments that last a lifetime.</p>
+  <div class="team-grid">
+    <div class="team-member">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/andie.jpg" class="team-headshot" alt="Andie Allen">
+      <h3 class="team-name">Andie Allen</h3>
+      <p class="team-bio">Lead Photographer with a passion for storytelling through images.</p>
+      <div class="team-social-icons">
+        <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Instagram"></a>
+      </div>
+    </div>
+    <div class="team-member">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/brad.jpg" class="team-headshot" alt="Brad Kendrick">
+      <h3 class="team-name">Brad Kendrick</h3>
+      <p class="team-bio">Videographer with expertise in cinematic storytelling and editing.</p>
+      <div class="team-social-icons">
+        <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Instagram"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <form class="contact-form" action="thankyou.html" method="POST">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+    
+    <button type="submit">Send</button>
+  </form>
+</section>
 
 <!-- Lightbox -->
 <div id="lightbox" class="lightbox">
@@ -207,6 +265,11 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
   <img class="lightbox-content" id="lightbox-img" alt="Expanded view">
   <span class="lightbox-next" onclick="changeSlide(1)">&#10095;</span>
 </div>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Haven | All Rights Reserved</p>
+</footer>
 
 <script>
 // Navbar scroll
