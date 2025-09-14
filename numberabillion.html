@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haven | Preserving Your Precious Memories</title>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/hfloralblue.png" />
+  </head>
+<body>
+<!-- Navbar -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">HAVEN: Photo & Video</a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="packages.html">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="social-icons">
+      <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Insta"></a>
+      <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/fbicon25.png" alt="Facebook"></a>
+      <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/tticon25.png" alt="TikTok"></a>
+      <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralrose.png" alt="SJ"></a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Haven</h1>
+    <p>Preserving Your Precious Memories</p>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services">
+  <a href="weddings.html" class="service-link">
+  <div class="service-card">
+    <div class="image-frame">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralrose.png" alt="Logo">
+    </div>
+    <h3>Couples</h3>
+    <p>Non-wedding couple shoots</p>
+  </div>
+</a>
+    <div class="service-card">
+      <h3>Graduations</h3>
+    </div>
+    <div class="service-card">
+      <h3>Engagement Shoots</h3>
+    </div>
+    <div class="service-card">
+      <h3>Events</h3>
+    </div>
+      <div class="service-card">
+      <h3>Couples</h3>
+    </div>
+      </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="portfolio">
+  <h2 class="section-title">Portfolio Preview</h2>
+  <div class="gallery-container">
+    <div class="gallery-item" onclick="openLightbox(0)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/favicons%20(8).png" alt="Gallery 1" loading="lazy"></div>
+    <div class="gallery-item" onclick="openLightbox(1)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/08012024_Petersen_0056.jpg" alt="Gallery 2" loading="lazy"></div>
+    <div class="gallery-item" onclick="openLightbox(2)">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/H%20(9).png" alt="Video" loading="lazy">
+      <span class="play-icon">♡play♡</span>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(3)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/DSC04048%20(1).jpg" alt="Gallery 3" loading="lazy"></div>
+  </div>
+  <div style="text-align:center; margin-top:2rem;">
+    <a href="fullgallery.html" class="cta-button">View Full Gallery</a>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+  <h2 class="section-title">"Mawage. Mawage is what brings us together today."</h2>
+  <h3 class="section-title">- The Princess Bride (1987)</h3>
+  <p class="about-intro">Andie Allen and Brad Kendrick are a dynamic duo when it comes to capturing all aspects of your wedding through photo and video. They started working together in 2024, and are passionate about helping couples preserve their perfect day.</p>
+  <div class="team-grid">
+    <div class="team-member">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/andie.png" class="team-headshot" alt="Andie Allen">
+      <h3 class="team-name">Andie Allen</h3>
+      <p class="team-bio">When Andie isn't practising with her camera, you can find her nose deep in a good fantasy book. She also happens to be a walking encyclopedia for Harry Potter. </p>
+      <div class="team-social-icons">
+        <a href="https://www.instagram.com/daisylensphoto/"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Instagram"></a>
+      </div>
+    </div>
+    <div class="team-member">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/brad.png" class="team-headshot" alt="Brad Kendrick">
+      <h3 class="team-name">Brad Kendrick</h3>
+      <p class="team-bio">Brad has been making videos since he was a kid. If he doesn't have a camera in his hand, you'll find him participating in charity work as a stormtrooper in the 501st legion. Or a little mix of both.  </p>
+      <div class="team-social-icons">
+        <a href="https://www.instagram.com/pinkshortstrooper/"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Instagram"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <form class="contact-form" action="thankyou.html" method="POST">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+    
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <span class="lightbox-prev" onclick="changeSlide(-1)">&#10094;</span>
+  <img class="lightbox-content" id="lightbox-img" alt="Expanded view">
+  <span class="lightbox-next" onclick="changeSlide(1)">&#10095;</span>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Haven | All Rights Reserved | Website provided by SunnieJaeCreates</p>
+</footer>
+</body>
+</html>
