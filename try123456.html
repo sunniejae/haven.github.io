@@ -257,6 +257,16 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 .service-card h3 {font-size: 1.6rem; margin: 1rem 0 0.5rem; color: var(--palest);}
 .service-card p {font-size: 1.5rem; color: var(--white);}
 
+  .service-card img {
+  width: 100%;
+  height: 200px;   /* keeps them consistent */
+  object-fit: cover; /* crops without distortion */
+  display: block;
+  margin-bottom: 1rem;
+  border-radius: 0; /* keeps them square like your cards */
+}
+
+
 /* ===== Image & Video Frames ===== */
 .image-frame, .video-frame {
   position: relative;
@@ -424,6 +434,7 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
 <div class="services-grid">
   <div class="service-card">
     <h3>Wedding Photography</h3>
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingpackageplaceholder.png" alt="Wedding Photography">
     <p>Capturing your most precious moments with elegance and authenticity.</p>
   </div>
   <div class="service-card">
