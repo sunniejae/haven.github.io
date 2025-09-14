@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Haven | Packages</title>
+<title>Haven | Weddings</title>
 <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/hfloralblue.png" />
+<link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/hfloralgreen.png" />
 <style>
   :root {
     --green: #8ca294;
@@ -43,18 +43,27 @@
   .nav-links a:hover::after {width:100%;}
 
   /* ===== Hero ===== */
-  .hero {
-    position: relative; display:flex; align-items:center; justify-content:center; text-align:center;
-    min-height: 225px; width:100%; background:
-      linear-gradient(135deg, rgba(23,17,35,0.5), rgba(23,17,35,0.3)),
-      url("https://sunniejae.blob.core.windows.net/sunniejae/havenheadersillohuette3%20(4).png") no-repeat center/cover;
-    color: var(--white);
-  }
+ .hero {
+  width: 100%;
+  max-width: 1920px;
+  aspect-ratio: 1920 / 550;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(23,17,35,0.25), rgba(23,17,35,0.1)),
+    url("https://sunniejae.blob.core.windows.net/sunniejae/havenheadersillohuette3%20(4).png")
+    no-repeat center bottom/cover; /* anchored to bottom */
+}
   .hero-content {z-index:2;}
-  .hero h1 {font-size:4rem; margin-bottom:1rem;}
-  .hero p {font-size:1.2rem; margin-bottom:2rem;}
+  .hero h1 {font-size:2rem; margin-bottom:1rem; color: var(--palest)}
+  .hero p {font-size:1.5rem; margin-bottom:4rem;color: var(--palest)}
   .cta-button {
-    display:inline-block; padding:1rem 3rem; font-size:1.3rem;
+    display:inline-block; padding:3rem 3rem; font-size:1.3rem;
     background: rgba(200,234,211,0.75); color: var(--black); border-radius:20px;
     transition: all 0.3s;
   }
@@ -80,70 +89,61 @@
     text-align:center; padding:1rem; opacity:0; transition: opacity 0.3s;
   }
   .package-card:hover .package-overlay {opacity:1;}
-  .package-overlay h3 {font-size:1.5rem; margin-bottom:0.5rem;}
-  .package-overlay h4 {font-size:1rem; margin-bottom:0.5rem;}
-  .package-overlay ul {list-style:none; padding-left:0;}
+  .package-overlay h3 {color: var(--violet)font-size:1.5rem; margin-bottom:0.5rem;}
+  .package-overlay h4 {color: var(--green); font-size:1rem; margin-bottom:0.5rem;}
+  .package-overlay ul {list-style:none; padding-left:0; text-align:left;}
 
-/* ===== FAQ ===== */
-.faq-container {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+  /* ===== FAQ ===== */
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .faq-item {
+    border-radius: 12px;
+    background: var(--beige);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    font-size: 1.2rem;
+    padding: 1rem 1.5rem;
+    background: var(--rose);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+  }
+  .faq-question:hover {
+    background: var(--green);
+    color: var(--white);
+  }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 1.5rem;
+    background: var(--palest);
+  }
+  .faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 1rem 1.5rem;
+  }
+  .faq-arrow {transition: transform 0.3s ease;}
+  .faq-item.active .faq-arrow {transform: rotate(-90deg);}
 
-.faq-item {
-  border-radius: 12px;
-  background: var(--beige);
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.faq-question {
-  width: 100%;
-  text-align: left;
-  font-size: 1.2rem;
-  padding: 1rem 1.5rem;
-  background: var(--gold);
-  color: var(--black);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background 0.3s;
-}
-
-.faq-question:hover {
-  background: var(--green);
-  color: var(--white);
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.4s ease;
-  padding: 0 1.5rem;
-  background: var(--palest);
-}
-
-.faq-item.active .faq-answer {
-  max-height: 500px; /* enough to show content */
-  padding: 1rem 1.5rem;
-}
-
-.faq-arrow {
-  transition: transform 0.3s ease;
-}
-
-.faq-item.active .faq-arrow {
-  transform: rotate(180deg);
-}
-
-  
   /* ===== Footer ===== */
   footer {background: var(--rose); color: var(--palest); text-align:center; padding:2rem 0.5rem;}
+</style>
+</head>
+<body>
 
 <!-- Navbar -->
 <nav id="navbar">
@@ -163,8 +163,8 @@
 <!-- Hero -->
 <section class="hero">
   <div class="hero-content">
-    <h1>Our Packages</h1>
-    <p>Designed to perfectly capture your special moments.</p>
+    <h1>Weddings</h1>
+    <p><strong>Every moment of your wedding day is precious. Preserve them all with Haven.</strong>strong></p>
   </div>
 </section>
 
@@ -177,6 +177,7 @@
       <img src="https://sunniejae.blob.core.windows.net/sunniejae/couplephotoplaceholder.png" alt="Couples Package">
       <div class="package-overlay">
         <h3>Couples Package</h3>
+        <h4>$400</h4>
         <ul>
           <li>1-hour photo session</li>
           <li>10 edited images</li>
@@ -188,15 +189,15 @@
     <div class="package-card">
       <img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingphotoplaceholder.png" alt="Wedding Photo">
       <div class="package-overlay">
-        <h3>Wedding Day Photo</h3>
-        <h3>$2000</h3>
+        <h3><i>Wedding Day Photo</i>i></h3>
+        <h4>$2000</h4>
         <ul>
-          <li>♡ Pre-Wedding Consultation</li>
-          <li>♡ 8 Hours of Coverage</li>
-          <li>♡ Downloadable Gallery</li>
-          <li>♡ 300+ Images</li>
-          <li>♡ Printing/Posting Rights</li>
-          <li>- check FAQ for details -</li>
+          <li>Pre-Wedding Consultation</li>
+          <li>8 Hours of Coverage</li>
+          <li>Downloadable Gallery</li>
+          <li>300+ Images</li>
+          <li>Printing/Posting Rights</li>
+          <li>Check FAQ for details</li>
         </ul>
       </div>
     </div>
@@ -204,105 +205,110 @@
     <div class="package-card">
       <img src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Wedding Video">
       <div class="package-overlay">
-        <h3>Wedding Day Photo & Video</h3>
-        <h4>$3900</h4>
+        <h3>Wedding Day <i>Photo & Video</i>i></h3>
+        <h4><i>$3900</i></h4>
         <ul>
-        <li>♡ Pre-Wedding Consultation</li>
-          <li>♡ 8 Hours of Coverage</li>
-          <li>♡ Downloadable Gallery</li>
-          <li>♡ 300+ Images</li>
-          <li>♡ One 4 - 7 minute video</li>
-          <li>♡ 4k + HD Video Download</li>
-          <li>♡ Drone Videos (at request)**</li>
-          <li>♡ Printing/Posting Rights</li>
-          <li>- check FAQ for details -</li>
+          <li>Pre-Wedding Consultation</li>
+          <li>8 Hours of Coverage</li>
+          <li>Downloadable Gallery</li>
+          <li>300+ Images</li>
+          <li>One 4–7 min Highlight Video</li>
+          <li>4k + HD Video Download</li>
+          <li>Drone Videos (on request)</li>
+          <li>Printing/Posting Rights</li>
+          <li>Check FAQ for details</li>
         </ul>
       </div>
     </div>
 
     <div class="package-card">
-      <img src="https://sunniejae.blob.core.windows.net/sunniejae/familyphotoplaceholder.png" alt="Family Package">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/familyphotoplaceholder.png" alt="Wedding Day Video">
       <div class="package-overlay">
-        <h3>Wedding Day Video</h3>
+        <h3>Wedding Day <i>Video</i>i></h3>
         <h4>$2100</h4>
         <ul>
-          <li>♡ Pre-Wedding Consultation</li>
-          <li>♡ 8 Hours of Coverage</li>
-          <li>♡ One 4 - 7 minute video</li>
-          <li>♡ 4k + HD Video Download</li>
-          <li>♡ Drone Videos (at request)**</li>
-          <li>♡ Posting Rights</li>
-          <li>- check FAQ for details -</li>
+          <li>Pre-Wedding Consultation</li>
+          <li>8 Hours of Coverage</li>
+          <li>One 4–7 min Video</li>
+          <li>4k + HD Video Download</li>
+          <li>Drone Videos (on request)</li>
+          <li>Posting Rights</li>
+          <li>Check FAQ for details</li>
         </ul>
       </div>
     </div>
-<div class="package-card">
-      <img src="https://sunniejae.blob.core.windows.net/sunniejae/familyphotoplaceholder.png" alt="Family Package">
+
+    <div class="package-card">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/familyphotoplaceholder.png" alt="Engagement Package">
       <div class="package-overlay">
         <h3>Engagements or Bridals</h3>
-        <h3>$400</h3>
+        <h4>$400</h4>
         <ul>
-          <li>♡ Pre-Wedding Consultation</li>
-          <li>♡ 1.5 Hour Session</li>
-          <li>♡ 100+ Images</li>
-          <li>♡ Downloadable Gallery</li>
-          <li>♡ Posting Rights</li>
-          <li>- check FAQ for details -</li>
+          <li>Pre-Wedding Consultation</li>
+          <li>1.5 Hour Session</li>
+          <li>100+ Images</li>
+          <li>Downloadable Gallery</li>
+          <li>Posting Rights</li>
+          <li>Check FAQ for details</li>
         </ul>
       </div>
     </div>
+
     <div class="package-card">
-      <img src="https://sunniejae.blob.core.windows.net/sunniejae/familyphotoplaceholder.png" alt="Family Package">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/familyphotoplaceholder.png" alt="Pre-Wedding Photo & Video">
       <div class="package-overlay">
-        <h3>Pre-Wedding Day Photo & Video</h3>
+        <h3>Pre-Wedding Photo & Video</h3>
         <h4>$750</h4>
         <ul>
-          <li>♡ Pre-Shoot Consultation</li>
-          <li>♡ 2 hour session</li>
-          <li>♡ First look video with song of your choice</li>
-          <li>♡ 4k + HD Video Download</li>
-          <li>♡ Downloadable Gallery</li>
-          <li>♡ Posting Rights</li>
-          <li>- check FAQ for details -</li>
+          <li>Pre-Shoot Consultation</li>
+          <li>2 hour session</li>
+          <li>First Look Video with song</li>
+          <li>4k + HD Video Download</li>
+          <li>Downloadable Gallery</li>
+          <li>Posting Rights</li>
+          <li>Check FAQ for details</li>
         </ul>
       </div>
     </div>
-  <div class="package-card">
-      <img src="https://sunniejae.blob.core.windows.net/sunniejae/familyphotoplaceholder.png" alt="Family Package">
+
+    <div class="package-card">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/familyphotoplaceholder.png" alt="First Look Video">
       <div class="package-overlay">
         <h3>First Look Video</h3>
         <h4>$500</h4>
         <ul>
-          <li>♡ Pre-shoot Consultation</li>
-          <li>♡ 1 Hour Session</li>
-          <li>♡ Video with song of your choice</li>
-          <li>♡ 4k + HD Video Download</li>
-          <li>♡ Posting Rights</li>
-          <li>- check FAQ for details -</li>
+          <li>Pre-Shoot Consultation</li>
+          <li>1 Hour Session</li>
+          <li>Video with song of your choice</li>
+          <li>4k + HD Video Download</li>
+          <li>Posting Rights</li>
+          <li>Check FAQ for details</li>
         </ul>
       </div>
     </div>
+
     <div class="package-card">
-      <img src="https://sunniejae.blob.core.windows.net/sunniejae/familyphotoplaceholder.png" alt="Family Package">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/familyphotoplaceholder.png" alt="Premium Package">
       <div class="package-overlay">
         <h3>Premium Package</h3>
         <h4>$4500</h4>
         <ul>
-          <li>♡ Full Wedding Day Photo & Video Package</li>
-          <li>♡ Engagement Photo & Video Package</li>
-          <li>♡ Bridal Photo & Video Package</li>
-          <li>♡ 500+ Images</li>
-          <li>♡ Downloadable Gallery</li>
-          <li>♡ Prewedding Video & Wedding Day Videos (option to receive either one 6 - 10 min video, or two separate videos)</li>
-          <li>♡ 4k + HD Video Download</li>
-          <li>♡ Drone Videos (at request)**</li>
-          <li>♡ Posting Rights</li>
-          <li>- check FAQ for details -</li>
+          <li>Full Wedding Day Photo & Video</li>
+          <li>Engagement & Bridal Package</li>
+          <li>500+ Images</li>
+          <li>Downloadable Gallery</li>
+          <li>6–10 min Videos (option for separate videos)</li>
+          <li>4k + HD Video Download</li>
+          <li>Drone Videos (on request)</li>
+          <li>Posting Rights</li>
+          <li>Check FAQ for details</li>
         </ul>
       </div>
     </div>
-    
+
+  </div>
 </section>
+
 <!-- FAQ Section -->
 <section id="faq">
   <h2 class="section-title">Frequently Asked Questions</h2>
@@ -310,54 +316,66 @@
 
     <div class="faq-item">
       <button class="faq-question">
-        What is included in the Couples Package?
+        What happens if I want to book more hours than included, or my session goes over?
         <span class="faq-arrow">▼</span>
       </button>
       <div class="faq-answer">
-        <p>The Couples Package includes a 1-hour photo session, 10 edited images, and an online gallery.</p>
+        <p>This is a common question! We are happy to work with individual circumstances. Any time that exceeds the package description will result in an extra charge. The hourly rate for each package is as follows:
+        <p><strong>Wedding Day Photo or Video:</strong></p> <p>Every additional hour is $250 </p>
+        <p><strong>Wedding Day Photo <i>and</i> Video:</strong> </p> <p>Every additional hour is $400</p>
+<p><strong>Engagements, Bridals, or First Look:</strong></p> <p>Every additional hour is $100</p>
+<p><strong>Pre Wedding Day Photo and Video:</strong></p> <p>Every additional hour is $200</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-question">
-        How many photos do I receive in the Wedding Photo Package?
+        How will I get access to my "downloadable gallery"?
         <span class="faq-arrow">▼</span>
       </button>
       <div class="faq-answer">
-        <p>You will receive 200+ fully edited images, delivered via USB and online gallery.</p>
+        <p>We use Pixieset and WeTransfer to make sure you have access to your big day in the best quality. Once your photos and videos are completed, we will reach out to you via email with your unique links. These links will 14 days, so make sure to download ASAP. </p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-question">
-        Does the Wedding Video Package include the full ceremony?
+        How long until I get my photos and/or video back?
         <span class="faq-arrow">▼</span>
       </button>
       <div class="faq-answer">
-        <p>Yes, the package includes full-day filming with a highlight reel and edited ceremony & reception footage.</p>
+        <p>We know how excited you are to relive your special day. To ensure we have ample time to give you our best work, please be understanding that there are many factors in play: time of year, how booked we are, which package you chose, and revisions. Our average delivery time is within 6 business days but can take up to two weeks.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-question">
-        Can I book a custom package?
+        Will you travel?
         <span class="faq-arrow">▼</span>
       </button>
       <div class="faq-answer">
-        <p>Absolutely! Contact us to create a personalized package tailored to your needs.</p>
+        <p>We love to travel! Please reach out to us with your specific needs, and we will be able to send you our travel options. </p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-question">
-        How do I access my photos and videos?
+        What is a "consultation"?
         <span class="faq-arrow">▼</span>
       </button>
       <div class="faq-answer">
-        <p>All packages include an online gallery, and Wedding Photo packages also include USB delivery.</p>
+        <p>In order to best understand you as a couple and make sure we give you your dream wedding experience, before every session, we will send you a google form to fill out. This will go over things like aesthetic and music choices. </p>
       </div>
     </div>
-
+<div class="faq-item">
+      <button class="faq-question">
+        **How much does it cost to add a drone service?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>Prices vary from shoot to shoot. We'll go over options during your consultation. </p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -368,7 +386,6 @@
 
 <script>
 const faqItems = document.querySelectorAll('.faq-item');
-
 faqItems.forEach(item => {
   const question = item.querySelector('.faq-question');
   question.addEventListener('click', () => {
