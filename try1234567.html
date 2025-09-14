@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -285,18 +285,6 @@ h3.section-title {font-size:1.8rem; color: var(--violet); margin-bottom:1rem; te
 }
 
 /* ===== About Section ===== */
-  .about-wrapper {
-  position: relative;
-  width: 50%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-}
-
-.about-container {
-  overflow: hidden;
-  width: 100%;
-}
 .about-intro {
   max-width: 900px;
   margin: 0 auto 3rem;
@@ -321,8 +309,6 @@ h3.section-title {font-size:1.8rem; color: var(--violet); margin-bottom:1rem; te
   text-align: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   transition: transform 0.3s, box-shadow 0.3s;
-
-  /* Flexbox for vertical alignment */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -338,7 +324,7 @@ h3.section-title {font-size:1.8rem; color: var(--violet); margin-bottom:1rem; te
 .team-headshot {
   width: 200px;
   height: 200px;
-  border-radius: 100px; /* square headshots */
+  border-radius: 100px;
   object-fit: cover;
   margin: 0 auto 1rem;
 }
@@ -353,7 +339,7 @@ h3.section-title {font-size:1.8rem; color: var(--violet); margin-bottom:1rem; te
   font-size: 1.3rem;
   color: var(--black);
   line-height: 1.8;
-  margin-bottom: auto; /* keeps icons at bottom */
+  margin-bottom: auto;
 }
 
 .team-social-icons {
@@ -373,7 +359,6 @@ h3.section-title {font-size:1.8rem; color: var(--violet); margin-bottom:1rem; te
 .team-social-icons img:hover {
   transform: scale(1.2);
 }
-
 
 /* ===== Contact Form ===== */
 .contact-form {max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; text-align: left;}
@@ -438,13 +423,13 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
     <span class="gallery-prev" onclick="scrollGallery(-1)">&#10094;</span>
     <div class="gallery-container">
       <div class="gallery-slide">
-        <div class="gallery-item" onclick="openLightbox(0)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/favicons%20(8).png" alt="Gallery 1"  loading="lazy"></div>
-        <div class="gallery-item" onclick="openLightbox(1)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/08012024_Petersen_0056.jpg" alt="Gallery 2"  loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox(0)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/favicons%20(8).png" alt="Gallery 1" loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox(1)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/08012024_Petersen_0056.jpg" alt="Gallery 2" loading="lazy"></div>
         <div class="gallery-item" onclick="openLightbox(2)">
-          <img src="https://sunniejae.blob.core.windows.net/sunniejae/H%20(9).png" alt="Video">
+          <video src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%202.mp4" muted></video>
           <span class="play-icon">♡play♡</span>
         </div>
-        <div class="gallery-item" onclick="openLightbox(3)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/DSC04048%20(1).jpg" alt="Gallery 3"  loading="lazy"></div>
+        <div class="gallery-item" onclick="openLightbox(3)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/DSC04048%20(1).jpg" alt="Gallery 3" loading="lazy"></div>
       </div>
     </div>
     <span class="gallery-next" onclick="scrollGallery(1)">&#10095;</span>
@@ -454,7 +439,7 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
   </div>
 </section>
 
- <!-- Services Section -->
+<!-- Services Section -->
 <section id="services">
   <h2 class="section-title">Our Services</h2>
   <div class="services-grid">
@@ -469,28 +454,32 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
 <!-- About Section -->
 <section id="about">
 <h2 class="section-title">"Mawage. Mawage is what brings us together today."</h2>
-  <h3 class="section-title"> - The Princess Bride (1987) </h3>
-   <div class="about-container">
-<p class="about-intro">Andie Allen and Brad Kendrick are a dynamic duo when it comes to capturing all aspects of your wedding through photo and video. They started working together in 2024, and are passionate about helping couples preserve their perfect day. </p>
+<h3 class="section-title">- The Princess Bride (1987)</h3>
+<div class="about-container">
+<p class="about-intro">Andie Allen and Brad Kendrick are a dynamic duo when it comes to capturing all aspects of your wedding through photo and video. They started working together in 2024, and are passionate about helping couples preserve their perfect day.</p>
 <div class="team-grid">
   <div class="team-member">
     <img src="https://sunniejae.blob.core.windows.net/sunniejae/andie.png" alt="Andie Allen" class="team-headshot">
     <div class="team-name">Andie Allen</div>
-    <div class="team-bio">When Andie isn't practising with her camera, you can find her nose deep in a good fantasy book. She also happens to be a walking encyclopedia for Harry Potter. </div>
-          <a href="https://www.instagram.com/daisylensphoto/" target="_blank">
+    <div class="team-bio">When Andie isn't practising with her camera, you can find her nose deep in a good fantasy book. She also happens to be a walking encyclopedia for Harry Potter.</div>
+    <div class="team-social-icons">
+      <a href="https://www.instagram.com/daisylensphoto/" target="_blank">
         <img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Daisy Lens">
       </a>
     </div>
+  </div>
   <div class="team-member">
     <img src="https://sunniejae.blob.core.windows.net/sunniejae/brad.png" alt="Brad Kendrick" class="team-headshot">
     <div class="team-name">Brad Kendrick</div>
-    <div class="team-bio">Brad has been making videos since he was a kid. If he doesn't have a camera in his hand, you'll find him participating in charity work as a stormtrooper in the 501st legion. Or a little mix of both.  </div>
-          <a href="https://www.instagram.com/pinkshortstrooper/" target="_blank">
+    <div class="team-bio">Brad has been making videos since he was a kid. If he doesn't have a camera in his hand, you'll find him participating in charity work as a stormtrooper in the 501st legion. Or a little mix of both.</div>
+    <div class="team-social-icons">
+      <a href="https://www.instagram.com/pinkshortstrooper/" target="_blank">
         <img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Pink Shorts Trooper">
       </a>
+    </div>
   </div>
 </div>
-   </div>
+</div>
 </section>
 
 <!-- Contact Section -->
@@ -519,7 +508,7 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
 <div id="lightbox" class="lightbox">
   <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
   <span class="lightbox-prev" onclick="changeSlide(-1)">&#10094;</span>
-  <img class="lightbox-content" id="lightbox-img" alt="Expanded view">
+  <div id="lightbox-content-container"></div>
   <span class="lightbox-next" onclick="changeSlide(1)">&#10095;</span>
 </div>
 
@@ -543,33 +532,52 @@ const gallerySlide = document.querySelector('.gallery-slide');
 let slideIndex = 0;
 function scrollGallery(dir){
   const width = gallerySlide.children[0].offsetWidth + 16;
-  gallerySlide.style.transform = `translateX(${-width * (slideIndex + dir)}px)`;
   slideIndex += dir;
   if(slideIndex < 0) slideIndex = 0;
   if(slideIndex > gallerySlide.children.length -3) slideIndex = gallerySlide.children.length -3;
+  gallerySlide.style.transform = `translateX(${-width * slideIndex}px)`;
 }
 
 // Lightbox
 const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
+const lightboxContainer = document.getElementById('lightbox-content-container');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
 let currentSlide = 0;
-const galleryItems = document.querySelectorAll('.gallery-item img');
 
 function openLightbox(index){
   currentSlide = index;
   lightbox.style.display = 'block';
-  const src = galleryItems[index].getAttribute('src');
-  lightboxImg.src = src.includes('video-placeholder') ? 'https://sunniejae.blob.core.windows.net/sunniejae/havenservicephotos.mp4' : src;
-  if(src.includes('video-placeholder')){
-    lightboxImg.outerHTML = `<video class="lightbox-content" controls autoplay src="https://sunniejae.blob.core.windows.net/sunniejae/havenservicephotos.mp4"></video>`;
+  const item = galleryItems[index];
+  lightboxContainer.innerHTML = '';
+  
+  if(item.querySelector('video')){
+    const video = document.createElement('video');
+    video.src = item.querySelector('video').src;
+    video.controls = true;
+    video.autoplay = true;
+    video.style.maxWidth = '90%';
+    video.style.maxHeight = '80vh';
+    lightboxContainer.appendChild(video);
   } else {
-    lightboxImg.outerHTML = `<img class="lightbox-content" id="lightbox-img" src="${src}">`;
+    const img = document.createElement('img');
+    img.src = item.querySelector('img').src;
+    img.className = 'lightbox-content';
+    lightboxContainer.appendChild(img);
   }
 }
 
 function closeLightbox(){ lightbox.style.display = 'none'; }
-function changeSlide(dir){ openLightbox(currentSlide + dir); currentSlide += dir; }
+
+function changeSlide(dir){
+  let newIndex = currentSlide + dir;
+  if(newIndex < 0) newIndex = galleryItems.length - 1;
+  if(newIndex >= galleryItems.length) newIndex = 0;
+  openLightbox(newIndex);
+  currentSlide = newIndex;
+}
 </script>
 
 </body>
 </html>
+
