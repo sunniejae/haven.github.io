@@ -27,7 +27,7 @@
 
 /* ===== Global Styles ===== */
 * {margin:0; padding:0; box-sizing:border-box;}
-body {font-family:'Poiret One', cursive; color: var(--black); var(--palest); overflow-x:hidden;}
+body {font-family:'Poiret One', cursive; color: var(--black); background: var(--palest); overflow-x:hidden;}
 a {text-decoration:none;}
 
 /* ===== Navbar ===== */
@@ -42,7 +42,7 @@ nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 
 .logo {font-size:1.8rem; color: var(--white); letter-spacing:4px; position:relative;}
 .nav-links {display:flex; list-style:none; gap:1.5rem;}
 .nav-links a {color: var(--palest); font-size:1.5rem; letter-spacing:1px; position:relative; transition:0.3s;}
-.nav-links a::after {content:''; position:absolute; bottom:-5px; left:0; width:0; height:3px; background: var(--green); transition:0.3s;}
+.nav-links a::after {content:''; position:absolute; bottom:-5px; left:0; width:0; height:3px; background: var(--white); transition:0.3s;}
 .nav-links a:hover::after {width:100%;}
 
 .social-icons {
@@ -105,7 +105,7 @@ nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 
   display: inline-block;
   padding: 1rem 3rem;
   font-size: 1.3rem;
-  background: var(--gold);
+  background: var(--rose);
   color: white;
   border-radius: 50px;
   opacity: 0;
@@ -148,7 +148,7 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 }
 
 .service-card:hover {
-  background: var(--palest);
+  background: var(--rose);
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
