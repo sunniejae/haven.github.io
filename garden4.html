@@ -26,7 +26,7 @@
 
 /* ===== Global Styles ===== */
 * {margin:0; padding:0; box-sizing:border-box;}
-body {font-family:'Poiret One', cursive; color: var(--black); background: var(--gray); overflow-x:hidden;}
+body {font-family:'Poiret One', cursive; color: var(--black); background: var(#f2f0fb); overflow-x:hidden;}
 a {text-decoration:none;}
 
 /* ===== Navbar ===== */
@@ -36,11 +36,11 @@ nav {
   z-index:1000; border-bottom:1px solid rgba(23,17,35,0.2);
   transition:all 0.4s ease;
 }
-nav.scrolled {background: rgba(23,17,35,0.25); border-bottom:1px solid rgba(211,193,163,0.3);}
+nav.scrolled {background: rgba(164, 152, 131, 0.5); border-bottom:1px solid rgba(rgba(164, 152, 131, 1);}
 .nav-container {display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto;}
 .logo {font-size:1rem; color: var(--beige); letter-spacing:4px; position:relative;}
 .nav-links {display:flex; list-style:none; gap:2.5rem;}
-.nav-links a {color: var(--black); font-size:1.5rem; letter-spacing:1px; position:relative; transition:0.3s;}
+.nav-links a {color: var(--white); font-size:1.5rem; letter-spacing:1px; position:relative; transition:0.3s;}
 .nav-links a::after {content:''; position:absolute; bottom:-5px; left:0; width:0; height:2px; background: var(--blue); transition:0.3s;}
 .nav-links a:hover::after {width:100%;}
 
@@ -76,7 +76,7 @@ nav.scrolled {background: rgba(23,17,35,0.25); border-bottom:1px solid rgba(211,
   position: relative;
   overflow: hidden;
   background: 
-    linear-gradient(135deg, rgba(23,17,35,0.25), rgba(23,17,35,0.1)),
+    linear-gradient(135deg, gba(164, 152, 131, 0.8), rgb(185, 181, 170, 0.2)),
     url("https://sunniejae.blob.core.windows.net/sunniejae/havenheadersillohuette3%20(2).png")
     no-repeat center center/cover;
 }
@@ -223,7 +223,7 @@ h3.section-title {font-size:1.8rem; color: var(--violet); margin-bottom:1.8rem; 
   z-index: 2000;
   left: 0; top: 0;
   width: 100%; height: 100%;
-  background: rgba(23,17,35,0.9);
+  background: rgba(122, 118, 136, 0.8);
   backdrop-filter: blur(4px);
   text-align: center;
 }
