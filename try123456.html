@@ -9,20 +9,19 @@
 <style>
 /* ===== Color Palette ===== */
 :root {
---green: #8ca294;
---blue: #799396;
---purple: #9f8c9b;
---rose: #b19590;
---gold: #a49883;
---violet: #7a7688;
---beige: #b9b5aa;
---lavender: #7a7688;
---soft-pink: #c8a9a5;
---beige: #b9b5aa;
---gray: #b0aaaa;
---black: #201c15;
---white: #fefafa;
---palest: #F2F1F3;
+  --green: #8ca294;
+  --blue: #799396;
+  --purple: #9f8c9b;
+  --rose: #b19590;
+  --gold: #a49883;
+  --violet: #7a7688;
+  --beige: #b9b5aa;
+  --lavender: #7a7688;
+  --soft-pink: #c8a9a5;
+  --gray: #b0aaaa;
+  --black: #201c15;
+  --white: #fefafa;
+  --palest: #F2F1F3;
 }
 
 /* ===== Global Styles ===== */
@@ -63,7 +62,6 @@ nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 
     opacity: 1;
 }
 
-
 /* ===== Hero Section ===== */
 .hero {
   width: 100%;
@@ -79,7 +77,7 @@ nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 
   background:
     linear-gradient(135deg, rgba(23,17,35,0.25), rgba(23,17,35,0.1)),
     url("https://sunniejae.blob.core.windows.net/sunniejae/havenheadersillohuette3%20(4).png")
-    no-repeat center bottom/cover; /* anchored to bottom */
+    no-repeat center bottom/cover;
 }
 
 .hero h1 {
@@ -120,98 +118,53 @@ nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 
   background: var(--green);
 }
 
-
 /* ===== Fade/Slide Sections ===== */
 section {opacity:0; transform: translateY(20px); transition: all 0.8s ease-out; padding:6rem 5%;}
 section.visible {opacity:1; transform: translateY(0);}
 h2.section-title {font-size:3rem; color: var(--black); margin-bottom:2rem; text-align:center;}
 h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text-align:center;}
 
-/* ===== Services Grid ===== */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
-  align-items: stretch;
-}
-
-.service-card {
-  background: rgba(122, 118, 136, 0.4);
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-}
-
-.service-card:hover {
-  background: var(--violete);
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-}
-
-.service-card h3 {font-size: 1.6rem; margin: 1rem 0 0.5rem; color: var(--palest);}
-.service-card p {font-size: 1.5rem; color: var(--white);}
-
-/* ===== Image & Video Frames ===== */
-.image-frame, .video-frame {
+/* ===== Hero Carousel Section ===== */
+.carousel-container {
   position: relative;
   width: 100%;
-  max-width: 400px;
-  aspect-ratio: 16 / 9;
-  margin: 0 auto 1rem;
+  max-width: 1920px;
+  height: 550px;
+  margin: 3rem auto;
   overflow: hidden;
-  border-radius: 15px;
 }
 
-.image-frame img, .video-frame img.book-frame {
+.carousel-slide {
+  display: flex;
   width: 100%;
   height: 100%;
+  transition: transform 0.7s ease-in-out;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 550px;
   object-fit: cover;
-  display: block;
-}
-
-.video-frame video {
-  position: absolute;
-  top: 8%;
-  left: 8%;
-  width: 84%;
-  height: 84%;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-/* ===== Gallery Grid ===== */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.gallery-item {
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
   cursor: pointer;
 }
 
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
+.carousel-prev, .carousel-next {
+  position: absolute;
+  top: 50%;
+  font-size: 3rem;
+  color: var(--rose);
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transform: translateY(-50%);
+  transition: color 0.3s;
 }
 
-.gallery-item:hover {transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.15);}
-.gallery-item:hover img {transform: scale(1.08);}
+.carousel-prev { left: 10px; }
+.carousel-next { right: 10px; }
+
+.carousel-prev:hover, .carousel-next:hover { color: var(--green); }
 
 /* ===== Lightbox ===== */
 .lightbox {
@@ -249,12 +202,63 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 .lightbox-close {top: 20px; right: 40px; font-size: 3rem;}
 .lightbox-prev {left: 40px; transform: translateY(-50%);}
 .lightbox-next {right: 40px; transform: translateY(-50%);}
-
 .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {color: var(--green);}
 
-@keyframes fadeIn {
-  from {opacity: 0; transform: scale(0.95);}
-  to {opacity: 1; transform: scale(1);}
+/* ===== Services Grid ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  align-items: stretch;
+}
+
+.service-card {
+  background: rgba(122, 118, 136, 0.4);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.service-card h3 {font-size: 1.6rem; margin: 1rem 0 0.5rem; color: var(--palest);}
+.service-card p {font-size: 1.5rem; color: var(--white);}
+
+/* ===== Image & Video Frames ===== */
+.image-frame, .video-frame {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto 1rem;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.image-frame img, .video-frame img.book-frame {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-frame video {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  width: 84%;
+  height: 84%;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 /* ===== About Section ===== */
@@ -266,12 +270,51 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
   color: var(--black);
   line-height: 1.6;
 }
-.team-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto;}
-.team-member {background: var(--soft-pink); border-radius: 20px; padding: 2rem; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;}
-.team-member:hover {background: var(--gold); transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.15);}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-member {
+  background: var(--soft-pink);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-member:hover {
+  background: var(--gold);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
 .team-headshot {width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;}
-.team-name {font-size: 1.5rem; color: var(--Palest); margin-bottom: 0.5rem;}
+.team-name {font-size: 1.5rem; color: var(--palest); margin-bottom: 0.5rem;}
 .team-bio {font-size: 1.1rem; color: var(--black); line-height: 1.5;}
+
+.team-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+.team-social-icons img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.team-social-icons img:hover {
+  transform: scale(1.2);
+}
 
 /* ===== Contact Form ===== */
 .contact-form {max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; text-align: left;}
@@ -288,6 +331,7 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
 
 /* ===== Animations ===== */
 @keyframes fadeSlideUp {0% {opacity:0.5; transform: translateY(30px);} 100% {opacity:1; transform: translateY(0);}}
+@keyframes fadeIn {from {opacity:0; transform: scale(0.95);} to {opacity:1; transform: scale(1);}}
 </style>
 </head>
 <body>
@@ -303,7 +347,6 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-      <!-- Social icons -->
     <div class="social-icons">
       <a href="https://www.instagram.com/havenphotoandvideo/" target="_blank">
         <img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Insta">
@@ -331,14 +374,18 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
   </div>
 </section>
 
-<!-- Gallery Section -->
+<!-- Hero Carousel Section -->
 <section id="portfolio">
   <h2 class="section-title">Portfolio Preview</h2>
-  <div class="gallery-grid">
-    <div class="gallery-item"><img src="https://sunniejae.blob.core.windows.net/sunniejae/couplephotoplaceholder.png" alt="Gallery Image 1" onclick="openLightbox(0)"></div>
-    <div class="gallery-item"><img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingpackageplaceholder.png" alt="Gallery Image 2" onclick="openLightbox(1)"></div>
-    <div class="gallery-item"><img src="https://sunniejae.blob.core.windows.net/sunniejae/graduationphotoplaceholder.png" alt="Gallery Image 3" onclick="openLightbox(2)"></div>
-    <div class="gallery-item"><img src="https://sunniejae.blob.core.windows.net/sunniejae/couplephotoplaceholder.png" alt="Gallery Image 4" onclick="openLightbox(3)"></div>
+  <div class="carousel-container">
+    <div class="carousel-slide">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/couplephotoplaceholder.png" alt="Slide 1" onclick="openLightbox(0)">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/floralHbeige.png" alt="Slide 2" onclick="openLightbox(1)">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/floralHbeige.png" alt="Slide 3" onclick="openLightbox(2)">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/floralHbeige.png" alt="Slide 4" onclick="openLightbox(3)">
+    </div>
+    <span class="carousel-prev" onclick="moveSlide(-1)">&#10094;</span>
+    <span class="carousel-next" onclick="moveSlide(1)">&#10095;</span>
   </div>
   <div style="text-align:center; margin-top:2rem;">
     <a href="fullgallery.html" class="cta-button">View Full Gallery</a>
@@ -353,7 +400,7 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
   <span class="lightbox-next" onclick="changeSlide(1)">&#10095;</span>
 </div>
 
-    <!-- Services Section -->
+<!-- Services Section -->
 <section id="services">
   <h2 class="section-title">Our Services</h2>
   <div class="services-grid">
@@ -365,27 +412,29 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
   </div>
 </section>
 
-
 <!-- About Section -->
 <section id="about">
   <h3 class="section-title">"Mawage. Mawage is what brings us together today"</h3>
-  <h3 class="section-title">- The Princess Bride</h>
+  <h3 class="section-title">- The Princess Bride</h3>
   <p class="about-intro">Andie Allen and Brad Kendrick are a dynamic duo when it comes to capturing all aspects of your wedding through photo and video. They started working together in 2024, and are passionate about helping couples preserve their perfect day.</p>
   <div class="team-grid">
-   <div class="team-member">
-  <img src="https://sunniejae.blob.core.windows.net/sunniejae/andie.png" alt="Andie Allen" class="team-headshot">
-    <h3 class="team-name">Andie Allen</h3>
-  </a>
-  <p class="team-bio">When Andie isn't practising with her camera, you can find her nose deep in a good fantasy book. She also happens to be a walking encyclopedia for Harry Potter.</p>
+    <div class="team-member">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/andie.png" alt="Andie Allen" class="team-headshot">
+      <h3 class="team-name">Andie Allen</h3>
+      <p class="team-bio">When Andie isn't practising with her camera, you can find her nose deep in a good fantasy book. She also happens to be a walking encyclopedia for Harry Potter.</p>
       <div class="team-social-icons">
-    <a href="https://instagram.com/daisylensphoto" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Instagram"></a>
-  </div>
-</div>
-    <div class="team-member"><img src="https://sunniejae.blob.core.windows.net/sunniejae/brad.png" alt="Brad Kendrick" class="team-headshot"><h3 class="team-name">Brad Kendrick</h3><p class="team-bio">Brad has been making videos since he was a kid. If he doesn't have a camera in his hand, you'll find him participating in charity work as a stormtrooper in the 501st legion. Or a little mix of both.</p>
-  <div class="team-social-icons">
-    <a href="https://instagram.com/pinkshortstrooper" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Instagram"></a>
-  </div>
+        <a href="https://instagram.com/daisylensphoto" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Instagram"></a>
+      </div>
     </div>
+    <div class="team-member">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/brad.png" alt="Brad Kendrick" class="team-headshot">
+      <h3 class="team-name">Brad Kendrick</h3>
+      <p class="team-bio">Brad has been making videos since he was a kid. If he doesn't have a camera in his hand, you'll find him participating in charity work as a stormtrooper in the 501st legion. Or a little mix of both.</p>
+      <div class="team-social-icons">
+        <a href="https://instagram.com/pinkshortstrooper" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Instagram"></a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Contact Section -->
@@ -439,6 +488,23 @@ function changeSlide(n) {
   currentSlide = (currentSlide + n + images.length) % images.length;
   document.getElementById("lightbox-img").src = images[currentSlide];
 }
+
+// Hero Carousel
+const carouselSlide = document.querySelector('.carousel-slide');
+const carouselImages = document.querySelectorAll('.carousel-slide img');
+let counter = 0;
+
+function moveSlide(direction) {
+  counter += direction;
+  if(counter < 0) counter = carouselImages.length - 1;
+  if(counter >= carouselImages.length) counter = 0;
+  const width = carouselImages[0].clientWidth;
+  carouselSlide.style.transform = `translateX(${-width * counter}px)`;
+}
+
+// Auto-play
+setInterval(() => moveSlide(1), 4000);
 </script>
+
 </body>
 </html>
