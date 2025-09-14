@@ -24,7 +24,7 @@
 
   /* ===== Global ===== */
   * {margin:0; padding:0; box-sizing:border-box;}
-  body {font-size: 1.4rem;font-family:'Poiret One', cursive; color: var(--black); background: var(--palest); overflow-x:hidden;}
+  body {font-size: 1.1rem;font-family:'Poiret One', cursive; color: var(--black); background: var(--palest); overflow-x:hidden;}
   a {text-decoration:none;}
 
   /* ===== Navbar ===== */
@@ -41,6 +41,10 @@
   .nav-links a {color: var(--white); font-size:1.2rem; transition:0.3s; position:relative;}
   .nav-links a::after {content:''; position:absolute; bottom:-5px; left:0; width:0; height:3px; background: var(--white); transition:0.3s;}
   .nav-links a:hover::after {width:100%;}
+  .social-icons {display: flex; gap: 15px; align-items: center;}
+.social-icons img {width: 24px; height: 24px; object-fit: contain; transition: transform 0.3s ease, opacity 0.8s ease;}
+.social-icons img:hover {transform: scale(1.1); opacity: 1;}
+
 
   /* ===== Hero ===== */
  .hero {
@@ -158,6 +162,12 @@
       <li><a href="index.html#contact">Contact</a></li>
       <li><a href="packages.html">Packages</a></li>
     </ul>
+    <div class="social-icons">
+      <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Insta"></a>
+      <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/fbicon25.png" alt="Facebook"></a>
+      <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/tticon25.png" alt="TikTok"></a>
+      <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralrose.png" alt="SJ"></a>
+    </div>
   </div>
 </nav>
 
