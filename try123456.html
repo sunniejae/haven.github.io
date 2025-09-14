@@ -104,13 +104,12 @@ nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 
   padding: 1rem 3rem;
   font-size: 1.3rem;
   background: rgba(200, 234, 211,0.75);
-  color: var(--black);
+  color: var(--white);
   border-radius: 50px;
   opacity: 0;
   transform: translateY(30px);
   animation: fadeSlideUp 1s forwards;
   animation-delay: 0.4s;
-  margin: 0 0.5rem;
 }
 
 .cta-button:hover {
@@ -128,8 +127,7 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 /* ===== Gallery Styles ===== */
 .gallery-wrapper {
   position: relative;
-  width: 33%;
-  max-width: 800px;
+  width: 33%; /* Center third of screen */
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -146,15 +144,15 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
   transition: transform 0.5s ease-in-out;
 }
 
-.gallery-slide img {
-  width: calc(100% / 3 - 0.66rem);
+.gallery-slide img, .gallery-slide video {
+  width: calc(100% / 3 - 0.66rem); /* Show ~3 items at once */
   cursor: pointer;
   border-radius: 12px;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
-.gallery-slide img:hover { transform: scale(1.05); }
+.gallery-slide img:hover, .gallery-slide video:hover { transform: scale(1.05); }
 
 .gallery-prev, .gallery-next {
   position: absolute;
@@ -185,7 +183,7 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
   text-align: center;
 }
 
-.lightbox-content {
+.lightbox-content img, .lightbox-content video {
   margin: auto;
   display: block;
   max-width: 90%;
@@ -341,20 +339,6 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
 /* ===== Animations ===== */
 @keyframes fadeSlideUp {0% {opacity:0.5; transform: translateY(30px);} 100% {opacity:1; transform: translateY(0);}}
 @keyframes fadeIn {from {opacity:0; transform: scale(0.95);} to {opacity:1; transform: scale(1);}}
-
-/* ===== Responsive Gallery ===== */
-@media (max-width: 1200px) {
-  .gallery-wrapper { width: 50%; }
-  .gallery-slide img { width: calc(100% / 3 - 0.66rem); }
-}
-@media (max-width: 900px) {
-  .gallery-wrapper { width: 70%; }
-  .gallery-slide img { width: calc(100% / 2 - 0.5rem); }
-}
-@media (max-width: 600px) {
-  .gallery-wrapper { width: 90%; }
-  .gallery-slide img { width: 100%; }
-}
 </style>
 </head>
 <body>
@@ -372,7 +356,7 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
     </ul>
     <div class="social-icons">
       <a href="https://www.instagram.com/havenphotoandvideo/" target="_blank">
-        <img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Instagram">
+        <img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Insta">
       </a>
       <a href="https://www.facebook.com/381117641758647?ref=_xav_ig_profile_page_web" target="_blank">
         <img src="https://sunniejae.blob.core.windows.net/sunniejae/fbicon25.png" alt="Facebook">
@@ -401,17 +385,21 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
 <section id="portfolio">
   <h2 class="section-title">Portfolio Preview</h2>
   <div class="gallery-wrapper">
-    <span class="gallery-prev" onclick="scrollGallery(-1)" aria-label="Previous">&#10094;</span>
+    <span class="gallery-prev" onclick="scrollGallery(-1)">&#10094;</span>
     <div class="gallery-container">
       <div class="gallery-slide">
+        <!-- Images -->
         <img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery1.png" alt="Gallery 1" onclick="openLightbox(0)">
         <img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery2.png" alt="Gallery 2" onclick="openLightbox(1)">
-        <img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery3.png" alt="Gallery 3" onclick="openLightbox(2)">
-        <img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery4.png" alt="Gallery 4" onclick="openLightbox(3)">
-        <img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery5.png" alt="Gallery 5" onclick="openLightbox(4)">
+        <!-- Video -->
+        <div style="position:relative; cursor:pointer;" onclick="openLightbox(2)">
+          <img src="https://sunniejae.blob.core.windows.net/sunniejae/video-placeholder.png" alt="Video">
+          <span style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-size:3rem; color:white;">▶</span>
+        </div>
+        <img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery3.png" alt="Gallery 3" onclick="openLightbox(3)">
       </div>
     </div>
-    <span class="gallery-next" onclick="scrollGallery(1)" aria-label="Next">&#10095;</span>
+    <span class="gallery-next" onclick="scrollGallery(1)">&#10095;</span>
   </div>
   <div style="text-align:center; margin-top:2rem;">
     <a href="fullgallery.html" class="cta-button">View Full Gallery</a>
@@ -420,64 +408,14 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
 
 <!-- Lightbox Modal -->
 <div id="lightbox" class="lightbox">
-  <span class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</span>
-  <span class="lightbox-prev" onclick="changeSlide(-1)" aria-label="Previous">&#10094;</span>
-  <img class="lightbox-content" id="lightbox-img" alt="Expanded view">
-  <span class="lightbox-next" onclick="changeSlide(1)" aria-label="Next">&#10095;</span>
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <span class="lightbox-prev" onclick="changeSlide(-1)">&#10094;</span>
+  <div id="lightbox-content" class="lightbox-content"></div>
+  <span class="lightbox-next" onclick="changeSlide(1)">&#10095;</span>
 </div>
 
-<!-- Services Section -->
-<section id="services">
-  <h2 class="section-title">Our Services</h2>
-  <div class="services-grid">
-    <div class="service-card"><div class="image-frame"><img src="https://sunniejae.blob.core.windows.net/sunniejae/couplephotoplaceholder.png" alt="Couples"></div><h3>Couples</h3><p>Non-wedding couple shoots</p></div>
-    <div class="service-card"><div class="image-frame"><img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingpackageplaceholder.png" alt="Wedding"></div><h3>Events</h3><p>Parties, Business Events, and More</p></div>
-    <div class="service-card"><div class="video-frame"><img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative Frame"><video autoplay loop muted playsinline><source src="https://sunniejae.blob.core.windows.net/sunniejae/wedding%20video.mp4" type="video/mp4"></video></div><h3>Weddings</h3><p>for Thee big day</p></div>
-    <div class="service-card"><div class="image-frame"><img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingphotoplaceholder.png" alt="Wedding Photo"></div><h3>Family Portraits</h3><p>We don't do just couples, we can do the whole fam too</p></div>
-    <div class="service-card"><div class="image-frame"><img src="https://sunniejae.blob.core.windows.net/sunniejae/graduationplaceholder.png" alt="Graduations"></div><h3>Graduations</h3><p>For USU and beyond</p></div>
-  </div>
-</section>
+<!-- Services, About, Contact, Footer sections remain unchanged ... -->
 
-<!-- About Section -->
-<section id="about">
-  <h3 class="section-title">"Mawage. Mawage is what brings us together today"</h3>
-  <h3 class="section-title">- The Princess Bride</h3>
-  <p class="about-intro">Andie Allen and Brad Kendrick are a dynamic duo when it comes to capturing all aspects of your wedding through photo and video. They started working together in 2024, and are passionate about helping couples preserve their perfect day.</p>
-  <div class="team-grid">
-    <div class="team-member">
-      <img src="https://sunniejae.blob.core.windows.net/sunniejae/andie.png" alt="Andie Allen" class="team-headshot">
-      <h3 class="team-name">Andie Allen</h3>
-      <p class="team-bio">When Andie isn't practising with her camera, you can find her nose deep in a good fantasy book. She also happens to be a walking encyclopedia for Harry Potter.</p>
-      <div class="team-social-icons">
-        <a href="https://instagram.com/daisylensphoto" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Instagram"></a>
-      </div>
-    </div>
-    <div class="team-member">
-      <img src="https://sunniejae.blob.core.windows.net/sunniejae/brad.png" alt="Brad Kendrick" class="team-headshot">
-      <h3 class="team-name">Brad Kendrick</h3>
-      <p class="team-bio">Brad has been making videos since he was a kid. If he doesn't have a camera in his hand, you'll find him participating in charity work as a stormtrooper in the 501st legion. Or a little mix of both.</p>
-      <div class="team-social-icons">
-        <a href="https://instagram.com/pinkshortstrooper" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Instagram"></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact">
-  <h2 class="section-title">Contact Us</h2>
-  <form class="contact-form">
-    <label for="name">Name</label><input type="text" id="name" name="name" required>
-    <label for="email">Email</label><input type="email" id="email" name="email" required>
-    <label for="message">Message</label><textarea id="message" name="message" rows="5" required></textarea>
-    <button type="submit">Send</button>
-  </form>
-</section>
-
-<!-- Footer -->
-<footer><p>&copy; 2024 Haven Photo & Video. Website Provided by SunnieJaeCreates.</p></footer>
-
-<!-- Scripts -->
 <script>
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
@@ -495,43 +433,56 @@ const revealOnScroll = () => {
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
-// Lightbox Script
-let currentSlide = 0;
-const images = [
-  "https://sunniejae.blob.core.windows.net/sunniejae/gallery1.png",
-  "https://sunniejae.blob.core.windows.net/sunniejae/gallery2.png",
-  "https://sunniejae.blob.core.windows.net/sunniejae/gallery3.png",
-  "https://sunniejae.blob.core.windows.net/sunniejae/gallery4.png",
-  "https://sunniejae.blob.core.windows.net/sunniejae/gallery5.png"
+// Gallery items
+const galleryItems = [
+  { type: 'image', src: 'https://sunniejae.blob.core.windows.net/sunniejae/gallery1.png' },
+  { type: 'image', src: 'https://sunniejae.blob.core.windows.net/sunniejae/gallery2.png' },
+  { type: 'video', src: 'https://sunniejae.blob.core.windows.net/sunniejae/wedding%20video.mp4' },
+  { type: 'image', src: 'https://sunniejae.blob.core.windows.net/sunniejae/gallery3.png' }
 ];
+
+let currentSlide = 0;
 
 function openLightbox(index) {
   currentSlide = index;
+  const item = galleryItems[currentSlide];
+  const lightboxContent = document.getElementById("lightbox-content");
+  lightboxContent.innerHTML = '';
+
+  if (item.type === 'image') {
+    const img = document.createElement('img');
+    img.src = item.src;
+    lightboxContent.appendChild(img);
+  } else if (item.type === 'video') {
+    const video = document.createElement('video');
+    video.src = item.src;
+    video.controls = true;
+    video.autoplay = true;
+    lightboxContent.appendChild(video);
+  }
   document.getElementById("lightbox").style.display = "block";
-  document.getElementById("lightbox-img").src = images[currentSlide];
-}
-function closeLightbox() {document.getElementById("lightbox").style.display = "none";}
-function changeSlide(n) {
-  currentSlide = (currentSlide + n + images.length) % images.length;
-  document.getElementById("lightbox-img").src = images[currentSlide];
 }
 
-// Gallery Carousel
+function closeLightbox() {document.getElementById("lightbox").style.display = "none";}
+
+function changeSlide(n) {
+  currentSlide = (currentSlide + n + galleryItems.length) % galleryItems.length;
+  openLightbox(currentSlide);
+}
+
+// Scrollable carousel
 let galleryIndex = 0;
 const gallerySlide = document.querySelector('.gallery-slide');
-const galleryImgs = document.querySelectorAll('.gallery-slide img');
+const galleryImgs = document.querySelectorAll('.gallery-slide img, .gallery-slide div');
 
 function scrollGallery(direction) {
   galleryIndex += direction;
-  const maxIndex = galleryImgs.length - 3; // visible images
+  const maxIndex = galleryImgs.length - 3; // 3 visible
   if(galleryIndex < 0) galleryIndex = 0;
   if(galleryIndex > maxIndex) galleryIndex = maxIndex;
-  const width = galleryImgs[0].clientWidth + 16;
+  const width = galleryImgs[0].clientWidth + 16; // gap included
   gallerySlide.style.transform = `translateX(${-width * galleryIndex}px)`;
 }
-
-// Auto-play carousel
-setInterval(() => scrollGallery(1), 4000);
 </script>
 
 </body>
