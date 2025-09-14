@@ -103,13 +103,14 @@ nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 
   display: inline-block;
   padding: 1rem 3rem;
   font-size: 1.3rem;
-  background: rgba(200, 234, 211,0.7);
-  color: var(--gray);
+  background: rgba(200, 234, 211,0.75);
+  color: var(--white);
   border-radius: 50px;
   opacity: 0;
   transform: translateY(30px);
   animation: fadeSlideUp 1s forwards;
   animation-delay: 0.4s;
+  margin: 0 0.5rem;
 }
 
 .cta-button:hover {
@@ -124,47 +125,53 @@ section.visible {opacity:1; transform: translateY(0);}
 h2.section-title {font-size:3rem; color: var(--black); margin-bottom:2rem; text-align:center;}
 h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text-align:center;}
 
-/* ===== Hero Carousel Section ===== */
-.carousel-container {
+/* ===== Gallery Styles ===== */
+.gallery-wrapper {
   position: relative;
-  width: 100%;
-  max-width: 1920px;
-  height: 550px;
-  margin: 3rem auto;
-  overflow: hidden;
-}
-
-.carousel-slide {
+  width: 33%;
+  max-width: 800px;
+  margin: 0 auto;
   display: flex;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.7s ease-in-out;
+  align-items: center;
 }
 
-.carousel-slide img {
+.gallery-container {
+  overflow: hidden;
   width: 100%;
-  height: 550px;
-  object-fit: cover;
-  flex-shrink: 0;
+}
+
+.gallery-slide {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.5s ease-in-out;
+}
+
+.gallery-slide img {
+  width: calc(100% / 3 - 0.66rem);
   cursor: pointer;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-.carousel-prev, .carousel-next {
+.gallery-slide img:hover { transform: scale(1.05); }
+
+.gallery-prev, .gallery-next {
   position: absolute;
   top: 50%;
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: var(--rose);
-  font-weight: bold;
   cursor: pointer;
   user-select: none;
   transform: translateY(-50%);
   transition: color 0.3s;
+  z-index: 10;
 }
 
-.carousel-prev { left: 10px; }
-.carousel-next { right: 10px; }
+.gallery-prev { left: -35px; }
+.gallery-next { right: -35px; }
 
-.carousel-prev:hover, .carousel-next:hover { color: var(--green); }
+.gallery-prev:hover, .gallery-next:hover { color: var(--green); }
 
 /* ===== Lightbox ===== */
 .lightbox {
@@ -226,6 +233,8 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 }
 
 .service-card:hover {
+  background: rgba(122, 118, 136, 1);
+  color: var(--white);
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
@@ -332,6 +341,20 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
 /* ===== Animations ===== */
 @keyframes fadeSlideUp {0% {opacity:0.5; transform: translateY(30px);} 100% {opacity:1; transform: translateY(0);}}
 @keyframes fadeIn {from {opacity:0; transform: scale(0.95);} to {opacity:1; transform: scale(1);}}
+
+/* ===== Responsive Gallery ===== */
+@media (max-width: 1200px) {
+  .gallery-wrapper { width: 50%; }
+  .gallery-slide img { width: calc(100% / 3 - 0.66rem); }
+}
+@media (max-width: 900px) {
+  .gallery-wrapper { width: 70%; }
+  .gallery-slide img { width: calc(100% / 2 - 0.5rem); }
+}
+@media (max-width: 600px) {
+  .gallery-wrapper { width: 90%; }
+  .gallery-slide img { width: 100%; }
+}
 </style>
 </head>
 <body>
@@ -349,7 +372,7 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
     </ul>
     <div class="social-icons">
       <a href="https://www.instagram.com/havenphotoandvideo/" target="_blank">
-        <img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Insta">
+        <img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Instagram">
       </a>
       <a href="https://www.facebook.com/381117641758647?ref=_xav_ig_profile_page_web" target="_blank">
         <img src="https://sunniejae.blob.core.windows.net/sunniejae/fbicon25.png" alt="Facebook">
@@ -374,18 +397,21 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
   </div>
 </section>
 
-<!-- Hero Carousel Section -->
+<!-- Centered Gallery Carousel -->
 <section id="portfolio">
   <h2 class="section-title">Portfolio Preview</h2>
-  <div class="carousel-container">
-    <div class="carousel-slide">
-      <img src="https://sunniejae.blob.core.windows.net/sunniejae/couplephotoplaceholder.png" alt="Slide 1" onclick="openLightbox(0)">
-      <img src="https://sunniejae.blob.core.windows.net/sunniejae/floralHbeige.png" alt="Slide 2" onclick="openLightbox(1)">
-      <img src="https://sunniejae.blob.core.windows.net/sunniejae/floralHbeige.png" alt="Slide 3" onclick="openLightbox(2)">
-      <img src="https://sunniejae.blob.core.windows.net/sunniejae/floralHbeige.png" alt="Slide 4" onclick="openLightbox(3)">
+  <div class="gallery-wrapper">
+    <span class="gallery-prev" onclick="scrollGallery(-1)" aria-label="Previous">&#10094;</span>
+    <div class="gallery-container">
+      <div class="gallery-slide">
+        <img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery1.png" alt="Gallery 1" onclick="openLightbox(0)">
+        <img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery2.png" alt="Gallery 2" onclick="openLightbox(1)">
+        <img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery3.png" alt="Gallery 3" onclick="openLightbox(2)">
+        <img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery4.png" alt="Gallery 4" onclick="openLightbox(3)">
+        <img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery5.png" alt="Gallery 5" onclick="openLightbox(4)">
+      </div>
     </div>
-    <span class="carousel-prev" onclick="moveSlide(-1)">&#10094;</span>
-    <span class="carousel-next" onclick="moveSlide(1)">&#10095;</span>
+    <span class="gallery-next" onclick="scrollGallery(1)" aria-label="Next">&#10095;</span>
   </div>
   <div style="text-align:center; margin-top:2rem;">
     <a href="fullgallery.html" class="cta-button">View Full Gallery</a>
@@ -394,10 +420,10 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
 
 <!-- Lightbox Modal -->
 <div id="lightbox" class="lightbox">
-  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-  <span class="lightbox-prev" onclick="changeSlide(-1)">&#10094;</span>
+  <span class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</span>
+  <span class="lightbox-prev" onclick="changeSlide(-1)" aria-label="Previous">&#10094;</span>
   <img class="lightbox-content" id="lightbox-img" alt="Expanded view">
-  <span class="lightbox-next" onclick="changeSlide(1)">&#10095;</span>
+  <span class="lightbox-next" onclick="changeSlide(1)" aria-label="Next">&#10095;</span>
 </div>
 
 <!-- Services Section -->
@@ -475,7 +501,8 @@ const images = [
   "https://sunniejae.blob.core.windows.net/sunniejae/gallery1.png",
   "https://sunniejae.blob.core.windows.net/sunniejae/gallery2.png",
   "https://sunniejae.blob.core.windows.net/sunniejae/gallery3.png",
-  "https://sunniejae.blob.core.windows.net/sunniejae/gallery4.png"
+  "https://sunniejae.blob.core.windows.net/sunniejae/gallery4.png",
+  "https://sunniejae.blob.core.windows.net/sunniejae/gallery5.png"
 ];
 
 function openLightbox(index) {
@@ -489,21 +516,22 @@ function changeSlide(n) {
   document.getElementById("lightbox-img").src = images[currentSlide];
 }
 
-// Hero Carousel
-const carouselSlide = document.querySelector('.carousel-slide');
-const carouselImages = document.querySelectorAll('.carousel-slide img');
-let counter = 0;
+// Gallery Carousel
+let galleryIndex = 0;
+const gallerySlide = document.querySelector('.gallery-slide');
+const galleryImgs = document.querySelectorAll('.gallery-slide img');
 
-function moveSlide(direction) {
-  counter += direction;
-  if(counter < 0) counter = carouselImages.length - 1;
-  if(counter >= carouselImages.length) counter = 0;
-  const width = carouselImages[0].clientWidth;
-  carouselSlide.style.transform = `translateX(${-width * counter}px)`;
+function scrollGallery(direction) {
+  galleryIndex += direction;
+  const maxIndex = galleryImgs.length - 3; // visible images
+  if(galleryIndex < 0) galleryIndex = 0;
+  if(galleryIndex > maxIndex) galleryIndex = maxIndex;
+  const width = galleryImgs[0].clientWidth + 16;
+  gallerySlide.style.transform = `translateX(${-width * galleryIndex}px)`;
 }
 
-// Auto-play
-setInterval(() => moveSlide(1), 4000);
+// Auto-play carousel
+setInterval(() => scrollGallery(1), 4000);
 </script>
 
 </body>
