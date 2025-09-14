@@ -1,4 +1,4 @@
-1<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/hfloralgreen.png" />
 <style>
-/* ===== Color Palette ===== */
 :root {
   --green: #8ca294;
   --blue: #799396;
@@ -16,7 +15,6 @@
   --gold: #a49883;
   --violet: #7a7688;
   --beige: #b9b5aa;
-  --lavender: #7a7688;
   --soft-pink: #c8a9a5;
   --gray: #b0aaaa;
   --black: #201c15;
@@ -105,7 +103,7 @@ nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 
   font-size: 1.3rem;
   background: rgba(200, 234, 211,0.75);
   color: var(--white);
-  border-radius: 50px;
+  border-radius: 0;
   opacity: 0;
   transform: translateY(30px);
   animation: fadeSlideUp 1s forwards;
@@ -127,7 +125,7 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 /* ===== Gallery Styles ===== */
 .gallery-wrapper {
   position: relative;
-  width: 33%; /* Center third of screen */
+  width: 33%;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -144,15 +142,35 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
   transition: transform 0.5s ease-in-out;
 }
 
-.gallery-slide img, .gallery-slide video {
-  width: calc(100% / 3 - 0.66rem); /* Show ~3 items at once */
+.gallery-item {
+  position: relative;
+  width: calc(100% / 3 - 0.66rem);
   cursor: pointer;
-  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  border-radius: 0;
   transition: transform 0.3s ease;
 }
 
-.gallery-slide img:hover, .gallery-slide video:hover { transform: scale(1.05); }
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: white;
+  text-shadow: 0 0 8px rgba(0,0,0,0.7);
+  pointer-events: none;
+}
 
 .gallery-prev, .gallery-next {
   position: absolute;
@@ -183,12 +201,12 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
   text-align: center;
 }
 
-.lightbox-content img, .lightbox-content video {
+.lightbox-content {
   margin: auto;
   display: block;
   max-width: 90%;
   max-height: 80vh;
-  border-radius: 12px;
+  border-radius: 0;
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   animation: fadeIn 0.4s ease;
 }
@@ -218,9 +236,9 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 }
 
 .service-card {
-  background: var(violet);
+  background: rgba(122, 118, 136, 0.4);
   padding: 2rem;
-  border-radius: 0px;
+  border-radius: 0;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
@@ -231,7 +249,7 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 }
 
 .service-card:hover {
-  background: rgba(122, 118, 136, 0.4);
+  background: rgba(122, 118, 136, 1);
   color: var(--white);
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
@@ -248,7 +266,7 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
   aspect-ratio: 16 / 9;
   margin: 0 auto 1rem;
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 0;
 }
 
 .image-frame img, .video-frame img.book-frame {
@@ -260,12 +278,11 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 
 .video-frame video {
   position: absolute;
-  top: 8%;
-  left: 8%;
-  width: 84%;
-  height: 84%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 10px;
 }
 
 /* ===== About Section ===== */
@@ -288,7 +305,7 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 
 .team-member {
   background: var(--soft-pink);
-  border-radius: 20px;
+  border-radius: 0;
   padding: 2rem;
   text-align: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
@@ -301,7 +318,7 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
-.team-headshot {width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;}
+.team-headshot {width: 150px; height: 150px; border-radius: 0; object-fit: cover; margin-bottom: 1rem;}
 .team-name {font-size: 1.5rem; color: var(--palest); margin-bottom: 0.5rem;}
 .team-bio {font-size: 1.1rem; color: var(--black); line-height: 1.5;}
 
@@ -327,10 +344,10 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 .contact-form {max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; text-align: left;}
 .contact-form label {margin: 0.5rem 0 0.2rem; font-size: 1.1rem; color: var(--black);}
 .contact-form input, .contact-form textarea {
-  width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 1rem; font-size: 1rem; font-family: inherit; background: var(--gray);
+  width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 0; margin-bottom: 1rem; font-size: 1rem; font-family: inherit; background: var(--gray);
 }
 .contact-form textarea {resize: vertical;}
-.contact-form button {background: var(--green); color: var(--white); padding: 0.8rem; border: none; border-radius: 8px; cursor: pointer; font-size: 1.1rem; transition: background 0.3s ease;}
+.contact-form button {background: var(--green); color: var(--white); padding: 0.8rem; border: none; border-radius: 0; cursor: pointer; font-size: 1.1rem; transition: background 0.3s ease;}
 .contact-form button:hover {background: var(--blue);}
 
 /* ===== Footer ===== */
@@ -381,22 +398,20 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
   </div>
 </section>
 
-<!-- Centered Gallery Carousel -->
+<!-- Gallery Section -->
 <section id="portfolio">
   <h2 class="section-title">Portfolio Preview</h2>
   <div class="gallery-wrapper">
     <span class="gallery-prev" onclick="scrollGallery(-1)">&#10094;</span>
     <div class="gallery-container">
       <div class="gallery-slide">
-        <!-- Images -->
-        <img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery1.png" alt="Gallery 1" onclick="openLightbox(0)">
-        <img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery2.png" alt="Gallery 2" onclick="openLightbox(1)">
-        <!-- Video -->
-        <div style="position:relative; cursor:pointer;" onclick="openLightbox(2)">
+        <div class="gallery-item" onclick="openLightbox(0)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery1.png" alt="Gallery 1"></div>
+        <div class="gallery-item" onclick="openLightbox(1)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery2.png" alt="Gallery 2"></div>
+        <div class="gallery-item" onclick="openLightbox(2)">
           <img src="https://sunniejae.blob.core.windows.net/sunniejae/video-placeholder.png" alt="Video">
-          <span style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-size:3rem; color:white;">▶</span>
+          <span class="play-icon">♡play♡</span>
         </div>
-        <img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery3.png" alt="Gallery 3" onclick="openLightbox(3)">
+        <div class="gallery-item" onclick="openLightbox(3)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery3.png" alt="Gallery 3"></div>
       </div>
     </div>
     <span class="gallery-next" onclick="scrollGallery(1)">&#10095;</span>
@@ -406,83 +421,124 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
   </div>
 </section>
 
-<!-- Lightbox Modal -->
+<!-- Services Section -->
+<section id="services">
+<h2 class="section-title">Our Services</h2>
+<div class="services-grid">
+  <div class="service-card">
+    <h3>Wedding Photography</h3>
+    <p>Capturing your most precious moments with elegance and authenticity.</p>
+  </div>
+  <div class="service-card">
+    <h3>Wedding Videography</h3>
+    <p>Beautiful cinematic storytelling to relive your special day forever.</p>
+  </div>
+  <div class="service-card">
+    <h3>Engagement Shoots</h3>
+    <p>Personalized sessions that capture the love and connection you share.</p>
+  </div>
+  <div class="service-card">
+    <h3>Event Coverage</h3>
+    <p>Comprehensive coverage for your private or corporate events.</p>
+  </div>
+</div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+<h2 class="section-title">About Us</h2>
+<p class="about-intro">Haven is dedicated to preserving your precious memories. From weddings to engagements, we craft timeless photographs and cinematic videos that capture the heart and soul of your most special moments.</p>
+
+<div class="team-grid">
+  <div class="team-member">
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/andie-headshot.jpg" alt="Andie Allen" class="team-headshot">
+    <div class="team-name">Andie Allen</div>
+    <div class="team-bio">Lead Photographer with a passion for storytelling through emotion and light.</div>
+  </div>
+  <div class="team-member">
+    <img src="https://sunniejae.blob.core.windows.net/sunniejae/brad-headshot.jpg" alt="Brad Kendrick" class="team-headshot">
+    <div class="team-name">Brad Kendrick</div>
+    <div class="team-bio">Cinematographer and videographer, specializing in cinematic wedding films.</div>
+  </div>
+</div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+<h2 class="section-title">Contact Us</h2>
+<form class="contact-form" action="thankyou.html" method="POST">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="message">Message</label>
+  <textarea id="message" name="message" rows="5" required></textarea>
+
+  <button type="submit">Send Message</button>
+</form>
+</section>
+
+<!-- Footer -->
+<footer>
+<p>&copy; 2025 Haven. All rights reserved.</p>
+</footer>
+
+<!-- Lightbox -->
 <div id="lightbox" class="lightbox">
   <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
   <span class="lightbox-prev" onclick="changeSlide(-1)">&#10094;</span>
-  <div id="lightbox-content" class="lightbox-content"></div>
+  <img class="lightbox-content" id="lightbox-img" alt="Expanded view">
   <span class="lightbox-next" onclick="changeSlide(1)">&#10095;</span>
 </div>
 
-<!-- Services, About, Contact, Footer sections remain unchanged ... -->
-
 <script>
-// Navbar scroll effect
+// Navbar scroll
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// Section reveal on scroll
+// Section reveal
 const sections = document.querySelectorAll('section');
-const revealOnScroll = () => {
-  const triggerBottom = window.innerHeight * 0.85;
-  sections.forEach(sec => {
-    if (sec.getBoundingClientRect().top < triggerBottom) sec.classList.add('visible');
+window.addEventListener('scroll', () => {
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){ section.classList.add('visible'); }
   });
-};
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
+});
 
-// Gallery items
-const galleryItems = [
-  { type: 'image', src: 'https://sunniejae.blob.core.windows.net/sunniejae/gallery1.png' },
-  { type: 'image', src: 'https://sunniejae.blob.core.windows.net/sunniejae/gallery2.png' },
-  { type: 'video', src: 'https://sunniejae.blob.core.windows.net/sunniejae/wedding%20video.mp4' },
-  { type: 'image', src: 'https://sunniejae.blob.core.windows.net/sunniejae/gallery3.png' }
-];
-
-let currentSlide = 0;
-
-function openLightbox(index) {
-  currentSlide = index;
-  const item = galleryItems[currentSlide];
-  const lightboxContent = document.getElementById("lightbox-content");
-  lightboxContent.innerHTML = '';
-
-  if (item.type === 'image') {
-    const img = document.createElement('img');
-    img.src = item.src;
-    lightboxContent.appendChild(img);
-  } else if (item.type === 'video') {
-    const video = document.createElement('video');
-    video.src = item.src;
-    video.controls = true;
-    video.autoplay = true;
-    lightboxContent.appendChild(video);
-  }
-  document.getElementById("lightbox").style.display = "block";
-}
-
-function closeLightbox() {document.getElementById("lightbox").style.display = "none";}
-
-function changeSlide(n) {
-  currentSlide = (currentSlide + n + galleryItems.length) % galleryItems.length;
-  openLightbox(currentSlide);
-}
-
-// Scrollable carousel
-let galleryIndex = 0;
+// Gallery Carousel
 const gallerySlide = document.querySelector('.gallery-slide');
-const galleryImgs = document.querySelectorAll('.gallery-slide img, .gallery-slide div');
-
-function scrollGallery(direction) {
-  galleryIndex += direction;
-  const maxIndex = galleryImgs.length - 3; // 3 visible
-  if(galleryIndex < 0) galleryIndex = 0;
-  if(galleryIndex > maxIndex) galleryIndex = maxIndex;
-  const width = galleryImgs[0].clientWidth + 16; // gap included
-  gallerySlide.style.transform = `translateX(${-width * galleryIndex}px)`;
+let slideIndex = 0;
+function scrollGallery(dir){
+  const width = gallerySlide.children[0].offsetWidth + 16;
+  gallerySlide.style.transform = `translateX(${-width * (slideIndex + dir)}px)`;
+  slideIndex += dir;
+  if(slideIndex < 0) slideIndex = 0;
+  if(slideIndex > gallerySlide.children.length -3) slideIndex = gallerySlide.children.length -3;
 }
+
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+let currentSlide = 0;
+const galleryItems = document.querySelectorAll('.gallery-item img');
+
+function openLightbox(index){
+  currentSlide = index;
+  lightbox.style.display = 'block';
+  const src = galleryItems[index].getAttribute('src');
+  lightboxImg.src = src.includes('video-placeholder') ? 'https://sunniejae.blob.core.windows.net/sunniejae/samplevideo.mp4' : src;
+  if(src.includes('video-placeholder')){
+    lightboxImg.outerHTML = `<video class="lightbox-content" controls autoplay src="https://sunniejae.blob.core.windows.net/sunniejae/samplevideo.mp4"></video>`;
+  } else {
+    lightboxImg.outerHTML = `<img class="lightbox-content" id="lightbox-img" src="${src}">`;
+  }
+}
+
+function closeLightbox(){ lightbox.style.display = 'none'; }
+function changeSlide(dir){ openLightbox(currentSlide + dir); currentSlide += dir; }
 </script>
 
 </body>
