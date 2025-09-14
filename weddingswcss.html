@@ -81,13 +81,69 @@
   }
   .package-card:hover .package-overlay {opacity:1;}
   .package-overlay h3 {font-size:1.5rem; margin-bottom:0.5rem;}
+  .package-overlay h4 {font-size:1rem; margin-bottom:0.5rem;}
   .package-overlay ul {list-style:none; padding-left:0;}
 
+/* ===== FAQ ===== */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  border-radius: 12px;
+  background: var(--beige);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  font-size: 1.2rem;
+  padding: 1rem 1.5rem;
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s;
+}
+
+.faq-question:hover {
+  background: var(--green);
+  color: var(--white);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0 1.5rem;
+  background: var(--palest);
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px; /* enough to show content */
+  padding: 1rem 1.5rem;
+}
+
+.faq-arrow {
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-arrow {
+  transform: rotate(180deg);
+}
+
+  
   /* ===== Footer ===== */
   footer {background: var(--rose); color: var(--palest); text-align:center; padding:2rem 0.5rem;}
-</style>
-</head>
-<body>
 
 <!-- Navbar -->
 <nav id="navbar">
@@ -133,6 +189,7 @@
       <img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingphotoplaceholder.png" alt="Wedding Photo">
       <div class="package-overlay">
         <h3>Wedding Day Photo</h3>
+        <h3>$2000</h3>
         <ul>
           <li>♡ Pre-Wedding Consultation</li>
           <li>♡ 8 Hours of Coverage</li>
@@ -148,6 +205,7 @@
       <img src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Wedding Video">
       <div class="package-overlay">
         <h3>Wedding Day Photo & Video</h3>
+        <h4>$3900</h4>
         <ul>
         <li>♡ Pre-Wedding Consultation</li>
           <li>♡ 8 Hours of Coverage</li>
@@ -166,6 +224,7 @@
       <img src="https://sunniejae.blob.core.windows.net/sunniejae/familyphotoplaceholder.png" alt="Family Package">
       <div class="package-overlay">
         <h3>Wedding Day Video</h3>
+        <h4>$2100</h4>
         <ul>
           <li>♡ Pre-Wedding Consultation</li>
           <li>♡ 8 Hours of Coverage</li>
@@ -181,6 +240,7 @@
       <img src="https://sunniejae.blob.core.windows.net/sunniejae/familyphotoplaceholder.png" alt="Family Package">
       <div class="package-overlay">
         <h3>Engagements or Bridals</h3>
+        <h3>$400</h3>
         <ul>
           <li>♡ Pre-Wedding Consultation</li>
           <li>♡ 1.5 Hour Session</li>
@@ -195,6 +255,7 @@
       <img src="https://sunniejae.blob.core.windows.net/sunniejae/familyphotoplaceholder.png" alt="Family Package">
       <div class="package-overlay">
         <h3>Pre-Wedding Day Photo & Video</h3>
+        <h4>$750</h4>
         <ul>
           <li>♡ Pre-Shoot Consultation</li>
           <li>♡ 2 hour session</li>
@@ -210,6 +271,7 @@
       <img src="https://sunniejae.blob.core.windows.net/sunniejae/familyphotoplaceholder.png" alt="Family Package">
       <div class="package-overlay">
         <h3>First Look Video</h3>
+        <h4>$500</h4>
         <ul>
           <li>♡ Pre-shoot Consultation</li>
           <li>♡ 1 Hour Session</li>
@@ -224,6 +286,7 @@
       <img src="https://sunniejae.blob.core.windows.net/sunniejae/familyphotoplaceholder.png" alt="Family Package">
       <div class="package-overlay">
         <h3>Premium Package</h3>
+        <h4>$4500</h4>
         <ul>
           <li>♡ Full Wedding Day Photo & Video Package</li>
           <li>♡ Engagement Photo & Video Package</li>
@@ -240,6 +303,63 @@
     </div>
     
 </section>
+<!-- FAQ Section -->
+<section id="faq">
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="faq-container">
+
+    <div class="faq-item">
+      <button class="faq-question">
+        What is included in the Couples Package?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>The Couples Package includes a 1-hour photo session, 10 edited images, and an online gallery.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        How many photos do I receive in the Wedding Photo Package?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>You will receive 200+ fully edited images, delivered via USB and online gallery.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Does the Wedding Video Package include the full ceremony?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes, the package includes full-day filming with a highlight reel and edited ceremony & reception footage.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Can I book a custom package?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>Absolutely! Contact us to create a personalized package tailored to your needs.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        How do I access my photos and videos?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>All packages include an online gallery, and Wedding Photo packages also include USB delivery.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- Footer -->
 <footer>
@@ -247,6 +367,15 @@
 </footer>
 
 <script>
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+  const question = item.querySelector('.faq-question');
+  question.addEventListener('click', () => {
+    item.classList.toggle('active');
+  });
+});
+
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
 });
