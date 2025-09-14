@@ -39,10 +39,10 @@ nav {
 }
 nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 169, 165, 0.3);}
 .nav-container {display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto;}
-.logo {font-size:1.8rem; color: var(--palest); letter-spacing:4px; position:relative;}
+.logo {font-size:1.8rem; color: var(--white); letter-spacing:4px; position:relative;}
 .nav-links {display:flex; list-style:none; gap:1.5rem;}
 .nav-links a {color: var(--palest); font-size:1.5rem; letter-spacing:1px; position:relative; transition:0.3s;}
-.nav-links a::after {content:''; position:absolute; bottom:-5px; left:0; width:0; height:2px; background: var(--blue); transition:0.3s;}
+.nav-links a::after {content:''; position:absolute; bottom:-5px; left:0; width:0; height:3px; background: var(--green); transition:0.3s;}
 .nav-links a:hover::after {width:100%;}
 
 .social-icons {
@@ -105,7 +105,7 @@ nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 
   display: inline-block;
   padding: 1rem 3rem;
   font-size: 1.3rem;
-  background: var(--blue);
+  background: var(--gold);
   color: white;
   border-radius: 50px;
   opacity: 0;
@@ -116,15 +116,9 @@ nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 
 
 .cta-button:hover {
   transform: translateY(-5px) scale(1.05);
+  background: var(--green);
 }
 
-/* ===== Floating Flowers ===== */
-.flower {position:absolute; font-size:2rem; animation: floatFlowers 6s infinite ease-in-out;}
-@keyframes floatFlowers {
-  0% {transform: translateY(0) rotate(0deg);}
-  50% {transform: translateY(-10px) rotate(15deg);}
-  100% {transform: translateY(0) rotate(0deg);}
-}
 
 /* ===== Fade/Slide Sections ===== */
 section {opacity:0; transform: translateY(20px); transition: all 0.8s ease-out; padding:6rem 5%;}
@@ -154,12 +148,13 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 }
 
 .service-card:hover {
+  background: var(--palest);
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
 .service-card h3 {font-size: 1.6rem; margin: 1rem 0 0.5rem; color: var(--black);}
-.service-card p {font-size: 1.2rem; color: var(--white);}
+.service-card p {font-size: 1.5rem; color: var(--white);}
 
 /* ===== Image & Video Frames ===== */
 .image-frame, .video-frame {
@@ -266,32 +261,32 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
   max-width: 900px;
   margin: 0 auto 3rem;
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: var(--black);
   line-height: 1.6;
 }
 .team-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto;}
 .team-member {background: var(--soft-pink); border-radius: 20px; padding: 2rem; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;}
-.team-member:hover {transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.15);}
+.team-member:hover {background: var(--gold); transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.15);}
 .team-headshot {width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;}
-.team-name {font-size: 1.5rem; color: var(--white); margin-bottom: 0.5rem;}
+.team-name {font-size: 1.5rem; color: var(--Palest); margin-bottom: 0.5rem;}
 .team-bio {font-size: 1.1rem; color: var(--black); line-height: 1.5;}
 
 /* ===== Contact Form ===== */
 .contact-form {max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; text-align: left;}
 .contact-form label {margin: 0.5rem 0 0.2rem; font-size: 1.1rem; color: var(--black);}
 .contact-form input, .contact-form textarea {
-  width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 1rem; font-size: 1rem; font-family: inherit; background: var(--gold);
+  width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 1rem; font-size: 1rem; font-family: inherit; background: var(--soft-pink);
 }
 .contact-form textarea {resize: vertical;}
 .contact-form button {background: var(--green); color: var(--white); padding: 0.8rem; border: none; border-radius: 8px; cursor: pointer; font-size: 1.1rem; transition: background 0.3s ease;}
 .contact-form button:hover {background: var(--blue);}
 
 /* ===== Footer ===== */
-footer {background: var(--rose); color: var(--black); text-align:center; padding:2rem 1rem;}
+footer {background: var(--rose); color: var(--palest); text-align:center; padding:2rem 1rem;}
 
 /* ===== Animations ===== */
-@keyframes fadeSlideUp {0% {opacity:0; transform: translateY(30px);} 100% {opacity:1; transform: translateY(0);}}
+@keyframes fadeSlideUp {0% {opacity:0.5; transform: translateY(30px);} 100% {opacity:1; transform: translateY(0);}}
 </style>
 </head>
 <body>
@@ -327,9 +322,6 @@ footer {background: var(--rose); color: var(--black); text-align:center; padding
 
 <!-- Hero Section -->
 <section class="hero" id="home">
-  <span class="flower" style="top:15%; left:10%;"><img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralsoftpink.png" alt="logo"></span>
-  <span class="flower" style="top:50%; left:80%;"><img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralpurple.png" alt="logo"></span>
-  <span class="flower" style="top:70%; left:30%;"><img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralgreen.png" alt="logo"></span>
   <div class="hero-content">
     <h1>Haven Photo & Video</h1>
     <p>Preserving Your Precious Memories</p>
@@ -377,7 +369,7 @@ footer {background: var(--rose); color: var(--black); text-align:center; padding
 <!-- About Section -->
 <section id="about">
   <h3 class="section-title">"Mawage. Mawage is what brings us together today"</h3>
-  <h3 class="section-title">The Princess Bride</h>
+  <h3 class="section-title">- The Princess Bride</h>
   <p class="about-intro">Andie Allen and Brad Kendrick are a dynamic duo when it comes to capturing all aspects of your wedding through photo and video. They started working together in 2024, and are passionate about helping couples preserve their perfect day.</p>
   <div class="team-grid">
    <div class="team-member">
@@ -386,9 +378,15 @@ footer {background: var(--rose); color: var(--black); text-align:center; padding
     <h3 class="team-name">Andie Allen</h3>
   </a>
   <p class="team-bio">When Andie isn't practising with her camera, you can find her nose deep in a good fantasy book. She also happens to be a walking encyclopedia for Harry Potter.</p>
-</div>
-    <div class="team-member"><img src="https://sunniejae.blob.core.windows.net/sunniejae/brad.png" alt="Brad Kendrick" class="team-headshot"><h3 class="team-name">Brad Kendrick</h3><p class="team-bio">Brad has been making videos since he was a kid. If he doesn't have a camera in hand, you’ll find him playing guitar or training for his next marathon.</p></div>
+      <div class="team-social-icons">
+    <a href="https://instagram.com/daisylensphoto" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Instagram"></a>
   </div>
+</div>
+    <div class="team-member"><img src="https://sunniejae.blob.core.windows.net/sunniejae/brad.png" alt="Brad Kendrick" class="team-headshot"><h3 class="team-name">Brad Kendrick</h3><p class="team-bio">Brad has been making videos since he was a kid. If he doesn't have a camera in his hand, you'll find him participating in charity work as a stormtrooper in the 501st legion. Or a little mix of both.</p>
+  <div class="team-social-icons">
+    <a href="https://instagram.com/pinkshortstrooper" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Instagram"></a>
+  </div>
+    </div>
 </section>
 
 <!-- Contact Section -->
