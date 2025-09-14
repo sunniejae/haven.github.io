@@ -1,224 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Haven | Preserving Your Precious Memories</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/havicondark.png">
-  <style>
-    /* ===== Variables ===== */
-    :root {
-      --darkest: #171123;
-      --gold: #D3C1A3;
-      --jeans: #587B7F;
-      --pink: #F5CAC3;
-      --green: #C8EAD3;
-      --cream: #f3ebe7;
-      --palest: #fffdfc;
-      --black: #111;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haven | Preserving Your Precious Memories</title>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/hfloralgreen.png" />
+<style>
+:root {
+--green: #8ca294;
+--blue: #799396;
+--purple: #9f8c9b;
+--rose: #b19590;
+--gold: #a49883;
+--violet: #7a7688;
+--beige: #b9b5aa;
+--lavender: #7a7688;
+--soft-pink: #c8a9a5;
+--gray: #b0aaaa;
+--black: #201c15;
+--white: #fefafa;
+--palest: #F2F1F3;
+}
 
-    /* ===== Global Styles ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+* {margin:0; padding:0; box-sizing:border-box;}
+body {
+  font-family:'Poiret One', cursive;
+  color: var(--black);
+  background: var(--palest);
+  overflow-x:hidden;
+  cursor: url("https://sunniejae.blob.core.windows.net/sunniejae/havencursorsized.png") 0 0, auto;
+}
+a, button {
+  cursor: url("https://sunniejae.blob.core.windows.net/sunniejae/havenpointersized.png") 0 0, pointer;
+}
+a {text-decoration:none;}
 
-    body {
-      font-family: 'Poiret One', cursive;
-      color: var(--black);
-      background: var(--palest);
-      overflow-x: hidden;
+/* Navbar */
+nav {
+  position:fixed; top:0; width:100%; padding:1.5rem 5%;
+  background: rgba(164, 152, 131, 0.15); backdrop-filter:blur(20px);
+  z-index:1000; border-bottom:1px solid rgba(23,17,35,0.2);
+  transition:all 0.4s ease;
+}
+nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 169, 165, 0.3);}
+.nav-container {display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto;}
+.logo {font-size:1.8rem; color: var(--palest); letter-spacing:4px; position:relative;}
+.nav-links {display:flex; list-style:none; gap:1.5rem;}
+.nav-links a {color: var(--palest); font-size:1.5rem; letter-spacing:1px; position:relative; transition:0.3s;}
+.nav-links a::after {content:''; position:absolute; bottom:-5px; left:0; width:0; height:2px; background: var(--blue); transition:0.3s;}
+.nav-links a:hover::after {width:100%;}
 
-      /* Custom cursor (default) */
-      cursor: url("https://sunniejae.blob.core.windows.net/sunniejae/havencursorsized.png") 0 0, auto;
-    }
+.social-icons {display: flex; gap: 15px; align-items: center;}
+.social-icons img {width: 24px; height: 24px; object-fit: contain; transition: transform 0.3s ease, opacity 0.8s ease;}
+.social-icons img:hover {transform: scale(1.1); opacity: 1;}
 
-    a, button {
-      cursor: url("https://sunniejae.blob.core.windows.net/sunniejae/havenpointersized.png") 0 0, pointer;
-    }
+/* Hero Section */
+.hero {
+  width: 100%;
+  max-width: 1920px;
+  aspect-ratio: 1920 / 550;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(23,17,35,0.25), rgba(23,17,35,0.1)),
+    url("https://sunniejae.blob.core.windows.net/sunniejae/havenheadersillohuette3%20(2).png")
+    no-repeat center bottom/cover; /* anchored to bottom */
+}
 
-    h1, h2, h3 {
-      font-weight: normal;
-    }
+.hero h1 {
+  font-size: 5rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 1s forwards;
+}
 
-    section {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
+.hero p {
+  font-size: 1.8rem;
+  color: var(--white);
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 1s forwards;
+  animation-delay: 0.2s;
+}
 
-    /* ===== Hero Section ===== */
-    .hero {
-      width: 100%;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+.cta-button {
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.3rem;
+  background: var(--blue);
+  color: white;
+  border-radius: 50px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 1s forwards;
+  animation-delay: 0.4s;
+}
+.cta-button:hover {transform: translateY(-5px) scale(1.05);}
 
-      /* Image anchored to bottom */
-      background: 
-        linear-gradient(135deg, rgba(23,17,35,0.25), rgba(23,17,35,0.1)),
-        url("https://sunniejae.blob.core.windows.net/sunniejae/havenheadersillohuette3%20(2).png")
-        no-repeat center bottom / cover;
+/* Floating Flowers */
+.flower {position:absolute; font-size:2rem; animation: floatFlowers 6s infinite ease-in-out;}
+@keyframes floatFlowers {
+  0% {transform: translateY(0) rotate(0deg);}
+  50% {transform: translateY(-10px) rotate(15deg);}
+  100% {transform: translateY(0) rotate(0deg);}
+}
 
-      aspect-ratio: 1920 / 550;
-    }
+/* Fade/Slide Sections */
+section {opacity:0; transform: translateY(20px); transition: all 0.8s ease-out; padding:6rem 5%;}
+section.visible {opacity:1; transform: translateY(0);}
+h2.section-title {font-size:3rem; color: var(--black); margin-bottom:2rem; text-align:center;}
+h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text-align:center;}
 
-    .hero-text {
-      color: white;
-      z-index: 2;
-    }
+/* Services Grid */
+.services-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; align-items: stretch;}
+.service-card {background: var(--purple); padding: 2rem; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center;}
+.service-card:hover {transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.15);}
+.service-card h3 {font-size: 1.6rem; margin: 1rem 0 0.5rem; color: var(--black);}
+.service-card p {font-size: 1.2rem; color: var(--white);}
 
-    .hero-text h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
-    }
+/* Image & Video Frames */
+.image-frame, .video-frame {position: relative; width: 100%; max-width: 400px; aspect-ratio: 16 / 9; margin: 0 auto 1rem; overflow: hidden; border-radius: 15px;}
+.image-frame img, .video-frame img.book-frame {width: 100%; height: 100%; object-fit: cover; display: block;}
+.video-frame video {position: absolute; top: 8%; left: 8%; width: 84%; height: 84%; object-fit: cover; border-radius: 10px;}
 
-    .hero-text p {
-      font-size: 1.2rem;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-    }
+/* Gallery Grid */
+.gallery-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto;}
+.gallery-item {overflow: hidden; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;}
+.gallery-item img {width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;}
+.gallery-item:hover {transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.15);}
+.gallery-item:hover img {transform: scale(1.08);}
 
-    /* ===== Gallery Section ===== */
-    .gallery-preview {
-      background: var(--cream);
-    }
+/* Lightbox */
+.lightbox {display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(23,17,35,0.9); backdrop-filter: blur(4px); text-align: center;}
+.lightbox-content {margin: auto; display: block; max-width: 90%; max-height: 80vh; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.4); animation: fadeIn 0.4s ease;}
+.lightbox-close, .lightbox-prev, .lightbox-next {position: absolute; top: 50%; color: var(--rose); font-size: 3rem; font-weight: bold; cursor: pointer; transition: color 0.3s; user-select: none;}
+.lightbox-close {top: 20px; right: 40px; font-size: 3rem;}
+.lightbox-prev {left: 40px; transform: translateY(-50%);}
+.lightbox-next {right: 40px; transform: translateY(-50%);}
+.lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {color: var(--green);}
+@keyframes fadeIn {from {opacity: 0; transform: scale(0.95);} to {opacity: 1; transform: scale(1);}}
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
+/* About Section */
+.about-intro {max-width: 900px; margin: 0 auto 3rem; text-align: center; font-size: 1.4rem; color: var(--black); line-height: 1.6;}
+.team-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto;}
+.team-member {background: var(--soft-pink); border-radius: 20px; padding: 2rem; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;}
+.team-member:hover {transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.15);}
+.team-headshot {width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;}
+.team-name {font-size: 1.5rem; color: var(--white); margin-bottom: 0.5rem;}
+.team-bio {font-size: 1.1rem; color: var(--black); line-height: 1.5;}
 
-    .gallery-grid img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
+/* Contact Form */
+.contact-form {max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; text-align: left;}
+.contact-form label {margin: 0.5rem 0 0.2rem; font-size: 1.1rem; color: var(--black);}
+.contact-form input, .contact-form textarea {width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 1rem; font-size: 1rem; font-family: inherit; background: var(--gold);}
+.contact-form textarea {resize: vertical;}
+.contact-form button {background: var(--green); color: var(--white); padding: 0.8rem; border: none; border-radius: 8px; cursor: pointer; font-size: 1.1rem; transition: background 0.3s ease;}
+.contact-form button:hover {background: var(--blue);}
 
-    .gallery-grid img:hover {
-      transform: scale(1.05);
-    }
+/* Footer */
+footer {background: var(--rose); color: var(--black); text-align:center; padding:2rem 1rem;}
 
-    /* ===== About Section ===== */
-    .about {
-      background: var(--green);
-      color: var(--darkest);
-    }
-
-    .team {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-      text-align: left;
-    }
-
-    .team-member {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .team-headshot {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-    }
-
-    .team-name {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .team-bio {
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-
-    /* ===== Footer ===== */
-    footer {
-      background: var(--darkest);
-      color: white;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    /* ===== Responsive Hero Fix ===== */
-    @media (max-width: 768px) {
-      .hero {
-        aspect-ratio: auto;
-        height: 60vh; /* lock height */
-        background-position: center bottom;
-        background-size: cover;
-      }
-
-      .hero-text h1 {
-        font-size: 2rem;
-      }
-
-      .hero-text p {
-        font-size: 1rem;
-      }
-    }
-  </style>
+/* Animations */
+@keyframes fadeSlideUp {0% {opacity:0; transform: translateY(30px);} 100% {opacity:1; transform: translateY(0);}}
+</style>
 </head>
 <body>
-  <!-- ===== Hero Section ===== -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Haven</h1>
-      <p>Preserving Your Precious Memories</p>
-    </div>
-  </section>
 
-  <!-- ===== Gallery Section ===== -->
-  <section class="gallery-preview">
-    <h2>Gallery Preview</h2>
-    <div class="gallery-grid">
-      <img src="https://placehold.co/400x300" alt="Gallery Image 1">
-      <img src="https://placehold.co/400x300" alt="Gallery Image 2">
-      <img src="https://placehold.co/400x300" alt="Gallery Image 3">
-      <img src="https://placehold.co/400x300" alt="Gallery Image 4">
+<!-- Navbar -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">HAVEN: Photo & Video</a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/havenphotoandvideo/" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Insta"></a>
+      <a href="https://www.facebook.com/381117641758647?ref=_xav_ig_profile_page_web" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/fbicon25.png" alt="Facebook"></a>
+      <a href="https://tiktok.com/@havenphotoandvideo" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/tticon25.png" alt="TikTok"></a>
+      <a href="https://sunniejae.com" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralrose.png" alt="SJ"></a>
     </div>
-  </section>
+  </div>
+</nav>
 
-  <!-- ===== About Section ===== -->
-  <section class="about">
-    <h2>About Us</h2>
-    <p>We are passionate about capturing your most cherished moments, from weddings to special life events, and turning them into memories you can relive forever.</p>
-    <div class="team">
-      <div class="team-member">
-        <img src="https://sunniejae.blob.core.windows.net/sunniejae/andie.png" alt="Andie Allen" class="team-headshot">
-        <a href="https://kendrickfilms.myportfolio.com/daisylens-portfolio" target="_blank">
-          <h3 class="team-name">Andie Allen</h3>
-        </a>
-        <p class="team-bio">When Andie isn't practising with her camera, you can find her nose deep in a good fantasy book. She also happens to be a walking encyclopedia for Harry Potter.</p>
-      </div>
-      <div class="team-member">
-        <img src="https://sunniejae.blob.core.windows.net/sunniejae/brad.png" alt="Brad Kendrick" class="team-headshot">
-        <h3 class="team-name">Brad Kendrick</h3>
-        <p class="team-bio">Brad loves capturing the emotion of weddings. With years of experience in videography, he ensures every heartfelt moment is beautifully preserved.</p>
-      </div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <span class="flower" style="top:15%; left:10%;"><img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralsoftpink.png" alt="logo"></span>
+  <span class="flower" style="top:50%; left:80%;"><img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralpurple.png" alt="logo"></span>
+  <span class="flower" style="top:70%; left:30%;"><img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralgreen.png" alt="logo"></span>
+  <div class="hero-content">
+    <h1>Haven Photo & Video</h1>
+    <p>Preserving Your Precious Memories</p>
+    <a href="#" class="cta-button">Book Your Session</a>
+    <a href="basicpretty.html" class="cta-button">"Basic Pretty"</a>
+    <a href="stars3.html" class="cta-button">"Stars Version"</a>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="portfolio">
+  <h2 class="section-title">Portfolio Preview</h2>
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="https://sunniejae.blob.core.windows.net/sunniejae/couplephotoplaceholder.png" alt="Gallery Image 1" onclick="openLightbox(0)"></div>
+    <div class="gallery-item"><img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingpackageplaceholder.png" alt="Gallery Image 2" onclick="openLightbox(1)"></div>
+    <div class="gallery-item"><img src="https://sunniejae.blob.core.windows.net/sunniejae/graduationphotoplaceholder.png" alt="Gallery Image 3" onclick="openLightbox(2)"></div>
+    <div class="gallery-item"><img src="https://sunniejae.blob.core.windows.net/sunniejae/couplephotoplaceholder.png" alt="Gallery Image 4" onclick="openLightbox(3)"></div>
+  </div>
+  <div style="text-align:center; margin-top:2rem;">
+    <a href="fullgallery.html" class="cta-button">View Full Gallery</a>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <span class="lightbox-prev" onclick="changeSlide(-1)">&#10094;</span>
+  <img class="lightbox-content" id="lightbox-img" alt="Expanded view">
+  <span class="lightbox-next" onclick="changeSlide(1)">&#10095;</span>
+</div>
+
+<!-- Services Section -->
+<section id="services">
+  <h2 class="section-title">Our Services</h2>
+  <div class="services-grid">
+    <div class="service-card"><div class="image-frame"><img src="https://sunniejae.blob.core.windows.net/sunniejae/couplephotoplaceholder.png" alt="Couples"></div><h3>Couples</h3><p>Non-wedding couple shoots</p></div>
+    <div class="service-card"><div class="image-frame"><img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingpackageplaceholder.png" alt="Wedding"></div><h3>Events</h3><p>Parties, Business Events, and More</p></div>
+    <div class="service-card"><div class="video-frame"><img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative Frame"><video autoplay loop muted playsinline><source src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%202.mp4" type="video/mp4"></video></div><h3>Wedding (Video)</h3><p>Video-only packages</p></div>
+    <div class="service-card"><div class="video-frame"><img class="book-frame" src="https://sunniejae.blob.core.windows.net/sunniejae/photo%20page.png" alt="Decorative Frame"><video autoplay loop muted playsinline><source src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%202.mp4" type="video/mp4"></video></div><h3>Wedding (Video & Photos)</h3><p>Photo & Video Combined</p></div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+  <h2 class="section-title">About Us</h2>
+  <p class="about-intro">Haven is dedicated to capturing your most precious memories in a timeless and heartfelt way. Meet our talented team:</p>
+  <div class="team-grid">
+    <div class="team-member">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/andieheadshot.png" alt="Andie Allen" class="team-headshot">
+      <h3 class="team-name">Andie Allen</h3>
+      <p class="team-bio">Lead Photographer with a passion for natural lighting and candid moments.</p>
     </div>
-  </section>
+    <div class="team-member">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/bradheadshot.png" alt="Brad Kendrick" class="team-headshot">
+      <h3 class="team-name">Brad Kendrick</h3>
+      <p class="team-bio">Videographer capturing your events with cinematic storytelling.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- ===== Footer ===== -->
-  <footer>
-    <p>&copy; 2025 Haven. All Rights Reserved.</p>
-  </footer>
+<!-- Contact Section -->
+<section id="contact">
+  <h2 class="section-title">Contact Us</h2>
+  <form class="contact-form" action="thankyou.html" method="POST">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Haven Photo & Video. All rights reserved.</p>
+</footer>
+
+<script>
+/* Navbar scroll effect */
+window.addEventListener('scroll', function() {
+  const nav = document.getElementById('navbar');
+  if(window.scrollY > 50) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+/* Lightbox functionality */
+const galleryItems = document.querySelectorAll('.gallery-item img');
+let currentSlide = 0;
+
+function openLightbox(index) {
+  document.getElementById('lightbox').style.display = 'block';
+  document.getElementById('lightbox-img').src = galleryItems[index].src;
+  currentSlide = index;
+}
+function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; }
+function changeSlide(n) {
+  currentSlide += n;
+  if(currentSlide < 0) currentSlide = galleryItems.length -1;
+  if(currentSlide >= galleryItems.length) currentSlide = 0;
+  document.getElementById('lightbox-img').src = galleryItems[currentSlide].src;
+}
+
+/* Section fade-in on scroll */
+const sections = document.querySelectorAll('section');
+window.addEventListener('scroll', () => {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100) sec.classList.add('visible');
+  });
+});
+</script>
+
 </body>
 </html>
