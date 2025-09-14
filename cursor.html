@@ -72,6 +72,16 @@ nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 
     url("https://sunniejae.blob.core.windows.net/sunniejae/havenheadersillohuette3%20(2).png")
     no-repeat center bottom/cover; /* anchored to bottom */
 }
+  
+.hero-content {
+  display: flex;
+  flex-direction: column;   /* stack items vertically */
+  align-items: center;      /* center horizontally */
+  justify-content: center;  /* center vertically inside hero */
+  gap: 1rem;                /* space between h1, p, buttons */
+  z-index: 10;              /* ensure it’s above flowers */
+  width: 100%;
+}
 
 .hero h1 {
   font-size: 5rem;
