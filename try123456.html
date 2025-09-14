@@ -36,10 +36,10 @@ nav {
 }
 nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 169, 165, 0.3);}
 .nav-container {display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto;}
-.logo {font-size:1.8rem; color: var(--white); letter-spacing:4px; position:relative;}
-.nav-links {display:flex; list-style:none; gap:1.5rem;}
-.nav-links a {color: var(--palest); font-size:1.5rem; letter-spacing:1px; position:relative; transition:0.3s;}
-.nav-links a::after {content:''; position:absolute; bottom:-5px; left:0; width:0; height:3px; background: var(--white); transition:0.3s;}
+.logo {font-size:1rem; color: var(--white); letter-spacing:4px; position:relative;}
+.nav-links {display:flex; list-style:none; gap:1.2rem;}
+.nav-links a {color: var(--palest); font-size:1.2rem; letter-spacing:1px; position:relative; transition:0.3s;}
+.nav-links a::after {content:''; position:absolute; bottom:-5px; left:0; width:0; height:5px; background: var(--white); transition:0.3s;}
 .nav-links a:hover::after {width:100%;}
 
 .social-icons {
@@ -79,7 +79,7 @@ nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 
 }
 
 .hero h1 {
-  font-size: 5rem;
+  font-size: 4rem;
   color: var(--white);
   margin-bottom: 1rem;
   opacity: 0;
@@ -88,7 +88,7 @@ nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 
 }
 
 .hero p {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   color: var(--white);
   margin-bottom: 2rem;
   opacity: 0;
@@ -104,14 +104,14 @@ nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 
   background: rgba(200, 234, 211,0.75);
   color: var(--white);
   border-radius: 0;
-  opacity: 0;
+  opacity: 1;
   transform: translateY(30px);
   animation: fadeSlideUp 1s forwards;
   animation-delay: 0.4s;
 }
 
 .cta-button:hover {
-  transform: translateY(-5px) scale(1.05);
+  transform: translateY(-5px) scale(1.1);
   color: var(--white);
   background: var(--green);
 }
@@ -249,7 +249,7 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 
 .service-card:hover {
   background: rgba(122, 118, 136, 0.4);
-  color: var(--white);
+  color: var(--violet);
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
@@ -303,7 +303,7 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 }
 
 .team-member {
-  background: var(--soft-pink);
+  background: rgba(177, 149, 144, 0.7);
   border-radius: 0;
   padding: 2rem;
   text-align: center;
@@ -312,14 +312,14 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 }
 
 .team-member:hover {
-  background: var(--gold);
+  background: var(--rose);
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
 .team-headshot {width: 150px; height: 150px; border-radius: 0; object-fit: cover; margin-bottom: 1rem;}
 .team-name {font-size: 1.5rem; color: var(--palest); margin-bottom: 0.5rem;}
-.team-bio {font-size: 1.1rem; color: var(--black); line-height: 1.5;}
+.team-bio {font-size: 1.1rem; color: var(--black); line-height: 2;}
 
 .team-social-icons {
   display: flex;
@@ -343,14 +343,14 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 .contact-form {max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; text-align: left;}
 .contact-form label {margin: 0.5rem 0 0.2rem; font-size: 1.1rem; color: var(--black);}
 .contact-form input, .contact-form textarea {
-  width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 0; margin-bottom: 1rem; font-size: 1rem; font-family: inherit; background: var(--gray);
+  width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 0; margin-bottom: 1rem; font-size: 1rem; font-family: inherit; background: var(--green);
 }
 .contact-form textarea {resize: vertical;}
-.contact-form button {background: var(--green); color: var(--white); padding: 0.8rem; border: none; border-radius: 0; cursor: pointer; font-size: 1.1rem; transition: background 0.3s ease;}
+.contact-form button {background: var(--gold); color: var(--white); padding: 0.8rem; border: none; border-radius: 0; cursor: pointer; font-size: 1.1rem; transition: background 0.3s ease;}
 .contact-form button:hover {background: var(--blue);}
 
 /* ===== Footer ===== */
-footer {background: var(--rose); color: var(--palest); text-align:center; padding:2rem 1rem;}
+footer {background: var(--rose); color: var(--palest); text-align:center; padding:2rem 0.5rem;}
 
 /* ===== Animations ===== */
 @keyframes fadeSlideUp {0% {opacity:0.5; transform: translateY(30px);} 100% {opacity:1; transform: translateY(0);}}
@@ -402,8 +402,8 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
     <span class="gallery-prev" onclick="scrollGallery(-1)">&#10094;</span>
     <div class="gallery-container">
       <div class="gallery-slide">
-        <div class="gallery-item" onclick="openLightbox(0)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery1.png" alt="Gallery 1"></div>
-        <div class="gallery-item" onclick="openLightbox(1)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery2.png" alt="Gallery 2"></div>
+        <div class="gallery-item" onclick="openLightbox(0)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralpurple.png" alt="Gallery 1"></div>
+        <div class="gallery-item" onclick="openLightbox(1)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralrose.png" alt="Gallery 2"></div>
         <div class="gallery-item" onclick="openLightbox(2)">
           <img src="https://sunniejae.blob.core.windows.net/sunniejae/video-placeholder.png" alt="Video">
           <span class="play-icon">♡play♡</span>
@@ -443,19 +443,20 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
 
 <!-- About Section -->
 <section id="about">
-<h2 class="section-title">About Us</h2>
-<p class="about-intro">Haven is dedicated to preserving your precious memories. From weddings to engagements, we craft timeless photographs and cinematic videos that capture the heart and soul of your most special moments.</p>
+<h2 class="section-title">"Mawage. Mawage is what brings us together today.</h2>
+  <h3 class="section-title"> - The Princess Bride (1987) </h3>
+<p class="about-intro">Andie Allen and Brad Kendrick are a dynamic duo when it comes to capturing all aspects of your wedding through photo and video. They started working together in 2024, and are passionate about helping couples preserve their perfect day. </p>
 
 <div class="team-grid">
   <div class="team-member">
     <img src="https://sunniejae.blob.core.windows.net/sunniejae/andie.png" alt="Andie Allen" class="team-headshot">
     <div class="team-name">Andie Allen</div>
-    <div class="team-bio">Lead Photographer with a passion for storytelling through emotion and light.</div>
+    <div class="team-bio">When Andie isn't practising with her camera, you can find her nose deep in a good fantasy book. She also happens to be a walking encyclopedia for Harry Potter. </div>
   </div>
   <div class="team-member">
     <img src="https://sunniejae.blob.core.windows.net/sunniejae/brad.png" alt="Brad Kendrick" class="team-headshot">
     <div class="team-name">Brad Kendrick</div>
-    <div class="team-bio">Cinematographer and videographer, specializing in cinematic wedding films.</div>
+    <div class="team-bio">Brad has been making videos since he was a kid. If he doesn't have a camera in his hand, you'll find him participating in charity work as a stormtrooper in the 501st legion. Or a little mix of both.  </div>
   </div>
 </div>
 </section>
@@ -526,9 +527,9 @@ function openLightbox(index){
   currentSlide = index;
   lightbox.style.display = 'block';
   const src = galleryItems[index].getAttribute('src');
-  lightboxImg.src = src.includes('video-placeholder') ? 'https://sunniejae.blob.core.windows.net/sunniejae/samplevideo.mp4' : src;
+  lightboxImg.src = src.includes('video-placeholder') ? 'https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%202.mp4' : src;
   if(src.includes('video-placeholder')){
-    lightboxImg.outerHTML = `<video class="lightbox-content" controls autoplay src="https://sunniejae.blob.core.windows.net/sunniejae/samplevideo.mp4"></video>`;
+    lightboxImg.outerHTML = `<video class="lightbox-content" controls autoplay src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%202.mp4"></video>`;
   } else {
     lightboxImg.outerHTML = `<img class="lightbox-content" id="lightbox-img" src="${src}">`;
   }
