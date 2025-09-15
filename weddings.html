@@ -24,19 +24,19 @@
   body {font-size: 1.1rem;font-family:'Poiret One', cursive; color: var(--black); background: var(--white); overflow-x:hidden;}
   a {text-decoration:none;}
 
-  /* ===== Navbar ===== */
+   /* ===== Navbar ===== */
   nav {
     position: fixed; top:0; width:100%; padding:1.5rem 5%;
-    background: rgba(164, 152, 131, 0.15); backdrop-filter:blur(20px);
-    z-index: 1000; border-bottom:1px solid var(--beige);
+    background: var(--gold); backdrop-filter:blur(20px);
+    z-index: 1000; border-bottom:1px solid var(--gold);
     transition: all 0.4s ease;
   }
-  nav.scrolled {background: rgba(23,17,35,0.5); border-bottom:1px solid rgba(200,169,165,0.3);}
+  nav.scrolled {background: rgba(122, 118, 136,0.7); border-bottom:1px solid rgba(164, 152, 131,0.3);}
   .nav-container {display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto;}
   .logo {font-size:1rem; color: var(--white); letter-spacing:4px;}
   .nav-links {display:flex; list-style:none; gap:1.2rem;}
   .nav-links a {color: var(--white); font-size:1.2rem; transition:0.3s; position:relative;}
-  .nav-links a::after {content:''; position:absolute; bottom:-5px; left:0; width:0; height:3px; background: var(--white); transition:0.3s;}
+  .nav-links a::after {content:''; position:absolute; bottom:-5px; left:0; width:0; height:3px; background: var(--beige); transition:0.3s;}
   .nav-links a:hover::after {width:100%;}
   .social-icons {display: flex; gap: 15px; align-items: center;}
 .social-icons img {width: 24px; height: 24px; object-fit: contain; transition: transform 0.3s ease, opacity 0.8s ease;}
@@ -61,15 +61,22 @@
     no-repeat center bottom/cover; /* anchored to bottom */
 }
   .hero-content {z-index:2;}
-  .hero h1 {font-size:3.5rem; margin-top: 2rem; margin-bottom:4rem; color: var(--white)}
+  .hero h1 {font-size:3rem; margin-top: 2rem; margin-bottom:5rem; color: var(--white)}
   .hero p {font-size:1.5rem; margin-bottom:3rem;color: var(--white)}
   .cta-button {
-    display:inline-block; padding:3rem 3rem; font-size:1.3rem;
-    background: rgba(200,234,211,0.75); color: var(--black); border-radius:20px;
+    display:inline-block; padding:3rem 3rem; font-size:0.8rem;
+    background: rgba(130, 77, 90,0.75); color: var(--black); border-radius:30px;
     transition: all 0.3s;
   }
-  .cta-button:hover {background: var(--green); color: var(--white); transform: scale(1.05);}
+  .cta-button:hover {background: var(--pink); color: var(--red); transform: scale(1.05);}
 
+/* ===== Fade/Slide Sections ===== */
+section {opacity:0; transform: translateY(20px); transition: all 0.8s ease-out; padding:6rem 5%;}
+section.visible {opacity:1; transform: translateY(0);}
+h2.section-title {font-size:2rem; color: var(--black); margin-bottom:2rem; text-align:center;}
+h3.section-title {font-size:1.3rem; color: var(--purple); margin-bottom:1rem; text-align:center;}
+h4.section-title {font-size:1rem; color: var(--blue); margin-bottom:1rem; text-align:center;}
+    
   /* ===== Packages ===== */
   section {padding:6rem 5%;}
   h2.section-title {font-size:2rem; color: var(--blue); margin-bottom:2rem; text-align:center;}
