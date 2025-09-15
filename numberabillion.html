@@ -182,19 +182,19 @@ h3.section-title {font-size:1.3rem; color: var(--violet); margin-bottom:1rem; te
 .lightbox-prev {left: 40px; transform: translateY(-50%);}
 .lightbox-next {right: 40px; transform: translateY(-50%);}
 .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {color: var(--green);}
-
-/* ===== Services Grid ===== */
+/* ===== Services ===== */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.25rem;
-  align-items: stretch;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .service-card {
   background: rgba(122, 118, 136, 1);
-  padding: 2rem;
-  border-radius: 10;
+  padding: 1.5rem;
+  border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
@@ -202,28 +202,33 @@ h3.section-title {font-size:1.3rem; color: var(--violet); margin-bottom:1rem; te
   align-items: center;
   justify-content: flex-start;
   text-align: center;
+  cursor: pointer;
+  text-decoration: none; /* removes underline for link */
 }
 
 .service-card:hover {
-  background: rgba(122, 118, 136, 0.4);
-  color: var(--violet);
   transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
 }
 
-.service-card h3 {font-size: 1.6rem; margin: 1rem 0 0.5rem; color: var(--white);}
-.service-card p {font-size: 1.5rem; color: var(--white);}
-
-  .service-card img {
+.service-card img {
   width: 100%;
-  height: 200px;   /* keeps them consistent */
-  object-fit: cover; /* crops without distortion */
-  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
   margin-bottom: 1rem;
-  border-radius: 10px; /* keeps them square like your cards */
 }
 
+.service-card h3 {
+  margin-bottom: 0.5rem;
+  color: #fff;
+  font-size: 1.2rem;
+}
 
+.service-card p {
+  color: #fefafa;
+  font-size: 0.95rem;
+}
 /* ===== Image & Video Frames ===== */
 .image-frame, .video-frame {
   position: relative;
