@@ -27,11 +27,11 @@
   /* ===== Navbar ===== */
   nav {
     position: fixed; top:0; width:100%; padding:1.5rem 5%;
-    background: rgba(164, 152, 131, 0.15); backdrop-filter:blur(20px);
+    background: var(--gold); backdrop-filter:blur(20px);
     z-index: 1000; border-bottom:1px solid var(--gold);
     transition: all 0.4s ease;
   }
-  nav.scrolled {background: rgba(23,17,35,0.5); border-bottom:1px solid rgba(200,169,165,0.3);}
+  nav.scrolled {background: rgba(122, 118, 136,0.7); border-bottom:1px solid rgba(164, 152, 131,0.3);}
   .nav-container {display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto;}
   .logo {font-size:1rem; color: var(--white); letter-spacing:4px;}
   .nav-links {display:flex; list-style:none; gap:1.2rem;}
@@ -65,23 +65,23 @@
   .hero p {font-size:1.5rem; margin-bottom:3rem;color: var(--white)}
   .cta-button {
     display:inline-block; padding:3rem 3rem; font-size:0.8rem;
-    background: rgba(200,234,211,0.75); color: var(--black); border-radius:30px;
+    background: rgba(130, 77, 90,0.75); color: var(--black); border-radius:30px;
     transition: all 0.3s;
   }
-  .cta-button:hover {background: var(--green); color: var(--white); transform: scale(1.05);}
+  .cta-button:hover {background: var(--pink); color: var(--red); transform: scale(1.05);}
 
 /* ===== Fade/Slide Sections ===== */
 section {opacity:0; transform: translateY(20px); transition: all 0.8s ease-out; padding:6rem 5%;}
 section.visible {opacity:1; transform: translateY(0);}
 h2.section-title {font-size:2rem; color: var(--black); margin-bottom:2rem; text-align:center;}
 h3.section-title {font-size:1.3rem; color: var(--purple); margin-bottom:1rem; text-align:center;}
-h4.section-title {font-size:1rem; color: var(--purple); margin-bottom:1rem; text-align:center;}
+h4.section-title {font-size:1rem; color: var(--blue); margin-bottom:1rem; text-align:center;}
 
 
 /* ===== Gallery Styles ===== */
 .gallery-wrapper {
   position: relative;
-  width: 50%;
+  width: 66%;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -162,7 +162,6 @@ h4.section-title {font-size:1rem; color: var(--purple); margin-bottom:1rem; text
   max-width: 90%;
   max-height: 80vh;
   border-radius: 0;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   animation: fadeIn 0.4s ease;
 }
 
@@ -191,11 +190,9 @@ h4.section-title {font-size:1rem; color: var(--purple); margin-bottom:1rem; text
 }
 
 .service-card {
-  background: rgba(122, 118, 136, 1);
+  background: var(--purple);
   padding: 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -207,7 +204,7 @@ h4.section-title {font-size:1rem; color: var(--purple); margin-bottom:1rem; text
 
 .service-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  background: rgba(--purple);
 }
 
 .service-card img {
@@ -274,20 +271,17 @@ h4.section-title {font-size:1rem; color: var(--purple); margin-bottom:1rem; text
 }
 
 .team-member {
-  background: rgba(177, 149, 144, 0.7);
+  background: rgba(74, 107, 125, 0.7);
   border-radius: 10px;
   padding: 2rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
   align-items: center; /* centers image and name */
 }
 
 .team-member:hover {
-  background: var(--pink);
+  background: var(--blue);
   transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
 .team-headshot {
@@ -300,7 +294,8 @@ h4.section-title {font-size:1rem; color: var(--purple); margin-bottom:1rem; text
 
 .team-name {
   font-size: 1.5rem; 
-  color: var(--white); 
+  color: var(--white);
+  text-decoration-thickness: 66%;
   margin-bottom: 0.5rem;
   text-align: center; /* ensures name is centered */
 }
@@ -329,13 +324,14 @@ h4.section-title {font-size:1rem; color: var(--purple); margin-bottom:1rem; text
 
 .team-social-icons img:hover {
   transform: scale(1.2);
+   cursor: pointer;
 }
 
 /* ===== Contact Form ===== */
 .contact-form {max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; text-align: left;}
-.contact-form label {margin: 0.5rem 0 0.2rem; font-size: 1.1rem; color: var(--white);}
+.contact-form label {margin: 0.5rem 0 0.2rem; font-size: 1.1rem; color: var(--red);}
 .contact-form input, .contact-form textarea {
-  width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 10px; margin-bottom: 1rem; font-size: 1rem; font-family: inherit; background: var(--green);
+  width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 10px; margin-bottom: 1rem; font-size: 1rem; font-family: inherit; background: rgba(130, 77, 90, 0.75);
 }
 .contact-form textarea {resize: vertical;}
 .contact-form button {background: var(--gold); color: var(--white); padding: 0.8rem; border: none; border-radius: 10px; cursor: pointer; font-size: 1.1rem; transition: background 0.3s ease;}
@@ -373,7 +369,7 @@ footer {background: var(--red); color: var(--white); text-align:center; padding:
         <img src="https://sunniejae.blob.core.windows.net/sunniejae/tticon25.png" alt="TikTok">
       </a>
       <a href="https://sunniejae.com" target="_blank">
-        <img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralrose.png" alt="SJ">
+        <img src="https://sunniejae.blob.core.windows.net/sunniejae/hfaviconred.png" alt="SJ">
       </a>
     </div>
   </div>
@@ -435,14 +431,22 @@ footer {background: var(--red); color: var(--white); text-align:center; padding:
 <div class="team-grid">
   <div class="team-member">
     <img src="https://sunniejae.blob.core.windows.net/sunniejae/andie.png" alt="Andie Allen" class="team-headshot">
-    <div class="team-name">Andie Allen</div>
+    <div class="team-name"><strong>>Andie Allen</strong></div>
     <div class="team-bio">When Andie isn't practising with her camera, you can find her nose deep in a good fantasy book. She also happens to be a walking encyclopedia for Harry Potter. </div>
+   <div class="team-social-icons"><a href="https://www.instagram.com/daisylensphoto/" target="_blank">
+        <img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25teamsocial.png" alt="Insta">
+      </a>
+   </div>
   </div>
-  <div class="team-member">
+ <div class="team-member">
     <img src="https://sunniejae.blob.core.windows.net/sunniejae/brad.png" alt="Brad Kendrick" class="team-headshot">
-    <div class="team-name">Brad Kendrick</div>
+    <div class="team-name"><strong>Brad Kendrick</strong></div>
     <div class="team-bio">Brad has been making videos since he was a kid. If he doesn't have a camera in his hand, you'll find him participating in charity work as a stormtrooper in the 501st legion. Or a little mix of both.  </div>
-  </div>
+  <div class="team-social-icons"><a href="https://www.instagram.com/pinkshortstrooper/" target="_blank">
+        <img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25teamsocial.png" alt="Insta">
+      </a>
+   </div>
+ </div>
 </div>
 </section>
 
@@ -450,13 +454,13 @@ footer {background: var(--red); color: var(--white); text-align:center; padding:
 <section id="contact">
 <h2 class="section-title">Contact Us</h2>
 <form class="contact-form" action="thankyou.html" method="POST">
-  <label for="name">Name</label>
+  <label for="name"><strong>Name</strong></label>
   <input type="text" id="name" name="name" required>
 
-  <label for="email">Email</label>
+  <label for="email"><strong>Email</strong></label>
   <input type="email" id="email" name="email" required>
 
-  <label for="message">Message</label>
+  <label for="message"><strong>Message</strong></label>
   <textarea id="message" name="message" rows="5" required></textarea>
 
   <button type="submit">Send Message</button>
@@ -465,7 +469,7 @@ footer {background: var(--red); color: var(--white); text-align:center; padding:
 
 <!-- Footer -->
 <footer>
-<p>&copy; 2025 Haven. All rights reserved.</p>
+<p>&copy; 2025 Haven. All rights reserved.Website provided by SunnieJaeCreates.</p>
 </footer>
 
 <!-- Lightbox -->
