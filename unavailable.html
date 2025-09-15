@@ -30,45 +30,48 @@ body {
 }
 a {text-decoration:none;}
 
+/* ===== Global ===== */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-size:1.1rem; font-family:'Poiret One', cursive; color:var(--black); background:var(--white); overflow-x:hidden;}
+a {text-decoration:none;}
+
 /* ===== Navbar ===== */
 nav {
   position: fixed; top:0; width:100%; padding:1.5rem 5%;
   background: var(--gold); backdrop-filter:blur(20px);
-  z-index: 1000; border-bottom:1px solid var(--gold);
+  z-index:1000; border-bottom:1px solid var(--gold);
   transition: all 0.4s ease;
 }
-nav.scrolled {background: rgba(122, 118, 136,0.7); border-bottom:1px solid rgba(164, 152, 131,0.3);}
+nav.scrolled {background: rgba(122,118,136,0.7); border-bottom:1px solid rgba(164,152,131,0.3);}
 .nav-container {display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto;}
-.logo {font-size:1rem; color: var(--white); letter-spacing:4px;}
+.logo {font-size:1rem; color:var(--white); letter-spacing:4px;}
 .nav-links {display:flex; list-style:none; gap:1.2rem;}
-.nav-links a {color: var(--white); font-size:1.2rem; transition:0.3s; position:relative;}
-.nav-links a::after {content:''; position:absolute; bottom:-5px; left:0; width:0; height:3px; background: var(--beige); transition:0.3s;}
+.nav-links a {color:var(--white); font-size:1.2rem; transition:0.3s; position:relative;}
+.nav-links a::after {content:''; position:absolute; bottom:-5px; left:0; width:0; height:3px; background:var(--beige); transition:0.3s;}
 .nav-links a:hover::after {width:100%;}
-.social-icons {display: flex; gap: 15px; align-items: center;}
-.social-icons img {width: 24px; height: 24px; object-fit: contain; transition: transform 0.3s ease, opacity 0.8s ease;}
-.social-icons img:hover {transform: scale(1.1); opacity: 1;}
+.social-icons {display:flex; gap:15px; align-items:center;}
+.social-icons img {width:24px; height:24px; object-fit:contain; transition: transform 0.3s ease, opacity 0.8s ease;}
+.social-icons img:hover {transform:scale(1.1); opacity:1;}
 
 /* ===== Hero ===== */
 .hero {
-  width: 100%;
-  max-width: 1920px;
-  aspect-ratio: 1920 / 400;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+  width:100%; max-width:1920px; aspect-ratio:1920/550;
+  margin:0 auto; display:flex; align-items:center; justify-content:center; text-align:center;
+  position:relative; overflow:hidden;
   background:
     linear-gradient(135deg, rgba(23,17,35,0.5), rgba(23,17,35,0.25)),
-    url("https://sunniejae.blob.core.windows.net/sunniejae/havenheadersillohuette3%20(4).png")
-    no-repeat center bottom/cover;
+    url("https://sunniejae.blob.core.windows.net/sunniejae/havenheadersillohuette3%20(4).png") no-repeat center bottom/cover;
 }
 .hero-content {z-index:2;}
-.hero h1 {font-size:3rem; margin-top: 2rem; margin-bottom:2rem; color: var(--white);}
-.hero p {font-size:1.5rem; margin-bottom:2rem;color: var(--white);}
-
+.hero h1 {font-size:3rem; margin-top:2rem; margin-bottom:5rem; color:var(--white);}
+.hero p {font-size:1.5rem; margin-bottom:3rem; color:var(--white);}
+.cta-button {
+  display:inline-block; padding:1rem 2rem; font-size:0.8rem;
+  background: rgba(130,77,90,0.75); color:var(--black); border-radius:30px;
+  transition: all 0.3s;
+}
+.cta-button:hover {background:var(--pink); color:var(--red); transform:scale(1.05);}
+  
 /* ===== Section Styles ===== */
 section {opacity:0; transform: translateY(20px); transition: all 0.8s ease-out; padding:6rem 5%;}
 section.visible {opacity:1; transform: translateY(0);}
@@ -141,7 +144,6 @@ footer {background: var(--red); color: var(--white); text-align:center; padding:
 <section class="hero">
   <div class="hero-content">
     <h1>Service Not Yet Available</h1>
-    <p>Let’s plan together how we can preserve your memories.</p>
   </div>
 </section>
 
