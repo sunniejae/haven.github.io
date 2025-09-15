@@ -277,24 +277,32 @@ h4.section-title {font-size:1rem; color: var(--violet); margin-bottom:1rem; text
 }
 
 .team-member {
-  background: rgba(177, 149, 144, 0.7);
-  border-radius: 10px;
-  padding: 2rem;
-  text-align: justify;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers the img and name */
+  text-align: center;  /* temporarily centers headings */
+  max-width: 300px;
+  margin: 0 auto;
 }
 
-.team-member:hover {
-  background: var(--rose);
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+.team-headshot {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
 }
 
-.team-headshot {width: 150px; height: 150px; border-radius: 100px; object-fit: cover; margin-bottom: 1rem; justify-content: center;}
-.team-name {font-size: 1.5rem; color: var(--palest); margin-bottom: 0.5rem;}
-.team-bio {font-size: 1.1rem; color: var(--black); line-height: 2;}
+.team-name {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
 
+.team-bio {
+  text-align: justify;  /* this justifies only the bio */
+  color: #201c15;
+  font-size: 0.95rem;
+}
 .team-social-icons {
   display: flex;
   justify-content: center;
