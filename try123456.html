@@ -8,60 +8,43 @@
 <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/hfloralgreen.png" />
 <style>
 :root {
-  --green: #8ca294;
-  --blue: #799396;
-  --purple: #9f8c9b;
-  --rose: #b19590;
-  --gold: #a49883;
-  --violet: #7a7688;
-  --beige: #b9b5aa;
-  --soft-pink: #c8a9a5;
-  --gray: #b0aaaa;
-  --black: #201c15;
-  --white: #fefafa;
-  --palest: #F2F1F3;
+--green: #8ca294;
+--gold: #a49883;
+--beige: #b9b5aa;
+--white: #fefafa;
+--pink: #c8a9a5;
+--blue: #4a6b7d;
+--black: #201c15;
+--red: #824d5a;
+--purple: #7a7688;
 }
 
-/* ===== Global Styles ===== */
-* {margin:0; padding:0; box-sizing:border-box;}
-body {font-family:'Poiret One', cursive; color: var(--black); background: var(--palest); overflow-x:hidden;}
-a {text-decoration:none;}
+ /* ===== Global ===== */
+  * {margin:0; padding:0; box-sizing:border-box;}
+  body {font-size: 1.1rem;font-family:'Poiret One', cursive; color: var(--black); background: var(--white); overflow-x:hidden;}
+  a {text-decoration:none;}
 
-/* ===== Navbar ===== */
-nav {
-  position:fixed; top:0; width:100%; padding:1.5rem 5%;
-  background: rgba(164, 152, 131, 0.15); backdrop-filter:blur(20px);
-  z-index:1000; border-bottom:1px solid var(--beige);
-  transition:all 0.4s ease;
-}
-nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 169, 165, 0.3);}
-.nav-container {display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto;}
-.logo {font-size:1rem; color: var(--white); letter-spacing:4px; position:relative;}
-.nav-links {display:flex; list-style:none; gap:1.2rem;}
-.nav-links a {color: var(--palest); font-size:1.2rem; letter-spacing:1px; position:relative; transition:0.3s;}
-.nav-links a::after {content:''; position:absolute; bottom:-5px; left:0; width:0; height:5px; background: var(--white); transition:0.3s;}
-.nav-links a:hover::after {width:100%;}
+  /* ===== Navbar ===== */
+  nav {
+    position: fixed; top:0; width:100%; padding:1.5rem 5%;
+    background: rgba(164, 152, 131, 0.15); backdrop-filter:blur(20px);
+    z-index: 1000; border-bottom:1px solid var(--gold);
+    transition: all 0.4s ease;
+  }
+  nav.scrolled {background: rgba(122, 118, 136,0.5); border-bottom:1px solid rgba(164, 152, 131,0.3);}
+  .nav-container {display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto;}
+  .logo {font-size:1rem; color: var(--white); letter-spacing:4px;}
+  .nav-links {display:flex; list-style:none; gap:1.2rem;}
+  .nav-links a {color: var(--white); font-size:1.2rem; transition:0.3s; position:relative;}
+  .nav-links a::after {content:''; position:absolute; bottom:-5px; left:0; width:0; height:3px; background: var(--beige); transition:0.3s;}
+  .nav-links a:hover::after {width:100%;}
+  .social-icons {display: flex; gap: 15px; align-items: center;}
+.social-icons img {width: 24px; height: 24px; object-fit: contain; transition: transform 0.3s ease, opacity 0.8s ease;}
+.social-icons img:hover {transform: scale(1.1); opacity: 1;}
 
-.social-icons {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
 
-.social-icons img {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    transition: transform 0.3s ease, opacity 0.8s ease;
-}
-
-.social-icons img:hover {
-    transform: scale(1.1);
-    opacity: 1;
-}
-
-/* ===== Hero Section ===== */
-.hero {
+  /* ===== Hero ===== */
+ .hero {
   width: 100%;
   max-width: 1920px;
   aspect-ratio: 1920 / 550;
@@ -73,59 +56,32 @@ nav.scrolled {background: rgba(23,17,35,0.4); border-bottom:1px solid rgba(200, 
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(135deg, rgba(23,17,35,0.25), rgba(23,17,35,0.1)),
+    linear-gradient(135deg, rgba(23,17,35,0.5), rgba(23,17,35,0.25)),
     url("https://sunniejae.blob.core.windows.net/sunniejae/havenheadersillohuette3%20(4).png")
-    no-repeat center bottom/cover;
+    no-repeat center bottom/cover; /* anchored to bottom */
 }
-
-.hero h1 {
-  font-size: 4rem;
-  color: var(--white);
-  margin-bottom: 1rem;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeSlideUp 1s forwards;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  color: var(--white);
-  margin-bottom: 2rem;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeSlideUp 1s forwards;
-  animation-delay: 0.2s;
-}
-
-.cta-button {
-  display: inline-block;
-  padding: 1rem 3rem;
-  font-size: 1.3rem;
-  background: rgba(200, 234, 211,0.75);
-  color: var(--white);
-  border-radius: 0;
-  opacity: 1;
-  transform: translateY(30px);
-  animation: fadeSlideUp 1s forwards;
-  animation-delay: 0.4s;
-}
-
-.cta-button:hover {
-  transform: translateY(-5px) scale(1.1);
-  color: var(--white);
-  background: var(--green);
-}
+  .hero-content {z-index:2;}
+  .hero h1 {font-size:3rem; margin-top: 2rem; margin-bottom:5rem; color: var(--white)}
+  .hero p {font-size:1.5rem; margin-bottom:3rem;color: var(--white)}
+  .cta-button {
+    display:inline-block; padding:3rem 3rem; font-size:0.8rem;
+    background: rgba(130, 77, 90,0.75); color: var(--black); border-radius:30px;
+    transition: all 0.3s;
+  }
+  .cta-button:hover {background: var(--pink); color: var(--red); transform: scale(1.05);}
 
 /* ===== Fade/Slide Sections ===== */
 section {opacity:0; transform: translateY(20px); transition: all 0.8s ease-out; padding:6rem 5%;}
 section.visible {opacity:1; transform: translateY(0);}
-h2.section-title {font-size:3rem; color: var(--black); margin-bottom:2rem; text-align:center;}
-h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text-align:center;}
+h2.section-title {font-size:2rem; color: var(--black); margin-bottom:2rem; text-align:center;}
+h3.section-title {font-size:1.3rem; color: var(--purple); margin-bottom:1rem; text-align:center;}
+h4.section-title {font-size:1rem; color: var(--blue); margin-bottom:1rem; text-align:center;}
+
 
 /* ===== Gallery Styles ===== */
 .gallery-wrapper {
   position: relative;
-  width: 33%;
+  width: 50%;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -153,7 +109,7 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0;
+  border-radius: 10px;
   transition: transform 0.3s ease;
 }
 
@@ -167,7 +123,7 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 0.5rem;
-  color: var(--rose);
+  color: var(--pink);
   pointer-events: none;
 }
 
@@ -175,7 +131,7 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
   position: absolute;
   top: 50%;
   font-size: 2.5rem;
-  color: var(--rose);
+  color: var(--pink);
   cursor: pointer;
   user-select: none;
   transform: translateY(-50%);
@@ -186,7 +142,7 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 .gallery-prev { left: -35px; }
 .gallery-next { right: -35px; }
 
-.gallery-prev:hover, .gallery-next:hover { color: var(--green); }
+.gallery-prev:hover, .gallery-next:hover { color: var(--red); }
 
 /* ===== Lightbox ===== */
 .lightbox {
@@ -206,14 +162,13 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
   max-width: 90%;
   max-height: 80vh;
   border-radius: 0;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   animation: fadeIn 0.4s ease;
 }
 
 .lightbox-close, .lightbox-prev, .lightbox-next {
   position: absolute;
   top: 50%;
-  color: var(--rose);
+  color: var(--pink);
   font-size: 3rem;
   font-weight: bold;
   cursor: pointer;
@@ -224,49 +179,51 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 .lightbox-close {top: 20px; right: 40px; font-size: 3rem;}
 .lightbox-prev {left: 40px; transform: translateY(-50%);}
 .lightbox-next {right: 40px; transform: translateY(-50%);}
-.lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {color: var(--green);}
-
-/* ===== Services Grid ===== */
+.lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {color: var(--red);}
+/* ===== Services ===== */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
-  align-items: stretch;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .service-card {
-  background: rgba(122, 118, 136, 1);
-  padding: 2rem;
-  border-radius: 0;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: rgba(--purple);
+  padding: 1.5rem;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   text-align: center;
+  cursor: pointer;
+  text-decoration: none; /* removes underline for link */
 }
 
 .service-card:hover {
-  background: rgba(122, 118, 136, 0.4);
-  color: var(--violet);
   transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
-.service-card h3 {font-size: 1.6rem; margin: 1rem 0 0.5rem; color: var(--palest);}
-.service-card p {font-size: 1.5rem; color: var(--white);}
-
-  .service-card img {
+.service-card img {
   width: 100%;
-  height: 200px;   /* keeps them consistent */
-  object-fit: cover; /* crops without distortion */
-  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
   margin-bottom: 1rem;
-  border-radius: 0; /* keeps them square like your cards */
 }
 
+.service-card h3 {
+  margin-bottom: 0.5rem;
+  color: #fff;
+  font-size: 1.2rem;
+}
 
+.service-card p {
+  color: #fefafa;
+  font-size: 0.95rem;
+}
 /* ===== Image & Video Frames ===== */
 .image-frame, .video-frame {
   position: relative;
@@ -275,7 +232,7 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
   aspect-ratio: 16 / 9;
   margin: 0 auto 1rem;
   overflow: hidden;
-  border-radius: 0;
+  border-radius: 10px;
 }
 
 .image-frame img, .video-frame img.book-frame {
@@ -313,23 +270,42 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 }
 
 .team-member {
-  background: rgba(177, 149, 144, 0.7);
-  border-radius: 0;
+  background: rgba(74, 107, 125, 0.7);
+  border-radius: 10px;
   padding: 2rem;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers image and name */
 }
 
 .team-member:hover {
-  background: var(--rose);
+  background: var(--blue);
   transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
-.team-headshot {width: 150px; height: 150px; border-radius: 0; object-fit: cover; margin-bottom: 1rem;}
-.team-name {font-size: 1.5rem; color: var(--palest); margin-bottom: 0.5rem;}
-.team-bio {font-size: 1.1rem; color: var(--black); line-height: 2;}
+.team-headshot {
+  width: 150px; 
+  height: 150px; 
+  border-radius: 100px; 
+  object-fit: cover; 
+  margin-bottom: 1rem;
+}
+
+.team-name {
+  font-size: 1.5rem; 
+  color: var(--white);
+  text-decoration-thickness: 25%;
+  margin-bottom: 0.5rem;
+  text-align: center; /* ensures name is centered */
+}
+
+.team-bio {
+  font-size: 1.3rem; 
+  color: var(--white); 
+  line-height: 2;
+  text-align: justify; /* only bio text is justified */
+  width: 100%; /* optional: keeps text within card width */
+}
 
 .team-social-icons {
   display: flex;
@@ -347,20 +323,21 @@ h3.section-title {font-size:2rem; color: var(--violet); margin-bottom:1rem; text
 
 .team-social-icons img:hover {
   transform: scale(1.2);
+   cursor: pointer;
 }
 
 /* ===== Contact Form ===== */
 .contact-form {max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; text-align: left;}
-.contact-form label {margin: 0.5rem 0 0.2rem; font-size: 1.1rem; color: var(--black);}
+.contact-form label {margin: 0.5rem 0 0.2rem; font-size: 1.1rem; color: var(--white);}
 .contact-form input, .contact-form textarea {
-  width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 0; margin-bottom: 1rem; font-size: 1rem; font-family: inherit; background: var(--green);
+  width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 10px; margin-bottom: 1rem; font-size: 1rem; font-family: inherit; background: var(--green);
 }
 .contact-form textarea {resize: vertical;}
-.contact-form button {background: var(--gold); color: var(--white); padding: 0.8rem; border: none; border-radius: 0; cursor: pointer; font-size: 1.1rem; transition: background 0.3s ease;}
+.contact-form button {background: var(--gold); color: var(--white); padding: 0.8rem; border: none; border-radius: 10px; cursor: pointer; font-size: 1.1rem; transition: background 0.3s ease;}
 .contact-form button:hover {background: var(--blue);}
 
 /* ===== Footer ===== */
-footer {background: var(--rose); color: var(--palest); text-align:center; padding:2rem 0.5rem;}
+footer {background: var(--red); color: var(--white); text-align:center; padding:2rem 0.5rem;}
 
 /* ===== Animations ===== */
 @keyframes fadeSlideUp {0% {opacity:0.5; transform: translateY(30px);} 100% {opacity:1; transform: translateY(0);}}
@@ -375,7 +352,7 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
     <a href="#" class="logo">HAVEN: Photo & Video</a>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
-      <li><a href="#services">Services</a></li>
+      <li><a href="weddingswcss.html">Services</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -412,19 +389,16 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
     <span class="gallery-prev" onclick="scrollGallery(-1)">&#10094;</span>
     <div class="gallery-container">
       <div class="gallery-slide">
-        <div class="gallery-item" onclick="openLightbox(0)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralpurple.png" alt="Gallery 1"></div>
-        <div class="gallery-item" onclick="openLightbox(1)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralrose.png" alt="Gallery 2"></div>
+        <div class="gallery-item" onclick="openLightbox(0)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie2.png" alt="Gallery 1"></div>
+        <div class="gallery-item" onclick="openLightbox(1)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/coupleplaceholder34.png" alt="Gallery 2"></div>
         <div class="gallery-item" onclick="openLightbox(2)">
-          <img src="https://sunniejae.blob.core.windows.net/sunniejae/video-placeholder.png" alt="Video">
+          <img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingcheer34.png" alt="Video">
           <span class="play-icon">♡play♡</span>
         </div>
-        <div class="gallery-item" onclick="openLightbox(3)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/gallery3.png" alt="Gallery 3"></div>
+        <div class="gallery-item" onclick="openLightbox(3)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Gallery 3"></div>
       </div>
     </div>
     <span class="gallery-next" onclick="scrollGallery(1)">&#10095;</span>
-  </div>
-  <div style="text-align:center; margin-top:2rem;">
-    <a href="fullgallery.html" class="cta-button">View Full Gallery</a>
   </div>
 </section>
 
@@ -433,28 +407,23 @@ footer {background: var(--rose); color: var(--palest); text-align:center; paddin
 <h2 class="section-title">Our Services</h2>
 <div class="services-grid">
   <div class="service-card">
-    <h3>Wedding Photography</h3>
-    <img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingpackageplaceholder.png" alt="Wedding Photography">
-    <p>Capturing your most precious moments with elegance and authenticity.</p>
+    <h3>Weddings</h3>
   </div>
   <div class="service-card">
-    <h3>Wedding Videography</h3>
-    <p>Beautiful cinematic storytelling to relive your special day forever.</p>
+    <h3>Graduations</h3>
   </div>
   <div class="service-card">
-    <h3>Engagement Shoots</h3>
-    <p>Personalized sessions that capture the love and connection you share.</p>
+    <h3>Family Portraits</h3>
   </div>
   <div class="service-card">
     <h3>Event Coverage</h3>
-    <p>Comprehensive coverage for your private or corporate events.</p>
   </div>
 </div>
 </section>
 
 <!-- About Section -->
 <section id="about">
-<h2 class="section-title">"Mawage. Mawage is what brings us together today.</h2>
+<h2 class="section-title">"Mawage. Mawage is what brings us together today."</h2>
   <h3 class="section-title"> - The Princess Bride (1987) </h3>
 <p class="about-intro">Andie Allen and Brad Kendrick are a dynamic duo when it comes to capturing all aspects of your wedding through photo and video. They started working together in 2024, and are passionate about helping couples preserve their perfect day. </p>
 
