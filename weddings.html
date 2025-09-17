@@ -1,372 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Haven | Packages</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --darkest: #171123;
-      --gold: #D3C1A3;
-      --jeans: #587B7F;
-      --pink: #F5CAC3;
-      --green: #C8EAD3;
-      --cream: #f3ebe7;
-      --white: #ffffff;
-      --purple: #2e133b;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haven | Weddings</title>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/hfaviconfinal.png" />
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+:root {
+  --green: #8ca294;
+  --gold: #a49883;
+  --beige: #b9b5aa;
+  --white: #fefafa;
+  --pink: #c8a9a5;
+  --blue: #4a6b7d;
+  --black: #201c15;
+  --red: #824d5a;
+  --purple: #7a7688;
+}
 
-    body {
-      font-family: 'Poiret One', sans-serif;
-      background: var(--cream);
-      color: var(--darkest);
-      line-height: 1.6;
-    }
+/* ===== Global ===== */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-size:1.1rem; font-family:'Poiret One', cursive; color:var(--black); background:var(--white); overflow-x:hidden;}
+a {text-decoration:none;}
 
-    header {
-      background: var(--white);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid var(--gold);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+/* ===== Navbar ===== */
+nav {
+  position: fixed; top:0; width:100%; padding:1.5rem 5%;
+  background: var(--blue); backdrop-filter:blur(20px);
+  z-index:1000; border-bottom:1px solid var(--gold);
+  transition: all 0.4s ease;
+}
+nav.scrolled {background: rgba(122,118,136,0.7); border-bottom:1px solid rgba(164,152,131,0.3);}
+.nav-container {display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto;}
+.logo {font-size:1rem; color:var(--white); letter-spacing:4px;}
+.nav-links {display:flex; list-style:none; gap:1.2rem;}
+.nav-links a {color:var(--white); font-size:1.2rem; transition:0.3s; position:relative;}
+.nav-links a::after {content:''; position:absolute; bottom:-5px; left:0; width:0; height:3px; background:var(--beige); transition:0.3s;}
+.nav-links a:hover::after {width:100%;}
+.social-icons {display:flex; gap:15px; align-items:center;}
+.social-icons img {width:24px; height:24px; object-fit:contain; transition: transform 0.3s ease, opacity 0.8s ease;}
+.social-icons img:hover {transform:scale(1.1); opacity:1;}
 
-    header h1 {
-      font-size: 1.8rem;
-      color: var(--purple);
-      letter-spacing: 2px;
-    }
+/* ===== Hero ===== */
+.hero {
+  width:100%; max-width:1920px; aspect-ratio:1920/550;
+  margin:0 auto; display:flex; align-items:center; justify-content:center; text-align:center;
+  position:relative; overflow:hidden;
+  background:
+    linear-gradient(135deg, rgba(23,17,35,0.5), rgba(23,17,35,0.25)),
+    url("https://sunniejae.blob.core.windows.net/sunniejae/havenheadersillohuette3%20(4).png") no-repeat center bottom/cover;
+}
+.hero-content {z-index:2;}
+.hero h1 {font-size:3rem; margin-top:2rem; margin-bottom:5rem; color:var(--white);}
+.hero p {font-size:1.5rem; margin-bottom:3rem; color:var(--white);}
+.cta-button {
+  display:inline-block; padding:1rem 2rem; font-size:0.8rem;
+  background: rgba(130,77,90,0.75); color:var(--black); border-radius:30px;
+  transition: all 0.3s;
+}
+.cta-button:hover {background:var(--pink); color:var(--red); transform:scale(1.05);}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
+/* ===== Packages ===== */
+section {padding:6rem 5%;}
+h2.section-title, h3.section-title {text-align:center; margin-bottom:2rem; color:var(--white);}
+h2.section-title {font-size:2rem;}
+h3.section-title {font-size:1.7rem;}
+.packages-grid {
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:2rem; max-width:1200px; margin:0 auto;
+}
+.package-card {
+  position:relative; background:var(--pink); border-radius:10px; overflow:hidden;
+  cursor:pointer; aspect-ratio:3/4; transition: transform 0.3s;
+}
+.package-card img {width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.3s, filter 0.3s;}
+.package-card:hover img {transform:scale(1.05); filter:brightness(0.6);}
+.package-overlay {
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  background: rgba(32,28,21,0.9); color:var(--white);
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  text-align:center; padding:1rem; opacity:0; transition: opacity 0.3s;
+}
+.package-card:hover .package-overlay {opacity:0.75}
+.package-overlay h3 {color:var(--gold); font-size:1.5rem; margin-bottom:0.5rem;}
+.package-overlay h4 {color:var(--green); font-size:1.2rem; margin-bottom:0.2rem;}
+.package-overlay p, .package-overlay li {font-size:0.8rem; color:var(--white);}
+.package-overlay ul {list-style:none; padding-left:0; text-align:left;}
 
-    nav a {
-      text-decoration: none;
-      color: var(--darkest);
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
+/* ===== FAQ ===== */
+.faq-container {max-width:800px; margin:0 auto; display:flex; flex-direction:column; gap:1rem;}
+.faq-item {border-radius:12px; background:var(--beige); overflow:hidden;}
+.faq-question {
+  width:100%; text-align:left; font-family:'Poiret One', cursive; font-size:1.2rem;
+  padding:1rem 1.5rem; background:var(--purple); color:var(--white);
+  border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition: background 0.3s;
+}
+.faq-question:hover {background:var(--green); color:var(--white);}
+.faq-answer {max-height:0; overflow:hidden; transition:max-height 0.4s ease, padding 0.4s ease; padding:0 1.5rem; background:var(--white);}
+.faq-item.active .faq-answer {max-height:500px; padding:1rem 1.5rem;}
+.faq-arrow {transition: transform 0.3s ease;}
+.faq-item.active .faq-arrow {transform:rotate(-180deg);}
 
-    nav a:hover {
-      color: var(--jeans);
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      margin: 3rem 0 2rem;
-      color: var(--purple);
-    }
-
-    /* Packages Grid */
-    .packages-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2.5rem;
-      padding: 0 2rem 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .package-item {
-      text-align: center;
-    }
-
-    .package-title {
-      margin-bottom: 0.5rem;
-      font-size: 1.4rem;
-      color: var(--purple);
-    }
-
-    .package-card {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease;
-    }
-
-    .package-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .package-card img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .package-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(23, 17, 35, 0.9);
-      color: var(--cream);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      text-align: left;
-    }
-
-    .package-card:hover .package-overlay {
-      opacity: 1;
-    }
-
-    .package-overlay h4 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--gold);
-    }
-
-    .package-overlay ul {
-      list-style: none;
-    }
-
-    .package-overlay li {
-      margin-bottom: 0.5rem;
-    }
-
-    /* FAQ Section */
-    #faq {
-      padding: 3rem 2rem;
-      background: var(--white);
-    }
-
-    .faq-container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .faq-question {
-      width: 100%;
-      text-align: left;
-      background: none;
-      border: none;
-      font-size: 1.2rem;
-      padding: 1rem 0;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--purple);
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-    }
-
-    .faq-answer.open {
-      max-height: 500px;
-      padding: 1rem 0;
-    }
-
-    .faq-arrow {
-      transition: transform 0.3s ease;
-    }
-
-    .faq-question.active .faq-arrow {
-      transform: rotate(180deg);
-    }
-
-    /* Footer */
-    footer {
-      background: var(--purple);
-      color: var(--cream);
-      text-align: center;
-      padding: 2rem;
-      margin-top: 3rem;
-    }
-  </style>
+/* ===== Footer ===== */
+footer {background:var(--red); color:var(--white); text-align:center; padding:2rem 0.5rem;}
+</style>
 </head>
+
 <body>
-
-  <!-- Header -->
-  <header>
-    <h1>HAVEN</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html#services">Services</a></li>
-        <li><a href="index.html#portfolio">Portfolio</a></li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Packages Section -->
-  <section id="packages">
-    <h2 class="section-title">Our Packages</h2>
-    <div class="packages-grid">
-
-      <div class="package-item">
-        <h3 class="package-title">Wedding Day <i>Photo</i></h3>
-        <div class="package-card">
-          <img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingplaceholder34.png" alt="Wedding Photo">
-          <div class="package-overlay">
-            <h4>$2000</h4>
-            <ul>
-              <li>⋆ Pre-Wedding Consultation</li>
-              <li>⋆ 8 Hours of Coverage</li>
-              <li>⋆ Downloadable Gallery</li>
-              <li>⋆ 300+ Images</li>
-              <li>⋆ Printing/Posting Rights</li>
-              <li>Check FAQ for details</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="package-item">
-        <h3 class="package-title">Wedding Day <i>Video</i></h3>
-        <div class="package-card">
-          <img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingplaceholder34.png" alt="Wedding Video">
-          <div class="package-overlay">
-            <h4>$2000</h4>
-            <ul>
-              <li>⋆ Pre-Wedding Consultation</li>
-              <li>⋆ 8 Hours of Coverage</li>
-              <li>⋆ Highlight Film (4–6 min)</li>
-              <li>⋆ Full Ceremony Video</li>
-              <li>⋆ Downloadable Delivery</li>
-              <li>Check FAQ for details</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="package-item">
-        <h3 class="package-title">Wedding Day <i>Photo + Video</i></h3>
-        <div class="package-card">
-          <img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingplaceholder34.png" alt="Wedding Photo + Video">
-          <div class="package-overlay">
-            <h4>$3800</h4>
-            <ul>
-              <li>⋆ Pre-Wedding Consultation</li>
-              <li>⋆ 8 Hours of Coverage</li>
-              <li>⋆ 300+ Images</li>
-              <li>⋆ Highlight Film (4–6 min)</li>
-              <li>⋆ Full Ceremony Video</li>
-              <li>Check FAQ for details</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
+<!-- Navbar -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">HAVEN: Photo & Video</a>
+    <ul class="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#portfolio">Portfolio</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="packages.html">Packages</a></li>
+    </ul>
+    <div class="social-icons">
+      <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/icon25insta.png" alt="Insta"></a>
+      <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/fbicon25.png" alt="Facebook"></a>
+      <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/tticon25.png" alt="TikTok"></a>
+      <a href="#"><img src="https://sunniejae.blob.core.windows.net/sunniejae/hfloralrose.png" alt="SJ"></a>
     </div>
-  </section>
+  </div>
+</nav>
 
-  <!-- FAQ Section -->
-  <section id="faq">
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <div class="faq-container">
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Weddings</h1>
+    <p>Every moment of your wedding day is precious. Preserve them all with Haven.</p>
+  </div>
+</section>
 
-      <div class="faq-item">
-        <button class="faq-question">
-          What happens if I want to book more hours than included, or my session goes over?
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-answer">
-          <p>This is a common question! We are happy to work with individual circumstances. Any time that exceeds the package description will result in an extra charge. The hourly rate for each package is as follows:</p>
-          <p><strong>Wedding Day Photo or Video:</strong> Every additional hour is $250</p>
-          <p><strong>Wedding Day Photo <i>and</i> Video:</strong> Every additional hour is $400</p>
-          <p><strong>Engagements, Bridals, or First Look:</strong> Every additional hour is $100</p>
-          <p><strong>Pre Wedding Day Photo and Video:</strong> Every additional hour is $200</p>
-        </div>
+<!-- Packages -->
+<section id="packages">
+  <h2 class="section-title">Our Packages</h2>
+  <div class="packages-grid">
+    <div class="package-card">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingplaceholder34.png" alt="Wedding Photo">
+      <div class="package-overlay">
+        <h3>Wedding Day <i>Photo</i></h3>
+        <h4>$2000</h4>
+        <ul>
+          <li>⋆ Pre-Wedding Consultation</li>
+          <li>⋆ 8 Hours of Coverage</li>
+          <li>⋆ Downloadable Gallery</li>
+          <li>⋆ 300+ Images</li>
+          <li>⋆ Printing/Posting Rights</li>
+          <li>Check FAQ for details</li>
+        </ul>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          How will I get access to my "downloadable gallery"?
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-answer">
-          <p>We use Pixieset and WeTransfer to make sure you have access to your big day in the best quality. Once your photos and videos are completed, we will reach out via email with your unique links. These links will last 14 days, so make sure to download ASAP.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          How long until I get my photos and/or video back?
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-answer">
-          <p>We know how excited you are to relive your special day. Average delivery time is within 6 business days but can take up to 2 weeks depending on season, booking load, package, and revisions.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          Will you travel?
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-answer">
-          <p>We love to travel! Please reach out with your specific needs and we’ll provide travel options.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          What is a "consultation"?
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-answer">
-          <p>Before every session, we send a Google form to understand your aesthetic, music, and vision preferences. This ensures we capture your dream wedding experience.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          How much does it cost to add a drone service?
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-answer">
-          <p>Prices vary by shoot. Options and pricing are discussed during your consultation.</p>
-        </div>
-      </div>
-
     </div>
-  </section>
+    
+    <div class="package-card">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingcheer34.png" alt="Wedding Photo & Video">
+      <div class="package-overlay">
+        <h3>Wedding Day <i>Photo & Video</i></h3>
+        <h4>$3900</h4>
+        <ul>
+          <li>⋆ Pre-Wedding Consultation</li>
+          <li>⋆ 8 Hours of Coverage</li>
+          <li>⋆ Downloadable Gallery</li>
+          <li>⋆ 300+ Images</li>
+          <li>⋆ One 4–7 min Highlight Video</li>
+          <li>⋆ 4k + HD Video Download</li>
+          <li>⋆ Drone Videos <i>(on request)</i></li>
+          <li>⋆ Printing/Posting Rights</li>
+          <li>Check FAQ for details</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="package-card">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Wedding Video">
+      <div class="package-overlay">
+        <h3>Wedding Day <i>Video</i></h3>
+        <h4>$2100</h4>
+        <ul>
+          <li>⋆ Pre-Wedding Consultation</li>
+          <li>⋆ 8 Hours of Coverage</li>
+          <li>⋆ One 4–7 min Video</li>
+          <li>⋆ 4k + HD Video Download</li>
+          <li>⋆ Drone Videos <i>(on request)</i></li>
+          <li>⋆ Posting Rights</li>
+          <li>Check FAQ for details</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="package-card">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/coupleplaceholder34.png" alt="Engagement Package">
+      <div class="package-overlay">
+        <h3>Engagements or Bridals</h3>
+        <h4>$400</h4>
+        <ul>
+          <li>⋆ Pre-Wedding Consultation</li>
+          <li>⋆ 1.5 Hour Session</li>
+          <li>⋆ 100+ Images</li>
+          <li>⋆ Downloadable Gallery</li>
+          <li>⋆ Posting Rights</li>
+          <li>Check FAQ for details</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="package-card">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie2.png" alt="Pre-Wedding Photo & Video">
+      <div class="package-overlay">
+        <h3>Pre-Wedding Photo & Video</h3>
+        <h4>$750</h4>
+        <ul>
+          <li>⋆ Pre-Shoot Consultation</li>
+          <li>⋆ 2 hour session</li>
+          <li>⋆ First Look Video with song</li>
+          <li>⋆ 4k + HD Video Download</li>
+          <li>⋆ Downloadable Gallery</li>
+          <li>⋆ Posting Rights</li>
+          <li>Check FAQ for details</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="package-card">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/coupleplaceholder34.png" alt="First Look Video">
+      <div class="package-overlay">
+        <h3>First Look Video</h3>
+        <h4>$500</h4>
+        <ul>
+          <li>⋆ Pre-Shoot Consultation</li>
+          <li>⋆ 1 Hour Session</li>
+          <li>⋆ Video with song of your choice</li>
+          <li>⋆ 4k + HD Video Download</li>
+          <li>⋆ Posting Rights</li>
+          <li>Check FAQ for details</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="package-card">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie2.png" alt="Premium Package">
+      <div class="package-overlay">
+        <h3>Premium Package</h3>
+        <h4>$4500</h4>
+        <ul>
+          <li>⋆ Full Wedding Day Photo & Video</li>
+          <li>⋆ Engagement & Bridal Package</li>
+          <li>⋆ 500+ Images</li>
+          <li>⋆ Downloadable Gallery</li>
+          <li>⋆ 6–10 min Videos (option for separate videos)</li>
+          <li>⋆ 4k + HD Video Download</li>
+          <li>⋆ Drone Videos <i>(on request)</i></li>
+          <li>⋆ Posting Rights</li>
+        </ul>
+      </div>
+    </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Haven. All Rights Reserved.</p>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    const faqButtons = document.querySelectorAll('.faq-question');
-    faqButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        btn.classList.toggle('active');
-        const answer = btn.nextElementSibling;
-        answer.classList.toggle('open');
-      });
-    });
-  </script>
+<!-- FAQ Section -->
+<section id="faq">
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="faq-container">
+    <div class="faq-item">
+      <button class="faq-question">
+        What happens if I want to book more hours than included, or my session goes over?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>This is a common question! We are happy to work with individual circumstances. Any time that exceeds the package description will result in an extra charge. The hourly rate for each package is as follows:</p>
+        <p><strong>Wedding Day Photo or Video:</strong> Every additional hour is $250</p>
+        <p><strong>Wedding Day Photo <i>and</i> Video:</strong> Every additional hour is $400</p>
+        <p><strong>Engagements, Bridals, or First Look:</strong> Every additional hour is $100</p>
+        <p><strong>Pre Wedding Day Photo and Video:</strong> Every additional hour is $200</p>
+      </div>
+    </div>
 
+    <div class="faq-item">
+      <button class="faq-question">
+        How will I get access to my "downloadable gallery"?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>We use Pixieset and WeTransfer to make sure you have access to your big day in the best quality. Once your photos and videos are completed, we will reach out via email with your unique links. These links will last 14 days, so make sure to download ASAP.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        How long until I get my photos and/or video back?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>We know how excited you are to relive your special day. Average delivery time is within 6 business days but can take up to 2 weeks depending on season, booking load, package, and revisions.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Will you travel?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>We love to travel! Please reach out with your specific needs and we’ll provide travel options.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        What is a "consultation"?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>Before every session, we send a Google form to understand your aesthetic, music, and vision preferences. This ensures we capture your dream wedding experience.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        How much does it cost to add a drone service?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>Prices vary by shoot. Options and pricing are discussed during your consultation.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Haven. All rights reserved. Website Provided by SunnieJaeCreates</p>
+</footer>
+
+<script>
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach(item => {
+  const question = item.querySelector('.faq-question');
+  question.addEventListener('click', () => item.classList.toggle('active'));
+});
+
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+</script>
 </body>
 </html>
