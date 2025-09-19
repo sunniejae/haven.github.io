@@ -156,7 +156,7 @@ h4.section-title {font-size:1rem; color: var(--blue); margin-bottom:1rem; text-a
 .team-social-icons {display: flex; justify-content: center; gap: 10px; margin-top: 0.5rem;}
 .team-social-icons img {width: 28px; height: 28px; object-fit: contain; transition: transform 0.3s ease;}
 .team-social-icons img:hover {transform: scale(1.2); cursor: pointer;}
-.review-img {width: 288px; height: 512px; border-radius: 10px; object-fit: cover; margin-bottom: 1rem;}
+
 
 /* ===== Contact Form ===== */
 .contact-form {max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; text-align: left;}
@@ -169,7 +169,11 @@ h4.section-title {font-size:1rem; color: var(--blue); margin-bottom:1rem; text-a
 .contact-form button {background: var(--gold); color: var(--white); padding: 0.8rem; border: none; border-radius: 10px; cursor: pointer; font-size: 1.1rem; transition: background 0.3s ease;}
 .contact-form button:hover {background: var(--blue);}
 
-/* ===== Footer ===== */
+/* ===== Reviews ===== */
+  .review-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; position: relative; width: 30%; margin: 0 auto;}
+  .review-card {background: var(--purple)); border-radius: 10px; padding: 2rem; display: flex; flex-direction: column; align-items: center;}
+  .review-img {width: 288px; height: 512px; border-radius: 10px; object-fit: cover; margin-bottom: 1rem;}
+  /* ===== Footer ===== */
 footer {background: var(--red); color: var(--white); text-align:center; padding:2rem 0.5rem;}
 
 /* ===== Animations ===== */
@@ -279,8 +283,9 @@ footer {background: var(--red); color: var(--white); text-align:center; padding:
 
   <section id="services">
   <h2 class="section-title">Reviews</h2>
-  <div class="team-member">
-    <div class="review-img"><a href="https://g.page/r/CYuj-iUvBBrzEAE/review" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/placeholders34.png" alt="Andie Allen" class="review-img">
+  <div class="review-grid">
+    <div class="review-card"><a href="https://g.page/r/CYuj-iUvBBrzEAE/review" target="_blank"><img src="https://sunniejae.blob.core.windows.net/sunniejae/placeholders34.png" alt="Andie Allen" class="review-img">
+  </div>
   </div>
 </section>
   
