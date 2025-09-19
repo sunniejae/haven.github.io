@@ -8,20 +8,20 @@
 <link rel="icon" type="image/png" href="https://sunniejae.blob.core.windows.net/sunniejae/hfaviconfinal.png" />
 <style>
 :root {
---green: #8ca294;
---gold: #a49883;
---beige: #b9b5aa;
---white: #fefafa;
---pink: #c8a9a5;
---blue: #4a6b7d;
---black: #201c15;
---red: #824d5a;
---purple: #7a7688;
+  --green: #8ca294;
+  --gold: #a49883;
+  --beige: #b9b5aa;
+  --white: #fefafa;
+  --pink: #c8a9a5;
+  --blue: #4a6b7d;
+  --black: #201c15;
+  --red: #824d5a;
+  --purple: #7a7688;
 }
 
 /* ===== Global ===== */
 * {margin:0; padding:0; box-sizing:border-box;}
-body {font-size: 1.1rem;font-family:'Poiret One', cursive; color: var(--black); background: var(--white); overflow-x:hidden;}
+body {font-size: 1.1rem; font-family:'Poiret One', cursive; color: var(--black); background: var(--white); overflow-x:hidden;}
 a {text-decoration:none;}
 
 /* ===== Navbar ===== */
@@ -113,7 +113,6 @@ h4.section-title {font-size:1rem; color: var(--blue); margin-bottom:1rem; text-a
   align-items: center;
   justify-content: center;
 }
-
 .lightbox-content {
   margin: auto; display: block;
   max-width: 90%; max-height: 80vh;
@@ -323,7 +322,7 @@ let currentIndex = 0;
 const galleryItems = [
   { type: "image", src: "https://sunniejae.blob.core.windows.net/sunniejae/brandie2.png" },
   { type: "image", src: "https://sunniejae.blob.core.windows.net/sunniejae/coupleplaceholder34.png" },
-  { type: "video", src: "https://www.youtube.com/embed/v2TtbyPbd-U?autoplay=1&rel=0" },
+  { type: "video", src: "https://www.youtube.com/embed/v2TtbyPbd-U?autoplay=1&mute=1&rel=0" },
   { type: "image", src: "https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" },
   { type: "image", src: "https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" },
   { type: "image", src: "https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" },
@@ -333,27 +332,32 @@ const galleryItems = [
   { type: "image", src: "https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" },
   { type: "image", src: "https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" }
 ];
+
 function openLightbox(index) {
   currentIndex = index;
   lightbox.style.display = "flex";
   showSlide(currentIndex);
 }
+
 function closeLightbox() {
   lightbox.style.display = "none";
   lightboxContent.innerHTML = "";
 }
+
 function changeSlide(n) {
   currentIndex = (currentIndex + n + galleryItems.length) % galleryItems.length;
   showSlide(currentIndex);
 }
+
 function showSlide(index) {
   const item = galleryItems[index];
   if (item.type === "image") {
     lightboxContent.innerHTML = `<img src="${item.src}" class="lightbox-content">`;
   } else if (item.type === "video") {
-    lightboxContent.innerHTML = `<iframe src="${item.src}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="lightbox-content" style="width:80vw; height:60vh;"></iframe>`;
+    lightboxContent.innerHTML = `<iframe src="${item.src}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="lightbox-content"></iframe>`;
   }
 }
 </script>
+
 </body>
 </html>
