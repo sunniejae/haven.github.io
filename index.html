@@ -122,7 +122,7 @@ h4.section-title {font-size:1rem; color: var(--blue); margin-bottom:1rem; text-a
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 0.5rem;
+  font-size: 1.2rem;
   color: var(--pink);
   pointer-events: none;
 }
@@ -374,25 +374,56 @@ footer {background: var(--red); color: var(--white); text-align:center; padding:
 <section id="portfolio">
   <h2 class="section-title">Portfolio Preview</h2>
   <div class="gallery-wrapper">
+    
+    <!-- Prev Arrow -->
     <span class="gallery-prev" onclick="scrollGallery(-1)">&#10094;</span>
+    
+    <!-- Container -->
     <div class="gallery-container">
       <div class="gallery-slide">
-        <div class="gallery-item" onclick="openLightbox(0)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie2.png" alt="Gallery 1"></div>
-        <div class="gallery-item" onclick="openLightbox(1)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/coupleplaceholder34.png" alt="Gallery 2"></div>
+        <div class="gallery-item" onclick="openLightbox(0)">
+          <img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie2.png" alt="Gallery 1">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(1)">
+          <img src="https://sunniejae.blob.core.windows.net/sunniejae/coupleplaceholder34.png" alt="Gallery 2">
+        </div>
         <div class="gallery-item" onclick="openLightbox(2)">
           <img src="https://sunniejae.blob.core.windows.net/sunniejae/weddingcheer34.png" alt="Video">
           <span class="play-icon">♡play♡</span>
         </div>
-        <div class="gallery-item" onclick="openLightbox(3)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Gallery 3"></div>
-      <div class="gallery-item" onclick="openLightbox(4)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Gallery 3"></div>
-       <div class="gallery-item" onclick="openLightbox(5)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Gallery 3"></div>
-       <div class="gallery-item" onclick="openLightbox(6)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Gallery 3"></div>
-       <div class="gallery-item" onclick="openLightbox(7)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Gallery 3"></div>
-       <div class="gallery-item" onclick="openLightbox(8)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Gallery 3"></div>
-       <div class="gallery-item" onclick="openLightbox(9)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Gallery 3"></div>
-       <div class="gallery-item" onclick="openLightbox(10)"><img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Gallery 3"></div>
+        <div class="gallery-item" onclick="openLightbox(3)">
+          <img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Gallery 3">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(4)">
+          <img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Gallery 4">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(5)">
+          <img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Gallery 5">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(6)">
+          <img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Gallery 6">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(7)">
+          <img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Gallery 7">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(8)">
+          <img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Gallery 8">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(9)">
+          <img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Gallery 9">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(10)">
+          <img src="https://sunniejae.blob.core.windows.net/sunniejae/brandie1.png" alt="Gallery 10">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Next Arrow -->
     <span class="gallery-next" onclick="scrollGallery(1)">&#10095;</span>
+    
+  </div>
 </section>
+
 
 <!-- Services Section -->
 <section id="services">
@@ -511,7 +542,7 @@ function openLightbox(index){
   lightbox.style.display = 'block';
   const src = galleryItems[index].getAttribute('src');
 
-  if(src.includes('video-placeholder')){
+  if(src.includes('weddingcheer34')){
     lightboxWrapper.innerHTML = `<video class="lightbox-content" controls autoplay src="https://sunniejae.blob.core.windows.net/sunniejae/haven%20video%202.mp4"></video>`;
   } else {
     lightboxWrapper.innerHTML = `<img class="lightbox-content" src="${src}" alt="Expanded view">`;
