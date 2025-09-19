@@ -87,22 +87,23 @@ h3.section-title {font-size:1.7rem;}
       color: var(--purple);
     }
 
-    .package-card {
-      position: relative;
-      border-radius: 0px;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-    }
+   .package-card {
+  position: relative;
+  border-radius: 0;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  aspect-ratio: 3 / 4;   /* ✅ forces 3:4 shape */
+  width: 100%;           /* makes it responsive in the grid */
+}
 
-    .package-card:hover {
+.package-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* ensures the image fills without distortion */
+  display: block;
+}
+  .package-card:hover {
       transform: translateY(-5px);
-    }
-
-    .package-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
     }
 
     .package-overlay {
