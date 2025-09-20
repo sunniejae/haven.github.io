@@ -148,15 +148,15 @@ h4.section-title {font-size:1rem; color: var(--blue); margin-bottom:1rem; text-a
 /* ===== About Section ===== */
 .about-intro {max-width: 900px; margin: 0 auto 3rem; text-align: center; font-size: 1.2rem; color: var(--black); line-height: 1.6;}
 .team-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; position: relative; width: 66%; margin: 0 auto;}
-.team-member {background: rgba(74, 107, 125, 0.7); border-radius: 10px; padding: 2rem; display: flex; flex-direction: column; align-items: center;}
+.team-member {background: rgba(74, 107, 125, 0.7); border-radius: 10px; padding: 2rem; display: flex; flex-direction: column; align-items: center;text-decoration: none;}
 .team-member:hover {background: var(--blue); transform: translateY(-5px);}
 .team-headshot {width: 150px; height: 150px; border-radius: 100px; object-fit: cover; margin-bottom: 1rem;}
-.team-name {font-size: 1.5rem; color: var(--white); margin-bottom: 0.5rem; text-align: center;}
-.team-bio {font-size: 1.3rem; color: var(--white); line-height: 2; text-align: justify; width: 100%;}
+.team-name {font-size: 1.5rem; color: var(--white); margin-bottom: 0.5rem; text-align: center;text-decoration: none;}
+.team-bio {font-size: 1.3rem; color: var(--white); line-height: 2; text-align: justify; width: 100%;text-decoration: none;}
 .team-social-icons {display: flex; justify-content: center; gap: 10px; margin-top: 0.5rem;}
 .team-social-icons img {width: 28px; height: 28px; object-fit: contain; transition: transform 0.3s ease;}
 .team-social-icons img:hover {transform: scale(1.2); cursor: pointer;}
-.review-img {width: 500px; height: 500px; border-radius: 0px; object-fit: cover; margin-bottom: 1rem;}
+.review-card {width: 500px; height: 500px; border-radius: 0px; object-fit: cover; margin-bottom: 1rem;}
 /* ===== Contact Form ===== */
 .contact-form {max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; text-align: left;}
 .contact-form label {margin: 0.5rem 0 0.2rem; font-size: 1.1rem; color: var(--red);}
@@ -282,7 +282,7 @@ footer {background: var(--red); color: var(--white); text-align:center; padding:
   
   <div class="team-grid">
     <div class="team-member">
-      <img src="https://sunniejae.blob.core.windows.net/sunniejae/havenreview1.png" alt="Andie Allen" class="team-headshot">
+      <img src="https://sunniejae.blob.core.windows.net/sunniejae/havenreview1.png" alt="Andie Allen" class="review-card">
       <div class="team-name"><a href="https://www.instagram.com/bkendrick90/" target="_blank">If you’re one of our happy customers,
  please consider giving us a review on Google by clicking here</a>
     </div>
