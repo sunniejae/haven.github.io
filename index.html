@@ -161,6 +161,13 @@ h4.section-title {font-size:1rem; color: var(--blue); margin-bottom:1rem; text-a
 .team-social-icons img:hover {transform: scale(1.2); cursor: pointer;}
 
   /* ==== reviews ====*/
+  .review-wrapper {
+    position: relative;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
   .review-card {
   display: flex; align-items: center; justify-content: center;
   text-align: center; height: 525px;
@@ -170,7 +177,7 @@ h4.section-title {font-size:1rem; color: var(--blue); margin-bottom:1rem; text-a
   text-decoration: none;
   transition: transform}
   
-.review-image {width: 500px; height: 500px; border-radius: 20px; object-fit: cover; margin-bottom: 0rem; justify-content: center;}
+.review-image {width: 500px; height: 500px; border-radius: 0px; object-fit: cover; margin-bottom: 0rem; justify-content: center;}
 .review-label {font-size: 1.8rem; color: var(--white); margin-bottom: 0rem; text-align: center; text-decoration: none;}  
 /* ===== Contact Form ===== */
 .contact-form {max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; text-align: left;}
@@ -295,7 +302,7 @@ footer {background: var(--red); color: var(--white); text-align:center; padding:
   <section id="about">
   <h2 class="section-title">Reviews</h2>
   
-  <div class="gallery-wrapper">
+  <div class="review-wrapper">
     <div class="review-card"><a href="https://g.page/r/CYuj-iUvBBrzEAE/review" target="_blank">
       <img src="https://sunniejae.blob.core.windows.net/sunniejae/reviewtransparent.png" alt="Reviews Sample" class="review-image">
   </div>
